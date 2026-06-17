@@ -10,6 +10,22 @@
                    position: relative;
                    z-index:100;
              }
+
+             nav a {
+                   color: white;
+                   text-decoration: none;
+                   margin: 0 15px;
+                   font-size: 18px;
+                   font-weight: bold;
+                   text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+                   padding: 8px 15px;
+                   border-radius: 20px;
+             }
+            nav a:hover { 
+                  background: rgba(255, 255, 255, 0.2);
+                  color:#FF69B4;
+            }
+            
             /* Mobile fix: stack menu links on small screens */ 
              @media (max-width: 600px) { 
                    .menu-link { 
@@ -75,7 +91,7 @@
       <nav>
             <a href="serengeti.html">Serengeti</a>
             <a href="ruaha.html">Ruaha</a>
-            <a href="index.html">Index</a>
+            <a href="index.html" class="active">Index</a>
       </nav>
       <h1 align="center" style="color:maroon;">MOUNT KILIMANJARO IN ARUSHA</h1>
       <a href="https://wa.me/255699004685?text=Hi%20Aman%2C%20I%20want%20to%20plan%20a%20safari%20to%20KIlimanjaro" class="safari-btn-glass" target="_blank">
