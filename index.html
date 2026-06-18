@@ -117,5 +117,91 @@
       <button style="background-color:orange;">Mt. Kilimanjaro</button>
       </p>
       
-<br><br> <div style="background-color:#f1f1f1; padding:20px; margin-top:50px;"> <p style="color:#555;">Built by Ordinary-person824 in Mwanza, Tanzania © 2026</p> </div> </center></body>
+<br><br> <div style="background-color:#f1f1f1; padding:20px; margin-top:50px;"> <p style="color:#555;">Built by Ordinary-person824 in Mwanza, Tanzania © 2026</p> </div> </center>
+<style>
+#kili-chat-btn {
+  position: fixed; bottom: 20px; right: 20px;
+  background: #0F4C3A; color: white; border: none;
+  padding: 15px 20px; border-radius: 50px; font-size: 16px;
+  cursor: pointer; z-index: 9999; box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+#kili-chat-box {
+  display: none; position: fixed; bottom: 90px; right: 20px;
+  width: 320px; height: 450px; background: white; border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3); z-index: 9999; 
+  flex-direction: column; font-family: Arial, sans-serif;
+}
+#kili-chat-header {
+  background: #0F4C3A; color: white; padding: 15px; 
+  border-radius: 15px 15px 0 0; font-weight: bold;
+}
+#kili-chat-messages {
+  flex: 1; padding: 15px; overflow-y: auto; font-size: 14px;
+}
+.kili-bot-msg { 
+  background: #f1f1f1; padding: 10px; border-radius: 10px; 
+  margin: 5px 0; max-width: 80%;
+}
+.kili-user-msg { 
+  background: #DCF8C6; padding: 10px; border-radius: 10px; 
+  margin: 5px 0; max-width: 80%; margin-left: auto; text-align: right;
+}
+#kili-chat-input-area {
+  display: flex; padding: 10px; border-top: 1px solid #ddd;
+}
+#kili-chat-input {
+  flex: 1; padding: 10px; border: 1px solid #ddd; 
+  border-radius: 20px; outline: none;
+}
+#kili-chat-send {
+  background: #0F4C3A; color: white; border: none; 
+  padding: 10px 15px; margin-left: 5px; border-radius: 50%;
+  cursor: pointer;
+}
+</style>
+
+<button id="kili-chat-btn">💬 Climb Kili?</button>
+
+<div id="kili-chat-box">
+  <div id="kili-chat-header">Aman Safari - Kilimanjaro ✈️</div>
+  <div id="kili-chat-messages">
+    <div class="kili-bot-msg">Jambo! 👋 Ready to conquer Kilimanjaro? I’m Aman’s assistant. Pole pole! Which route interests you: Machame, Marangu, or Lemosho?</div>
+  </div>
+  <div id="kili-chat-input-area">
+    <input type="text" id="kili-chat-input" placeholder="Type here...">
+    <button id="kili-chat-send">➤</button>
+  </div>
+</div>
+
+<script>
+const kiliBtn = document.getElementById('kili-chat-btn');
+const kiliBox = document.getElementById('kili-chat-box');
+const kiliMessages = document.getElementById('kili-chat-messages');
+const kiliInput = document.getElementById('kili-chat-input');
+const kiliSend = document.getElementById('kili-chat-send');
+
+let kiliStep = 0;
+let kiliData = {};
+
+kiliBtn.onclick = () => {
+  kiliBox.style.display = kiliBox.style.display === 'flex' ? 'none' : 'flex';
+  if(kiliBox.style.display === 'flex') kiliInput.focus();
+}
+
+function addKiliMsg(text, isUser = false) {
+  const msg = document.createElement('div');
+  msg.className = isUser ? 'kili-user-msg' : 'kili-bot-msg';
+  msg.textContent = text;
+  kiliMessages.appendChild(msg);
+  kiliMessages.scrollTop = kiliMessages.scrollHeight;
+}
+
+function askKiliBot() {
+  const questions = [
+    "Great choice! How many days do you want: 6, 7, or 8 days?",
+    "Perfect. How many people in your group?",
+    "Noted! What month are you planning to climb?",
+    "Asante! Last step - what's your name please?",
+    "Thanks! Click SEND below to WhatsApp me your Kilimanjaro details. I’ll reply with price + guide info in 1 hour.
+</body>
 </htmL>
