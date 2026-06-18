@@ -235,84 +235,55 @@ function showRuaha() {
       
 <br><br> <div style="background-color:#f1f1f1; padding:20px; margin-top:50px;"> <p style="color:#555;">Built by Ordinary-person824 in Mwanza, Tanzania © 2026</p> </div>
 <style>
+<!-- Ruaha Chatbot Start -->
+<style>
 .aman-chat-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #25D366;
-  color: white;
-  border: none;
-  border-radius: 50px;
-  padding: 15px 25px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-  z-index: 9999;
+  position: fixed!important; bottom: 20px!important; right: 20px!important;
+  background: #0F4C3A!important; color: white!important; border: none!important;
+  padding: 15px 20px!important; border-radius: 50px!important; font-size: 16px!important;
+  cursor: pointer!important; z-index: 2147483647!important; 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3)!important;
 }
 .aman-chat-box {
-  display: none;
-  position: fixed;
-  bottom: 90px;
-  right: 20px;
-  width: 320px;
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 5px 25px rgba(0,0,0,0.3);
-  z-index: 9999;
-  font-family: Arial, sans-serif;
+  display: none; position: fixed!important; bottom: 90px!important; right: 20px!important;
+  width: 320px!important; background: white!important; border-radius: 15px!important;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3)!important; z-index: 2147483647!important; 
+  font-family: Arial, sans-serif!important;
 }
 .aman-header {
-  background: #25D366;
-  color: white;
-  padding: 15px;
-  border-radius: 15px 15px 0 0;
-  font-weight: bold;
+  background: #0F4C3A!important; color: white!important; padding: 15px!important; 
+  border-radius: 15px 15px 0 0!important; font-weight: bold!important;
 }
 .aman-body {
-  padding: 15px;
-  max-height: 400px;
-  overflow-y: auto;
+  padding: 15px!important; font-size: 14px!important; max-height: 350px!important; overflow-y: auto!important;
 }
-.aman-msg {
-  background: #f1f1f1;
-  padding: 10px;
-  border-radius: 10px;
-  margin: 8px 0;
-  font-size: 14px;
-  color: #333;
+.aman-msg { 
+  background: #f1f1f1!important; padding: 10px!important; border-radius: 10px!important; 
+  margin: 5px 0!important; max-width: 90%!important;
 }
 .aman-question {
-  background: #DCF8C6;
-  text-align: right;
-  margin-left: 40px;
+  background: #DCF8C6!important; margin-left: auto!important; text-align: right!important;
 }
-.aman-btn {
-  display: block;
-  width: 100%;
-  text-align: left;
-  background: #f8f8f8;
-  border: 1px solid #ddd;
-  padding: 10px;
-  margin: 5px 0;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 14px;
+.aman-btn { 
+  display: block!important; width: 100%!important; background: #0F4C3A!important; color: white!important; 
+  border: none!important; padding: 10px!important; margin: 5px 0!important; border-radius: 8px!important; 
+  cursor: pointer!important; text-align: left!important;
 }
 </style>
 
-<button class="aman-chat-btn" onclick="toggleAman()">💬 Ask Aman AI</button>
+<button class="aman-chat-btn" onclick="toggleAman()">💬 Ruaha Safari?</button>
 
 <div class="aman-chat-box" id="amanBox">
   <div class="aman-header">
-    Aman AI - Safari Guide
+    Aman AI - Ruaha Guide
     <span style="float:right; cursor:pointer;" onclick="toggleAman()">✕</span>
   </div>
   <div class="aman-body" id="amanChat">
-    <div class="aman-msg">Hi! I'm Aman AI. Ask me about Serengeti 👇</div>
-    <button class="aman-btn" onclick="askAman('price')">💰 How much does it cost?</button>
+    <div class="aman-msg">Hi! I'm Aman AI. Ask me about Ruaha 👇</div>
+    <button class="aman-btn" onclick="askAman('price')">💰 How much for Ruaha?</button>
     <button class="aman-btn" onclick="askAman('days')">📅 How many days needed?</button>
-    <button class="aman-btn" onclick="askAman('migration')">🦓 Best time for migration?</button>
+    <button class="aman-btn" onclick="askAman('animals')">🦁 What animals will I see?</button>
+    <button class="aman-btn" onclick="askAman('season')">☀️ Best time to visit Ruaha?</button>
     <button class="aman-btn" onclick="askAman('whatsapp')">📱 Chat with human Aman</button>
   </div>
 </div>
@@ -320,32 +291,25 @@ function showRuaha() {
 <script>
 function toggleAman() {
   var box = document.getElementById('amanBox');
-  if (box.style.display === 'block') {
-    box.style.display = 'none';
-  } else {
-    box.style.display = 'block';
-  }
+  box.style.display = box.style.display === 'block'? 'none' : 'block';
 }
-
 function askAman(topic) {
   var chat = document.getElementById('amanChat');
   var answers = {
-    price: "Serengeti: $350-600 per day. Includes guide, car, park fees, meals. Camping saves 40%.",
-    days: "3 days minimum. 4-5 days ideal for migration + big cats. Less than 3 = rushed.",
-    migration: "Jan-Mar: South. Jun-Jul: West. Aug-Oct: North Kenya border. Use predictor above!",
-    whatsapp: "Opening WhatsApp to human Aman..."
+    price: "Ruaha: $400-650 per day. Includes guide, 4x4, park fees, meals. It's Tanzania's biggest park with fewer crowds than Serengeti.",
+    days: "2 days minimum. 3-4 days ideal. Ruaha is huge - you need time to explore. Perfect add-on after Serengeti.",
+    animals: "Lions, elephants, giraffes, zebras, wild dogs, kudu, sable antelope. Famous for big elephant herds and predator action.",
+    season: "Jun-Oct: Dry season, best game viewing at rivers. Jan-Mar: Green season, fewer tourists, baby animals. Avoid Apr-May rains.",
+    whatsapp: "Opening WhatsApp to human Aman...",
   };
-
   chat.innerHTML += '<div class="aman-msg aman-question">' + event.target.innerText + '</div>';
   chat.innerHTML += '<div class="aman-msg">' + answers[topic] + '</div>';
-
   if(topic === 'whatsapp') {
-    window.open('https://wa.me/255699004685?text=Hi%20Aman%20from%20your%20website', '_blank');
+    window.open('https://wa.me/255699004685?text=Hi%20Aman%20-%20Ruaha%20safari%20inquiry', '_blank');
   }
-
   chat.scrollTop = chat.scrollHeight;
 }
 </script>
-</body>
+<!-- Ruaha Chatbot End -->
 </html>
       
