@@ -43,6 +43,19 @@
                    background-attachment: fixed; 
                    animation: kenburns 40s ease-in-out infinite alternate; 
              } 
+             .content {
+                  background: rgba(0, 0, 0, 0.5); /* Dark semi-transparent box */
+                  color: white;
+                  padding: 30px;
+                  margin: 20px auto;
+                  max-width: 900px;
+                  border-radius: 10px;
+                  backdrop-filter: blur(3px);
+            }
+            .content h1, .content h2 { 
+                  color: white;
+                  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); 
+            } 
              @keyframes kenburns { 
                    0% { 
                          background-position: 0% 50%; 
