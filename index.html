@@ -159,6 +159,52 @@
   cursor: pointer;
 }
 </style>
-     
+     <button class="aman-chat-btn" onclick="toggleAman()">💬 Ask Aman AI</button>
+
+<div class="aman-chat-box" id="amanBox">
+  <div class="aman-header">
+    Aman AI - Safari Guide
+    <span style="float:right; cursor:pointer;" onclick="toggleAman()">✕</span>
+  </div>
+  <div class="aman-body" id="amanChat">
+    <div class="aman-msg">Hi! I'm Aman AI. Ask me about Serengeti 👇</div>
+    <button class="aman-btn" onclick="askAman('price')">💰 How much does it cost?</button>
+    <button class="aman-btn" onclick="askAman('days')">📅 How many days needed?</button>
+    <button class="aman-btn" onclick="askAman('migration')">🦓 Best time for migration?</button>
+    <button class="aman-btn" onclick="askAman('whatsapp')">📱 Chat with human Aman</button>
+    <button class="aman-btn" onclick="askAman('payment')">💳 How do I pay?</button>
+  </div>
+</div>
+
+<script>
+function toggleAman() {
+  var box = document.getElementById('amanBox');
+  if (box.style.display === 'block') {
+    box.style.display = 'none';
+  } else {
+    box.style.display = 'block';
+  }
+}
+
+function askAman(topic) {
+  var chat = document.getElementById('amanChat');
+  var answers = {
+    price: "Serengeti: $350-600 per day. Includes guide, car, park fees, meals. Camping saves 40%.",
+    days: "3 days minimum. 4-5 days ideal for migration + big cats. Less than 3 = rushed.",
+    migration: "Jan-Mar: South. Jun-Jul: West. Aug-Oct: North Kenya border. Use predictor above!",
+    whatsapp: "Opening WhatsApp to human Aman...",
+    payment: "30% deposit via wise or bank transfer to book. Rest cash on arrival in Arusha. I send you invoice with all details on Whatsapp. Safe and simple.",
+  };
+
+  chat.innerHTML += '<div class="aman-msg aman-question">' + event.target.innerText + '</div>';
+  chat.innerHTML += '<div class="aman-msg">' + answers[topic] + '</div>';
+
+  if(topic === 'whatsapp') {
+    window.open('https://wa.me/255699004685?text=Hi%20Aman%20from%20your%20website', '_blank');
+  }
+
+  chat.scrollTop = chat.scrollHeight;
+}
+</script>
 </body>
 </htmL>
