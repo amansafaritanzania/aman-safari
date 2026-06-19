@@ -1,200 +1,359 @@
-<html> 
+<!DOCTYPE html>
+<html lang="en">
 <head>
-      <title>Serengeti National Park</title> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serengeti Safari Direct | See Great Migration | Book Local Guides</title>
+    <meta name="description" content="Serengeti safaris with licensed Arusha guides. Save 40% vs Viator. Witness Great Migration. No middlemen. Direct booking.">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Lato:wght@400;700&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Lato', sans-serif;
+            background-image: url('serengeti.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+            background-attachment: fixed; 
+            color: white;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.65);
+            z-index: -1;
+        }
+        
+        nav {
+            background: rgba(11, 61, 32, 0.9);
+            padding: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid #D4AF37;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 12px;
+            font-size: 16px;
+            font-weight: 700;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+        
+        nav a:hover, nav a.active { 
+            background: #D4AF37;
+            color: #0B3D20;
+        }
+        
+       .hero {
+            max-width: 900px;
+            margin: 60px auto 30px;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+       .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: clamp(32px, 6vw, 56px);
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+        }
+        
+       .hero.highlight { color: #D4AF37; }
+        
+       .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+        }
+        
+       .cta-btn {
+            background: linear-gradient(135deg, #D4AF37, #B8941F);
+            color: #0B3D20;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            transition: 0.3s;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+       .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+        }
+        
+       .content {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            padding: 40px 20px;
+            margin: 20px auto;
+            max-width: 900px;
+            border-radius: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+       .content h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: #D4AF37;
+            font-size: 28px;
+            margin: 30px 0 15px;
+            border-left: 4px solid #D4AF37;
+            padding-left: 15px;
+        }
+        
+       .content h3 { color: #D4AF37; margin: 20px 0 10px; }
+       .content p,.content li { line-height: 1.8; font-size: 17px; }
+       .content strong { color: #D4AF37; }
+        
+       .urgent-box {
+            background: linear-gradient(135deg, #8B0000, #DC143C);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            text-align: center;
+            border: 2px solid #FFD700;
+        }
+        
+       .price-box {
+            background: rgba(212, 175, 55, 0.15);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #D4AF37;
+        }
+        
+       .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.5);
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+       .migration-widget {
+            background: rgba(11, 61, 32, 0.6);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border: 1px solid #D4AF37;
+        }
+        
+       .migration-widget select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 2px solid #D4AF37;
+            font-size: 16px;
+            margin: 10px 0;
+            background: white;
+            color: #333;
+        }
+        
+       .migration-result {
+            background: rgba(212, 175, 55, 0.2);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            color: #FFD700;
+            font-size: 18px;
+            font-weight: bold;
+            display: none;
+        }
+        
+        @media (max-width: 600px) { 
+            nav a { display: block; margin: 8px 0; }
+           .hero { margin-top: 30px; }
+        }
+    </style>
+</head>
 
-      <style> 
-             nav { 
-                   background: rgba(0,0,0,0.6);
-                   padding: 15px;
-                   text-align: center;
-                   backdrop-filter: blur(5px);
-                   position: relative;
-                   z-index:100;
-             }
-
-             nav a {
-                   color: white;
-                   text-decoration: none;
-                   margin: 0 15px;
-                   font-size: 18px;
-                   font-weight: bold;
-                   text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
-                   padding: 8px 15px;
-                   border-radius: 20px;
-             }
-            nav a:hover { 
-                      background: rgba(255, 255, 255, 0.2);
-                  color:#FF69B4; 
-            }
-                  
-             /* Mobile fix: stack menu links on small screens */ 
-             @media (max-width: 600px) { 
-                   nav a {  
-             display: block; 
-             margin: 5px 0px !important; 
-           } 
-          } 
-
-           /* KEN BURNS MOTION BACKGROUND */ 
-           body { 
-           margin: 0; 
-           min-height: 100vh; 
-           background-image: url('serengeti.jpg');
-           background-size: cover; 
-           background-position: center; 
-           background-repeat: no-repeat;  
-           animation: kenburns 40s ease-in-out infinite alternate; 
-           font-family: Arial, sans-serif;
-           }
-            .content {
-                  background: rgba(0, 0, 0, 0.5); /* Dark semi-transparent box */
-                  color: white;
-                  padding: 30px;
-                  margin: 20px auto;
-                  max-width: 900px;
-                  border-radius: 10px;
-                  backdrop-filter: blur(3px);
-            }
-            .content h1, .content h2 { 
-                  color: white;
-                  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); 
-            } 
-
-           @keyframes kenburns { 
-           0% { 
-           background-position: center center; 
-           background-size: 100% 100%; 
-
-          } 
-          100% { 
-                background-position: center center; 
-                background-size: 120% 120%; 
-        } 
-       } 
-             button { 
-                 background-color: pink; 
-                 padding: 10px 20px; 
-                 border: none; 
-                 border-radius: 10px; 
-                 font-size: 16px;
-                 transition: 0.3s;
-                 cursor: pointer;
-               } 
-                     
-                 button:hover { 
-                   background-color:orange; 
-                }
-                 
-
-             .safari-btn-green { 
-             background: rgba(255, 255, 255, 0.15); 
-             backdrop-filter: blur(10px); 
-             border: 2px solid rgba(255, 255, 255, 0.3); 
-             color: white; 
-             padding: 15px 35px; 
-             border-radius: 50px; 
-             font-size: 18px; 
-             font-weight: bold; 
-             text-decoration: none; 
-             display: inline-block; 
-             margin: 20px 0; 
-             text-shadow: 1px 1px 3px rgba(0,0,0,0.5); 
-
-             } 
-              .safari-btn-green:hover { 
-              background: rgba(255, 255, 255, 0.25); 
-              }  
-            </style>
-</head> 
 <body>
-       <nav>
-            <a href="serengeti.html" class="active">Serengeti</a>
-            <a href="ruaha.html">Ruaha</a>
-            <a href="index.html">Home</a>
-      </nav> 
-      <div class="content">
-      <h1>Serengeti National Park</h1>
+    <nav>
+        <a href="index.html">Kilimanjaro</a>
+        <a href="serengeti.html" class="active">Serengeti</a>
+        <a href="ruaha.html">Ruaha</a>
+        <a href="#contact">Contact</a>
+    </nav>
 
-      <a href="https://wa.me/255699004685?text=Hi%20Aman%2C%20I%20Want%20to%20plan%20a%20Safari%20to%20Serengeti" class="safari-btn-green" 
-       target="_blank">Plan Your Safari</a>
+    <div class="hero">
+        <h1>WITNESS THE <span class="highlight">GREAT MIGRATION</span> DIRECT.</h1>
+        <p>Serengeti safaris with licensed Arusha guides. Save 40% vs Viator. 2 million wildebeest. Zero middleman fees.</p>
+        <a href="https://wa.me/255699004685?text=Hi%20Aman,%20I%20want%20Serengeti%20Migration%20dates" class="cta-btn">
+            Check Migration Dates →
+        </a>
+        <p style="font-size:14px; margin-top:15px; opacity:0.9;">✓ Licensed Guides ✓ 4x4 Land Cruisers ✓ All Park Fees Included</p>
+    </div>
 
-      <button>Serengeti National Park</button> 
-      <p> Serengeti National Park is one of the most famous national parks in Tanzania and in the world. 
-          It is located in northern Tanzania and is known for its wide plains, beautiful landscapes, 
-          and large number of wild animals. </p> 
+    <div class="content">
+        <div class="urgent-box">
+            <h3>⚠️ MIGRATION SEASON ALERT</h3>
+            <p><strong>July-August:</strong> Mara River crossings - Book 6 months early</p>
+            <p><strong>Jan-February:</strong> Calving season - Predator action peak</p>
+            <p><strong>Limited vehicles allowed daily in Serengeti</strong></p>
+        </div>
 
-      <p> The park is home to many animal species such as lions, elephants, giraffes, zebras, cheetahs, 
-          and buffaloes. Every year, millions of wildebeests and zebras move across the plains in what 
-          is called the Great Migration. </p> 
-   
-      <p> Serengeti National Park attracts many tourists from 
-          different countries. Visitors come to enjoy game drives, photography, 
-          and learning about wildlife conservation. Tourism in the park also 
-          supports the economy of Tanzania. </p> 
+        <h2>Why Are We 40% Cheaper Than Viator?</h2>
+        <div class="price-box">
+            <p>❌ We DON’T pay 35% commission to SafariBooking.com</p>
+            <p>❌ We DON’T have offices in Europe or USA</p>
+            <p>✅ You pay your guide DIRECT through our registered TZ company</p>
+            <p>✅ We take 10%. Your guide keeps 90%.</p>
+            <p><strong>Result: You save $800. Guides earn more. Wildlife benefits.</strong></p>
+        </div>
 
-      <p> The Serengeti ecosystem is important because it protects animals and their natural habitats. 
-          conservation efforts help maintain the balance of nature and ensure future generations can enjoy 
-          this unique environment. </p>
+        <h2>The Great Migration - Nature's Greatest Show</h2>
+        <p>Every year, <strong>2 million wildebeest + 500,000 zebras</strong> move in a 1,800-mile loop through Serengeti.</p>
+        <p>✓ <strong>River Crossings:</strong> Watch crocodiles hunt at Grumeti + Mara Rivers</p>
+        <p>✓ <strong>Calving Season:</strong> 8,000 babies born DAILY in Jan-Feb</p>
+        <p>✓ <strong>Big Cats:</strong> Lions, cheetahs, leopards follow the herds</p>
+        <p>✓ <strong>The Big Five:</strong> Lion, Leopard, Elephant, Rhino, Buffalo - all here</p>
 
-      <p> Serengeti National Park is one of the most famous national parks in Tanzania and across the world. 
-          It is located in northern Tanzania and covers a large area of natural grassland and wildlife habitat. 
-          The park is recognized for its amazing scenery and rich biodiversity. </p> 
-     
-          
-         <p align="centre">
-         <h2>Wildlife</h2></p> 
-     
-     <p> Serengeti is home to many wild animals including lions, elephants, giraffes, zebras, leopards, buffaloes, 
-         and cheetahs. The park provides a safe environment where animals can live and reproduce naturally. </p> 
+        <h2>When Is The Best Time To See The Great Migration?</h2>
+        <div class="migration-widget">
+            <label style="color:#D4AF37; font-weight:bold;">Select your travel month:</label><br>
+            <select id="month" onchange="showMigration()">
+                <option value="">-- Pick a month --</option>
+                <option value="jan">January</option>
+                <option value="feb">February</option>
+                <option value="mar">March</option>
+                <option value="apr">April</option>
+                <option value="may">May</option>
+                <option value="jun">June</option>
+                <option value="jul">July</option>
+                <option value="aug">August</option>
+                <option value="sep">September</option>
+                <option value="oct">October</option>
+                <option value="nov">November</option>
+                <option value="dec">December</option>
+            </select>
+            <div class="migration-result" id="migration-result"></div>
+        </div>
 
-     <p> One of the most exciting events in the park is the Great Migration, where millions of wildebeests and 
-         zebras travel across the plains searching for water and fresh grass. </p> 
+        <h2>What Your Price Includes - No Hidden Fees</h2>
+        <p><strong>$350-600 per day covers EVERYTHING:</strong></p>
+        <p>• 4x4 Safari Land Cruiser with pop-up roof</p>
+        <p>• Professional English-speaking guide</p>
+        <p>• All park fees $70/day paid direct to TANAPA</p>
+        <p>• 3 meals daily + bottled water</p>
+        <p>• Camping equipment OR lodge accommodation</p>
+        <p><strong>Camping saves 40% vs lodges.</strong> We recommend 4-5 days minimum.</p>
 
-     <h2>Tourism Activities</h2> 
+        <h2>Why Book Direct With Us</h2>
+        <p><strong>Big sites take 35% commission.</strong> That money never reaches your guide, driver, or cook.</p>
+        <p>✓ <strong>100% stays in Tanzania</strong> - Support local families</p>
+        <p>✓ <strong>Better guides</strong> - We pay them more, they work harder for you</p>
+        <p>✓ <strong>Flexible</strong> - Change dates, add days, custom routes</p>
+        <p>✓ <strong>Safe</strong> - All payments to registered TZ company account</p>
 
-     <p>Tourists visit Serengeti to enjoy game, drives, nature photography, camping, and wildlife observation.
-        The park attracts visitors from abroad and contribute to Tanzania's economy. </p>
+        <h2 id="contact">Contact Direct - No Agencies</h2>
+        <p><strong>WhatsApp:</strong> +255 699 004 685 - Fastest reply</p>
+        <p><strong>Email:</strong> aman.safaris@gmail.com</p>
+        <p><strong>Location:</strong> Arusha, Tanzania | Licensed Tour Operator</p>
+        <p><em>I’m Aman. I partner with licensed Arusha guides. I handle bookings after school. You get direct local prices with zero middleman fees.</em></p>
+    </div>
 
-     <h2>importance of conservation</h2>
+    <a href="https://wa.me/255699004685" class="whatsapp-float">
+        💬 Chat About Migration 24/7
+    </a>
 
-     <p>conservation programmes protect life and maintain the natural environment. Protecting Serengeti helps
-        preserve one of the world's most valuable ecosystems. </p>
+    <div style="background:#0B3D20; padding:20px; text-align:center; margin-top:50px;">
+        <p style="color:#D4AF37;">© 2026 Kilimanjaro Direct | Licensed Tanzania Tour Operator</p>
+    </div>
 
-     <h2>Interesting Facts</h2>
+<!-- Aman Chatbot Start -->
+<style>
+.aman-chat-btn {
+  position: fixed; bottom: 90px; right: 20px; background: #0B3D20; color: white;
+  border: 2px solid #D4AF37; border-radius: 50px; padding: 12px 20px; font-size: 14px;
+  font-weight: bold; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 999;
+}
+.aman-chat-box {
+  display: none; position: fixed; bottom: 150px; right: 20px; width: 320px;
+  background: white; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+  z-index: 999; font-family: 'Lato', sans-serif;
+}
+.aman-header {
+  background: #0B3D20; color: #D4AF37; padding: 15px; border-radius: 15px 15px 0 0; font-weight: bold;
+}
+.aman-body { padding: 15px; max-height: 400px; overflow-y: auto; }
+.aman-msg {
+  background: #f1f1f1; padding: 10px; border-radius: 10px; margin: 8px 0;
+  font-size: 14px; color: #333;
+}
+.aman-question { background: #DCF8C6; text-align: right; margin-left: 40px; }
+.aman-btn {
+  display: block; width: 100%; text-align: left; background: #f8f8f8; border: 1px solid #ddd;
+  padding: 10px; margin: 5px 0; border-radius: 8px; cursor: pointer; font-size: 14px;
+}
+</style>
 
-     <ul>
-         <li>Located in Northen Tanzania</li>
-         <li>Known for the Great Migration</li>
-         <li>Home to the big five animals</li>
-         <li>Visited by thousands of tourists every year</li>
-     </ul>
+<button class="aman-chat-btn" onclick="toggleAman()">💬 Ask Aman AI</button>
 
-     <h2>conclusion</h2>
-
-     <p>In conclusion, Serengeti National Park is an important natural heritage site. Its wildlife, beauty, 
-        and contribution to tourism make it one of Tanzania's greatest attractions. </p> 
-            <h2>When Is The Best Time To See The Great Migration?</h2>
-<div style="background:rgba(255,255,255,0.1); padding:20px; border-radius:10px; margin:20px 0;">
-  <label style="color:white; font-weight:bold;">Select your travel month:</label><br>
-  <select id="month" onchange="showMigration()" style="padding:10px; margin:10px 0; border-radius:5px; width:100%; max-width:300px;">
-    <option value="">-- Pick a month --</option>
-    <option value="jan">January</option>
-    <option value="feb">February</option>
-    <option value="mar">March</option>
-    <option value="apr">April</option>
-    <option value="may">May</option>
-    <option value="jun">June</option>
-    <option value="jul">July</option>
-    <option value="aug">August</option>
-    <option value="sep">September</option>
-    <option value="oct">October</option>
-    <option value="nov">November</option>
-    <option value="dec">December</option>
-  </select>
-  <div id="migration-result" style="color:#FFD700; font-size:18px; margin-top:15px; font-weight:bold;"></div>
+<div class="aman-chat-box" id="amanBox">
+  <div class="aman-header">
+    Aman AI - Safari Guide
+    <span style="float:right; cursor:pointer;" onclick="toggleAman()">✕</span>
+  </div>
+  <div class="aman-body" id="amanChat">
+  <div class="aman-msg">I’m Aman. I partner with licensed Arusha guides. I handle bookings after school + weekends. My AI answers anytime! 👇</div>
+    <button class="aman-btn" onclick="askAman('price')">💰 Safari prices?</button>
+    <button class="aman-btn" onclick="askAman('days')">📅 How many days?</button>
+    <button class="aman-btn" onclick="askAman('migration')">🦓 Best migration time?</button>
+    <button class="aman-btn" onclick="askAman('whatsapp')">📱 Chat human Aman</button>
+    <button class="aman-btn" onclick="askAman('payment')">💳 How to pay?</button>
+  </div>
 </div>
 
 <script>
+function toggleAman() {
+  var box = document.getElementById('amanBox');
+  box.style.display = box.style.display === 'block'? 'none' : 'block';
+}
+function askAman(topic) {
+  var chat = document.getElementById('amanChat');
+  var answers = {
+    price: "Serengeti: $350-600 per day. Includes guide, 4x4, park fees, meals. Camping saves 40% vs lodges.",
+    days: "3 days minimum. 4-5 days ideal for migration + big cats. Less than 3 = rushed.",
+    migration: "Jan-Mar: South calving. Jun-Jul: West Grumeti. Aug-Oct: North Mara River. Use predictor above!",
+    whatsapp: "Opening WhatsApp to human Aman...",
+    payment: "30% deposit via Wise/bank to book. Rest cash on arrival in Arusha. Safe + simple.",
+  };
+  chat.innerHTML += '<div class="aman-msg aman-question">' + event.target.innerText + '</div>';
+  chat.innerHTML += '<div class="aman-msg">' + answers[topic] + '</div>';
+  if(topic === 'whatsapp') {
+    window.open('https://wa.me/255699004685?text=Hi%20Aman%20-%20Serengeti%20safari%20inquiry', '_blank');
+  }
+  chat.scrollTop = chat.scrollHeight;
+}
 function showMigration() {
   const month = document.getElementById('month').value;
   const result = document.getElementById('migration-result');
@@ -212,129 +371,14 @@ function showMigration() {
     nov: "📍 Eastern/Central Serengeti - Short rains begin. Herds moving south.",
     dec: "📍 Southern Serengeti - Herds arrive back. Cycle restarts. Green & beautiful."
   };
-  result.innerHTML = data[month] || "";
-}
-</script>
-      </div>
-      
-
-<br><br> <div style="background-color:#f1f1f1; 
-               padding:20px; 
-               margin-top:50px;"> 
-      <p style="color:#555;">Built by Ordinary-person824 in Mwanza, Tanzania © 2026</p> </div> 
-<style>
-.aman-chat-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #25D366;
-  color: white;
-  border: none;
-  border-radius: 50px;
-  padding: 15px 25px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-  z-index: 9999;
-}
-.aman-chat-box {
-  display: none;
-  position: fixed;
-  bottom: 90px;
-  right: 20px;
-  width: 320px;
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 5px 25px rgba(0,0,0,0.3);
-  z-index: 9999;
-  font-family: Arial, sans-serif;
-}
-.aman-header {
-  background: #25D366;
-  color: white;
-  padding: 15px;
-  border-radius: 15px 15px 0 0;
-  font-weight: bold;
-}
-.aman-body {
-  padding: 15px;
-  max-height: 400px;
-  overflow-y: auto;
-}
-.aman-msg {
-  background: #f1f1f1;
-  padding: 10px;
-  border-radius: 10px;
-  margin: 8px 0;
-  font-size: 14px;
-  color: #333;
-}
-.aman-question {
-  background: #DCF8C6;
-  text-align: right;
-  margin-left: 40px;
-}
-.aman-btn {
-  display: block;
-  width: 100%;
-  text-align: left;
-  background: #f8f8f8;
-  border: 1px solid #ddd;
-  padding: 10px;
-  margin: 5px 0;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 14px;
-}
-</style>
-
-<button class="aman-chat-btn" onclick="toggleAman()">💬 Ask Aman AI</button>
-
-<div class="aman-chat-box" id="amanBox">
-  <div class="aman-header">
-    Aman AI - Safari Guide
-    <span style="float:right; cursor:pointer;" onclick="toggleAman()">✕</span>
-  </div>
-  <div class="aman-body" id="amanChat">
-  <div class="aman-msg">I’m a Form Five student in Mwanza. I partner with licensed Arusha guides for your safari. I handle bookings after school + weekends. My AI answers anytime! 👇</div>
-  <button class="aman-btn" onclick="askAman('price')">💰 How much to climb?</button>
-    <button class="aman-btn" onclick="askAman('days')">📅 How many days needed?</button>
-    <button class="aman-btn" onclick="askAman('migration')">🦓 Best time for migration?</button>
-    <button class="aman-btn" onclick="askAman('whatsapp')">📱 Chat with human Aman</button>
-    <button class="aman-btn" onclick="askAman('payment')">💳 How do I pay?</button>
-  </div>
-</div>
-
-<script>
-function toggleAman() {
-  var box = document.getElementById('amanBox');
-  if (box.style.display === 'block') {
-    box.style.display = 'none';
+  if(month) {
+    result.innerHTML = data[month];
+    result.style.display = 'block';
   } else {
-    box.style.display = 'block';
+    result.style.display = 'none';
   }
-}
-
-function askAman(topic) {
-  var chat = document.getElementById('amanChat');
-  var answers = {
-    price: "Serengeti: $350-600 per day. Includes guide, car, park fees, meals. Camping saves 40%.",
-    days: "3 days minimum. 4-5 days ideal for migration + big cats. Less than 3 = rushed.",
-    migration: "Jan-Mar: South. Jun-Jul: West. Aug-Oct: North Kenya border. Use predictor above!",
-    whatsapp: "Opening WhatsApp to human Aman...",
-    payment: "30% deposit via wise or bank transfer to book. Rest cash on arrival in Arusha. I send you invoice with all details on Whatsapp. Safe and simple.",
-  };
-
-  chat.innerHTML += '<div class="aman-msg aman-question">' + event.target.innerText + '</div>';
-  chat.innerHTML += '<div class="aman-msg">' + answers[topic] + '</div>';
-
-  if(topic === 'whatsapp') {
-    window.open('https://wa.me/255699004685?text=Hi%20Aman%20from%20your%20website', '_blank');
-  }
-
-  chat.scrollTop = chat.scrollHeight;
 }
 </script>
+<!-- Aman Chatbot End -->
 </body>
 </html>
