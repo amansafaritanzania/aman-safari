@@ -223,12 +223,18 @@
 
         <h2>Why Are We $800 Cheaper Than Viator?</h2>
         <div class="price-box">
-            <p>❌ We DON’T pay 40% commission to GetYourGuide</p>
-            <p>❌ We DON’T have offices in New York or London</p>
-            <p>✅ You pay your guide DIRECT through our registered TZ company</p>
-            <p>✅ We take 10%. Your guide keeps 90%.</p>
-            <p><strong>Result: You save money. Guides earn more. Everyone wins.</strong></p>
-        </div>
+  <h3 id="price" style="color:#D4AF37;font-size:32px;margin-bottom:15px;text-align:center">$2,495 per person</h3>
+  <div style="text-align:center;margin-bottom:20px">
+    <button onclick="convertCurrency('USD')" style="margin:2px;padding:8px 16px;border:1px solid #D4AF37;border-radius:6px;cursor:pointer;background:#0B3D20;color:white">$ USD</button>
+    <button onclick="convertCurrency('GBP')" style="margin:2px;padding:8px 16px;border:1px solid #D4AF37;border-radius:6px;cursor:pointer;background:#0B3D20;color:white">£ GBP</button>
+    <button onclick="convertCurrency('EUR')" style="margin:2px;padding:8px 16px;border:1px solid #D4AF37;border-radius:6px;cursor:pointer;background:#0B3D20;color:white">€ EUR</button>
+  </div>
+  <p>❌ We DON’T pay 40% commission to GetYourGuide</p>
+  <p>❌ We DON’T have offices in New York or London</p>
+  <p>✅ You pay your guide DIRECT through our registered TZ company</p>
+  <p>✅ We take 10%. Your guide keeps 90%.</p>
+  <p><strong>Result: You save money. Guides earn more. Everyone wins.</strong></p>
+</div>
 
         <h2>Meet Your Lead Guide Team</h2>
         <div class="guide-card">
@@ -494,17 +500,13 @@ document.addEventListener('mouseleave', function(e) {
     sessionStorage.setItem('popupShown', 'true');
   }
 });
-</script>
-<div style="text-align:center;margin:10px">
-  <button onclick="convertCurrency('USD')">USD $</button>
-  <button onclick="convertCurrency('GBP')">GBP £</button>
-  <button onclick="convertCurrency('EUR')">EUR €</button>
-</div>
 <script>
 function convertCurrency(curr) {
   const rates = {USD:1, GBP:0.79, EUR:0.92};
-  const price = 2495 * rates[curr];
-  document.getElementById('price').innerText = curr + ' ' + Math.round(price);
+  const basePrice = 2495;
+  const converted = Math.round(basePrice * rates[curr]);
+  const symbols = {USD: '$', GBP: '£', EUR: '€'};
+  document.getElementById('price').innerText = symbols[curr] + converted + ' per person';
 }
 </script>
 </body>
