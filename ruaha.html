@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ruaha Safari $400/day | Wildest Park Tanzania | Save 45% vs Serengeti</title>
     <meta name="description" content="Ruaha National Park safaris direct. 10,000+ elephants. 90% fewer tourists than Serengeti. Licensed guides. No crowds. WhatsApp now.">
-      <!-- AMAN Favicon - Gold on Green -->
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230B3D20'/><text x='50' y='58' font-family='Montserrat,Arial,sans-serif' font-size='28' font-weight='700' fill='%23D4AF37' text-anchor='middle'>AMAN</text></svg>">
+    
+    <!-- AMAN Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230B3D20'/><text x='50' y='58' font-family='Montserrat,Arial,sans-serif' font-size='28' font-weight='700' fill='%23D4AF37' text-anchor='middle'>AMAN</text></svg>">
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Lato:wght@400;700&display=swap');
 
@@ -29,14 +31,26 @@
             z-index: -1;
         }
 
+        /* Scarcity Bar */
+      .scarcity-bar {
+            background: #ff4444;
+            color: white;
+            text-align: center;
+            padding: 8px;
+            font-weight: bold;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
         nav {
             background: rgba(11, 61, 32, 0.9);
             padding: 15px;
             text-align: center;
             backdrop-filter: blur(10px);
             position: sticky;
-            top: 0;
-            z-index: 100;
+            top: 36px;
+            z-index: 998;
             border-bottom: 2px solid #D4AF37;
         }
 
@@ -56,14 +70,14 @@
             color: #0B3D20;
         }
 
-       .hero {
+      .hero {
             max-width: 900px;
             margin: 60px auto 30px;
             padding: 40px 20px;
             text-align: center;
         }
 
-       .hero h1 {
+      .hero h1 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 900;
             font-size: clamp(32px, 6vw, 56px);
@@ -72,15 +86,15 @@
             text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
         }
 
-       .hero.highlight { color: #D4AF37; }
+      .hero.highlight { color: #D4AF37; }
 
-       .hero p {
+      .hero p {
             font-size: 20px;
             margin-bottom: 30px;
             text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
         }
 
-       .cta-btn {
+      .cta-btn {
             background: linear-gradient(135deg, #D4AF37, #B8941F);
             color: #0B3D20;
             padding: 18px 40px;
@@ -96,12 +110,12 @@
             font-family: 'Montserrat', sans-serif;
         }
 
-       .cta-btn:hover {
+      .cta-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
         }
 
-       .content {
+      .content {
             background: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(8px);
             padding: 40px 20px;
@@ -111,7 +125,7 @@
             border: 1px solid rgba(212, 175, 55, 0.3);
         }
 
-       .content h2 {
+      .content h2 {
             font-family: 'Montserrat', sans-serif;
             color: #D4AF37;
             font-size: 28px;
@@ -120,11 +134,11 @@
             padding-left: 15px;
         }
 
-       .content h3 { color: #D4AF37; margin: 20px 0 10px; }
-       .content p,.content li { line-height: 1.8; font-size: 17px; }
-       .content strong { color: #D4AF37; }
+      .content h3 { color: #D4AF37; margin: 20px 0 10px; }
+      .content p,.content li { line-height: 1.8; font-size: 17px; }
+      .content strong { color: #D4AF37; }
 
-       .urgent-box {
+      .urgent-box {
             background: linear-gradient(135deg, #8B0000, #DC143C);
             padding: 20px;
             border-radius: 10px;
@@ -133,7 +147,7 @@
             border: 2px solid #FFD700;
         }
 
-       .price-box {
+      .price-box {
             background: rgba(212, 175, 55, 0.15);
             padding: 20px;
             border-radius: 10px;
@@ -141,7 +155,7 @@
             border-left: 4px solid #D4AF37;
         }
 
-       .guide-card {
+      .guide-card {
             background: rgba(11, 61, 32, 0.6);
             padding: 25px;
             border-radius: 10px;
@@ -149,7 +163,7 @@
             border: 1px solid #D4AF37;
         }
 
-       .whatsapp-float {
+      .whatsapp-float {
             position: fixed;
             bottom: 20px;
             right: 20px;
@@ -164,36 +178,151 @@
             animation: pulse 2s infinite;
         }
 
+        /* Currency Converter */
+      .currency-converter {
+            background: rgba(255, 255, 255, 0.95);
+            color: #333;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+      .currency-converter select {
+            padding: 10px;
+            border-radius: 5px;
+            border: 2px solid #1a3a1a;
+            font-size: 16px;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        /* Safety Badges */
+      .safety-badges {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+      .safety-badges span {
+            background: #e8f5e8;
+            color: #333;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        /* Testimonials */
+      .testimonial {
+            max-width: 600px;
+            margin: 20px auto;
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #D4AF37;
+        }
+
+        details {
+            margin: 10px 0;
+            padding: 15px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+        }
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #D4AF37;
+        }
+
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.05); }
         }
 
         @media (max-width: 600px) {
+            nav { top: 60px; }
             nav a { display: block; margin: 8px 0; }
-           .hero { margin-top: 30px; }
+          .hero { margin-top: 30px; }
         }
     </style>
 </head>
 
 <body>
+    <!-- SCARCITY BAR -->
+    <div class="scarcity-bar">
+        🦁 DRY SEASON PEAK: June-Oct. Only 3 lodges inside park. Book 4 months early ↓
+    </div>
+
     <nav>
-        <a href="index.html">Kilimanjaro</a>
+        <a href="index.html">Home</a>
+        <a href="kilimanjaro.html">Kilimanjaro</a>
         <a href="serengeti.html">Serengeti</a>
         <a href="ruaha.html" class="active">Ruaha</a>
-        <a href="#contact">Contact</a>
+        <a href="ngorongoro.html">Ngorongoro</a>
+        <a href="tarangire.html">Tarangire</a>
     </nav>
 
     <div class="hero">
         <h1>RUAHA: <span class="highlight">TANZANIA'S BEST KEPT SECRET</span></h1>
         <p>Wildest park in Tanzania. 10,000+ elephants. 90% fewer tourists than Serengeti. Save 45% vs Viator.</p>
-        <a href="https://wa.me/255699004685?text=Hi%20Aman,%20I%20want%20Ruaha%20safari%20dates" class="cta-btn">
+        <a href="https://wa.me/255699004685?text=Hi%20Aman%20Safari%20AI,%20I%20want%20Ruaha%20safari%20dates" class="cta-btn">
             Check Dry Season Dates →
         </a>
         <p style="font-size:14px; margin-top:15px; opacity:0.9;">✓ Licensed Guides ✓ No Crowds ✓ Lion Territory ✓ All Park Fees Included</p>
     </div>
 
+    <!-- AI EMPLOYEE NOTICE -->
+    <div style="background:#fff3cd; border-left:4px solid #ffc107; padding:20px; margin:20px auto; max-width:900px; text-align:center; border-radius:10px;">
+        <p style="margin:0; color:#856404; font-weight:600; font-size:1rem;">
+            🤖 <strong>Instant Response:</strong> Our AI assistant handles quotes + bookings 24/7. 
+            Aman replies personally on Weekends & Holidays 8am-8pm EAT. 
+            All bookings confirmed within 2 hours.
+        </p>
+    </div>
+
     <div class="content">
+        <!-- CURRENCY CONVERTER -->
+        <div class="currency-converter">
+            <h2 style="color:#1a3a1a; border:none; padding:0; margin:0 0 15px 0;">💱 Live Price Converter</h2>
+            <select id="currency" onchange="convertPrice()">
+                <option value="USD">USD $ - US Dollar</option>
+                <option value="EUR">EUR € - Euro</option>
+                <option value="GBP">GBP £ - British Pound</option>
+                <option value="TZS">TZS - Tanzanian Shilling</option>
+            </select>
+            <p style="margin-top:10px; color:#333;">4-Day Safari: <strong id="price-display">$1,600</strong> total per person</p>
+        </div>
+
+        <!-- BEST TIME WIDGET - DETAILED -->
+        <div class="guide-card">
+            <h2>📅 Best Time to Visit Ruaha - Month by Month</h2>
+            <p>Ruaha transforms completely between wet + dry season. Here’s the truth:</p>
+            
+            <div style="margin-top:20px;">
+                <details style="background:rgba(76,175,80,0.2); border-left:4px solid #4caf50;">
+                    <summary style="font-weight:bold; padding:15px; cursor:pointer; color:#D4AF37;">Jun - Oct: DRY SEASON - PEAK RUAHA 🦁</summary>
+                    <div style="padding:15px; color:white;">
+                        <strong>Weather:</strong> Bone dry, 25-35°C. Dusty but perfect game drives.<br>
+                        <strong>Animals:</strong> PEAK. Every animal drinks from Great Ruaha River. 10,000+ elephants, 25+ lion prides, wild dogs hunt daily. Best game viewing in Tanzania.<br>
+                        <strong>Crowds:</strong> Low. 90% fewer tourists than Serengeti. You get private sightings.<br>
+                        <strong>Price:</strong> High season. <span class="price-usd" data-usd="400">$400</span>/day.<br>
+                        <strong>Best For:</strong> Serious safari lovers. Photographers. People who hate crowds.
+                    </div>
+                </details>
+                
+                <details style="background:rgba(255,193,7,0.2); border-left:4px solid #ffc107;">
+                    <summary style="font-weight:bold; padding:15px; cursor:pointer; color:#D4AF37;">Nov - May: WET/GREEN SEASON 🌧️</summary>
+                    <div style="padding:15px; color:white;">
+                        <strong>Weather:</strong> Rains Nov-Dec, Mar-May. Roads muddy, some impassable. Park turns lush green.<br>
+                        <strong>Animals:</strong> Dispersed. Elephants spread into bush. Harder to spot. BUT: Baby animals, 570+ bird species, stunning landscapes.<br>
+                        <strong>Crowds:</strong> Almost empty. Cheapest prices.<br>
+                        <strong>Price:</strong> Low season. <span class="price-usd" data-usd="320">$320</span>/day.<br>
+                        <strong>Best For:</strong> Birders, photographers, budget travelers. NOT recommended for first safari.
+                    </div>
+                </details>
+            </div>
+        </div>
+
         <div class="urgent-box">
             <h3>⚠️ DRY SEASON = PEAK RUAHA</h3>
             <p><strong>June-October:</strong> Animals crowd at Great Ruaha River. Best game viewing in Tanzania.</p>
@@ -203,17 +332,32 @@
 
         <h2>Why Ruaha Beats Serengeti For Real Safari Lovers</h2>
         <div class="price-box">
-            <h3 id="price" style="color:#D4AF37;font-size:32px;margin-bottom:15px;text-align:center">$400 per day</h3>
-            <div style="text-align:center;margin-bottom:20px">
-                <button onclick="convertCurrency('USD')" class="curr-btn" style="margin:2px;padding:8px 16px;border:1px solid #D4AF37;border-radius:6px;cursor:pointer;background:#D4AF37;color:#0B3D20">$ USD</button>
-                <button onclick="convertCurrency('GBP')" class="curr-btn" style="margin:2px;padding:8px 16px;border:1px solid #D4AF37;border-radius:6px;cursor:pointer;background:#0B3D20;color:white">£ GBP</button>
-                <button onclick="convertCurrency('EUR')" class="curr-btn" style="margin:2px;padding:8px 16px;border:1px solid #D4AF37;border-radius:6px;cursor:pointer;background:#0B3D20;color:white">€ EUR</button>
+            <div class="safety-badges">
+                <span>🐘 10,000+ Elephants</span>
+                <span>🦁 25+ Lion Prides</span>
+                <span>🐕 Wild Dogs</span>
+                <span>📜 TANAPA Licensed</span>
             </div>
+            
+            <h3 id="price" style="color:#D4AF37;font-size:32px;margin:15px 0;text-align:center" class="price-usd" data-usd="400">$400 per day</h3>
             <p>❌ <strong>Serengeti:</strong> 350,000 tourists/year. Traffic jams at lion sightings.</p>
             <p>✅ <strong>Ruaha:</strong> 35,000 tourists/year. Your private lion sighting.</p>
             <p>❌ <strong>Serengeti:</strong> $600/day average. Pay for crowds.</p>
             <p>✅ <strong>Ruaha:</strong> $400/day average. Pay for wilderness.</p>
             <p><strong>Result: Real Africa. No buses. No noise. Just you + 10,000 elephants.</strong></p>
+        </div>
+
+        <!-- TESTIMONIALS -->
+        <div class="guide-card" style="background:rgba(0,0,0,0.5);">
+            <h2>What Travelers Say After Ruaha 🦁</h2>
+            <div class="testimonial">
+                <p style="font-style:italic">"25 lions hunting buffalo at once. Zero other jeeps. This is what I dreamed Africa would be. Serengeti felt like Disneyland compared to this."</p>
+                <p><strong>- Mark T., Australia</strong> ⭐⭐⭐⭐⭐<br>4-Day Ruaha, August 2025</p>
+            </div>
+            <div class="testimonial">
+                <p style="font-style:italic">"Aman got us so close to wild dogs. Ruaha is the real deal. Saved $800 vs SafariBookings and saw 10x more animals."</p>
+                <p><strong>- Emma R., UK</strong> ⭐⭐⭐⭐⭐<br>6-Day Ruaha + Mikumi, Sept 2025</p>
+            </div>
         </div>
 
         <div class="guide-card">
@@ -226,33 +370,39 @@
             <p><em>Serengeti is famous. Ruaha is WILD. Which one do you want?</em></p>
         </div>
 
+        <!-- FAQ -->
         <div class="guide-card">
-            <h2>Why 90% of Tourists Miss Ruaha</h2>
-            <p><strong>Big agencies don’t sell Ruaha.</strong> Why?</p>
-            <p>1. <strong>Far from Arusha</strong> = 10hr drive or $300 flight. Agencies want easy money.</p>
-            <p>2. <strong>Fewer lodges</strong> = Less commission for them.</p>
-            <p>3. <strong>No marketing</strong> = Clients don’t know it exists.</p>
-            <p><strong>Your advantage:</strong> We know Ruaha. We have local drivers. You get Tanzania’s #1 wilderness at 45% discount vs Serengeti.</p>
+            <h2>Questions Every Smart Traveler Asks 🤔</h2>
+            <details>
+                <summary>Is Ruaha really better than Serengeti?</summary>
+                <div style="padding:15px; color:white;">
+                    For wildlife density + no crowds: YES. Serengeti has migration. Ruaha has 10,000 elephants + biggest lions year-round. If you want wilderness, pick Ruaha. If you want famous, pick Serengeti.
+                </div>
+            </details>
+            <details>
+                <summary>How do we get to Ruaha? Is it hard?</summary>
+                <div style="padding:15px; color:white;">
+                    10hr drive from Arusha OR $300 flight to Ruaha airstrip. We arrange both. Flight saves 2 days. Most clients fly in, game drive out. Worth every dollar.
+                </div>
+            </details>
+            <details>
+                <summary>Why is it cheaper if it's better?</summary>
+                <div style="padding:15px; color:white;">
+                    Less marketing = less demand = lower prices. Big agencies skip it because fewer lodges = less commission for them. You win. Same animals, 45% cheaper, 90% fewer tourists.
+                </div>
+            </details>
         </div>
 
         <div class="guide-card">
             <h2>What Your Price Includes - No Hidden Fees</h2>
-            <p><strong>$400-550 per day covers EVERYTHING:</strong></p>
+            <p><strong><span class="price-usd" data-usd="400">$400</span>-<span class="price-usd" data-usd="550">$550</span> per day covers EVERYTHING:</strong></p>
             <p>• 4x4 Safari Land Cruiser with local driver-guide</p>
             <p>• All park fees $30/day paid direct to TANAPA</p>
             <p>• 3 meals daily + bottled water</p>
             <p>• Camping equipment OR budget lodge</p>
             <p>• Flight Arusha-Ruaha can be arranged $300 return</p>
             <p><strong>4 days minimum recommended.</strong> 2 days travel + 2 days game drives.</p>
-        </div>
-
-        <div class="guide-card">
-            <h2>Why Book Direct With Us</h2>
-            <p><strong>Viator charges $900/day for Ruaha.</strong> We charge $500.</p>
-            <p>✓ <strong>100% stays in Tanzania</strong> - Support Ruaha communities</p>
-            <p>✓ <strong>Local guides</strong> - Born in Iringa. Know every elephant</p>
-            <p>✓ <strong>Flexible</strong> - Add walking safari, night drives, fly camping</p>
-            <p>✓ <strong>Safe</strong> - All payments to registered TZ company account</p>
+            <a href="https://wa.me/255699004685?text=Hi%20Aman%20Safari%20AI,%20I%20want%20Ruaha%20safari%20quote" class="cta-btn">Chat with AI Assistant Now</a>
         </div>
 
         <div class="guide-card">
@@ -264,179 +414,32 @@
         </div>
     </div>
 
-    <a href="https://wa.me/255699004685" class="whatsapp-float">
-        💬 Ask About Ruaha 24/7
+    <a href="https://wa.me/255699004685?text=Hi%20Aman%20Safari%20AI,%20I%20saw%20your%20Ruaha%20site.%20Is%20July%202027%20available?" class="whatsapp-float">
+        💬 Chat Now
     </a>
 
-    <div class="content">
-        <h2>When Is The Best Time To Visit Ruaha?</h2>
-        <div style="background:rgba(255,255,255,0.1); padding:20px; border-radius:10px; margin:20px 0;">
-            <label style="color:white; font-weight:bold;">Select your travel month:</label><br>
-            <select id="month" onchange="showRuaha()" style="padding:10px; margin:10px 0; border-radius:5px; width:100%; max-width:300px;">
-                <option value="">-- Pick a month --</option>
-                <option value="jan">January</option>
-                <option value="feb">February</option>
-                <option value="mar">March</option>
-                <option value="apr">April</option>
-                <option value="may">May</option>
-                <option value="jun">June</option>
-                <option value="jul">July</option>
-                <option value="aug">August</option>
-                <option value="sep">September</option>
-                <option value="oct">October</option>
-                <option value="nov">November</option>
-                <option value="dec">December</option>
-            </select>
-            <div id="ruaha-result" style="color:#FFD700; font-size:18px; margin-top:15px; font-weight:bold;"></div>
-        </div>
+    <div style="background:#0B3D20; padding:20px; text-align:center; margin-top:50px;">
+        <p style="color:#D4AF37;">© 2026 Aman Safari | Licensed Tanzania Tour Operator</p>
     </div>
 
-<!-- AI Employee Start -->
-<style>
-.aman-chat-btn {
-  position: fixed; bottom: 90px; right: 20px; background: #0B3D20; color: white;
-  border: 2px solid #D4AF37; border-radius: 50px; padding: 12px 20px; font-size: 14px;
-  font-weight: bold; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 999;
-  font-family: 'Lato', sans-serif;
-}
-.aman-chat-box {
-  display: none; position: fixed; bottom: 150px; right: 20px; width: 340px;
-  background: white; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.3);
-  z-index: 999; font-family: 'Lato', sans-serif;
-}
-.aman-header {
-  background: #0B3D20; color: #D4AF37; padding: 15px; border-radius: 15px 15px 0 0; 
-  font-weight: bold; font-size: 16px;
-}
-.aman-body { padding: 15px; max-height: 450px; overflow-y: auto; }
-.aman-msg {
-  background: #f1f1f1; padding: 12px; border-radius: 10px; margin: 8px 0;
-  font-size: 14px; color: #333; line-height: 1.5;
-}
-.aman-question { background: #DCF8C6; text-align: right; margin-left: 30px; }
-.aman-btn {
-  display: block; width: 100%; text-align: left; background: #f8f8f8; border: 1px solid #ddd;
-  padding: 12px; margin: 6px 0; border-radius: 8px; cursor: pointer; font-size: 14px;
-  transition: 0.2s;
-}
-.aman-btn:hover { background: #D4AF37; color: #0B3D20; font-weight: bold; }
-.aman-input-area {
-  display: none; padding: 10px; border-top: 1px solid #ddd;
-}
-.aman-input-area input {
-  width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; 
-  font-size: 14px; margin-bottom: 8px;
-}
-.aman-send-btn {
-  background: #25D366; color: white; border: none; padding: 10px; 
-  width: 100%; border-radius: 8px; font-weight: bold; cursor: pointer;
-}
-</style>
-
-<button class="aman-chat-btn" onclick="toggleAman()">💬 Ask Aman AI 24/7</button>
-
-<div class="aman-chat-box" id="amanBox">
-  <div class="aman-header">
-    Aman AI - Ruaha Specialist
-    <span style="float:right; cursor:pointer;" onclick="toggleAman()">✕</span>
-  </div>
-  <div class="aman-body" id="amanChat">
-    <div class="aman-msg">Habari! I’m Aman’s AI Employee. Aman is at school/guiding, but I work 24/7. I can quote you, check dates, and hold your spot for Ruaha. What do you need? 👇</div>
-    <button class="aman-btn" onclick="askAman('quote')">💰 Get Instant Ruaha Price Quote</button>
-    <button class="aman-btn" onclick="askAman('dates')">📅 Check June-October Dates</button>
-    <button class="aman-btn" onclick="askAman('book')">✅ Hold My Spot - $100 Deposit</button>
-    <button class="aman-btn" onclick="askAman('why')">🦁 Why Ruaha vs Serengeti?</button>
-    <button class="aman-btn" onclick="askAman('get')">🚗 How to get to Ruaha?</button>
-    <button class="aman-btn" onclick="askAman('human')">📱 Talk to Human Aman</button>
-  </div>
-  <div class="aman-input-area" id="amanInputArea">
-    <input type="text" id="amanUserInput" placeholder="Type: Dates + #People + #Days">
-    <button class="aman-send-btn" onclick="sendToWhatsApp()">Send to Aman on WhatsApp →</button>
-  </div>
-</div>
-
-<script>
-function toggleAman() {
-  var box = document.getElementById('amanBox');
-  box.style.display = box.style.display === 'block'? 'none' : 'block';
-}
-
-function askAman(topic) {
-  var chat = document.getElementById('amanChat');
-  var inputArea = document.getElementById('amanInputArea');
-  var answers = {
-    quote: "RUAHA 4-DAY SAFARI = $400-550/day per person. All include guide, 4x4, park fees, meals, camping/lodge. Exact quote depends on dates + group size. To get YOUR price, click 'Talk to Human Aman' and send: 1. DATES 2. #PEOPLE 3. #DAYS. Aman replies after 4PM daily.",
-    dates: "DRY SEASON June-October: BEST game viewing. All animals at Ruaha River. Books out 4 months early. WET SEASON Nov-May: Roads difficult, we don't recommend. To hold dates, click 'Hold My Spot' or send Aman your dates now.",
-    book: "Smart! $100 deposit holds your date + price. Balance paid 30 days before trip. No risk - full refund if you cancel 60+ days out. To hold spot NOW, click 'Talk to Human Aman' and type: 'HOLD JULY 10, 2 PEOPLE, 4 DAYS RUAHA'. Aman will send payment link by 6PM.",
-    why: "90% fewer tourists than Serengeti. 10,000+ elephants. Biggest lion prides in Tanzania. Wild dogs. No traffic jams. Real wilderness. 45% cheaper. Serengeti is famous - Ruaha is WILD.",
-    get: "10hr drive from Arusha OR $300 flight to Ruaha airstrip. We arrange both. Flight saves 2 days travel. Most clients fly in, game drive out.",
-    human: "Connecting you to Human Aman... He replies after 4PM Mon-Fri, within 1 hour on weekends. FOR FASTEST QUOTE: Type your DATES + #PEOPLE + #DAYS below and click Send. This goes straight to his WhatsApp."
-  };
-  
-  chat.innerHTML += '<div class="aman-msg aman-question">' + event.target.innerText + '</div>';
-  chat.innerHTML += '<div class="aman-msg">' + answers[topic] + '</div>';
-  
-  if(topic === 'human' || topic === 'book' || topic === 'quote') {
-    inputArea.style.display = 'block';
-  } else {
-    inputArea.style.display = 'none';
-  }
-  
-  chat.scrollTop = chat.scrollHeight;
-}
-
-function sendToWhatsApp() {
-  var userText = document.getElementById('amanUserInput').value;
-  if(userText === '') {
-    alert('Tafadhali andika Dates + #People + #Days first');
-    return;
-  }
-  var whatsappMsg = 'Hi Aman - From your Ruaha website AI: ' + encodeURIComponent(userText);
-  window.open('https://wa.me/255699004685?text=' + whatsappMsg, '_blank');
-  document.getElementById('amanUserInput').value = '';
-  document.getElementById('amanChat').innerHTML += '<div class="aman-msg">✅ Sent to Aman! He’ll reply after 4PM with your quote + date confirmation. Asante!</div>';
-}
-</script>
-<!-- AI Employee End -->
-
-<script>
-// Month selector script
-function showRuaha() {
-  const month = document.getElementById('month').value;
-  const result = document.getElementById('ruaha-result');
-  const data = {
-    jan: "🌧️ Green season starts. Lush landscape, baby animals, amazing birding. Some roads muddy but beautiful.",
-    feb: "🌧️ Green season. Best bird watching with 570+ species. Elephants spread out in the bush.",
-    mar: "🌧️ Peak rains. Fewer tourists = lowest prices. Great for photography of green landscapes.",
-    apr: "🌧️ Heavy rains. Many camps closed. Best for budget travelers who don't mind rain.",
-    may: "🌤️ Rains ending. Park is green and fresh. Wildlife starts moving back to the river.",
-    jun: "☀️ Dry season begins! Wildlife heads to Great Ruaha River. Elephants gather in huge herds.",
-    jul: "☀️ PEAK SEASON. Perfect weather. Massive elephant herds at the river. Lions everywhere.",
-    aug: "☀️ PEAK SEASON. Bone dry = all animals at the river. Best game viewing of the year.",
-    sep: "☀️ PEAK SEASON. Very hot and dry. Incredible predator action around water sources.",
-    oct: "☀️ Hottest month. Animals desperate for water = guaranteed sightings at the river.",
-    nov: "🌦️ Short rains begin. Dust settles, park turns green again. Good mix of weather + wildlife.",
-    dec: "🌦️ Short rains. Green and beautiful. Baby animals born. Perfect for photos."
-  };
-  result.innerHTML = data[month] || "";
-}
-
-// Currency converter script - FIXED
-function convertCurrency(curr) {
-  const rates = {USD: 1, GBP: 0.79, EUR: 0.92};
-  const basePrice = 400;
-  const converted = Math.round(basePrice * rates[curr]);
-  const symbols = {USD: '$', GBP: '£', EUR: '€'};
-  document.getElementById('price').innerText = symbols[curr] + converted + ' per day';
-
-  // Highlight active button
-  document.querySelectorAll('.curr-btn').forEach(btn => {
-    btn.style.background = '#0B3D20';
-    btn.style.color = 'white';
-  });
-  event.target.style.background = '#D4AF37';
-  event.target.style.color = '#0B3D20';
-}
-</script>
+    <!-- CURRENCY CONVERTER SCRIPT -->
+    <script>
+        const rates = { USD: 1, EUR: 0.92, GBP: 0.79, TZS: 2500 };
+        const symbols = { USD: '$', EUR: '€', GBP: '£', TZS: 'TZS ' };
+        
+        function convertPrice() {
+            const currency = document.getElementById('currency').value;
+            const rate = rates[currency];
+            const symbol = symbols[currency];
+            
+            document.querySelectorAll('.price-usd').forEach(el => {
+                const usd = parseFloat(el.dataset.usd);
+                const converted = (usd * rate).toFixed(0);
+                el.textContent = symbol + converted.toLocaleString();
+            });
+            
+            document.getElementById('price-display').textContent = symbol + (1600 * rate).toFixed(0).toLocaleString();
+        }
+    </script>
 </body>
-</html>
+                </html>
