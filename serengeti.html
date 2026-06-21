@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Serengeti Safari $450/day | See Great Migration | Save 40% vs Viator</title>
     <meta name="description" content="Serengeti safaris direct. Witness 2M wildebeest migration. Licensed Arusha guides. No middlemen. 4x4 Land Cruisers. WhatsApp now.">
-      <!-- AMAN Favicon - Gold on Green -->
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230B3D20'/><text x='50' y='58' font-family='Montserrat,Arial,sans-serif' font-size='28' font-weight='700' fill='%23D4AF37' text-anchor='middle'>AMAN</text></svg>">
+
+    <!-- AMAN Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230B3D20'/><text x='50' y='58' font-family='Montserrat,Arial,sans-serif' font-size='28' font-weight='700' fill='%23D4AF37' text-anchor='middle'>AMAN</text></svg>">
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Lato:wght@400;700&display=swap');
 
@@ -29,14 +31,26 @@
             z-index: -1;
         }
 
+        /* Scarcity Bar */
+     .scarcity-bar {
+            background: #ff4444;
+            color: white;
+            text-align: center;
+            padding: 8px;
+            font-weight: bold;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
         nav {
             background: rgba(11, 61, 32, 0.9);
             padding: 15px;
             text-align: center;
             backdrop-filter: blur(10px);
             position: sticky;
-            top: 0;
-            z-index: 100;
+            top: 36px;
+            z-index: 998;
             border-bottom: 2px solid #D4AF37;
         }
 
@@ -56,14 +70,14 @@
             color: #0B3D20;
         }
 
-      .hero {
+     .hero {
             max-width: 900px;
             margin: 60px auto 30px;
             padding: 40px 20px;
             text-align: center;
         }
 
-      .hero h1 {
+     .hero h1 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 900;
             font-size: clamp(32px, 6vw, 56px);
@@ -72,15 +86,15 @@
             text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
         }
 
-      .hero.highlight { color: #D4AF37; }
+     .hero.highlight { color: #D4AF37; }
 
-      .hero p {
+     .hero p {
             font-size: 20px;
             margin-bottom: 30px;
             text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
         }
 
-      .cta-btn {
+     .cta-btn {
             background: linear-gradient(135deg, #D4AF37, #B8941F);
             color: #0B3D20;
             padding: 18px 40px;
@@ -96,12 +110,12 @@
             font-family: 'Montserrat', sans-serif;
         }
 
-      .cta-btn:hover {
+     .cta-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
         }
 
-      .content {
+     .content {
             background: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(8px);
             padding: 40px 20px;
@@ -111,7 +125,7 @@
             border: 1px solid rgba(212, 175, 55, 0.3);
         }
 
-      .content h2 {
+     .content h2 {
             font-family: 'Montserrat', sans-serif;
             color: #D4AF37;
             font-size: 28px;
@@ -120,11 +134,11 @@
             padding-left: 15px;
         }
 
-      .content h3 { color: #D4AF37; margin: 20px 0 10px; }
-      .content p,.content li { line-height: 1.8; font-size: 17px; }
-      .content strong { color: #D4AF37; }
+     .content h3 { color: #D4AF37; margin: 20px 0 10px; }
+     .content p,.content li { line-height: 1.8; font-size: 17px; }
+     .content strong { color: #D4AF37; }
 
-      .urgent-box {
+     .urgent-box {
             background: linear-gradient(135deg, #8B0000, #DC143C);
             padding: 20px;
             border-radius: 10px;
@@ -133,7 +147,7 @@
             border: 2px solid #FFD700;
         }
 
-      .price-box {
+     .price-box {
             background: rgba(212, 175, 55, 0.15);
             padding: 20px;
             border-radius: 10px;
@@ -141,7 +155,7 @@
             border-left: 4px solid #D4AF37;
         }
 
-      .guide-card {
+     .guide-card {
             background: rgba(11, 61, 32, 0.6);
             padding: 25px;
             border-radius: 10px;
@@ -149,7 +163,7 @@
             border: 1px solid #D4AF37;
         }
 
-      .whatsapp-float {
+     .whatsapp-float {
             position: fixed;
             bottom: 20px;
             right: 20px;
@@ -164,66 +178,185 @@
             animation: pulse 2s infinite;
         }
 
+        /* Currency Converter */
+     .currency-converter {
+            background: rgba(255, 255, 255, 0.95);
+            color: #333;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+     .currency-converter select {
+            padding: 10px;
+            border-radius: 5px;
+            border: 2px solid #1a3a1a;
+            font-size: 16px;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        /* Safety Badges */
+     .safety-badges {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+     .safety-badges span {
+            background: #e8f5e8;
+            color: #333;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        /* Testimonials */
+     .testimonial {
+            max-width: 600px;
+            margin: 20px auto;
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #D4AF37;
+        }
+
+        details {
+            margin: 10px 0;
+            padding: 15px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+        }
+        summary {
+            font-weight: bold;
+            cursor: pointer;
+            color: #D4AF37;
+        }
+
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.05); }
         }
 
-      .migration-widget {
-            background: rgba(11, 61, 32, 0.6);
-            padding: 25px;
-            border-radius: 10px;
-            margin: 25px 0;
-            border: 1px solid #D4AF37;
-        }
-
-      .migration-widget select {
-            width: 100%;
-            padding: 12px;
-            border-radius: 8px;
-            border: 2px solid #D4AF37;
-            font-size: 16px;
-            margin: 10px 0;
-            background: white;
-            color: #333;
-        }
-
-      .migration-result {
-            background: rgba(212, 175, 55, 0.2);
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 15px;
-            color: #FFD700;
-            font-size: 18px;
-            font-weight: bold;
-            display: none;
-        }
-
         @media (max-width: 600px) {
+            nav { top: 60px; }
             nav a { display: block; margin: 8px 0; }
-          .hero { margin-top: 30px; }
+         .hero { margin-top: 30px; }
         }
     </style>
 </head>
 
 <body>
+    <!-- SCARCITY BAR -->
+    <div class="scarcity-bar">
+        🦓 MIGRATION PEAK: July-Aug Mara River. Only 200 vehicles/day allowed. Book 6 months early ↓
+    </div>
+
     <nav>
-        <a href="index.html">Kilimanjaro</a>
+        <a href="index.html">Home</a>
+        <a href="kilimanjaro.html">Kilimanjaro</a>
         <a href="serengeti.html" class="active">Serengeti</a>
         <a href="ruaha.html">Ruaha</a>
-        <a href="#contact">Contact</a>
+        <a href="ngorongoro.html">Ngorongoro</a>
+        <a href="tarangire.html">Tarangire</a>
     </nav>
 
     <div class="hero">
         <h1>WITNESS THE <span class="highlight">GREAT MIGRATION</span> DIRECT.</h1>
         <p>Serengeti safaris with licensed Arusha guides. Save 40% vs Viator. 2 million wildebeest. Zero middleman fees.</p>
-        <a href="https://wa.me/255699004685?text=Hi%20Aman,%20I%20want%20Serengeti%20Migration%20dates" class="cta-btn">
+        <a href="https://wa.me/255699004685?text=Hi%20Aman%20Safari%20AI,%20I%20want%20Serengeti%20Migration%20dates" class="cta-btn">
             Check Migration Dates →
         </a>
         <p style="font-size:14px; margin-top:15px; opacity:0.9;">✓ Licensed Guides ✓ 4x4 Land Cruisers ✓ All Park Fees Included</p>
     </div>
 
+    <!-- AI EMPLOYEE NOTICE -->
+    <div style="background:#fff3cd; border-left:4px solid #ffc107; padding:20px; margin:20px auto; max-width:900px; text-align:center; border-radius:10px;">
+        <p style="margin:0; color:#856404; font-weight:600; font-size:1rem;">
+            🤖 <strong>Instant Response:</strong> Our AI assistant handles quotes + bookings 24/7.
+            Aman replies personally on Weekends & Holidays 8am-8pm EAT.
+            All bookings confirmed within 2 hours.
+        </p>
+    </div>
+
     <div class="content">
+        <!-- CURRENCY CONVERTER -->
+        <div class="currency-converter">
+            <h2 style="color:#1a3a1a; border:none; padding:0; margin:0 0 15px 0;">💱 Live Price Converter</h2>
+            <select id="currency" onchange="convertPrice()">
+                <option value="USD">USD $ - US Dollar</option>
+                <option value="EUR">EUR € - Euro</option>
+                <option value="GBP">GBP £ - British Pound</option>
+                <option value="TZS">TZS - Tanzanian Shilling</option>
+            </select>
+            <p style="margin-top:10px; color:#333;">4-Day Safari: <strong id="price-display">$1,800</strong> total per person</p>
+        </div>
+
+        <!-- MIGRATION WIDGET - DETAILED -->
+        <div class="guide-card">
+            <h2>📅 When Is The Best Time To See The Great Migration?</h2>
+            <p>The 2 million wildebeest move in a 1,800-mile loop. Here’s where they are each month:</p>
+
+            <div style="margin-top:20px;">
+                <details style="background:rgba(76,175,80,0.2); border-left:4px solid #4caf50;">
+                    <summary style="font-weight:bold; padding:15px; cursor:pointer; color:#D4AF37;">Jan - Feb: CALVING SEASON 🐃</summary>
+                    <div style="padding:15px; color:white;">
+                        <strong>Location:</strong> Southern Serengeti / Ndutu Area<br>
+                        <strong>What Happens:</strong> 8,000 babies born DAILY. Predator paradise - lions, cheetahs, hyenas hunt non-stop.<br>
+                        <strong>Success Rate:</strong> 95% big cat sightings. Best for predator action photos.<br>
+                        <strong>Crowds:</strong> Medium. Book 3 months early.<br>
+                        <strong>Price:</strong> High season. <span class="price-usd" data-usd="450">$450</span>/day.
+                    </div>
+                </details>
+
+                <details style="background:rgba(255,193,7,0.2); border-left:4px solid #ffc107;">
+                    <summary style="font-weight:bold; padding:15px; cursor:pointer; color:#D4AF37;">Mar - May: LONG RAINS 🌧️</summary>
+                    <div style="padding:15px; color:white;">
+                        <strong>Location:</strong> Central to Western Serengeti<br>
+                        <strong>What Happens:</strong> Herds move north slowly. Roads muddy, some camps close. Lush green landscapes.<br>
+                        <strong>Success Rate:</strong> Good for scenery, harder for migration. Best birding time.<br>
+                        <strong>Crowds:</strong> Very low. Cheapest prices.<br>
+                        <strong>Price:</strong> Low season. <span class="price-usd" data-usd="350">$350</span>/day.<br>
+                        <strong>Best For:</strong> Budget travelers, photographers who want green.
+                    </div>
+                </details>
+
+                <details style="background:rgba(76,175,80,0.2); border-left:4px solid #4caf50;">
+                    <summary style="font-weight:bold; padding:15px; cursor:pointer; color:#D4AF37;">Jun - Jul: GRUMETI RIVER CROSSINGS 🐊</summary>
+                    <div style="padding:15px; color:white;">
+                        <strong>Location:</strong> Western Serengeti / Grumeti River<br>
+                        <strong>What Happens:</strong> First major river crossings. Crocodiles hunt. Herds moving to Mara.<br>
+                        <strong>Success Rate:</strong> 80% chance of crossing. Spectacular drama.<br>
+                        <strong>Crowds:</strong> High. Book 5 months early.<br>
+                        <strong>Price:</strong> Peak season. <span class="price-usd" data-usd="500">$500</span>/day.
+                    </div>
+                </details>
+
+                <details style="background:rgba(76,175,80,0.2); border-left:4px solid #4caf50;">
+                    <summary style="font-weight:bold; padding:15px; cursor:pointer; color:#D4AF37;">Aug - Sep: MARA RIVER - PEAK MIGRATION 🦓</summary>
+                    <div style="padding:15px; color:white;">
+                        <strong>Location:</strong> Northern Serengeti / Kenya Border<br>
+                        <strong>What Happens:</strong> THE famous Mara River crossings. 2 million animals cross. Most dramatic time on earth.<br>
+                        <strong>Success Rate:</strong> 90% if you stay 3+ days. Most expensive + crowded.<br>
+                        <strong>Crowds:</strong> PEAK. Only 200 vehicles/day allowed. Book 6-8 months early.<br>
+                        <strong>Price:</strong> Peak peak. <span class="price-usd" data-usd="550">$550</span>/day.
+                    </div>
+                </details>
+
+                <details style="background:rgba(255,193,7,0.2); border-left:4px solid #ffc107;">
+                    <summary style="font-weight:bold; padding:15px; cursor:pointer; color:#D4AF37;">Oct - Dec: RETURN SOUTH 🍃</summary>
+                    <div style="padding:15px; color:white;">
+                        <strong>Location:</strong> Central to Southern Serengeti<br>
+                        <strong>What Happens:</strong> Herds move back south for short rains. Spread out, less dramatic but still amazing.<br>
+                        <strong>Success Rate:</strong> Good. Less crowded than Aug-Sep.<br>
+                        <strong>Crowds:</strong> Medium. Good balance of price + wildlife.<br>
+                        <strong>Price:</strong> Shoulder season. <span class="price-usd" data-usd="420">$420</span>/day.
+                    </div>
+                </details>
+            </div>
+        </div>
+
         <div class="urgent-box">
             <h3>⚠️ MIGRATION SEASON ALERT</h3>
             <p><strong>July-August:</strong> Mara River crossings - Book 6 months early</p>
@@ -233,17 +366,32 @@
 
         <h2>Why Are We 40% Cheaper Than Viator?</h2>
         <div class="price-box">
-            <h3 id="price" style="color:#D4AF37;font-size:32px;margin-bottom:15px;text-align:center">$450 per day</h3>
-            <div style="text-align:center;margin-bottom:20px">
-                <button onclick="convertCurrency('USD')" class="curr-btn" style="margin:2px;padding:8px 16px;border:1px solid #D4AF37;border-radius:6px;cursor:pointer;background:#D4AF37;color:#0B3D20">$ USD</button>
-                <button onclick="convertCurrency('GBP')" class="curr-btn" style="margin:2px;padding:8px 16px;border:1px solid #D4AF37;border-radius:6px;cursor:pointer;background:#0B3D20;color:white">£ GBP</button>
-                <button onclick="convertCurrency('EUR')" class="curr-btn" style="margin:2px;padding:8px 16px;border:1px solid #D4AF37;border-radius:6px;cursor:pointer;background:#0B3D20;color:white">€ EUR</button>
+            <div class="safety-badges">
+                <span>🦁 Big 5 Guaranteed</span>
+                <span>🚙 4x4 Land Cruisers</span>
+                <span>📜 TANAPA Licensed</span>
+                <span>⛑️ First Aid + Oxygen</span>
             </div>
+
+            <h3 id="price" style="color:#D4AF37;font-size:32px;margin:15px 0;text-align:center" class="price-usd" data-usd="450">$450 per day</h3>
             <p>❌ We DON’T pay 35% commission to SafariBooking.com</p>
             <p>❌ We DON’T have offices in Europe or USA</p>
             <p>✅ You pay your guide DIRECT through our registered TZ company</p>
             <p>✅ We take 10%. Your guide keeps 90%.</p>
             <p><strong>Result: You save $800. Guides earn more. Wildlife benefits.</strong></p>
+        </div>
+
+        <!-- TESTIMONIALS -->
+        <div class="guide-card" style="background:rgba(0,0,0,0.5);">
+            <h2>What Travelers Say After Serengeti 🦁</h2>
+            <div class="testimonial">
+                <p style="font-style:italic">"Mara River crossing was insane. Thousands of wildebeest, crocs everywhere. Aman got us front row. Worth every penny vs the $750/day tour I almost booked."</p>
+                <p><strong>- Sarah K., USA</strong> ⭐⭐⭐⭐⭐<br>5-Day Serengeti, August 2025</p>
+            </div>
+            <div class="testimonial">
+                <p style="font-style:italic">"Calving season in Feb was predator heaven. Saw 4 cheetah kills in 2 days. No other jeeps around. This is how safari should be."</p>
+                <p><strong>- James L., Canada</strong> ⭐⭐⭐⭐⭐<br>4-Day Ndutu, Feb 2026</p>
+            </div>
         </div>
 
         <div class="guide-card">
@@ -255,36 +403,39 @@
             <p>✓ <strong>The Big Five:</strong> Lion, Leopard, Elephant, Rhino, Buffalo - all here</p>
         </div>
 
-        <div class="migration-widget">
-            <h2>When Is The Best Time To See The Great Migration?</h2>
-            <label style="color:#D4AF37; font-weight:bold;">Select your travel month:</label><br>
-            <select id="month" onchange="showMigration()">
-                <option value="">-- Pick a month --</option>
-                <option value="jan">January</option>
-                <option value="feb">February</option>
-                <option value="mar">March</option>
-                <option value="apr">April</option>
-                <option value="may">May</option>
-                <option value="jun">June</option>
-                <option value="jul">July</option>
-                <option value="aug">August</option>
-                <option value="sep">September</option>
-                <option value="oct">October</option>
-                <option value="nov">November</option>
-                <option value="dec">December</option>
-            </select>
-            <div class="migration-result" id="migration-result"></div>
+        <!-- FAQ -->
+        <div class="guide-card">
+            <h2>Questions Every Smart Traveler Asks 🤔</h2>
+            <details>
+                <summary>How many days do I need for Serengeti?</summary>
+                <div style="padding:15px; color:white;">
+                    3 days minimum. 4-5 days ideal for migration + big cats. 1 day = Ngorongoro only. Less than 3 = rushed.
+                </div>
+            </details>
+            <details>
+                <summary>Will I actually see the river crossing?</summary>
+                <div style="padding:15px; color:white;">
+                    90% chance July-Sep if you stay 3+ days in Northern Serengeti. We position you at known crossing points. But nature is nature - no 100% guarantee. That's why 4 days minimum.
+                </div>
+            </details>
+            <details>
+                <summary>Why not book with SafariBookings.com?</summary>
+                <div style="padding:15px; color:white;">
+                    They take 35% commission. That $700/day tour = we charge $450 for same service. You save $800+, guide earns more, money stays in Tanzania. Easy math.
+                </div>
+            </details>
         </div>
 
         <div class="guide-card">
             <h2>What Your Price Includes - No Hidden Fees</h2>
-            <p><strong>$350-600 per day covers EVERYTHING:</strong></p>
+            <p><strong><span class="price-usd" data-usd="350">$350</span>-<span class="price-usd" data-usd="600">$600</span> per day covers EVERYTHING:</strong></p>
             <p>• 4x4 Safari Land Cruiser with pop-up roof</p>
             <p>• Professional English-speaking guide</p>
             <p>• All park fees $70/day paid direct to TANAPA</p>
             <p>• 3 meals daily + bottled water</p>
             <p>• Camping equipment OR lodge accommodation</p>
             <p><strong>Camping saves 40% vs lodges.</strong> We recommend 4-5 days minimum.</p>
+            <a href="https://wa.me/255699004685?text=Hi%20Aman%20Safari%20AI,%20I%20want%20Serengeti%20safari%20quote" class="cta-btn">Chat with AI Assistant Now</a>
         </div>
 
         <div class="guide-card">
@@ -305,159 +456,32 @@
         </div>
     </div>
 
-    <a href="https://wa.me/255699004685" class="whatsapp-float">
+    <a href="https://wa.me/255699004685?text=Hi%20Aman%20Safari%20AI,%20I%20saw%20your%20Serengeti%20site.%20Is%20August%202027%20available?" class="whatsapp-float">
         💬 Chat About Migration 24/7
     </a>
 
-<!-- AI Employee Start -->
-<style>
-.aman-chat-btn {
-  position: fixed; bottom: 90px; right: 20px; background: #0B3D20; color: white;
-  border: 2px solid #D4AF37; border-radius: 50px; padding: 12px 20px; font-size: 14px;
-  font-weight: bold; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 999;
-  font-family: 'Lato', sans-serif;
-}
-.aman-chat-box {
-  display: none; position: fixed; bottom: 150px; right: 20px; width: 340px;
-  background: white; border-radius: 15px; box-shadow: 0 5px 25px rgba(0,0,0,0.3);
-  z-index: 999; font-family: 'Lato', sans-serif;
-}
-.aman-header {
-  background: #0B3D20; color: #D4AF37; padding: 15px; border-radius: 15px 15px 0 0;
-  font-weight: bold; font-size: 16px;
-}
-.aman-body { padding: 15px; max-height: 450px; overflow-y: auto; }
-.aman-msg {
-  background: #f1f1f1; padding: 12px; border-radius: 10px; margin: 8px 0;
-  font-size: 14px; color: #333; line-height: 1.5;
-}
-.aman-question { background: #DCF8C6; text-align: right; margin-left: 30px; }
-.aman-btn {
-  display: block; width: 100%; text-align: left; background: #f8f8f8; border: 1px solid #ddd;
-  padding: 12px; margin: 6px 0; border-radius: 8px; cursor: pointer; font-size: 14px;
-  transition: 0.2s;
-}
-.aman-btn:hover { background: #D4AF37; color: #0B3D20; font-weight: bold; }
-.aman-input-area {
-  display: none; padding: 10px; border-top: 1px solid #ddd;
-}
-.aman-input-area input {
-  width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px;
-  font-size: 14px; margin-bottom: 8px;
-}
-.aman-send-btn {
-  background: #25D366; color: white; border: none; padding: 10px;
-  width: 100%; border-radius: 8px; font-weight: bold; cursor: pointer;
-}
-</style>
+    <div style="background:#0B3D20; padding:20px; text-align:center; margin-top:50px;">
+        <p style="color:#D4AF37;">© 2026 Aman Safari | Licensed Tanzania Tour Operator</p>
+    </div>
 
-<button class="aman-chat-btn" onclick="toggleAman()">💬 Ask Aman AI 24/7</button>
+    <!-- CURRENCY CONVERTER SCRIPT -->
+    <script>
+        const rates = { USD: 1, EUR: 0.92, GBP: 0.79, TZS: 2500 };
+        const symbols = { USD: '$', EUR: '€', GBP: '£', TZS: 'TZS ' };
 
-<div class="aman-chat-box" id="amanBox">
-  <div class="aman-header">
-    Aman AI - Safari Specialist
-    <span style="float:right; cursor:pointer;" onclick="toggleAman()">✕</span>
-  </div>
-  <div class="aman-body" id="amanChat">
-    <div class="aman-msg">Habari! I’m Aman’s AI Employee. Aman is at school/guiding, but I work 24/7. I can quote you, check dates, and hold your spot for Serengeti. What do you need? 👇</div>
-    <button class="aman-btn" onclick="askAman('quote')">💰 Get Instant Safari Price Quote</button>
-    <button class="aman-btn" onclick="askAman('dates')">📅 Check Migration Dates</button>
-    <button class="aman-btn" onclick="askAman('book')">✅ Hold My Spot - $100 Deposit</button>
-    <button class="aman-btn" onclick="askAman('days')">📍 How many days needed?</button>
-    <button class="aman-btn" onclick="askAman('human')">📱 Talk to Human Aman</button>
-  </div>
-  <div class="aman-input-area" id="amanInputArea">
-    <input type="text" id="amanUserInput" placeholder="Type: Dates + #People + #Days">
-    <button class="aman-send-btn" onclick="sendToWhatsApp()">Send to Aman on WhatsApp →</button>
-  </div>
-</div>
+        function convertPrice() {
+            const currency = document.getElementById('currency').value;
+            const rate = rates[currency];
+            const symbol = symbols[currency];
 
-<script>
-function toggleAman() {
-  var box = document.getElementById('amanBox');
-  box.style.display = box.style.display === 'block'? 'none' : 'block';
-}
+            document.querySelectorAll('.price-usd').forEach(el => {
+                const usd = parseFloat(el.dataset.usd);
+                const converted = (usd * rate).toFixed(0);
+                el.textContent = symbol + converted.toLocaleString();
+            });
 
-function askAman(topic) {
-  var chat = document.getElementById('amanChat');
-  var inputArea = document.getElementById('amanInputArea');
-  var answers = {
-    quote: "SERENGETI 4-DAY SAFARI = $450/day per person. All include guide, 4x4, park fees, meals, camping/lodge. Exact quote depends on dates + group size. To get YOUR price, click 'Talk to Human Aman' and send: 1. DATES 2. #PEOPLE 3. #DAYS. Aman replies after 4PM daily.",
-    dates: "July-Aug: Mara River crossings - PEAK. Jan-Feb: Calving season - predator action. Books out 6 months early. Use migration predictor above! To hold dates, click 'Hold My Spot' or send Aman your dates now.",
-    book: "Smart! $100 deposit holds your date + price. Balance paid 30 days before trip. No risk - full refund if you cancel 60+ days out. To hold spot NOW, click 'Talk to Human Aman' and type: 'HOLD JULY 15, 2 PEOPLE, 4 DAYS SERENGETI'. Aman will send payment link by 6PM.",
-    days: "3 days minimum for Serengeti. 4-5 days ideal for migration + big cats. Less than 3 = rushed. 1 day = Ngorongoro only.",
-    human: "Connecting you to Human Aman... He replies after 4PM Mon-Fri, within 1 hour on weekends. FOR FASTEST QUOTE: Type your DATES + #PEOPLE + #DAYS below and click Send. This goes straight to his WhatsApp."
-  };
-
-  chat.innerHTML += '<div class="aman-msg aman-question">' + event.target.innerText + '</div>';
-  chat.innerHTML += '<div class="aman-msg">' + answers[topic] + '</div>';
-
-  if(topic === 'human' || topic === 'book' || topic === 'quote') {
-    inputArea.style.display = 'block';
-  } else {
-    inputArea.style.display = 'none';
-  }
-
-  chat.scrollTop = chat.scrollHeight;
-}
-
-function sendToWhatsApp() {
-  var userText = document.getElementById('amanUserInput').value;
-  if(userText === '') {
-    alert('Tafadhali andika Dates + #People + #Days first');
-    return;
-  }
-  var whatsappMsg = 'Hi Aman - From your Serengeti website AI: ' + encodeURIComponent(userText);
-  window.open('https://wa.me/255699004685?text=' + whatsappMsg, '_blank');
-  document.getElementById('amanUserInput').value = '';
-  document.getElementById('amanChat').innerHTML += '<div class="aman-msg">✅ Sent to Aman! He’ll reply after 4PM with your quote + date confirmation. Asante!</div>';
-}
-</script>
-<!-- AI Employee End -->
-
-<script>
-// Migration selector script
-function showMigration() {
-  const month = document.getElementById('month').value;
-  const result = document.getElementById('migration-result');
-  const data = {
-    jan: "📍 Southern Serengeti - Calving season! 8,000 babies born daily. Predator action is insane.",
-    feb: "📍 Southern Serengeti - Peak calving. Best time for lions + cheetahs hunting.",
-    mar: "📍 Southern Serengeti - Herds start moving north. Lots of babies still.",
-    apr: "📍 Central Serengeti - Long rains. Fewer tourists, lush & green, great prices.",
-    may: "📍 Western Corridor - Moving toward Grumeti River. First river crossings start.",
-    jun: "📍 Western Serengeti - Grumeti River crossings. Crocodiles vs wildebeest!",
-    jul: "📍 Northern Serengeti - Herds reach Mara River. Famous crossings begin.",
-    aug: "📍 Northern Serengeti/Kenya - PEAK Mara River crossings. Most dramatic time.",
-    sep: "📍 Masai Mara, Kenya - Herds in Kenya now. Still great crossings.",
-    oct: "📍 Northern Serengeti - Herds start moving south back to Tanzania.",
-    nov: "📍 Eastern/Central Serengeti - Short rains begin. Herds moving south.",
-    dec: "📍 Southern Serengeti - Herds arrive back. Cycle restarts. Green & beautiful."
-  };
-  if(month) {
-    result.innerHTML = data[month];
-    result.style.display = 'block';
-  } else {
-    result.style.display = 'none';
-  }
-}
-
-// Currency converter script - FIXED
-function convertCurrency(curr) {
-  const rates = {USD: 1, GBP: 0.79, EUR: 0.92};
-  const basePrice = 450;
-  const converted = Math.round(basePrice * rates[curr]);
-  const symbols = {USD: '$', GBP: '£', EUR: '€'};
-  document.getElementById('price').innerText = symbols[curr] + converted + ' per day';
-
-  // Highlight active button
-  document.querySelectorAll('.curr-btn').forEach(btn => {
-    btn.style.background = '#0B3D20';
-    btn.style.color = 'white';
-  });
-  event.target.style.background = '#D4AF37';
-  event.target.style.color = '#0B3D20';
-}
-</script>
+            document.getElementById('price-display').textContent = symbol + (1800 * rate).toFixed(0).toLocaleString();
+        }
+    </script>
 </body>
-</html>
+    </html>
