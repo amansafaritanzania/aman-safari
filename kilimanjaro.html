@@ -196,6 +196,22 @@
             nav a { display: block; margin: 8px 0; }
            .hero { margin-top: 30px; }
         }
+    /* Currency Converter */
+.currency-converter {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.currency-converter select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #1a3a1a;
+    font-size: 16px;
+    margin-top: 10px;
+    }
+    
     </style>
 </head>
 
@@ -503,17 +519,19 @@ document.addEventListener('mouseleave', function(e) {
   if(e.clientY < 0 &&!sessionStorage.getItem('popupShown')) {
     document.getElementById('exitPopup').style.display = 'block';
     sessionStorage.setItem('popupShown', 'true');
-  }
-});
-
-// Currency converter script - FIXED
-function convertCurrency(curr) {
-  const rates = {USD: 1, GBP: 0.79, EUR: 0.92};
-  const basePrice = 2495;
-  const converted = Math.round(basePrice * rates[curr]);
-  const symbols = {USD: '$', GBP: '£', EUR: '€'};
-  document.getElementById('price').innerText = symbols[curr] + converted + ' per person';
-
+  
+<!-- CURRENCY CONVERTER -->
+<div class="currency-converter">
+    <h2>💱 Live Price Converter</h2>
+    <select id="currency" onchange="convertPrice()">
+        <option value="USD">USD $ - US Dollar</option>
+        <option value="EUR">EUR € - Euro</option>
+        <option value="GBP">GBP £ - British Pound</option>
+        <option value="TZS">TZS - Tanzanian Shilling</option>
+    </select>
+    <p style="margin-top:10px;">7-Day Machame: <strong id="price-display">$2,495</strong> per person</p>
+</div>
+      
   // Highlight active button
   document.querySelectorAll('.curr-btn').forEach(btn => {
     btn.style.background = '#0B3D20';
