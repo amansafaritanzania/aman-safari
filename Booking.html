@@ -1,7 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Booking - Aman Safari</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Book Your Safari | Aman Safari</title>
+
 <link rel="stylesheet" href="assets/style.css">
 </head>
 
@@ -9,30 +13,60 @@
 
 <nav>
   <a href="index.html">Home</a>
-  <a href="kilimanjaro.html">Kilimanjaro</a>
-  <a href="booking.html">Booking</a>
 </nav>
 
 <div class="section">
 
-<h1>Complete Your Booking</h1>
+<h2 class="section-title">Start Your Booking</h2>
 
-<div class="card">
-<p>💰 Deposit: $100 to secure your spot</p>
-<p>🏦 CRDB Bank: 0152946488700</p>
-<p>👤 Name: AMAN MTAGWABA NELSON</p>
+<p style="text-align:center;">
+Fill this form and we will confirm availability within 10–30 minutes.
+</p>
+
+<input id="name" placeholder="Full Name" style="width:100%; padding:12px; margin:10px 0;">
+<input id="email" placeholder="Email" style="width:100%; padding:12px; margin:10px 0;">
+<input id="date" placeholder="Travel Date (e.g. July 10)" style="width:100%; padding:12px; margin:10px 0;">
+<input id="people" placeholder="Number of People" style="width:100%; padding:12px; margin:10px 0;">
+
+<select id="tour" style="width:100%; padding:12px; margin:10px 0;">
+  <option>Kilimanjaro</option>
+  <option>Serengeti Safari</option>
+  <option>Ngorongoro Crater</option>
+  <option>Tarangire</option>
+</select>
+
+<button onclick="sendBooking()" class="btn" style="width:100%;">
+Submit Booking Request →
+</button>
+
 </div>
 
-<div class="card">
-<h3>After Payment:</h3>
-<p>1. Send screenshot on WhatsApp</p>
-<p>2. We confirm within 2 hours</p>
-<p>3. You receive full itinerary</p>
-</div>
+<script>
+function sendBooking() {
 
-<a class="btn" href="https://wa.me/255699004685">Contact WhatsApp</a>
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const date = document.getElementById('date').value;
+  const people = document.getElementById('people').value;
+  const tour = document.getElementById('tour').value;
 
-</div>
+  if(!name || !email || !date || !people){
+    alert("Please fill all fields");
+    return;
+  }
+
+  const msg =
+`NEW BOOKING REQUEST:
+Name: ${name}
+Email: ${email}
+Date: ${date}
+People: ${people}
+Tour: ${tour}`;
+
+  window.open("https://wa.me/255699004685?text=" + encodeURIComponent(msg));
+
+}
+</script>
 
 </body>
 </html>
