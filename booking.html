@@ -17,26 +17,23 @@
 
 <div class="section">
 
-<h2 class="section-title">Start Your Booking</h2>
+<h2 class="section-title">Book Your Adventure</h2>
 
-<p style="text-align:center;">
-Fill this form and we will confirm availability within 10–30 minutes.
-</p>
+<select id="tour" style="width:100%; padding:12px; margin:10px 0;">
+  <option value="Kilimanjaro">🏔️ Kilimanjaro Climb</option>
+  <option value="Serengeti">🦁 Serengeti Safari</option>
+  <option value="Ngorongoro">🌋 Ngorongoro Crater</option>
+  <option value="Tarangire">🐘 Tarangire Safari</option>
+  <option value="Ruaha">🦓 Ruaha Safari</option>
+</select>
 
 <input id="name" placeholder="Full Name" style="width:100%; padding:12px; margin:10px 0;">
 <input id="email" placeholder="Email" style="width:100%; padding:12px; margin:10px 0;">
-<input id="date" placeholder="Travel Date (e.g. July 10)" style="width:100%; padding:12px; margin:10px 0;">
+<input id="date" placeholder="Travel Date" style="width:100%; padding:12px; margin:10px 0;">
 <input id="people" placeholder="Number of People" style="width:100%; padding:12px; margin:10px 0;">
 
-<select id="tour" style="width:100%; padding:12px; margin:10px 0;">
-  <option>Kilimanjaro</option>
-  <option>Serengeti Safari</option>
-  <option>Ngorongoro Crater</option>
-  <option>Tarangire</option>
-</select>
-
-<button onclick="sendBooking()" class="btn" style="width:100%;">
-Submit Booking Request →
+<button class="btn" onclick="sendBooking()" style="width:100%;">
+Get Instant Quote →
 </button>
 
 </div>
