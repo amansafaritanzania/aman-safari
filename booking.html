@@ -28,10 +28,24 @@
 </select>
 
 <input id="name" placeholder="Full Name" style="width:100%; padding:12px; margin:10px 0;">
-<input id="email" placeholder="Email" style="width:100%; padding:12px; margin:10px 0;">
-<input id="date" placeholder="Travel Date" style="width:100%; padding:12px; margin:10px 0;">
-<input id="people" placeholder="Number of People" style="width:100%; padding:12px; margin:10px 0;">
 
+<input
+id="email"
+type="email"
+placeholder="Email"
+style="width:100%; padding:12px; margin:10px 0;">
+
+<input
+id="date"
+type="date"
+style="width:100%; padding:12px; margin:10px 0;">
+
+<input
+id="people"
+type="number"
+min="1"
+placeholder="Number of People"
+style="width:100%; padding:12px; margin:10px 0;">
 <button class="btn" onclick="sendBooking()" style="width:100%;">
 Get Instant Quote →
 </button>
@@ -60,6 +74,7 @@ People: ${people}
 
 Please confirm availability + price.`;
 
+  
   window.open("https://wa.me/255699004685?text=" + encodeURIComponent(msg));
 }
 </script>
