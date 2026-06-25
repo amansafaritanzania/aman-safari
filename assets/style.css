@@ -52,6 +52,10 @@ p {
   line-height: 1.7;
   opacity: 0.9;
 }
+.btn {
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  font-size: 18px;
+}
 
 .btn {
   display: inline-block;
@@ -64,7 +68,9 @@ p {
   text-decoration: none;
   transition: 0.3s;
 }
-
+.hero h1 {
+  text-shadow: 2px 2px 15px rgba(0,0,0,0.9);
+}
 .btn:hover {
   transform: translateY(-3px);
 }
@@ -107,5 +113,7 @@ nav a:hover {
 
 /* MOBILE */
 @media (max-width: 768px) {
-  h1 { font-size: 2rem; }
+  .hero-content {
+    padding: 0 15px;
+  }
   }
