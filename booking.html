@@ -37,10 +37,8 @@ Get Instant Quote →
 </button>
 
 </div>
-
 <script>
 function sendBooking() {
-
   const name = document.getElementById('name').value;
   const email = document.getElementById('email').value;
   const date = document.getElementById('date').value;
@@ -53,17 +51,19 @@ function sendBooking() {
   }
 
   const msg =
-`NEW BOOKING REQUEST:
+`NEW BOOKING REQUEST 🔥
+Tour: ${tour}
 Name: ${name}
 Email: ${email}
 Date: ${date}
 People: ${people}
-Tour: ${tour}`;
+
+Please confirm availability + price.`;
 
   window.open("https://wa.me/255699004685?text=" + encodeURIComponent(msg));
-
 }
 </script>
+
 
 </body>
 </html>
