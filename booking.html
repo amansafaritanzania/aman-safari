@@ -125,10 +125,21 @@ return;
 const total=
 prices[tour]*people;
 
-document.getElementById("priceOutput")
-.innerHTML=
-"$"+total.toLocaleString();
+document.getElementById("priceOutput").innerHTML =
+"$" + total.toLocaleString();
 
+document.getElementById(
+"bookingSummary"
+).style.display = "block";
+
+document.getElementById(
+"summaryText"
+).innerHTML =
+`
+Tour: ${tour}<br>
+Travellers: ${people}<br>
+Estimated Total: $${total.toLocaleString()}
+`;
 }
 function sendBooking() {
   const name = document.getElementById('name').value;
