@@ -488,6 +488,34 @@ alert("Booking sent successfully!");
 
 }
 </script>
+  <div id="chat">
+
+<input id="msg" placeholder="Ask about safari booking...">
+
+<button onclick="sendAI()">Send</button>
+
+<div id="reply"></div>
+
+</div>
+
+<script>
+function sendAI(){
+
+fetch("http://localhost:3000/ai",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({
+message:document.getElementById("msg").value
+})
+})
+.then(res=>res.json())
+.then(data=>{
+document.getElementById("reply").innerText = data.reply;
+});
+
+}
+</script>
+
 
 </section>
 
