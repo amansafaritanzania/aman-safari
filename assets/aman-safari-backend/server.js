@@ -1,89 +1,86 @@
 import express from "express";
 import cors from "cors";
+import dotenv from "dotenv";
 import OpenAI from "openai";
 
-const app = express();
+dotenv.config();
 
+const app = express();
 app.use(cors());
 app.use(express.json());
 
 const client = new OpenAI({
-apiKey:"YOUR_OPENAI_API_KEY"
+  apiKey: process.env.OPENAI_API_KEY
 });
 
-app.post("/chat", async (req,res)=>{
 
-try{
+// --------------------
+// 🧠 AI CHAT ROUTE
+// --------------------
+app.post("/chat", async (req, res) => {
 
-const userMessage = req.body.message;
+  const message = req.body.message;
 
-const completion =
-await client.chat.completions.create({
+  try {
 
-model:"gpt-4.1-mini",
+    const response = await client.chat.completions.create({
+      model: "gpt-4o-mini",
+      messages: [
+        {
+          role: "system",
+          content: `
+You are Aman Safari AI Assistant.
 
-messages:[
+You help with:
+- safari bookings in Tanzania
+- travel advice
+- general questions (any topic)
+- school & learning help
 
-{
-role:"system",
-content:`
-
-You are Aman AI.
-
-You can answer general questions.
-
-Capabilities:
-- normal conversation
-- explain ideas
-- help with travel
-- answer school questions
-- coding help
-- booking guidance
-
-If user asks safari questions,
-switch naturally into travel assistant mode.
-
-Keep answers clear and friendly.
-
+Be friendly, short, and helpful.
 `
-},
+        },
+        {
+          role: "user",
+          content: message
+        }
+      ]
+    });
 
-{
-role:"user",
-content:userMessage
-}
+    res.json({
+      reply: response.choices[0].message.content
+    });
 
-]
-
-});
-
-res.json({
-
-reply:
-completion
-.choices[0]
-.message
-.content
-
-});
-
-}
-
-catch(err){
-
-res.status(500).json({
-
-reply:
-"AI temporarily unavailable"
+  } catch (err) {
+    res.json({
+      reply: "Server error. Try again later."
+    });
+  }
 
 });
 
-}
+
+// --------------------
+// 📩 BOOKING ROUTE
+// --------------------
+app.post("/book", (req, res) => {
+
+  const { name, email, park, people, date } = req.body;
+
+  console.log("NEW BOOKING:");
+  console.log(req.body);
+
+  res.json({
+    success: true,
+    message: "Booking received successfully"
+  });
 
 });
 
-app.listen(3000,()=>{
 
-console.log("AI ready");
-
+// --------------------
+// START SERVER
+// --------------------
+app.listen(process.env.PORT, () => {
+  console.log("Aman Safari backend running on port " + process.env.PORT);
 });
