@@ -601,49 +601,114 @@ Send
 </div>
 
 <script>
+<script>
 
 async function sendAI(){
 
-const msg =
-document
-.getElementById("msg")
-.value;
+const input =
+document.getElementById("msg");
 
-const response =
-await fetch(
+const reply =
+document.getElementById("reply");
 
-"https://YOUR-BACKEND.onrender.com/chat",
+const text =
+input.value.trim();
 
-{
+if(!text)return;
 
-method:"POST",
+reply.innerHTML +=
+"<br><br><b>You:</b> " + text;
 
-headers:{
-"Content-Type":"application/json"
-},
+input.value="";
 
-body:JSON.stringify({
+const q =
+text.toLowerCase();
 
-message:msg
+let answer =
+"Thanks for your message. A team member will respond soon.";
 
-})
 
+// greetings
+if(
+q.includes("hello") ||
+q.includes("hi")
+){
+answer =
+"Hello 👋 Welcome to Aman Safari. Ask me anything.";
 }
 
-);
 
-const data =
-await response.json();
+// safari
+else if(
+q.includes("serengeti")
+){
+answer =
+"Serengeti is known for wildlife and open plains.";
+}
 
-document
-.getElementById("reply")
-.innerText =
-data.reply;
+
+// pricing
+else if(
+q.includes("price") ||
+q.includes("cost")
+){
+answer =
+"Trip prices depend on park, group size and dates.";
+}
+
+
+// booking
+else if(
+q.includes("book")
+){
+answer =
+"Use the Reserve Safari section and submit your request.";
+}
+
+
+// general questions
+else if(
+q.includes("who made you")
+){
+answer =
+"I am Aman Safari assistant.";
+}
+
+else if(
+q.includes("weather")
+){
+answer =
+"I cannot check live weather yet.";
+}
+
+else if(
+q.includes("html")
+){
+answer =
+"I can help with HTML, CSS and websites.";
+}
+
+else if(
+q.includes("school")
+){
+answer =
+"Hope your preparation goes well before July.";
+}
+
+
+setTimeout(()=>{
+
+reply.innerHTML +=
+"<br><b>AI:</b> " + answer;
+
+reply.scrollTop =
+reply.scrollHeight;
+
+},500);
 
 }
 
 </script>
-
 </body>
 
   </html>
