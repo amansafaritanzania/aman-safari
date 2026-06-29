@@ -609,4 +609,41 @@
             addMessage(`Got it. Which destination? (Kilimanjaro, Serengeti, Ngorongoro, Tarangire, Ruaha, or Multiple)`, 'bot');
         } else if (!bookingData.route) {
             bookingData.route = text;
-            addMessage(`Perfect.
+            addMessage(`Perfect. When would you like to travel? (e.g., July 2026)`, 'bot');
+        } else if (!bookingData.date) {
+            bookingData.date = text;
+            addMessage(`How many people in your group?`, 'bot');
+        } else if (!bookingData.group) {
+            bookingData.group = text;
+            
+            // Send to formsubmit.co
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = 'https://formsubmit.co/amannelson824@gmail.com';
+            form.style.display = 'none';
+            
+            Object.keys(bookingData).forEach(key => {
+                const input = document.createElement('input');
+                input.name = key;
+                input.value = bookingData[key];
+                form.appendChild(input);
+            });
+            
+            const subject = document.createElement('input');
+            subject.name = '_subject';
+            subject.value = 'New AI Chat Booking - ' + bookingData.route;
+            form.appendChild(subject);
+            
+            document.body.appendChild(form);
+            form.submit();
+            
+            addMessage(`Perfect! I've sent your request to our team. We'll email you at ${bookingData.email} within 24 hours with a custom itinerary for ${bookingData.route}.<br><br>Need immediate help? WhatsApp us: +255 699 004 685`, 'bot');
+            
+            bookingMode = false;
+            bookingData = {};
+        }
+    }
+</script>
+
+</body>
+   </html>
