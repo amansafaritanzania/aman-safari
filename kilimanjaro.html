@@ -1,84 +1,615 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Climb Kilimanjaro | Luxury Expedition</title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: 'Segoe UI', sans-serif;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kilimanjaro Luxury Expeditions</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+    :root {
+        --gold: #C9A961;
+        --earth: #3D2B1F;
+        --ivory: #F8F5F0;
+        --charcoal: #1A1A1A;
+    }
+    
+    body {
+        font-family: 'Montserrat', sans-serif;
+        color: var(--charcoal);
+        overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4 {
+        font-family: 'Cormorant Garamond', serif;
+    }
+    
+    .hero-bg {
+        background: linear-gradient(rgba(26, 26, 26, 0.4), rgba(26, 26, 26, 0.6)), 
+                    url('https://images.unsplash.com/photo-1575981841027-53fef6cb2d55?q=80&w=2670&auto=format&fit=crop') center/cover no-repeat;
+        background-attachment: fixed;
+    }
+    
+    @media (max-width: 768px) {
+        .hero-bg {
+            background-attachment: scroll;
         }
-
-        /* Luxury Background */
-        body {
-            background: url('https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&q=80&w=2000') no-repeat center center fixed;
-            background-size: cover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+    }
+    
+    .glass-card {
+        background: rgba(248, 245, 240, 0.95);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(201, 169, 97, 0.2);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .gold-gradient {
+        background: linear-gradient(135deg, #C9A961 0%, #E8D9B5  50%, #C9A961 100%);
+    }
+    
+    .btn-gold {
+        background: linear-gradient(135deg, #C9A961 0%, #B89650 100%);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 15px rgba(201, 169, 97, 0.3);
+    }
+    
+    .btn-gold:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(201, 169, 97, 0.5);
+        background: linear-gradient(135deg, #B89650 0%, #C9A961 100%);
+    }
+    
+    .nav-link {
+        position: relative;
+        transition: color 0.3s ease;
+    }
+    
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -4px;
+        left: 50%;
+        background: var(--gold);
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+    }
+    
+    .nav-link:hover::after, .nav-link.active::after {
+        width: 100%;
+    }
+    
+    input:focus, select:focus {
+        outline: none;
+        border-color: var(--gold);
+        box-shadow: 0 0 0 3px rgba(201, 169, 97, 0.1);
+    }
+    
+    .section {
+        display: none;
+        animation: fadeIn 0.6s ease;
+    }
+    
+    .section.active {
+        display: block;
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .best-time-widget {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .best-time-widget.collapsed {
+        transform: translateX(calc(100% - 60px));
+    }
+    
+    @media (max-width: 640px) {
+        .best-time-widget.collapsed {
+            transform: translateX(calc(100% - 50px));
         }
-
-        /* Booking Form Styling */
-        .booking-card {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 40px;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-            width: 350px;
-        }
-
-        input {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-
-        button.submit {
-            width: 100%;
-            padding: 12px;
-            background: #2c3e50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        /* Floating AI Chat Button */
-        .chat-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #d4af37; /* Gold color */
-            color: white;
-            padding: 15px 25px;
-            border-radius: 50px;
-            font-weight: bold;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            cursor: pointer;
-            text-decoration: none;
-        }
-    </style>
+    }
+    
+    .route-card {
+        transition: all 0.4s ease;
+    }
+    
+    .route-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+</style>
 </head>
-<body>
+<body class="bg-[#F8F5F0]">
 
-    <div class="booking-card">
-        <h2>Book Your Ascent</h2>
-        <form>
-            <input type="text" placeholder="Full Name" required>
-            <input type="email" placeholder="Email Address" required>
-            <input type="date">
-            <button type="submit" class="submit">Reserve Your Adventure</button>
-        </form>
+<!-- Navigation -->
+<header class="fixed top-0 w-full z-50 transition-all duration-300" id="navbar">
+    <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+            <div class="flex items-center">
+                <h1 class="text-2xl sm:text-3xl font-bold text-white tracking-wider">
+                    <span class="text-[#C9A961]">KILI</span>MANJARO
+                </h1>
+            </div>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8 lg:space-x-12">
+                <a href="#home" class="nav-link text-white font-medium text-sm tracking-wider uppercase active" data-page="home">Home</a>
+                <a href="#routes" class="nav-link text-white font-medium text-sm tracking-wider uppercase" data-page="routes">Routes</a>
+                <a href="#about" class="nav-link text-white font-medium text-sm tracking-wider uppercase" data-page="about">About</a>
+                <a href="#contact" class="nav-link text-white font-medium text-sm tracking-wider uppercase" data-page="contact">Contact</a>
+                <button onclick="scrollToBooking()" class="btn-gold text-white px-6 py-2.5 rounded-full text-sm font-medium tracking-wider uppercase">
+                    Book Now
+                </button>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-white text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden pb-6">
+            <div class="flex flex-col space-y-4 pt-4 border-t border-white/20">
+                <a href="#home" class="nav-link-mobile text-white font-medium text-sm tracking-wider uppercase py-2" data-page="home">Home</a>
+                <a href="#routes" class="nav-link-mobile text-white font-medium text-sm tracking-wider uppercase py-2" data-page="routes">Routes</a>
+                <a href="#about" class="nav-link-mobile text-white font-medium text-sm tracking-wider uppercase py-2" data-page="about">About</a>
+                <a href="#contact" class="nav-link-mobile text-white font-medium text-sm tracking-wider uppercase py-2" data-page="contact">Contact</a>
+                <button onclick="scrollToBooking()" class="btn-gold text-white px-6 py-3 rounded-full text-sm font-medium tracking-wider uppercase w-full">
+                    Book Now
+                </button>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Best Time Widget - Appears on all pages -->
+<div id="best-time-widget" class="best-time-widget fixed top-24 right-0 z-40 w-80 sm:w-96">
+    <div class="glass-card rounded-l-2xl shadow-2xl">
+        <button id="widget-toggle" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-full gold-gradient text-white w-12 sm:w-14 h-32 rounded-l-xl flex items-center justify-center shadow-lg">
+            <div class="-rotate-90 whitespace-nowrap text-xs sm:text-sm font-semibold tracking-widest uppercase">
+                Best Time
+            </div>
+        </button>
+        
+        <div class="p-5 sm:p-6">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-xl font-bold text-[#3D2B1F]">Best Time to Visit</h3>
+                <i class="fas fa-calendar-alt text-[#C9A961] text-xl"></i>
+            </div>
+            
+            <div class="space-y-4">
+                <div class="pb-4 border-b border-[#C9A961]/20">
+                    <div class="flex items-center gap-2 mb-2">
+                        <i class="fas fa-mountain text-[#C9A961]"></i>
+                        <h4 class="font-semibold text-[#3D2B1F]">Kilimanjaro</h4>
+                    </div>
+                    <p class="text-sm text-gray-700">Jan-Mar & Jun-Oct</p>
+                    <p class="text-xs text-gray-600 mt-1">Clear skies, minimal rainfall</p>
+                </div>
+                
+                <div class="pb-4 border-b border-[#C9A961]/20">
+                    <div class="flex items-center gap-2 mb-2">
+                        <i class="fas fa-paw text-[#C9A961]"></i>
+                        <h4 class="font-semibold text-[#3D2B1F]">Serengeti</h4>
+                    </div>
+                    <p class="text-sm text-gray-700">Jun-Oct</p>
+                    <p class="text-xs text-gray-600 mt-1">Great Migration, dry season</p>
+                </div>
+                
+                <div class="pb-4 border-b border-[#C9A961]/20">
+                    <div class="flex items-center gap-2 mb-2">
+                        <i class="fas fa-water text-[#C9A961]"></i>
+                        <h4 class="font-semibold text-[#3D2B1F]">Ngorongoro</h4>
+                    </div>
+                    <p class="text-sm text-gray-700">Jun-Oct</p>
+                    <p class="text-xs text-gray-600 mt-1">Wildlife concentration at crater floor</p>
+                </div>
+                
+                <div class="pb-4 border-b border-[#C9A961]/20">
+                    <div class="flex items-center gap-2 mb-2">
+                        <i class="fas fa-tree text-[#C9A961]"></i>
+                        <h4 class="font-semibold text-[#3D2B1F]">Tarangire</h4>
+                    </div>
+                    <p class="text-sm text-gray-700">Jun-Feb</p>
+                    <p class="text-xs text-gray-600 mt-1">Elephant herds, baobab season</p>
+                </div>
+                
+                <div>
+                    <div class="flex items-center gap-2 mb-2">
+                        <i class="fas fa-leaf text-[#C9A961]"></i>
+                        <h4 class="font-semibold text-[#3D2B1F]">Ruaha</h4>
+                    </div>
+                    <p class="text-sm text-gray-700">Jun-Oct</p>
+                    <p class="text-xs text-gray-600 mt-1">Dry season, predator activity</p>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 
-    <a href="#" class="chat-btn">Ask AI Guide</a>
+<!-- Main Content Sections -->
+<main>
+    <!-- HOME SECTION -->
+    <section id="home-section" class="section active">
+        <!-- Hero with Full-Screen Background -->
+        <div class="hero-bg min-h-screen flex items-center justify-center relative">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-light text-white mb-6 leading-tight">
+                        Summit the <span class="text-[#C9A961] font-semibold">Extraordinary</span>
+                    </h2>
+                    <p class="text-lg sm:text-xl lg:text-2xl text-gray-200 mb-12 font-light leading-relaxed">
+                        Luxury expeditions to the Roof of Africa and Tanzania's pristine wilderness
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                        <button onclick="scrollToBooking()" class="btn-gold text-white px-10 py-4 rounded-full text-base font-medium tracking-wider uppercase w-full sm:w-auto">
+                            Begin Your Journey
+                        </button>
+                        <button onclick="navigateTo('routes')" class="border-2 border-white text-white px-10 py-4 rounded-full text-base font-medium tracking-wider uppercase hover:bg-white hover:text-[#3D2B1F] transition-all duration-300 w-full sm:w-auto">
+                            Explore Routes
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+                <i class="fas fa-chevron-down text-white text-2xl opacity-70"></i>
+            </div>
+        </div>
+        
+        <!-- Booking Form Section -->
+        <div id="booking-section" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-[#F8F5F0]">
+            <div class="container mx-auto max-w-5xl">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-light text-[#3D2B1F] mb-4">
+                        Plan Your <span class="text-[#C9A961] font-semibold">Expedition</span>
+                    </h2>
+                    <p class="text-gray-600 text-lg">Experience unparalleled luxury in the heart of the wild</p>
+                </div>
+                
+                <div class="glass-card rounded-3xl p-6 sm:p-10 lg:p-12">
+                    <form id="booking-form" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-[#3D2B1F] mb-2 tracking-wide">Full Name *</label>
+                                <input type="text" id="fullName" required 
+                                       class="w-full px-5 py-3.5 border border-gray-300 rounded-xl bg-white/50 focus:bg-white transition-all duration-300"
+                                       placeholder="John Doe">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-[#3D2B1F] mb-2 tracking-wide">Email Address *</label>
+                                <input type="email" id="email" required 
+                                       class="w-full px-5 py-3.5 border border-gray-300 rounded-xl bg-white/50 focus:bg-white transition-all duration-300"
+                                       placeholder="john@example.com">
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-[#3D2B1F] mb-2 tracking-wide">Select Route *</label>
+                                <select id="route" required 
+                                        class="w-full px-5 py-3.5 border border-gray-300 rounded-xl bg-white/50 focus:bg-white transition-all duration-300">
+                                    <option value="">Choose your destination</option>
+                                    <option value="Kilimanjaro">Kilimanjaro - Machame Route</option>
+                                    <option value="Kilimanjaro">Kilimanjaro - Lemosho Route</option>
+                                    <option value="Ruaha">Ruaha National Park Safari</option>
+                                    <option value="Serengeti">Serengeti Migration Safari</option>
+                                    <option value="Tarangire">Tarangire Elephant Safari</option>
+                                    <option value="Ngorongoro">Ngorongoro Crater Experience</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-[#3D2B1F] mb-2 tracking-wide">Preferred Date *</label>
+                                <input type="date" id="date" required 
+                                       class="w-full px-5 py-3.5 border border-gray-300 rounded-xl bg-white/50 focus:bg-white transition-all duration-300">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-[#3D2B1F] mb-2 tracking-wide">Special Requests</label>
+                            <textarea id="requests" rows="4"
+                                      class="w-full px-5 py-3.5 border border-gray-300 rounded-xl bg-white/50 focus:bg-white transition-all duration-300"
+                                      placeholder="Dietary requirements, accessibility needs, celebration occasions..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-gold w-full text-white py-4 rounded-xl text-base font-semibold tracking-wider uppercase">
+                            Submit Booking Request
+                        </button>
+                    </form>
+                    
+                    <div id="success-message" class="hidden mt-6 p-4 bg-green-50 border border-green-200 rounded-xl text-green-800 text-center">
+                        <i class="fas fa-check-circle mr-2"></i>
+                        Thank you! Your booking request has been received. Our team will contact you within 24 hours.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Features -->
+        <div class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+            <div class="container mx-auto max-w-6xl">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 rounded-full gold-gradient flex items-center justify-center">
+                            <i class="fas fa-award text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-[#3D2B1F] mb-3">Expert Guides</h3>
+                        <p class="text-gray-600 leading-relaxed">Wilderness First Responder certified guides with decades of Kilimanjaro experience</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 rounded-full gold-gradient flex items-center justify-center">
+                            <i class="fas fa-gem text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-[#3D2B1F] mb-3">Luxury Camps</h3>
+                        <p class="text-gray-600 leading-relaxed">Five-star amenities in the wilderness: gourmet dining, private bathrooms, fine linens</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 rounded-full gold-gradient flex items-center justify-center">
+                            <i class="fas fa-shield-alt text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-[#3D2B1F] mb-3">Safety First</h3>
+                        <p class="text-gray-600 leading-relaxed">Comprehensive medical support, oxygen, and evacuation protocols on every expedition</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-</body>
-</html>
+    <!-- ROUTES SECTION -->
+    <section id="routes-section" class="section">
+        <div class="pt-32 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8">
+            <div class="container mx-auto max-w-6xl">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-light text-[#3D2B1F] mb-4">
+                        Iconic <span class="text-[#C9A961] font-semibold">Routes</span>
+                    </h2>
+                    <p class="text-gray-600 text-lg max-w-2xl mx-auto">Curated expeditions to Tanzania's most breathtaking destinations</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="route-card glass-card rounded-2xl overflow-hidden">
+                        <div class="h-56 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1547471080-7cc2b78e246e?q=80&w=2670&auto=format&fit=crop')"></div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="text-2xl font-semibold text-[#3D2B1F]">Kilimanjaro</h3>
+                                <span class="text-[#C9A961] text-sm font-medium">7-9 Days</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4 leading-relaxed">Summit Africa's highest peak via Machame or Lemosho routes. Premium camping with full porter support.</p>
+                            <div class="flex items-center text-sm text-gray-500 mb-4">
+                                <i class="fas fa-star text-[#C9A961] mr-2"></i>
+                                <span>Difficulty: Challenging</span>
+                            </div>
+                            <button onclick="scrollToBooking(); document.getElementById('route').value='Kilimanjaro';" class="btn-gold w-full text-white py-3 rounded-xl text-sm font-semibold tracking-wider uppercase">
+                                Book This Route
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="route-card glass-card rounded-2xl overflow-hidden">
+                        <div class="h-56 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1516426122078-cd0988402c8b?q=80&w=2670&auto=format&fit=crop')"></div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="text-2xl font-semibold text-[#3D2B1F]">Serengeti</h3>
+                                <span class="text-[#C9A961] text-sm font-medium">4-7 Days</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4 leading-relaxed">Witness the Great Migration in luxury mobile camps. Big Five safaris with expert naturalist guides.</p>
+                            <div class="flex items-center text-sm text-gray-500 mb-4">
+                                <i class="fas fa-star text-[#C9A961] mr-2"></i>
+                                <span>Difficulty: Easy</span>
+                            </div>
+                            <button onclick="scrollToBooking(); document.getElementById('route').value='Serengeti';" class="btn-gold w-full text-white py-3 rounded-xl text-sm font-semibold tracking-wider uppercase">
+                                Book This Route
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="route-card glass-card rounded-2xl overflow-hidden">
+                        <div class="h-56 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1575550959106-5a7defe28b56?q=80&w=2670&auto=format&fit=crop')"></div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="text-2xl font-semibold text-[#3D2B1F]">Ngorongoro</h3>
+                                <span class="text-[#C9A961] text-sm font-medium">3-5 Days</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4 leading-relaxed">Descend into the world's largest intact caldera. World's densest concentration of wildlife in a luxury lodge.</p>
+                            <div class="flex items-center text-sm text-gray-500 mb-4">
+                                <i class="fas fa-star text-[#C9A961] mr-2"></i>
+                                <span>Difficulty: Easy</span>
+                            </div>
+                            <button onclick="scrollToBooking(); document.getElementById('route').value='Ngorongoro';" class="btn-gold w-full text-white py-3 rounded-xl text-sm font-semibold tracking-wider uppercase">
+                                Book This Route
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="route-card glass-card rounded-2xl overflow-hidden">
+                        <div class="h-56 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1615808479999-a41b4db6c317?q=80&w=2670&auto=format&fit=crop')"></div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="text-2xl font-semibold text-[#3D2B1F]">Tarangire</h3>
+                                <span class="text-[#C9A961] text-sm font-medium">2-4 Days</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4 leading-relaxed">Ancient baobabs and massive elephant herds. Intimate luxury camps in Tanzania's hidden gem.</p>
+                            <div class="flex items-center text-sm text-gray-500 mb-4">
+                                <i class="fas fa-star text-[#C9A961] mr-2"></i>
+                                <span>Difficulty: Easy</span>
+                            </div>
+                            <button onclick="scrollToBooking(); document.getElementById('route').value='Tarangire';" class="btn-gold w-full text-white py-3 rounded-xl text-sm font-semibold tracking-wider uppercase">
+                                Book This Route
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="route-card glass-card rounded-2xl overflow-hidden">
+                        <div class="h-56 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1547036967-23d11aacaee0?q=80&w=2670&auto=format&fit=crop')"></div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="text-2xl font-semibold text-[#3D2B1F]">Ruaha</h3>
+                                <span class="text-[#C9A961] text-sm font-medium">3-6 Days</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4 leading-relaxed">Remote wilderness with 10% of Africa's lion population. Exclusive fly-in safari experience.</p>
+                            <div class="flex items-center text-sm text-gray-500 mb-4">
+                                <i class="fas fa-star text-[#C9A961] mr-2"></i>
+                                <span>Difficulty: Moderate</span>
+                            </div>
+                            <button onclick="scrollToBooking(); document.getElementById('route').value='Ruaha';" class="btn-gold w-full text-white py-3 rounded-xl text-sm font-semibold tracking-wider uppercase">
+                                Book This Route
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="route-card glass-card rounded-2xl overflow-hidden">
+                        <div class="h-56 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1612278675615-7b0934432e4c?q=80&w=2670&auto=format&fit=crop')"></div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="text-2xl font-semibold text-[#3D2B1F]">Combination</h3>
+                                <span class="text-[#C9A961] text-sm font-medium">10-15 Days</span>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4 leading-relaxed">Kilimanjaro summit + Serengeti safari + Ngorongoro crater. The ultimate Tanzania experience.</p>
+                            <div class="flex items-center text-sm text-gray-500 mb-4">
+                                <i class="fas fa-star text-[#C9A961] mr-2"></i>
+                                <span>Difficulty: Challenging</span>
+                            </div>
+                            <button onclick="scrollToBooking();" class="btn-gold w-full text-white py-3 rounded-xl text-sm font-semibold tracking-wider uppercase">
+                                Book This Route
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about-section" class="section">
+        <div class="pt-32 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8">
+            <div class="container mx-auto max-w-4xl">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-light text-[#3D2B1F] mb-4">
+                        About <span class="text-[#C9A961] font-semibold">Us</span>
+                    </h2>
+                </div>
+                
+                <div class="glass-card rounded-3xl p-8 sm:p-12 mb-12">
+                    <h3 class="text-3xl font-semibold text-[#3D2B1F] mb-6">Two Decades of Excellence</h3>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        For over 20 years, Kilimanjaro Luxury Expeditions has set the standard for premium adventure travel in Tanzania. What began as a passion project by veteran mountain guides has evolved into the region's most trusted luxury outfitter, serving discerning travelers from around the globe.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        We believe luxury and wilderness are not mutually exclusive. Our expeditions combine the raw beauty of Africa with white-glove service: gourmet chefs, private bathroom facilities, satellite communications, and comprehensive medical support at every camp.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed">
+                        Our commitment extends beyond our guests. We maintain the highest guide-to-client ratios in the industry, pay leading wages to our local team, and contribute 5% of profits to conservation and community development in the Kilimanjaro region.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+                    <div class="text-center glass-card rounded-2xl p-6">
+                        <div class="text-4xl font-bold text-[#C9A961] mb-2">20+</div>
+                        <div class="text-sm text-gray-600">Years Experience</div>
+                    </div>
+                    <div class="text-center glass-card rounded-2xl p-6">
+                        <div class="text-4xl font-bold text-[#C9A961] mb-2">5000+</div>
+                        <div class="text-sm text-gray-600">Summits Guided</div>
+                    </div>
+                    <div class="text-center glass-card rounded-2xl p-6">
+                        <div class="text-4xl font-bold text-[#C9A961] mb-2">98%</div>
+                        <div class="text-sm text-gray-600">Success Rate</div>
+                    </div>
+                    <div class="text-center glass-card rounded-2xl p-6">
+                        <div class="text-4xl font-bold text-[#C9A961] mb-2">150+</div>
+                        <div class="text-sm text-gray-600">Local Team</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact-section" class="section">
+        <div class="pt-32 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8">
+            <div class="container mx-auto max-w-5xl">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl sm:text-5xl lg:text-6xl font-light text-[#3D2B1F] mb-4">
+                        Get in <span class="text-[#C9A961] font-semibold">Touch</span>
+                    </h2>
+                    <p class="text-gray-600 text-lg">Our expedition specialists are here to craft your perfect journey</p>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="glass-card rounded-3xl p-8 sm:p-10">
+                        <h3 class="text-2xl font-semibold text-[#3D2B1F] mb-6">Send a Message</h3>
+                        <form id="contact-form" class="space-y-5">
+                            <div>
+                                <input type="text" placeholder="Your Name" required
+                                       class="w-full px-5 py-3.5 border border-gray-300 rounded-xl bg-white/50 focus:bg-white transition-all duration-300">
+                            </div>
+                            <div>
+                                <input type="email" placeholder="Email Address" required
+                                       class="w-full px-5 py-3.5 border border-gray-300 rounded-xl bg-white/50 focus:bg-white transition-all duration-300">
+                            </div>
+                            <div>
+                                <textarea rows="5" placeholder="Your Message" required
+                                          class="w-full px-5 py-3.5 border border-gray-300 rounded-xl bg-white/50 focus:bg-white transition-all duration-300"></textarea>
+                            </div>
+                            <button type="submit" class="btn-gold w-full text-white py-4 rounded-xl text-base font-semibold tracking-wider uppercase">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="glass-card rounded-3xl p-8">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-full gold-gradient flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-[#3D2B1F] mb-2">Headquarters</h4>
+                                    <p class="text-gray-600">Arusha, Tanzania<br>East Africa</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="glass-card rounded-3xl p-8">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-full gold-gradient flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-phone text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-[#3D2B1F] mb-2">Phone</h4>
+                                    <p class="text-gray-600">+255 123 456 789<br>Mon-Sat 8am-6pm EAT</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="glass-card rounded-3xl p-8">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-full gold-gradient flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-envelope text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold text-[#3D2B1F] mb-2">Email</h4>
+                                    <p class="text-gray-600">expeditions@kilimanjaro-luxury.com<br>Response within 24hrs</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-[#1A1A1A] text-gray-300 py-12 sm:py-16 px-4 sm:px
