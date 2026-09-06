@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saadani National Park | Aman Safari Tanzania</title>
+<meta name="description" content="Explore Saadani National Park on Tanzania’s Swahili Coast — where wildlife, the Wami River and Indian Ocean beaches meet in one distinctive safari experience with Aman Safari Tanzania.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--green:#17382d;--green2:#10271f;--gold:#c6a15b;--cream:#f6f1e7;--ink:#18211d;--muted:#68736d}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:Montserrat,Arial,sans-serif;color:var(--ink);background:var(--cream);line-height:1.7}a{text-decoration:none;color:inherit}
+.nav{position:fixed;top:0;left:0;width:100%;z-index:20;padding:20px 6%;display:flex;align-items:center;justify-content:space-between;transition:.3s;color:#fff}
+.nav.scrolled{background:rgba(16,39,31,.96);padding:13px 6%;box-shadow:0 8px 30px rgba(0,0,0,.15)}
+.logo{font-family:"Cormorant Garamond",serif;font-size:28px;font-weight:700;letter-spacing:1.5px}.logo span{color:var(--gold)}
+.nav-links{display:flex;gap:24px;align-items:center;font-size:12px;text-transform:uppercase;letter-spacing:1px;font-weight:600}
+.nav-links a:hover{color:#e1c681}.menu-btn{display:none;background:none;border:0;color:#fff;font-size:27px}
+.hero{min-height:88vh;display:grid;place-items:center;text-align:center;padding:120px 6% 80px;position:relative;overflow:hidden;color:#fff;background:#12251e}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(8,23,20,.42),rgba(8,23,20,.76)),url("https://www.exploreeastafrica.com/images/MAIN/Saadani.JPG") center/cover}
+.hero-content{position:relative;z-index:1;max-width:900px}.kicker{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#e1c681;font-weight:700;margin-bottom:18px}
+h1,h2,h3{font-family:"Cormorant Garamond",serif}h1{font-size:clamp(54px,8vw,92px);line-height:.95;margin-bottom:24px}
+.hero p{max-width:700px;margin:0 auto 30px;font-size:16px;color:rgba(255,255,255,.9)}
+.btn{display:inline-block;padding:14px 22px;border-radius:3px;background:var(--gold);color:#15251e;font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase}
+.btn.alt{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.6);margin-left:8px}
+section{padding:85px 6%}.container{max-width:1180px;margin:auto}.intro{display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:center}
+.eyebrow{color:#9b7839;text-transform:uppercase;letter-spacing:2px;font-size:11px;font-weight:700;margin-bottom:10px}
+h2{font-size:clamp(38px,5vw,60px);line-height:1.05;margin-bottom:18px}.lead{font-size:17px;color:var(--muted)}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#d9d0c1;margin-top:35px}.fact{background:var(--cream);padding:22px}
+.fact strong{display:block;font-family:"Cormorant Garamond",serif;font-size:29px;color:var(--green)}.fact span{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
+.dark{background:var(--green);color:#fff}.dark .lead{color:rgba(255,255,255,.72)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:35px}.card{padding:30px;background:#fff;border:1px solid #e5ded2}
+.dark .card{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1)}.card h3{font-size:28px;margin-bottom:9px}.card p{font-size:13px;color:var(--muted)}.dark .card p{color:rgba(255,255,255,.7)}
+.best{background:#eee7db}.month-picker{margin-top:32px;background:#fff;border:1px solid #d8cdbd;padding:24px;border-radius:14px;box-shadow:0 20px 50px rgba(35,45,38,.08)}
+.season-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:18px}.season{padding:10px 12px;border-radius:30px;text-align:center;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;border:1px solid #ded5c8}.season:nth-child(1){background:#eef3e9}.season:nth-child(2){background:#f5ead5}.season:nth-child(3){background:#e8f0ee}.season:nth-child(4){background:#eee6dc}
+.months{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 12px;scrollbar-width:thin}.month{flex:0 0 86px;position:relative;border:1px solid #d5c9b8;background:#faf7f1;padding:17px 9px 13px;cursor:pointer;font:600 10px Montserrat;text-transform:uppercase;letter-spacing:.8px;color:var(--ink);border-radius:10px;transition:.25s;text-align:center}.month small{display:block;font-size:9px;margin-top:7px;color:#8b857b;letter-spacing:.3px}.month::before{content:"";display:block;width:8px;height:8px;border-radius:50%;background:#b8c5a7;margin:0 auto 10px}.month:nth-child(n+4):nth-child(-n+5)::before{background:#c6a15b}.month:nth-child(n+6):nth-child(-n+10)::before{background:#789286}.month:nth-child(n+11)::before{background:#a48663}.month.active,.month:hover{background:var(--green);color:#fff;border-color:var(--green);transform:translateY(-3px);box-shadow:0 12px 24px rgba(23,56,45,.18)}.month.active small,.month:hover small{color:rgba(255,255,255,.72)}.month.active::after{content:"✓";position:absolute;right:7px;top:6px;font-size:11px;color:#e1c681}
+.month-info{margin-top:18px;background:linear-gradient(135deg,var(--green),var(--green2));color:#fff;padding:25px 28px;border-radius:10px;min-height:120px;display:flex;align-items:center;box-shadow:0 14px 30px rgba(23,56,45,.13)}.month-info strong{font-family:"Cormorant Garamond",serif;font-size:29px;color:#e1c681;display:inline-block;margin-right:8px}.month-info em{font-style:normal;color:#e1c681;font-size:11px;text-transform:uppercase;letter-spacing:1px}
+.journey{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}.step{background:#fff;padding:28px;border-top:3px solid var(--gold)}.step small{color:#9b7839;font-weight:700;letter-spacing:1px}.step h3{font-size:27px;margin:8px 0}
+.cta{text-align:center;background:linear-gradient(135deg,var(--green),var(--green2));color:#fff}.cta p{max-width:650px;margin:0 auto 25px;color:rgba(255,255,255,.76)}
+footer{background:#0c1c16;color:rgba(255,255,255,.72);padding:40px 6%;font-size:12px}.footer-inner{max-width:1180px;margin:auto;display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}.footer-title{font-family:"Cormorant Garamond",serif;font-size:25px;color:#fff}
+.wa{position:fixed;right:20px;bottom:20px;z-index:30;background:#25d366;color:#fff;padding:13px 18px;border-radius:40px;font-size:12px;font-weight:700;box-shadow:0 10px 25px rgba(0,0,0,.2)}
+@media(max-width:800px){.nav-links{display:none;position:absolute;top:100%;left:0;width:100%;background:rgba(16,39,31,.98);padding:20px 6%;flex-direction:column;align-items:flex-start}.nav-links.open{display:flex}.menu-btn{display:block}.hero{min-height:78vh}.hero p{font-size:14px}.intro{grid-template-columns:1fr;gap:35px}.cards,.journey{grid-template-columns:1fr}.facts{grid-template-columns:1fr}.months{display:flex}.season-strip{grid-template-columns:repeat(2,1fr)}.btn.alt{margin:10px 0 0}}
+@media(max-width:480px){.month{flex-basis:78px}.season-strip{grid-template-columns:1fr 1fr}.month{padding:13px 9px}.month-info{padding:22px}}
+</style>
+</head>
+<body>
+<header class="nav" id="nav">
+<a class="logo" href="index.html">AMAN <span>SAFARI</span></a>
+<button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+<nav class="nav-links" id="navLinks">
+<a href="index.html">Home</a><a href="index.html#destinations">Destinations</a><a href="index.html#best-time">Best Time</a>
+<a href="booking.html?destination=Saadani">Booking</a><a href="pay.html">Payments</a>
+</nav>
+</header>
+
+<main>
+<section class="hero">
+<div class="hero-content">
+<div class="kicker">Swahili Coast · Saadani National Park</div>
+<h1>Where the Bush Meets the Beach</h1>
+<p>Follow wildlife through coastal savanna, cruise the Wami River and finish the day beside the Indian Ocean in one of Tanzania's most distinctive safari destinations.</p>
+<a class="btn" href="booking.html?destination=Saadani">Plan My Gombe Safari</a>
+<a class="btn alt" href="index.html">Back Home</a>
+</div>
+</section>
+
+<section>
+<div class="container intro">
+<div>
+<div class="eyebrow">The Destination</div>
+<h2>Safari Where Coast Meets Savanna</h2>
+<p class="lead">Saadani National Park brings together coastal savanna, mangroves, the Wami River and Indian Ocean beaches. It is Tanzania’s signature bush-and-beach safari setting.</p>
+<div class="facts">
+<div class="fact"><strong>1,100+ km²</strong><span>Protected Landscape</span></div>
+<div class="fact"><strong>Wami River</strong><span>Boat Safari</span></div>
+<div class="fact"><strong>Indian Ocean</strong><span>Coastal Experience</span></div>
+</div>
+</div>
+<div>
+<p class="lead">Saadani is different from a classic inland safari. Here, wildlife habitat runs into mangroves, river channels and the Indian Ocean, creating a relaxed coastal rhythm alongside game viewing.</p>
+</div>
+</div>
+</section>
+
+<section class="dark">
+<div class="container">
+<div class="eyebrow">Signature Experiences</div>
+<h2>Wildlife, River & Ocean</h2>
+<div class="cards">
+<article class="card"><h3>Game Drives</h3><p>Explore palm-studded savanna and coastal thickets for elephants, giraffe, buffalo, zebra and other wildlife. Sightings are never guaranteed.</p></article>
+<article class="card"><h3>Wami River Boat Safari</h3><p>Cruise the Wami River with a guide and look for hippos, crocodiles, waterbirds and mangrove-lined channels.</p></article>
+<article class="card"><h3>Beach & Turtle Season</h3><p>Explore the Indian Ocean coastline and, during the appropriate season, learn about green turtle nesting while following conservation guidance.</p></article>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<div class="eyebrow">Why Include Saadani?</div>
+<h2>A Rare Bush-to-Beach Journey</h2>
+<div class="cards">
+<article class="card"><h3>Coast & Wildlife</h3><p>Saadani lets travelers combine wildlife viewing with coastal scenery without building a completely separate beach holiday.</p></article>
+<article class="card"><h3>River Safari</h3><p>The Wami River adds a different perspective, with boat-based wildlife and bird viewing through mangroves and river channels.</p></article>
+<article class="card"><h3>Beach Extension</h3><p>The combination of mountain forest and Beach & Turtle Season gives the destination a character unlike the northern and southern circuits.</p></article>
+</div>
+</div>
+</section>
+
+<section class="best" id="best-time">
+<div class="container">
+<div class="eyebrow">Best Time By Month</div>
+<h2>Choose Your Travel Month</h2>
+<p class="lead">Saadani is open year-round, but rainfall can affect road conditions. Choose your month to compare wildlife, river and coastal planning conditions.</p>
+<div class="month-picker"><div class="season-strip"><div class="season">Jan–Mar · Green</div><div class="season">Apr–May · Long Rains</div><div class="season">Jun–Oct · Drier</div><div class="season">Nov–Dec · Short Rains</div></div><div class="months" id="months"></div></div>
+<div class="month-info" id="monthInfo"></div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<div class="eyebrow">Sample Coastal Journey</div>
+<h2>A Journey Built Around Saadani</h2>
+<div class="journey">
+<div class="step"><small>01 · ARRIVAL</small><h3>Kigoma</h3><p>Use Kigoma as the practical gateway for continuing toward the park and Beach & Turtle Season.</p></div>
+<div class="step"><small>02 · SAADANI</small><h3>Bush & River</h3><p>Combine game drives with a guided Wami River boat safari for a broader view of the park.</p></div>
+<div class="step"><small>03 · EXTEND</small><h3>Beach & Turtle Season</h3><p>Add time by the lake or continue your western Tanzania journey according to your schedule.</p></div>
+</div>
+</div>
+</section>
+
+<section class="cta">
+<div class="container">
+<div class="eyebrow">Ready to Explore?</div>
+<h2>Let's Build Your Saadani Journey</h2>
+<p>Tell us your dates, group size and travel style. We'll help shape a practical coastal Tanzania itinerary.</p>
+<a class="btn" href="booking.html?destination=Saadani">Start Your Booking</a>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="footer-inner">
+<div><div class="footer-title">Aman Safari Tanzania</div><p>Arusha, Tanzania · +255 635 509 648</p><p>amannelson824@gmail.com</p></div>
+<div><p><a href="index.html">Home</a> · <a href="booking.html">Booking</a> · <a href="pay.html">Payments</a></p><p>© 2026 Aman Safari Tanzania</p></div>
+</div>
+</footer>
+<a class="wa" href="https://wa.me/255635509648" target="_blank" rel="noopener">WhatsApp</a>
+
+<script>
+const nav=document.getElementById("nav"),menuBtn=document.getElementById("menuBtn"),navLinks=document.getElementById("navLinks");
+window.addEventListener("scroll",()=>nav.classList.toggle("scrolled",window.scrollY>30));
+menuBtn.addEventListener("click",()=>navLinks.classList.toggle("open"));
+
+const monthData={
+January:["Green season","Lush coastal scenery and active birdlife. Roads can be softer after rain; plan flexible game drives and river time."],
+February:["Green season","Warm and humid with greener landscapes. A good month for combining wildlife, river scenery and the coast."],
+March:["Long-rain transition","Rainfall increases. Expect lush scenery, but some tracks may become difficult and plans should stay flexible."],
+April:["Long rains","One of the wettest periods. Dramatic skies and green landscapes, but access can be affected by rain."],
+May:["Long-rain transition","Rain begins to ease toward the end of the month. Check road conditions before locking in a detailed route."],
+June:["Drier season","A strong planning window for game drives and coastal travel, with generally more comfortable road conditions."],
+July:["Drier season","Cooler, drier conditions suit game drives, Wami River excursions and relaxed coastal stays."],
+August:["Drier season","One of the most comfortable periods for combining bush and beach, with generally reliable travel conditions."],
+September:["Drier season","Warm, dry conditions are well suited to wildlife viewing, river excursions and coastal extensions."],
+October:["Drier season","Usually warm and dry before the short rains. Early and late game drives can be especially comfortable."],
+November:["Short rains","Fresh rainfall brings greener scenery. Some roads may soften, but the coast remains attractive for flexible itineraries."],
+December:["Short rains","Green landscapes and a vibrant coastal atmosphere. Build extra flexibility into road-based plans." ]
+};
+const months=document.getElementById("months"),info=document.getElementById("monthInfo");
+Object.keys(monthData).forEach((m,i)=>{const b=document.createElement("button");b.className="month"+(i===0?" active":"");b.innerHTML=m+'<small>'+monthData[m][0].split(' ')[0]+'</small>';b.onclick=()=>{document.querySelectorAll(".month").forEach(x=>x.classList.remove("active"));b.classList.add("active");showMonth(m);b.scrollIntoView({behavior:"smooth",block:"nearest",inline:"center"})};months.appendChild(b)});
+function showMonth(m){info.innerHTML="<div><em>Saadani planning guide</em><br><strong>"+m+" · "+monthData[m][0]+"</strong><br><span>"+monthData[m][1]+"</span></div>"}
+showMonth("January");
+</script>
+</body>
+</html>
