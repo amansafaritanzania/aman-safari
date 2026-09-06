@@ -1,846 +1,1577 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aman Safari Luxury Expeditions - Tanzania's Premier Safaris</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    
-    body { 
-        font-family: 'Montserrat', sans-serif; 
-        color: #333;
-        overflow-x: hidden;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aman Safari Tanzania — thoughtfully planned private safaris, Kilimanjaro climbs and tailor-made Tanzania journeys.">
+  <title>Aman Safari Tanzania | Private Safaris & Kilimanjaro</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    :root {
+      --green: #173f2b;
+      --green-2: #24583d;
+      --gold: #c9a961;
+      --gold-dark: #a98543;
+      --cream: #f7f3ec;
+      --paper: #fffdf9;
+      --ink: #20231f;
+      --muted: #6c6d68;
+      --line: #e7e0d4;
+      --shadow: 0 20px 60px rgba(24, 32, 25, .12);
+      --radius: 18px;
     }
-    
-    h1, h2, h3 { font-family: 'Cormorant Garamond', serif; }
-    
-    /* Header */
-    header {
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 1000;
-        padding: 20px 0;
-        transition: all 0.4s ease;
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Montserrat", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.65;
+      overflow-x: hidden;
     }
-    
-    header.scrolled {
-        background: rgba(26, 26, 26, 0.8);
-        backdrop-filter: blur(10px);
-        padding: 15px 0;
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    button, input, select { font: inherit; }
+
+    h1, h2, h3, h4 {
+      font-family: "Cormorant Garamond", serif;
+      line-height: 1.1;
     }
-    
-    nav {
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 0 30px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
     }
-    
-    .logo {
-        color: #C9A961;
-        font-size: 28px;
-        font-weight: 600;
-        letter-spacing: 2px;
+
+    .eyebrow {
+      color: var(--gold-dark);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
     }
-    
-    .menu a {
-        color: white;
-        text-decoration: none;
-        margin-left: 35px;
-        font-size: 13px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        transition: color 0.3s;
+
+    .section {
+      padding: 100px 0;
     }
-    
-    .menu a:hover, .menu a.active { color: #C9A961; }
-    
-    /* HERO WITH MOTION - FEELS LIKE SURVEYING PARK */
-    .hero {
-        height: 100vh;
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        color: white;
-        overflow: hidden;
-        background: url("park.jpg") center/cover no-repeat;
-        animation: slowZoom 25s ease-in-out infinite alternate;
+
+    .section-heading {
+      max-width: 720px;
+      margin-bottom: 55px;
     }
-    
-    @keyframes slowZoom {
-        0% { background-size: 100% auto; }
-        100% { background-size: 110% auto; }
+
+    .section-heading.center {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
     }
-    
-    .hero-bg-image {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: -2;
+
+    .section-heading h2 {
+      color: var(--green);
+      font-size: clamp(42px, 6vw, 68px);
+      font-weight: 500;
+      margin-bottom: 16px;
     }
-    
-    .hero video {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        min-width: 100%;
-        min-height: 100%;
-        width: auto;
-        height: auto;
-        transform: translate(-50%, -50%);
-        z-index: -1;
-        object-fit: cover;
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 16px;
     }
-    
-    .hero::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6));
-        z-index: 0;
-    }
-    
-    .hero-content {
-        max-width: 900px;
-        padding: 0 30px;
-        z-index: 1;
-        position: relative;
-    }
-    
-    .hero h1 {
-        font-size: 72px;
-        font-weight: 300;
-        margin-bottom: 25px;
-        line-height: 1.2;
-        text-shadow: 0 5px 30px rgba(0,0,0,0.5);
-    }
-    
-    .hero h1 span {
-        color: #C9A961;
-        font-weight: 600;
-    }
-    
-    .hero p {
-        font-size: 22px;
-        font-weight: 300;
-        margin-bottom: 40px;
-        opacity: 0.9;
-    }
-    
+
     .btn {
-        background: linear-gradient(135deg, #C9A961 0%, #B89650 100%);
-        color: white;
-        padding: 18px 45px;
-        text-decoration: none;
-        border-radius: 50px;
-        display: inline-block;
-        border: none;
-        cursor: pointer;
-        font-size: 14px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        font-weight: 500;
-        transition: all 0.4s;
-        box-shadow: 0 10px 30px rgba(201, 169, 97, 0.3);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 52px;
+      padding: 14px 25px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      text-decoration: none;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      transition: .25s ease;
     }
-    
-    .btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 15px 40px rgba(201, 169, 97, 0.5);
+
+    .btn-gold {
+      background: var(--gold);
+      color: #fff;
+      box-shadow: 0 12px 30px rgba(201, 169, 97, .25);
     }
-    
-    /* Destinations Grid */
+
+    .btn-gold:hover { transform: translateY(-2px); background: var(--gold-dark); }
+
+    .btn-outline {
+      border-color: rgba(255,255,255,.65);
+      color: #fff;
+      background: rgba(0,0,0,.12);
+    }
+
+    .btn-outline:hover { background: rgba(255,255,255,.12); }
+
+    /* NAVIGATION — one system only */
+    #siteHeader {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 1000;
+      transition: .3s ease;
+    }
+
+    #siteHeader.scrolled {
+      background: rgba(15, 35, 25, .94);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 8px 30px rgba(0,0,0,.14);
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      color: #fff;
+      text-decoration: none;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 27px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      white-space: nowrap;
+    }
+
+    .brand span { color: var(--gold); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,.92);
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+      transition: .2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--gold); }
+
+    .nav-cta {
+      padding: 10px 17px !important;
+      border: 1px solid var(--gold);
+      border-radius: 999px;
+      color: #fff !important;
+    }
+
+    .nav-cta:hover { background: var(--gold); }
+
+    .nav-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(255,255,255,.4);
+      border-radius: 50%;
+      background: transparent;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100svh;
+      position: relative;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background: #173f2b;
+      color: #fff;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      animation: heroZoom 24s ease-in-out infinite alternate;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(8,18,12,.72), rgba(8,18,12,.27) 65%, rgba(8,18,12,.4)),
+        linear-gradient(0deg, rgba(8,18,12,.55), transparent 45%);
+    }
+
+    @keyframes heroZoom {
+      from { transform: scale(1); }
+      to { transform: scale(1.07); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      width: min(900px, calc(100% - 40px));
+      margin-right: auto;
+      padding-top: 85px;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #f3dfaa;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .hero-kicker::before {
+      content: "";
+      width: 35px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .hero h1 {
+      max-width: 850px;
+      font-size: clamp(55px, 9vw, 105px);
+      font-weight: 500;
+      letter-spacing: -.8px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 span { color: #e1c887; }
+
+    .hero p {
+      max-width: 670px;
+      color: rgba(255,255,255,.88);
+      font-size: clamp(16px, 2vw, 20px);
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-note {
+      margin-top: 28px;
+      color: rgba(255,255,255,.72);
+      font-size: 11px;
+      letter-spacing: .5px;
+    }
+
+    /* TRUST STRIP */
+    .trust-strip {
+      background: var(--green);
+      color: #fff;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,.12);
+    }
+
+    .trust-item {
+      padding: 24px 18px;
+      text-align: center;
+      background: var(--green);
+    }
+
+    .trust-item strong {
+      display: block;
+      color: var(--gold);
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .trust-item span {
+      color: rgba(255,255,255,.75);
+      font-size: 12px;
+    }
+
+    /* DESTINATIONS */
     .destinations {
-        max-width: 1400px;
-        margin: 120px auto;
-        padding: 0 30px;
+      background: var(--cream);
     }
-    
-    .section-title {
-        text-align: center;
-        font-size: 48px;
-        font-weight: 300;
-        margin-bottom: 20px;
-        color: #3D2B1F;
+
+    .destination-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 26px;
     }
-    
-    .section-subtitle {
-        text-align: center;
-        font-size: 18px;
-        color: #666;
-        margin-bottom: 70px;
-        font-weight: 300;
+
+    .destination-card {
+      position: relative;
+      min-height: 460px;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: #203c2c;
+      box-shadow: var(--shadow);
     }
-    
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 40px;
+
+    .destination-card.large { grid-column: span 2; min-height: 500px; }
+
+    .destination-card img {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      inset: 0;
+      object-fit: cover;
+      transition: transform .7s ease;
     }
-    
-    /* LUXURY CARDS WITH GOLD GLOW */
-    .card {
-        border-radius: 15px;
-        overflow: hidden;
-        box-shadow: 0 15px 40px rgba(0,0,0,0.08);
-        transition: all 0.4s;
-        background: white;
+
+    .destination-card:hover img { transform: scale(1.06); }
+
+    .destination-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(8,20,13,.9), rgba(8,20,13,.08) 68%);
     }
-    
-    .card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 25px 60px rgba(201, 169, 97, 0.25);
+
+    .destination-content {
+      position: absolute;
+      z-index: 1;
+      inset: auto 30px 28px;
+      color: #fff;
     }
-    
-    .card img {
-        width: 100%;
-        height: 280px;
-        object-fit: cover;
-        background: #F8F5F0;
-        transition: transform 0.6s ease;
+
+    .destination-content h3 {
+      font-size: 44px;
+      font-weight: 500;
+      margin-bottom: 8px;
     }
-    
-    .card:hover img {
-        transform: scale(1.05);
+
+    .destination-content p {
+      max-width: 650px;
+      color: rgba(255,255,255,.82);
+      font-size: 13px;
+      margin-bottom: 18px;
     }
-    
-    .card-content {
-        padding: 30px;
+
+    .destination-link {
+      color: #f0d895;
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
     }
-    
-    .card h3 {
-        font-size: 28px;
-        color: #3D2B1F;
-        margin-bottom: 15px;
+
+    .destination-link:hover { text-decoration: underline; }
+
+    /* EXPERIENCE */
+    .experience-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 70px;
+      align-items: center;
     }
-    
-    .card p {
-        color: #666;
-        line-height: 1.8;
-        margin-bottom: 25px;
+
+    .experience-image {
+      min-height: 560px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
     }
-    
-    /* AI Chat Widget */
-    .ai-chat {
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        z-index: 9999;
+
+    .experience-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
-    
-    .chat-toggle {
-        width: 65px;
-        height: 65px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, #C9A961 0%, #B89650 100%);
-        border: none;
-        cursor: pointer;
-        box-shadow: 0 10px 30px rgba(201, 169, 97, 0.4);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.3s;
+
+    .experience-copy h2 {
+      color: var(--green);
+      font-size: clamp(42px, 6vw, 65px);
+      margin-bottom: 20px;
+      font-weight: 500;
     }
-    
-    .chat-toggle:hover { transform: scale(1.1); }
-    .chat-toggle i { color: white; font-size: 28px; }
-    
+
+    .experience-copy > p {
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 18px;
+      margin-bottom: 30px;
+    }
+
+    .feature {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 13px;
+      align-items: start;
+    }
+
+    .feature-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--cream);
+      color: var(--gold-dark);
+    }
+
+    .feature h4 {
+      font-size: 22px;
+      color: var(--green);
+      margin-bottom: 3px;
+    }
+
+    .feature p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* TOOLS */
+    .tools {
+      background: var(--green);
+      color: #fff;
+    }
+
+    .tools .section-heading h2 { color: #fff; }
+    .tools .section-heading p { color: rgba(255,255,255,.72); }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .tool-card {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: var(--radius);
+      padding: 30px;
+    }
+
+    .tool-card h3 {
+      color: #fff;
+      font-size: 31px;
+      margin-bottom: 8px;
+    }
+
+    .tool-card > p {
+      color: rgba(255,255,255,.7);
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    .tool-control {
+      width: 100%;
+      min-height: 50px;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 12px;
+      padding: 12px 14px;
+      background: rgba(255,255,255,.08);
+      color: #fff;
+      outline: none;
+    }
+
+    .tool-control option { color: #111; }
+
+    .month-result {
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: 13px;
+      background: rgba(255,255,255,.08);
+      color: rgba(255,255,255,.86);
+      font-size: 13px;
+    }
+
+    .month-result strong { color: #f0d895; }
+
+    .currency-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .currency-output {
+      margin-top: 15px;
+      color: #f0d895;
+      font-size: 24px;
+      font-family: "Cormorant Garamond", serif;
+    }
+
+    /* PLANNER */
+    .planner {
+      background: var(--cream);
+    }
+
+    .planner-box {
+      display: grid;
+      grid-template-columns: 1fr .9fr;
+      overflow: hidden;
+      border-radius: 24px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .planner-copy {
+      padding: 55px;
+      background: #f1eadf;
+    }
+
+    .planner-copy h2 {
+      color: var(--green);
+      font-size: clamp(42px, 5vw, 62px);
+      margin-bottom: 15px;
+    }
+
+    .planner-copy p { color: var(--muted); }
+
+    .planner-points {
+      display: grid;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .planner-points span {
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .booking-form {
+      padding: 55px;
+      display: grid;
+      gap: 13px;
+    }
+
+    .booking-form label {
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 700;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+    }
+
+    .booking-form input,
+    .booking-form select,
+    .booking-form textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 13px 14px;
+      background: #fff;
+      color: var(--ink);
+      outline: none;
+    }
+
+    .booking-form input:focus,
+    .booking-form select:focus,
+    .booking-form textarea:focus { border-color: var(--gold); }
+
+    .booking-form textarea { min-height: 100px; resize: vertical; }
+
+    .form-message {
+      display: none;
+      padding: 12px;
+      border-radius: 9px;
+      background: #eef7f0;
+      color: var(--green);
+      font-size: 12px;
+    }
+
+    /* TESTIMONIAL / TRUST */
+    .trust-section { background: #fff; }
+
+    .trust-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .trust-card {
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .trust-card i { color: var(--gold); margin-bottom: 16px; }
+    .trust-card h3 { color: var(--green); font-size: 27px; margin-bottom: 8px; }
+    .trust-card p { color: var(--muted); font-size: 13px; }
+
+    /* FOOTER */
+    footer {
+      padding: 65px 0 25px;
+      background: #0e2016;
+      color: rgba(255,255,255,.65);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr .8fr;
+      gap: 50px;
+      padding-bottom: 45px;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+
+    footer h3 {
+      color: #fff;
+      font-size: 31px;
+      margin-bottom: 14px;
+    }
+
+    footer h4 {
+      color: #fff;
+      font-family: "Montserrat", sans-serif;
+      font-size: 11px;
+      letter-spacing: 1.3px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    footer p, footer a {
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    footer a {
+      color: #f0d895;
+      text-decoration: none;
+    }
+
+    .footer-bottom {
+      padding-top: 22px;
+      font-size: 11px;
+      text-align: center;
+    }
+
+    /* WHATSAPP */
+    .whatsapp {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 900;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 18px;
+      border-radius: 999px;
+      background: #25d366;
+      color: #fff;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+      box-shadow: 0 8px 25px rgba(0,0,0,.22);
+    }
+
+    /* CHAT */
+    .chat-launcher {
+      position: fixed;
+      right: 20px;
+      bottom: 82px;
+      z-index: 901;
+      width: 56px;
+      height: 56px;
+      border: 0;
+      border-radius: 50%;
+      background: var(--gold);
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(0,0,0,.22);
+    }
+
     .chat-window {
+      position: fixed;
+      right: 20px;
+      bottom: 150px;
+      z-index: 902;
+      width: min(390px, calc(100vw - 30px));
+      height: 540px;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      border-radius: 20px;
+      background: #fff;
+      box-shadow: 0 25px 70px rgba(0,0,0,.28);
+      border: 1px solid var(--line);
+    }
+
+    .chat-window.active { display: flex; }
+
+    .chat-head {
+      padding: 18px;
+      background: var(--green);
+      color: #fff;
+    }
+
+    .chat-head strong { display: block; font-size: 15px; }
+    .chat-head span { font-size: 11px; opacity: .72; }
+
+    .chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px;
+      background: #f8f6f1;
+    }
+
+    .msg {
+      max-width: 82%;
+      margin-bottom: 10px;
+      padding: 10px 13px;
+      border-radius: 14px;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .msg.bot {
+      background: #fff;
+      border-bottom-left-radius: 4px;
+    }
+
+    .msg.user {
+      margin-left: auto;
+      background: var(--gold);
+      color: #fff;
+      border-bottom-right-radius: 4px;
+    }
+
+    .quick-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .quick-actions button {
+      border: 1px solid var(--gold);
+      border-radius: 999px;
+      padding: 7px 10px;
+      background: #fff;
+      color: var(--gold-dark);
+      cursor: pointer;
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .chat-input {
+      display: flex;
+      gap: 8px;
+      padding: 12px;
+      border-top: 1px solid var(--line);
+    }
+
+    .chat-input input {
+      flex: 1;
+      min-width: 0;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 11px 13px;
+      outline: none;
+    }
+
+    .chat-input button {
+      width: 43px;
+      height: 43px;
+      border: 0;
+      border-radius: 50%;
+      background: var(--gold);
+      color: #fff;
+      cursor: pointer;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .nav-links {
         position: absolute;
-        bottom: 80px;
-        right: 0;
-        width: 380px;
-        height: 550px;
-        background: white;
-        border-radius: 20px;
-        box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        top: 78px;
+        left: 20px;
+        right: 20px;
         display: none;
         flex-direction: column;
-        overflow: hidden;
-    }
-    
-    .chat-window.active { display: flex; }
-    
-    .chat-header {
-        background: linear-gradient(135deg, #C9A961 0%, #B89650 100%);
-        color: white;
-        padding: 20px;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-    }
-    
-    .chat-header i { font-size: 24px; }
-    .chat-header h4 { font-size: 16px; font-weight: 600; }
-    .chat-header p { font-size: 12px; opacity: 0.9; }
-    
-    .chat-messages {
-        flex: 1;
-        padding: 20px;
-        overflow-y: auto;
-        background: #F8F5F0;
-    }
-    
-    .message {
-        margin-bottom: 15px;
-        display: flex;
-        gap: 10px;
-    }
-    
-    .message.bot { justify-content: flex-start; }
-    .message.user { justify-content: flex-end; }
-    
-    .message-content {
-        max-width: 75%;
-        padding: 12px 16px;
-        border-radius: 15px;
-        font-size: 14px;
-        line-height: 1.5;
-    }
-    
-    .bot .message-content {
-        background: white;
-        color: #333;
-        border-bottom-left-radius: 3px;
-    }
-    
-    .user .message-content {
-        background: #C9A961;
-        color: white;
-        border-bottom-right-radius: 3px;
-    }
-    
-    .chat-input {
-        padding: 15px;
-        border-top: 1px solid #eee;
-        display: flex;
-        gap: 10px;
-    }
-    
-    .chat-input input {
-        flex: 1;
+        align-items: stretch;
+        gap: 0;
         padding: 12px;
-        border: 1px solid #ddd;
-        border-radius: 25px;
-        font-size: 14px;
-    }
-    
-    .chat-input button {
-        background: #C9A961;
-        color: white;
-        border: none;
-        width: 45px;
-        height: 45px;
-        border-radius: 50%;
-        cursor: pointer;
-    }
-    
-    .quick-actions {
-        display: flex;
-        gap: 8px;
-        flex-wrap: wrap;
-        margin-top: 10px;
-    }
-    
-    .quick-btn {
-        background: white;
-        border: 1px solid #C9A961;
-        color: #C9A961;
-        padding: 6px 12px;
         border-radius: 15px;
-        font-size: 12px;
-        cursor: pointer;
-    }
-    
-    /* Footer */
-    footer {
-        background: #1A1A1A;
-        color: #aaa;
-        text-align: center;
-        padding: 60px 30px;
-        margin-top: 120px;
-    }
-    
-    footer a { color: #C9A961; text-decoration: none; }
-    
-    /* Mobile */
-    @media (max-width: 768px) {
-        .hero h1 { font-size: 40px; }
-        .hero p { font-size: 18px; }
-        .menu { display: none; }
-        .chat-window { width: calc(100vw - 40px); right: -10px; }
-        .section-title { font-size: 36px; }
-    }
-</style>
+        background: rgba(15,35,25,.98);
+        box-shadow: 0 20px 50px rgba(0,0,0,.25);
+      }
 
-<!-- VISITOR + CLICK TRACKER - See who visits your site -->
-<script>
-    window.addEventListener('load', function() {
-       if (window.location.href.includes('stats') || document.referrer.includes('amansafaritanzania.github.io')) return;
-        const visitorData = {
-            time: new Date().toISOString(),
-            page: window.location.pathname,
-            referrer: document.referrer || 'Direct',
-            screen: window.innerWidth + 'x' + window.innerHeight,
-            userAgent: navigator.userAgent
-        };
-        
-        let visits = JSON.parse(localStorage.getItem('aman_visits') || '[]');
-        visits.push(visitorData);
-        localStorage.setItem('aman_visits', JSON.stringify(visits));
-        
-        document.querySelectorAll('a, button, .btn').forEach(el => {
-            el.addEventListener('click', function(e) {
-                const clickData = {
-                    time: new Date().toISOString(),
-                    text: this.innerText || this.textContent,
-                    href: this.href || 'button',
-                    page: window.location.pathname
-                };
-                let clicks = JSON.parse(localStorage.getItem('aman_clicks') || '[]');
-                clicks.push(clickData);
-                localStorage.setItem('aman_clicks', JSON.stringify(clicks));
-                console.log('CLICK TRACKED:', clickData);
-            });
-        });
-        
-        console.log('VISITOR TRACKED:', visitorData);
-        console.log('To see all visits: JSON.parse(localStorage.getItem("aman_visits"))');
-        console.log('To see all clicks: JSON.parse(localStorage.getItem("aman_clicks"))');
-    });
-</script>
-   <style>
-  #navbar {
-    background:#fff; 
-    border-bottom:1px solid #e8e2d9; 
-    position:sticky; 
-    top:0; 
-    z-index:999;
-    padding:12px 16px;
-  }
-  #navbar nav {
-    max-width:1000px; 
-    margin:0 auto; 
-    display:flex; 
-    flex-wrap:wrap; 
-    align-items:center; 
-    justify-content:space-between; 
-    gap:12px;
-  }
-  #navbar .logo {
-    font-weight:800; 
-    font-size:18px; 
-    color:#1a1a1a;
-  }
-  #navbar .menu {
-    display:flex; 
-    flex-wrap:wrap; 
-    gap:14px; 
-    font-size:14px;
-  }
-  #navbar .menu a {
-    color:#1a7a3a; 
-    text-decoration:none; 
-    padding:4px 0;
-  }
-  #navbar .menu a.active, 
-  #navbar .menu a:hover {
-    color:#0f5c28; 
-    font-weight:600;
-  }
-  
-  /* Mobile: stack menu under logo */
-  @media (max-width:600px) {
-    #navbar nav { flex-direction:column; align-items:flex-start; }
-    #navbar .menu { width:100%; }
-  }
-   </style>
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 12px; }
+      .nav-cta { text-align: center; }
+      .nav-toggle { display: block; }
+
+      .destination-grid,
+      .experience-grid,
+      .tools-grid,
+      .planner-box { grid-template-columns: 1fr; }
+
+      .destination-card.large { grid-column: span 1; }
+      .experience-image { min-height: 430px; }
+      .trust-cards { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .container { width: min(100% - 28px, 1180px); }
+      .section { padding: 72px 0; }
+
+      .brand { font-size: 23px; }
+      .hero-content { padding-top: 65px; }
+      .hero h1 { font-size: clamp(48px, 15vw, 72px); }
+      .hero p { font-size: 15px; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .hero-actions .btn { width: 100%; }
+
+      .trust-grid { grid-template-columns: 1fr; }
+      .destination-grid { gap: 16px; }
+      .destination-card,
+      .destination-card.large { min-height: 390px; }
+      .destination-content { inset: auto 20px 22px; }
+      .destination-content h3 { font-size: 38px; }
+
+      .experience-image { min-height: 340px; }
+      .planner-copy, .booking-form { padding: 28px 22px; }
+      .currency-row { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+
+      .whatsapp {
+        right: 14px;
+        bottom: 14px;
+        padding: 12px 15px;
+      }
+
+      .chat-launcher { right: 14px; bottom: 70px; }
+      .chat-window { right: 14px; bottom: 136px; height: 500px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .hero-bg { animation: none; }
+      * { transition-duration: .01ms !important; }
+    }
+  </style>
 </head>
+
 <body>
 
-<header id="navbar">
-    <nav>
-        <div class="logo">AMAN SAFARI ADVENTURES</div>
-        <div class="menu">
-            <a href="index.html" class="active">Home</a>
-            <a href="kilimanjaro.html">Kilimanjaro</a>
-            <a href="serengeti.html">Serengeti</a>
-            <a href="ngorongoro.html">Ngorongoro</a>
-            <a href="tarangire.html">Tarangire</a>
-            <a href="ruaha.html">Ruaha</a>
-            <a href="booking.html">Book Now</a>
-            <a href="about.html">About Us</a>
-            <a href="pay.html">payments</a>
-        </div>
-    </nav>
-</header>
+  <!-- =========================
+       NAVIGATION
+  ========================== -->
+  <header id="siteHeader">
+    <div class="container nav">
+      <a class="brand" href="index.html">AMAN <span>SAFARI</span></a>
 
-<section style="background:#f8f9fa; padding:30px 0; text-align:center;">
-  <div class="container">
-    <div style="display:flex; justify-content:space-around; flex-wrap:wrap; gap:20px;">
-      <div>
-        <h3 style="color:#d4af37; font-size:2.5rem; margin:0;">2026</h3>
-        <p style="margin:5px 0;">Bookings Open</p>
-      </div>
-      <div>
-        <h3 style="color:#d4af37; font-size:2.5rem; margin:0;">100%</h3>
-        <p style="margin:5px 0;">Tanzanian Owned</p>
-      </div>
-      <div>
-        <h3 style="color:#d4af37; font-size:2.5rem; margin:0;">24hrs</h3>
-        <p style="margin:5px 0;">Reply Time</p>
-      </div>
-      <div>
-        <h3 style="color:#d4af37; font-size:2.5rem; margin:0;">Big 5</h3>
-        <p style="margin:5px 0;">Guaranteed</p>
-      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="index.html" class="active">Home</a>
+        <a href="#destinations">Destinations</a>
+        <a href="kilimanjaro.html">Kilimanjaro</a>
+        <a href="serengeti.html">Serengeti</a>
+        <a href="ngorongoro.html">Ngorongoro</a>
+        <a href="tarangire.html">Tarangire</a>
+        <a href="ruaha.html">Ruaha</a>
+        <a href="about.html">About</a>
+        <a href="#planner" class="nav-cta">Plan My Safari</a>
+      </nav>
     </div>
-  </div>
-</section>
+  </header>
 
-<section class="hero">
-    <img src="kilimanjaro.jpg" 
-         alt="Serengeti" 
-         class="hero-bg-image"
-         onerror="this.style.display='none'">
-    
-    <div class="hero-content">
-        <h1>Experience <span>Tanzania</span> in Luxury</h1>
-        <p>From Kilimanjaro's summit to the Serengeti plains. Bespoke safaris crafted for the discerning traveler.</p>
-        <a href="#destinations" class="btn">Explore Destinations</a>
-    </div>
-</section>
+  <!-- =========================
+       HERO
+  ========================== -->
+  <main>
+    <section class="hero">
+      <img class="hero-bg" src="kilimanjaro.jpg" alt="Mount Kilimanjaro in Tanzania" onerror="this.style.display='none'">
 
-<section class="destinations" id="destinations">
-    <h2 class="section-title">Curated Expeditions</h2>
-    <p class="section-subtitle">Five iconic destinations. One unforgettable journey.</p>
-    
-    <div class="grid">
-        <div class="card">
-            <img src="kilimanjaro.jpg" 
-                 alt="Kilimanjaro"
-                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22280%22%3E%3Crect fill=%22%23C9A961%22 width=%22800%22 height=%22280%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2224%22%3EMt. Kilimanjaro%3C/text%3E%3C/svg%3E'">
-            <div class="card-content">
-                <h3>Mt. Kilimanjaro</h3>
-                <p>Conquer Africa's highest peak. 5,895m of challenge and triumph with luxury camp support.</p>
-                <a href="kilimanjaro.html" class="btn" style="padding: 12px 30px; font-size: 13px;">Explore</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <img src="serengeti.jpg" 
-                 alt="Serengeti"
-                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22280%22%3E%3Crect fill=%22%233D2B1F%22 width=%22800%22 height=%22280%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23C9A961%22 font-size=%2224%22%3ESerengeti%3C/text%3E%3C/svg%3E'">
-            <div class="card-content">
-                <h3>Serengeti</h3>
-                <p>Witness the Great Migration. 2 million animals across endless plains. Big Five guaranteed.</p>
-                <a href="serengeti.html" class="btn" style="padding: 12px 30px; font-size: 13px;">Explore</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1575550959106-5a7defe28b56?q=80&w=800&auto=format&fit=crop" 
-                 alt="Ngorongoro"
-                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22280%22%3E%3Crect fill=%22%23C9A961%22 width=%22800%22 height=%22280%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2224%22%3ENgorongoro%3C/text%3E%3C/svg%3E'">
-            <div class="card-content">
-                <h3>Ngorongoro Crater</h3>
-                <p>World's largest intact caldera. Highest density of wildlife in Africa. UNESCO World Heritage.</p>
-                <a href="ngorongoro.html" class="btn" style="padding: 12px 30px; font-size: 13px;">Explore</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <img src="tarangire.jpg" 
-                 alt="Tarangire"
-                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22280%22%3E%3Crect fill=%22%233D2B1F%22 width=%22800%22 height=%22280%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23C9A961%22 font-size=%2224%22%3ETarangire%3C/text%3E%3C/svg%3E'">
-            <div class="card-content">
-                <h3>Tarangire</h3>
-                <p>Ancient baobabs and Tanzania's largest elephant herds. Hidden gem with fewer crowds.</p>
-                <a href="tarangire.html" class="btn" style="padding: 12px 30px; font-size: 13px;">Explore</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?q=80&w=800&auto=format&fit=crop" 
-                 alt="Ruaha"
-                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22800%22 height=%22280%22%3E%3Crect fill=%22%23C9A961%22 width=%22800%22 height=%22280%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2224%22%3ERuaha%3C/text%3E%3C/svg%3E'">
-            <div class="card-content">
-                <h3>Ruaha</h3>
-                <p>Remote wilderness. 10% of Africa's lions. Exclusive fly-in safaris for true adventurers.</p>
-                <a href="ruaha.html" class="btn" style="padding: 12px 30px; font-size: 13px;">Explore</a>
-            </div>
-        </div>
-        
-        <div class="card" style="background: linear-gradient(135deg, #3D2B1F 0%, #1A1A1A 100%); color: white; display: flex; align-items: center; justify-content: center; text-align: center;">
-            <div class="card-content">
-                <h3 style="color: #C9A961;">Custom Safari</h3>
-                <p style="color: #ddd;">Combine multiple parks. We'll design your perfect Tanzania itinerary.</p>
-                <a href="booking.html" class="btn" style="padding: 12px 30px; font-size: 13px;">Plan My Trip</a>
-            </div>
-        </div>
-    </div>
-</section>
+      <div class="container hero-content">
+        <div class="hero-kicker">Private Tanzania journeys</div>
+        <h1>Go beyond the <span>ordinary.</span></h1>
+        <p>
+          Thoughtfully planned safaris, Kilimanjaro climbs and tailor-made journeys
+          across Tanzania — built around your time, interests and travel style.
+        </p>
 
-<section style="padding:60px 0; background:#f8f9fa;">
-  <div class="container">
-    <h2 style="text-align:center; margin-bottom:20px;">Why Book With an 18-Year-Old?</h2>
-    <div style="max-width:800px; margin:0 auto;">
-      <div style="display:flex; align-items:start; gap:15px; margin-bottom:20px;">
-        <div style="font-size:2rem;">💰</div>
-        <div>
-          <h4 style="margin:0 0 5px 0;">Direct Local Prices</h4>
-          <p style="margin:0;">No US/UK agency markup. I work with Tanzanian guides directly. You save 30-50%.</p>
+        <div class="hero-actions">
+          <a href="#planner" class="btn btn-gold">Plan My Safari <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="#destinations" class="btn btn-outline">Explore Destinations</a>
+        </div>
+
+        <div class="hero-note">Tanzania • East Africa • Private & tailor-made travel</div>
+      </div>
+    </section>
+
+    <!-- =========================
+         TRUST STRIP
+    ========================== -->
+    <section class="trust-strip" aria-label="Aman Safari highlights">
+      <div class="container trust-grid">
+        <div class="trust-item">
+          <strong>Tanzania Focused</strong>
+          <span>Local destination knowledge</span>
+        </div>
+        <div class="trust-item">
+          <strong>Tailor-Made</strong>
+          <span>Trips shaped around your plans</span>
+        </div>
+        <div class="trust-item">
+          <strong>Human Support</strong>
+          <span>Clear communication before travel</span>
         </div>
       </div>
-      <div style="display:flex; align-items:start; gap:15px; margin-bottom:20px;">
-        <div style="font-size:2rem;">📱</div>
-        <div>
-          <h4 style="margin:0 0 5px 0;">Reply in 24 Hours</h4>
-          <p style="margin:0;">Big companies take 3 days. I reply daily 7pm EAT after school. WhatsApp +255 635 509 648</p>
-        </div>
-      </div>
-      <div style="display:flex; align-items:start; gap:15px; margin-bottom:20px;">
-        <div style="font-size:2rem;">🎓</div>
-        <div>
-          <h4 style="margin:0 0 5px 0;">You Fund My University</h4>
-          <p style="margin:0;">100% of profits pay Form Six + university fees. Your safari = my education. Asante.</p>
-        </div>
-      </div>
-      <div style="display:flex; align-items:start; gap:15px;">
-        <div style="font-size:2rem;">🦁</div>
-        <div>
-          <h4 style="margin:0 0 5px 0;">Same Guides, Better Price</h4>
-          <p style="margin:0;">Your safari is run by licensed guides with 10+ years experience. I just handle booking.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- AI Chat Assistant -->
-<div class="ai-chat">
-    <button class="chat-toggle" onclick="toggleChat()">
-        <i class="fas fa-comments"></i>
-    </button>
-    
-    <div class="chat-window" id="chatWindow">
-        <div class="chat-header">
-            <i class="fas fa-robot"></i>
+    <!-- =========================
+         DESTINATIONS
+    ========================== -->
+    <section class="section destinations" id="destinations">
+      <div class="container">
+        <div class="section-heading center">
+          <div class="eyebrow">Discover Tanzania</div>
+          <h2>Journeys worth remembering.</h2>
+          <p>
+            Choose one destination or combine several into a private Tanzania itinerary.
+          </p>
+        </div>
+
+        <div class="destination-grid">
+
+          <article class="destination-card large">
+            <img src="serengeti.jpg" alt="Serengeti National Park" loading="lazy"
+                 onerror="this.style.display='none'">
+            <div class="destination-content">
+              <h3>Serengeti</h3>
+              <p>Endless plains, remarkable wildlife and a landscape that changes with the seasons.</p>
+              <a class="destination-link" href="serengeti.html">Explore Serengeti →</a>
+            </div>
+          </article>
+
+          <article class="destination-card">
+            <img src="kilimanjaro.jpg" alt="Mount Kilimanjaro" loading="lazy"
+                 onerror="this.style.display='none'">
+            <div class="destination-content">
+              <h3>Kilimanjaro</h3>
+              <p>A carefully planned mountain journey toward Africa's highest summit.</p>
+              <a class="destination-link" href="kilimanjaro.html">Explore Kilimanjaro →</a>
+            </div>
+          </article>
+
+          <article class="destination-card">
+            <img src="https://images.unsplash.com/photo-1575550959106-5a7defe28b56?q=80&w=1200&auto=format&fit=crop"
+                 alt="Ngorongoro landscape" loading="lazy">
+            <div class="destination-content">
+              <h3>Ngorongoro</h3>
+              <p>A spectacular volcanic landscape with rich wildlife and distinctive cultural heritage.</p>
+              <a class="destination-link" href="ngorongoro.html">Explore Ngorongoro →</a>
+            </div>
+          </article>
+
+          <article class="destination-card">
+            <img src="tarangire.jpg" alt="Tarangire National Park" loading="lazy"
+                 onerror="this.style.display='none'">
+            <div class="destination-content">
+              <h3>Tarangire</h3>
+              <p>Baobabs, elephants and a quieter safari atmosphere in northern Tanzania.</p>
+              <a class="destination-link" href="tarangire.html">Explore Tarangire →</a>
+            </div>
+          </article>
+
+          <article class="destination-card">
+            <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?q=80&w=1200&auto=format&fit=crop"
+                 alt="Ruaha wilderness" loading="lazy">
+            <div class="destination-content">
+              <h3>Ruaha</h3>
+              <p>Remote southern wilderness for travelers looking for a deeper safari experience.</p>
+              <a class="destination-link" href="ruaha.html">Explore Ruaha →</a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         EXPERIENCE / TRUST
+    ========================== -->
+    <section class="section">
+      <div class="container experience-grid">
+        <div class="experience-image">
+          <img src="park.jpg" alt="Tanzania safari landscape" loading="lazy"
+               onerror="this.src='kilimanjaro.jpg'">
+        </div>
+
+        <div class="experience-copy">
+          <div class="eyebrow">The Aman approach</div>
+          <h2>Personal planning. Local perspective.</h2>
+          <p>
+            Your safari should feel like your journey, not a package copied from a catalogue.
+            Start with what you want to see and experience, then build the route around it.
+          </p>
+
+          <div class="feature-list">
+            <div class="feature">
+              <div class="feature-icon"><i class="fa-solid fa-route"></i></div>
+              <div>
+                <h4>Tailor-made routes</h4>
+                <p>Combine destinations, activities and travel pace around your priorities.</p>
+              </div>
+            </div>
+
+            <div class="feature">
+              <div class="feature-icon"><i class="fa-solid fa-comments"></i></div>
+              <div>
+                <h4>Clear communication</h4>
+                <p>Ask questions before you travel and receive a plan you can understand.</p>
+              </div>
+            </div>
+
+            <div class="feature">
+              <div class="feature-icon"><i class="fa-solid fa-earth-africa"></i></div>
+              <div>
+                <h4>Tanzania-first knowledge</h4>
+                <p>Planning is centered on Tanzania's destinations, seasons and travel realities.</p>
+              </div>
+            </div>
+          </div>
+
+          <a href="#planner" class="btn btn-gold">Start Planning</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         TOOLS
+    ========================== -->
+    <section class="section tools" id="tools">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Plan with confidence</div>
+          <h2>Useful tools before you travel.</h2>
+          <p>Check a month, explore a simple currency estimate and then request a personalized plan.</p>
+        </div>
+
+        <div class="tools-grid">
+
+          <div class="tool-card">
+            <h3>Best Time by Month</h3>
+            <p>Select your travel month to see a simple planning guide.</p>
+
+            <select class="tool-control" id="monthSelect" aria-label="Choose travel month">
+              <option value="January">January</option>
+              <option value="February">February</option>
+              <option value="March">March</option>
+              <option value="April">April</option>
+              <option value="May">May</option>
+              <option value="June">June</option>
+              <option value="July">July</option>
+              <option value="August">August</option>
+              <option value="September">September</option>
+              <option value="October">October</option>
+              <option value="November">November</option>
+              <option value="December">December</option>
+            </select>
+
+            <div class="month-result" id="monthResult"></div>
+          </div>
+
+          <div class="tool-card">
+            <h3>Currency Estimate</h3>
+            <p>Quick estimates for planning only. Final prices are quoted in the booking process.</p>
+
+            <div class="currency-row">
+              <input class="tool-control" id="usdAmount" type="number" min="0" step="1" value="1000" placeholder="USD amount">
+              <select class="tool-control" id="currencySelect" aria-label="Choose currency">
+                <option value="TZS">TZS — Tanzanian Shilling</option>
+                <option value="EUR">EUR — Euro</option>
+                <option value="GBP">GBP — British Pound</option>
+                <option value="AUD">AUD — Australian Dollar</option>
+                <option value="CAD">CAD — Canadian Dollar</option>
+              </select>
+            </div>
+
+            <div class="currency-output" id="currencyOutput">≈ TZS 2,700,000</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         PLANNER / LEAD FORM
+    ========================== -->
+    <section class="section planner" id="planner">
+      <div class="container">
+        <div class="planner-box">
+
+          <div class="planner-copy">
+            <div class="eyebrow">Your next adventure</div>
+            <h2>Tell us what you're dreaming about.</h2>
+            <p>
+              Send a few details and we can start shaping a Tanzania journey around your dates,
+              destinations and group.
+            </p>
+
+            <div class="planner-points">
+              <span>✓ Destination ideas</span>
+              <span>✓ Route planning</span>
+              <span>✓ Accommodation options</span>
+              <span>✓ Safari and Kilimanjaro guidance</span>
+            </div>
+          </div>
+
+          <form class="booking-form" id="bookingForm" action="https://formsubmit.co/amannelson824@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="New Aman Safari Website Inquiry">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+
             <div>
-                <h4>Safari Assistant</h4>
-                <p>Ask me anything about Tanzania</p>
+              <label for="name">Full name</label>
+              <input id="name" name="name" type="text" required placeholder="Your name">
             </div>
-        </div>
-        
-        <div class="chat-messages" id="chatMessages">
-            <div class="message bot">
-                <div class="message-content">
-                    Jambo! I'm your Safari Assistant. I can help with routes, best times to visit, packing lists, or start your booking. What would you like to know?
-                    <div class="quick-actions">
-                        <button class="quick-btn" onclick="sendQuick('Best time to visit')">Best Time</button>
-                        <button class="quick-btn" onclick="sendQuick('Book a safari')">Book Now</button>
-                        <button class="quick-btn" onclick="sendQuick('Prices')">Prices</button>
-                    </div>
-                </div>
+
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required placeholder="you@example.com">
             </div>
+
+            <div>
+              <label for="destination">Destination / experience</label>
+              <select id="destination" name="destination" required>
+                <option value="">Choose one</option>
+                <option>Kilimanjaro</option>
+                <option>Serengeti</option>
+                <option>Ngorongoro</option>
+                <option>Tarangire</option>
+                <option>Ruaha</option>
+                <option>Multiple destinations</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="travelDate">Preferred travel dates</label>
+              <input id="travelDate" name="travel_dates" type="text" placeholder="e.g. July 2027">
+            </div>
+
+            <div>
+              <label for="groupSize">Group size</label>
+              <input id="groupSize" name="group_size" type="number" min="1" max="100" placeholder="Number of travelers">
+            </div>
+
+            <div>
+              <label for="message">What would you like to experience?</label>
+              <textarea id="message" name="message" placeholder="Tell us about your trip, interests or questions."></textarea>
+            </div>
+
+            <button class="btn btn-gold" type="submit">Request My Safari Plan <i class="fa-solid fa-paper-plane"></i></button>
+
+            <div class="form-message" id="formMessage">
+              Thank you. Your inquiry is ready to be sent. We will follow up using the contact details you provided.
+            </div>
+          </form>
+
         </div>
-        
-        <div class="chat-input">
-            <input type="text" id="userInput" placeholder="Ask about safaris..." onkeypress="if(event.key==='Enter') sendMessage()">
-            <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </section>
+
+    <!-- =========================
+         TRUST / WHAT TO EXPECT
+    ========================== -->
+    <section class="section trust-section">
+      <div class="container">
+        <div class="section-heading center">
+          <div class="eyebrow">Why Aman Safari</div>
+          <h2>A simpler way to start.</h2>
+          <p>No exaggerated promises — just useful information, thoughtful planning and a clear route toward your trip.</p>
         </div>
+
+        <div class="trust-cards">
+          <article class="trust-card">
+            <i class="fa-solid fa-map-location-dot"></i>
+            <h3>Plan around you</h3>
+            <p>Travel dates, interests, pace and destinations come first. Your itinerary can be refined before you commit.</p>
+          </article>
+
+          <article class="trust-card">
+            <i class="fa-solid fa-headset"></i>
+            <h3>Ask before booking</h3>
+            <p>Use the website tools, WhatsApp or the inquiry form to get answers before making travel decisions.</p>
+          </article>
+
+          <article class="trust-card">
+            <i class="fa-solid fa-shield-heart"></i>
+            <h3>Clear next steps</h3>
+            <p>After an inquiry, the trip details can be reviewed and confirmed with the people responsible for operating the safari.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <h3>Aman Safari</h3>
+        <p>Tanzania-focused safari and travel planning from Arusha, Tanzania.</p>
+      </div>
+
+      <div>
+        <h4>Explore</h4>
+        <p><a href="#destinations">Destinations</a></p>
+        <p><a href="kilimanjaro.html">Kilimanjaro</a></p>
+        <p><a href="serengeti.html">Serengeti</a></p>
+        <p><a href="#planner">Plan My Safari</a></p>
+      </div>
+
+      <div>
+        <h4>Contact</h4>
+        <p><a href="tel:+255635509648">+255 635 509 648</a></p>
+        <p><a href="mailto:amannelson824@gmail.com">amannelson824@gmail.com</a></p>
+        <p><a href="https://wa.me/255635509648">WhatsApp</a></p>
+      </div>
     </div>
-</div>
 
-<section style="padding:60px 0; background:white;">
-  <div class="container">
-    <h2 style="text-align:center; margin-bottom:40px;">What 2026 Guests Can Expect</h2>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:30px;">
-      
-      <div style="border:1px solid #eee; padding:25px; border-radius:8px;">
-        <div style="color:#d4af37; font-size:1.2rem;">★★★★★</div>
-        <p>"Amani planned our July Serengeti trip to perfection. As a student, his prices were 40% less than US agencies. Our guide Joseph was incredible - saw river crossing day 2!"</p>
-        <p style="font-weight:bold; margin-top:15px;">- Sarah M. | USA | Booking July 2025</p>
-      </div>
-
-      <div style="border:1px solid #eee; padding:25px; border-radius:8px;">
-        <div style="color:#d4af37; font-size:1.2rem;">★★★★★</div>
-        <p>"Wanted to support local youth. Amani replied in 6 hours with full Kili itinerary. Deposit was easy. Can’t wait for September climb!"</p>
-        <p style="font-weight:bold; margin-top:15px;">- James K. | UK | Booking Sept 2025</p>
-      </div>
-
-      <div style="border:1px solid #eee; padding:25px; border-radius:8px;">
-        <div style="color:#d4af37; font-size:1.2rem;">★★★★★</div>
-        <p>"Best Ngorongoro price we found. Amani is 18 but more professional than agents twice his age. WhatsApp replies are instant."</p>
-        <p style="font-weight:bold; margin-top:15px;">- Lisa & Tom | Australia | Booking Aug 2025</p>
-      </div>
-
+    <div class="container footer-bottom">
+      © 2026 Aman Safari Tanzania. All rights reserved.
     </div>
-    <p style="text-align:center; font-size:0.9rem; color:#666; margin-top:20px;">*Testimonials based on confirmed 2025 bookings. Your experience may vary.</p>
-  </div>
-</section>
+  </footer>
 
-<footer>
-    <p><strong>Kilimanjaro Luxury Expeditions</strong></p>
-    <p>Arusha, Tanzania</p>
-    <p>Phone: <a href="tel:+255635509648">+255 635 509 648</a> | 
-       Email: <a href="mailto:amannelson824@gmail.com">amannelson824@gmail.com</a> |
-       WhatsApp: <a href="https://wa.me/255635509648">Chat Now</a></p>
-    <p style="margin-top: 20px; font-size: 14px;">&copy; 2026 All rights reserved</p>
-</footer>
+  <!-- =========================
+       FLOATING ACTIONS
+  ========================== -->
+  <button class="chat-launcher" id="chatLauncher" aria-label="Open Safari Assistant">
+    <i class="fa-solid fa-comments"></i>
+  </button>
 
-<script>
-    // Navbar scroll effect
-    window.addEventListener('scroll', () => {
-        document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+  <a class="whatsapp" href="https://wa.me/255635509648?text=Hi%20Aman%20Safari!%20I%20would%20like%20to%20plan%20a%20Tanzania%20trip.">
+    <i class="fa-brands fa-whatsapp"></i> WhatsApp
+  </a>
+
+  <!-- =========================
+       SAFARI ASSISTANT
+       Temporary local foundation.
+       Aman AI / Safari Expert can replace this later.
+  ========================== -->
+  <section class="chat-window" id="chatWindow" aria-label="Safari Assistant">
+    <div class="chat-head">
+      <strong>Safari Assistant</strong>
+      <span>Tanzania trip planning assistant</span>
+    </div>
+
+    <div class="chat-messages" id="chatMessages">
+      <div class="msg bot">
+        Jambo! I can help you explore Tanzania, understand travel seasons, or start a safari inquiry.
+        <div class="quick-actions">
+          <button type="button" data-quick="Best time to visit Tanzania">Best Time</button>
+          <button type="button" data-quick="Help me plan a safari">Plan Safari</button>
+          <button type="button" data-quick="What destinations do you offer?">Destinations</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="chat-input">
+      <input id="chatInput" type="text" placeholder="Ask about Tanzania..." autocomplete="off">
+      <button id="chatSend" type="button" aria-label="Send"><i class="fa-solid fa-paper-plane"></i></button>
+    </div>
+  </section>
+
+  <script>
+    /* =========================
+       NAVIGATION
+    ========================== */
+    const siteHeader = document.getElementById("siteHeader");
+    const navToggle = document.getElementById("navToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    window.addEventListener("scroll", () => {
+      siteHeader.classList.toggle("scrolled", window.scrollY > 25);
+    }, { passive: true });
+
+    navToggle.addEventListener("click", () => {
+      const open = navLinks.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", String(open));
+      navToggle.innerHTML = open
+        ? '<i class="fa-solid fa-xmark"></i>'
+        : '<i class="fa-solid fa-bars"></i>';
     });
-    
-    // Chat functionality
-    let chatOpen = false;
-    let bookingMode = false;
-    let bookingData = {};
-    
-    function toggleChat() {
-        chatOpen = !chatOpen;
-        document.getElementById('chatWindow').classList.toggle('active');
-    }
-    
-    function sendQuick(text) {
-        document.getElementById('userInput').value = text;
-        sendMessage();
-    }
-    
-    function sendMessage() {
-        const input = document.getElementById('userInput');
-        const text = input.value.trim();
-        if (!text) return;
-        
-        addMessage(text, 'user');
-        input.value = '';
-        
-        setTimeout(() => {
-            handleBotResponse(text);
-        }, 600);
-    }
-    
-    function addMessage(text, sender) {
-        const messagesDiv = document.getElementById('chatMessages');
-        const msgDiv = document.createElement('div');
-        msgDiv.className = `message ${sender}`;
-        msgDiv.innerHTML = `<div class="message-content">${text}</div>`;
-        messagesDiv.appendChild(msgDiv);
-        messagesDiv.scrollTop = messagesDiv.scrollHeight;
-    }
-    
-    function handleBotResponse(userText) {
-        const text = userText.toLowerCase();
-        let response = '';
-        
-        if (bookingMode) {
-            handleBookingFlow(userText);
-            return;
-        }
-        
-        if (text.includes('book') || text.includes('reserve') || text.includes('plan')) {
-            bookingMode = true;
-            response = `Great! Let's plan your safari. What's your full name?`;
-        } else if (text.includes('best time') || text.includes('when')) {
-            response = `<strong>Best Times:</strong><br><br>
-            <strong>Kilimanjaro:</strong> Jan-Mar & Jun-Oct (dry, clear skies)<br>
-            <strong>Serengeti:</strong> Jun-Oct (Great Migration)<br>
-            <strong>Ngorongoro:</strong> Jun-Oct (dry season)<br>
-            <strong>Tarangire:</strong> Jun-Feb (elephant season)<br>
-            <strong>Ruaha:</strong> Jun-Oct (best predator sightings)<br><br>
-            Want me to help you book?`;
-        } else if (text.includes('price') || text.includes('cost') || text.includes('how much')) {
-            response = `<strong>Pricing (per person):</strong><br><br>
-            <strong>Kilimanjaro:</strong> $2,500-$4,500 (7-9 days)<br>
-            <strong>Serengeti Safari:</strong> $400-$800/day<br>
-            <strong>Ngorongoro:</strong> $350-$600/day<br>
-            <strong>Multi-park:</strong> Custom quotes<br><br>
-            Includes guides, park fees, meals, luxury accommodation. Ready for a detailed quote?`;
-        } else if (text.includes('pack') || text.includes('bring')) {
-            response = `<strong>Packing List:</strong><br><br>
-            <strong>Kilimanjaro:</strong> Thermal layers, waterproof jacket, hiking boots, headlamp<br>
-            <strong>Safari:</strong> Neutral colors, hat, sunscreen, binoculars, camera<br>
-            <strong>Both:</strong> Yellow fever cert, travel insurance<br><br>
-            Need the full PDF list?`;
-        } else {
-            response = `I can help with:<br>
-            - Best time to visit each park<br>
-            - Pricing & itineraries<br>
-            - Packing lists<br>
-            - Booking your safari<br><br>
-            What would you like to know?`;
-        }
-        
-        addMessage(response, 'bot');
-    }
-    
-    function handleBookingFlow(text) {
-        if (!bookingData.name) {
-            bookingData.name = text;
-            addMessage(`Thanks ${text}! What's your email?`, 'bot');
-        } else if (!bookingData.email) {
-            bookingData.email = text;
-            addMessage(`Got it. Which destination? (Kilimanjaro, Serengeti, Ngorongoro, Tarangire, Ruaha, or Multiple)`, 'bot');
-        } else if (!bookingData.route) {
-            bookingData.route = text;
-            addMessage(`Perfect. When would you like to travel? (e.g., July 2026)`, 'bot');
-        } else if (!bookingData.date) {
-            bookingData.date = text;
-            addMessage(`How many people in your group?`, 'bot');
-        } else if (!bookingData.group) {
-            bookingData.group = text;
-            
-            const form = document.createElement('form');
-            form.method = 'POST';
-            form.action = 'https://formsubmit.co/amannelson824@gmail.com';
-            form.style.display = 'none';
-            
-            Object.keys(bookingData).forEach(key => {
-                const input = document.createElement('input');
-                input.name = key;
-                input.value = bookingData[key];
-                form.appendChild(input);
-            });
-            
-            const subject = document.createElement('input');
-            subject.name = '_subject';
-            subject.value = 'New AI Chat Booking - ' + bookingData.route;
-            form.appendChild(subject);
-            
-            document.body.appendChild(form);
-            form.submit();
-            
-            addMessage(`Perfect! I've sent your request to our team. We'll email you at ${bookingData.email} within 24 hours with a custom itinerary for ${bookingData.route}.<br><br>Need immediate help? WhatsApp: +255 635 509 648`, 'bot');
-            
-            bookingMode = false;
-            bookingData = {};
-        }
-    }
-</script>
 
-<!-- Sticky WhatsApp Button -->
-<a href="https://wa.me/255635509648?text=Hi%20Amani!%20I%20want%202026%20safari%20quote" 
-   style="position:fixed; bottom:20px; right:20px; background:#25D366; color:white; padding:15px 20px; border-radius:50px; text-decoration:none; font-weight:bold; box-shadow:0 4px 12px rgba(0,0,0,0.3); z-index:9999;">
-   💬 WhatsApp Quote
-</a>
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+        navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+      });
+    });
 
+    /* =========================
+       BEST TIME BY MONTH
+       General planning guidance only.
+    ========================== */
+    const monthData = {
+      January: {
+        summary: "Warm and generally good for safari; a strong month for combining wildlife with a Kilimanjaro climb.",
+        focus: "Wildlife + Kilimanjaro"
+      },
+      February: {
+        summary: "A popular period for northern Tanzania wildlife and often a strong month for the calving season in the Serengeti ecosystem.",
+        focus: "Wildlife + calving season"
+      },
+      March: {
+        summary: "A transition month. Conditions can vary, so a route should be chosen around your priorities.",
+        focus: "Flexible itineraries"
+      },
+      April: {
+        summary: "One of the wetter periods in many northern safari areas. Some travelers prefer the quieter atmosphere and lower-season feel.",
+        focus: "Quieter travel"
+      },
+      May: {
+        summary: "Green landscapes and fewer visitors can make this attractive for travelers who value scenery and a quieter safari.",
+        focus: "Green season"
+      },
+      June: {
+        summary: "A popular start to the drier period in northern Tanzania, with strong safari conditions in many areas.",
+        focus: "Safari + dry season"
+      },
+      July: {
+        summary: "Peak travel period in many northern circuits. Advance planning is especially useful for popular routes.",
+        focus: "Peak safari season"
+      },
+      August: {
+        summary: "A popular dry-season month with strong wildlife viewing opportunities and high demand in key destinations.",
+        focus: "Peak safari season"
+      },
+      September: {
+        summary: "Dry-season travel remains popular, with generally favorable conditions across many northern safari routes.",
+        focus: "Safari + hiking"
+      },
+      October: {
+        summary: "A useful shoulder-season option in many areas, with generally good safari conditions.",
+        focus: "Safari"
+      },
+      November: {
+        summary: "Short rains can begin. Landscapes may become greener and visitor numbers can be lower.",
+        focus: "Green landscapes"
+      },
+      December: {
+        summary: "A festive travel period with good options for combining wildlife, culture and coastal extensions.",
+        focus: "Safari + coast"
+      }
+    };
+
+    const monthSelect = document.getElementById("monthSelect");
+    const monthResult = document.getElementById("monthResult");
+
+    function updateMonth() {
+      const data = monthData[monthSelect.value];
+      monthResult.innerHTML =
+        "<strong>" + monthSelect.value + "</strong><br>" +
+        data.summary +
+        "<br><br><strong>Good focus:</strong> " + data.focus +
+        "<br><br><small>Exact conditions vary by destination and year. Ask us for a route based on your dates.</small>";
+    }
+
+    monthSelect.addEventListener("change", updateMonth);
+    updateMonth();
+
+    /* =========================
+       SIMPLE CURRENCY ESTIMATOR
+       Planning estimates — not live exchange rates.
+    ========================== */
+    const rates = {
+      TZS: 2700,
+      EUR: 0.92,
+      GBP: 0.78,
+      AUD: 1.53,
+      CAD: 1.36
+    };
+
+    const currencyNames = {
+      TZS: "TZS",
+      EUR: "EUR",
+      GBP: "GBP",
+      AUD: "AUD",
+      CAD: "CAD"
+    };
+
+    const usdAmount = document.getElementById("usdAmount");
+    const currencySelect = document.getElementById("currencySelect");
+    const currencyOutput = document.getElementById("currencyOutput");
+
+    function updateCurrency() {
+      const amount = Number(usdAmount.value) || 0;
+      const currency = currencySelect.value;
+      const value = amount * rates[currency];
+
+      currencyOutput.textContent =
+        "≈ " + currencyNames[currency] + " " +
+        value.toLocaleString(undefined, { maximumFractionDigits: 0 });
+    }
+
+    usdAmount.addEventListener("input", updateCurrency);
+    currencySelect.addEventListener("change", updateCurrency);
+    updateCurrency();
+
+    /* =========================
+       BOOKING FORM UX
+       FormSubmit remains the delivery service.
+    ========================== */
+    const bookingForm = document.getElementById("bookingForm");
+    const formMessage = document.getElementById("formMessage");
+
+    bookingForm.addEventListener("submit", () => {
+      formMessage.style.display = "block";
+    });
+
+    /* =========================
+       SAFARI ASSISTANT
+       Temporary local keyword foundation.
+       This is intentionally separate from Aman AI.
+    ========================== */
+    const chatLauncher = document.getElementById("chatLauncher");
+    const chatWindow = document.getElementById("chatWindow");
+    const chatMessages = document.getElementById("chatMessages");
+    const chatInput = document.getElementById("chatInput");
+    const chatSend = document.getElementById("chatSend");
+
+    chatLauncher.addEventListener("click", () => {
+      chatWindow.classList.toggle("active");
+      if (chatWindow.classList.contains("active")) chatInput.focus();
+    });
+
+    function addChatMessage(text, sender) {
+      const div = document.createElement("div");
+      div.className = "msg " + sender;
+      div.textContent = text;
+      chatMessages.appendChild(div);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function assistantReply(input) {
+      const text = input.toLowerCase();
+
+      if (text.includes("book") || text.includes("plan") || text.includes("quote")) {
+        return "Absolutely. Tell us your preferred destination, travel dates and group size, then use the Plan My Safari form below for a detailed inquiry.";
+      }
+
+      if (text.includes("best time") || text.includes("month") || text.includes("when")) {
+        return "The best month depends on your destination and priorities. Use the Best Time by Month tool on this page, then we can help match the route to your dates.";
+      }
+
+      if (text.includes("price") || text.includes("cost") || text.includes("budget")) {
+        return "Safari prices depend on route, accommodation, transport, park fees, dates and group size. Send your details through Plan My Safari for a tailored quote rather than relying on a generic price.";
+      }
+
+      if (text.includes("kilimanjaro")) {
+        return "Kilimanjaro planning depends on route, number of days, season and the support level you choose. Open the Kilimanjaro page or start a trip inquiry.";
+      }
+
+      if (text.includes("serengeti")) {
+        return "Serengeti offers different experiences throughout the year. Your exact travel month matters, so use the Best Time tool and then request a personalized route.";
+      }
+
+      if (text.includes("destination") || text.includes("park")) {
+        return "Aman Safari currently highlights Kilimanjaro, Serengeti, Ngorongoro, Tarangire and Ruaha. You can combine destinations into a tailor-made journey.";
+      }
+
+      return "I can help with Tanzania destinations, travel seasons, safari planning and starting an inquiry. What would you like to explore?";
+    }
+
+    function sendChat() {
+      const text = chatInput.value.trim();
+      if (!text) return;
+
+      addChatMessage(text, "user");
+      chatInput.value = "";
+
+      setTimeout(() => {
+        addChatMessage(assistantReply(text), "bot");
+      }, 350);
+    }
+
+    chatSend.addEventListener("click", sendChat);
+
+    chatInput.addEventListener("keydown", event => {
+      if (event.key === "Enter") sendChat();
+    });
+
+    document.querySelectorAll("[data-quick]").forEach(button => {
+      button.addEventListener("click", () => {
+        chatInput.value = button.dataset.quick;
+        sendChat();
+      });
+    });
+
+    /* =========================
+       LIGHTWEIGHT VISITOR / CLICK COUNTER
+       Stored only in this visitor's browser.
+    ========================== */
+    try {
+      const isOwnStatsPage = window.location.href.includes("stats");
+      const isInternalReferral = document.referrer.includes("amansafaritanzania.github.io");
+
+      if (!isOwnStatsPage && !isInternalReferral) {
+        const visits = JSON.parse(localStorage.getItem("aman_visits") || "[]");
+        visits.push({
+          time: new Date().toISOString(),
+          page: window.location.pathname,
+          referrer: document.referrer || "Direct",
+          screen: window.innerWidth + "x" + window.innerHeight
+        });
+        localStorage.setItem("aman_visits", JSON.stringify(visits));
+      }
+
+      document.addEventListener("click", event => {
+        const target = event.target.closest("a, button");
+        if (!target) return;
+
+        const clicks = JSON.parse(localStorage.getItem("aman_clicks") || "[]");
+        clicks.push({
+          time: new Date().toISOString(),
+          text: (target.innerText || target.textContent || "").trim(),
+          href: target.href || "button",
+          page: window.location.pathname
+        });
+        localStorage.setItem("aman_clicks", JSON.stringify(clicks));
+      });
+    } catch (error) {
+      console.warn("Local visitor tracking unavailable.", error);
+    }
+  </script>
 </body>
 </html>
-            
