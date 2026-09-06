@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nyerere National Park | Aman Safari Tanzania</title>
+<meta name="description" content="Explore Nyerere National Park in southern Tanzania — Rufiji River boat safaris, wildlife drives, wild landscapes and unforgettable southern-circuit experiences.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--green:#17382d;--green2:#10271f;--gold:#c6a15b;--cream:#f6f1e7;--ink:#18211d;--muted:#68736d;--white:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Montserrat,Arial,sans-serif;color:var(--ink);background:var(--cream);line-height:1.7}
+a{text-decoration:none;color:inherit}
+.nav{position:fixed;top:0;left:0;width:100%;z-index:20;padding:20px 6%;display:flex;align-items:center;justify-content:space-between;transition:.3s;color:#fff}
+.nav.scrolled{background:rgba(16,39,31,.96);padding:13px 6%;box-shadow:0 8px 30px rgba(0,0,0,.15)}
+.logo{font-family:"Cormorant Garamond",serif;font-size:28px;font-weight:700;letter-spacing:1.5px}
+.logo span{color:var(--gold)}
+.nav-links{display:flex;gap:24px;align-items:center;font-size:12px;text-transform:uppercase;letter-spacing:1px;font-weight:600}
+.nav-links a:hover{color:#e1c681}
+.nav-cta{border:1px solid rgba(255,255,255,.7);padding:9px 15px;border-radius:30px}
+.menu-btn{display:none;background:none;border:0;color:#fff;font-size:27px}
+.hero{min-height:88vh;display:grid;place-items:center;text-align:center;padding:120px 6% 80px;position:relative;overflow:hidden;color:#fff;background:#12251e}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(9,25,19,.42),rgba(9,25,19,.72)),url("https://images.unsplash.com/photo-1737626772882-e32af4c1a3d6?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=80&w=2400") center/cover;transform:scale(1.02)}
+.hero-content{position:relative;z-index:1;max-width:900px}
+.kicker{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#e1c681;font-weight:700;margin-bottom:18px}
+h1,h2,h3{font-family:"Cormorant Garamond",serif}
+h1{font-size:clamp(54px,8vw,92px);line-height:.95;margin-bottom:24px}
+.hero p{max-width:700px;margin:0 auto 30px;font-size:16px;color:rgba(255,255,255,.9)}
+.btn{display:inline-block;padding:14px 22px;border-radius:3px;background:var(--gold);color:#15251e;font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase}
+.btn.alt{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.6);margin-left:8px}
+section{padding:85px 6%}
+.container{max-width:1180px;margin:auto}
+.intro{display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:center}
+.eyebrow{color:#9b7839;text-transform:uppercase;letter-spacing:2px;font-size:11px;font-weight:700;margin-bottom:10px}
+h2{font-size:clamp(38px,5vw,60px);line-height:1.05;margin-bottom:18px}
+.lead{font-size:17px;color:var(--muted)}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#d9d0c1;margin-top:35px}
+.fact{background:var(--cream);padding:22px}
+.fact strong{display:block;font-family:"Cormorant Garamond",serif;font-size:29px;color:var(--green)}
+.fact span{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
+.dark{background:var(--green);color:#fff}
+.dark .lead{color:rgba(255,255,255,.72)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:35px}
+.card{padding:30px;background:#fff;border:1px solid #e5ded2}
+.dark .card{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1)}
+.card h3{font-size:28px;margin-bottom:9px}
+.card p{font-size:13px;color:var(--muted)}
+.dark .card p{color:rgba(255,255,255,.7)}
+.best{background:#eee7db}
+.months{display:flex;flex-wrap:wrap;gap:8px;margin:28px 0}
+.month{border:1px solid #cfc4b2;background:transparent;padding:9px 13px;cursor:pointer;font:600 11px Montserrat;text-transform:uppercase;letter-spacing:.5px}
+.month.active,.month:hover{background:var(--green);color:#fff;border-color:var(--green)}
+.month-info{background:#fff;padding:25px;border-left:4px solid var(--gold);min-height:95px}
+.journey{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
+.step{background:#fff;padding:28px;border-top:3px solid var(--gold)}
+.step small{color:#9b7839;font-weight:700;letter-spacing:1px}
+.step h3{font-size:27px;margin:8px 0}
+.cta{text-align:center;background:linear-gradient(135deg,var(--green),var(--green2));color:#fff}
+.cta p{max-width:650px;margin:0 auto 25px;color:rgba(255,255,255,.76)}
+footer{background:#0c1c16;color:rgba(255,255,255,.72);padding:40px 6%;font-size:12px}
+.footer-inner{max-width:1180px;margin:auto;display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
+.footer-title{font-family:"Cormorant Garamond",serif;font-size:25px;color:#fff}
+.wa{position:fixed;right:20px;bottom:20px;z-index:30;background:#25d366;color:#fff;padding:13px 18px;border-radius:40px;font-size:12px;font-weight:700;box-shadow:0 10px 25px rgba(0,0,0,.2)}
+@media(max-width:800px){
+.nav-links{display:none;position:absolute;top:100%;left:0;width:100%;background:rgba(16,39,31,.98);padding:20px 6%;flex-direction:column;align-items:flex-start}
+.nav-links.open{display:flex}.menu-btn{display:block}
+.hero{min-height:78vh}.hero p{font-size:14px}
+.intro{grid-template-columns:1fr;gap:35px}.cards,.journey{grid-template-columns:1fr}.facts{grid-template-columns:1fr}
+.btn.alt{margin:10px 0 0}
+}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+<a class="logo" href="index.html">AMAN <span>SAFARI</span></a>
+<button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+<nav class="nav-links" id="navLinks">
+<a href="index.html">Home</a>
+<a href="index.html#destinations">Destinations</a>
+<a href="index.html#best-time">Best Time</a>
+<a href="booking.html?destination=Nyerere">Booking</a>
+<a href="pay.html">Payments</a>
+</nav>
+</header>
+
+<main>
+<section class="hero">
+<div class="hero-content">
+<div class="kicker">Southern Tanzania · Nyerere National Park</div>
+<h1>Where the River Leads You Into the Wild</h1>
+<p>Follow the Rufiji through waterways, floodplains and woodland on a safari shaped by wildlife, water and wide-open wilderness.</p>
+<a class="btn" href="booking.html?destination=Nyerere">Plan My Nyerere Safari</a>
+<a class="btn alt" href="index.html">Back Home</a>
+</div>
+</section>
+
+<section>
+<div class="container intro">
+<div>
+<div class="eyebrow">The Destination</div>
+<h2>A Different Rhythm of Safari</h2>
+<p class="lead">Nyerere brings together river landscapes, lakes, miombo woodland and open country. Its Rufiji River system creates opportunities to experience Tanzania from both land and water.</p>
+<div class="facts">
+<div class="fact"><strong>Rufiji</strong><span>River System</span></div>
+<div class="fact"><strong>Wild Dogs</strong><span>Predator Focus</span></div>
+<div class="fact"><strong>Southern</strong><span>Safari Circuit</span></div>
+</div>
+</div>
+<div>
+<p class="lead">The park is known for boat safaris, game drives and guided walking experiences. Wildlife includes elephants, hippos, crocodiles, lions, buffalo, giraffes and African wild dogs. Sightings are never guaranteed, but the variety of habitats creates a distinctive safari experience.</p>
+</div>
+</div>
+</section>
+
+<section class="dark">
+<div class="container">
+<div class="eyebrow">Signature Experiences</div>
+<h2>See Nyerere From More Than One Angle</h2>
+<div class="cards">
+<article class="card"><h3>Rufiji Boat Safari</h3><p>Glide along river channels and lakes while watching for hippos, crocodiles, elephants and birdlife around the water.</p></article>
+<article class="card"><h3>Wildlife Drives</h3><p>Explore floodplains and woodland in search of elephants, lions, buffalo, giraffes and other southern-circuit wildlife.</p></article>
+<article class="card"><h3>Guided Walks</h3><p>Experience the landscape at a slower pace with authorized guides, reading tracks, plants and the smaller signs of the bush.</p></article>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<div class="eyebrow">Why Include Nyerere?</div>
+<h2>For Travelers Who Want Wilderness With Variety</h2>
+<div class="cards">
+<article class="card"><h3>Water & Wildlife</h3><p>The Rufiji and its connected waterways add a dimension that a vehicle-only safari cannot provide.</p></article>
+<article class="card"><h3>Wild Dog Country</h3><p>Nyerere is an important stronghold for African wild dogs alongside other predators and plains wildlife.</p></article>
+<article class="card"><h3>Southern Circuit</h3><p>A strong choice for a quieter southern itinerary and a natural pairing with Ruaha or other southern destinations.</p></article>
+</div>
+</div>
+</section>
+
+<section class="best" id="best-time">
+<div class="container">
+<div class="eyebrow">Best Time By Month</div>
+<h2>Choose Your Travel Month</h2>
+<p class="lead">Seasonal conditions influence vegetation, water levels and wildlife movement. Use this as a planning guide, then ask us to tailor the route around your dates.</p>
+<div class="months" id="months"></div>
+<div class="month-info" id="monthInfo"></div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<div class="eyebrow">Sample Southern Journey</div>
+<h2>A Flexible Way Into Nyerere</h2>
+<div class="journey">
+<div class="step"><small>01 · ARRIVAL</small><h3>Dar es Salaam</h3><p>Connect from the city by road or flight depending on your itinerary and travel style.</p></div>
+<div class="step"><small>02 · NYERERE</small><h3>River & Wildlife</h3><p>Combine game drives with a Rufiji boat experience for a fuller view of the park.</p></div>
+<div class="step"><small>03 · EXTEND</small><h3>Ruaha or Coast</h3><p>Continue deeper into southern Tanzania or finish with time on the coast.</p></div>
+</div>
+</div>
+</section>
+
+<section class="cta">
+<div class="container">
+<div class="eyebrow">Ready to Explore?</div>
+<h2>Let's Build Your Nyerere Journey</h2>
+<p>Tell us your travel dates, group size and preferred style. We'll help shape the route around your priorities.</p>
+<a class="btn" href="booking.html?destination=Nyerere">Start Your Booking</a>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="footer-inner">
+<div><div class="footer-title">Aman Safari Tanzania</div><p>Arusha, Tanzania · +255 635 509 648</p><p>amannelson824@gmail.com</p></div>
+<div><p><a href="index.html">Home</a> · <a href="booking.html">Booking</a> · <a href="pay.html">Payments</a></p><p>© 2026 Aman Safari Tanzania</p></div>
+</div>
+</footer>
+
+<a class="wa" href="https://wa.me/255635509648" target="_blank" rel="noopener">WhatsApp</a>
+
+<script>
+const nav=document.getElementById("nav");
+const menuBtn=document.getElementById("menuBtn");
+const navLinks=document.getElementById("navLinks");
+window.addEventListener("scroll",()=>nav.classList.toggle("scrolled",window.scrollY>30));
+menuBtn.addEventListener("click",()=>navLinks.classList.toggle("open"));
+
+const monthData={
+January:["Green season","Lush landscapes and strong birding; a beautiful month for travelers who enjoy greener scenery."],
+February:["Green & wildlife","Green landscapes continue, with varied wildlife viewing and excellent bird activity."],
+March:["Green season","Rain can shape daily plans, but the park can be especially scenic and quiet."],
+April:["Wet season","Expect wetter conditions and lush vegetation. Flexible scheduling is useful."],
+May:["Transition","Conditions begin shifting toward the drier period; plan with flexible route timing."],
+June:["Dry season begins","Drier conditions improve access and wildlife concentration around water."],
+July:["Prime dry season","Excellent conditions for combining game drives with river experiences."],
+August:["Prime dry season","A strong month for wildlife viewing, clear skies and classic southern-circuit safari conditions."],
+September:["Dry season","Wildlife remains concentrated around dependable water sources and conditions are generally favorable."],
+October:["Dry season","Warm, dry conditions can offer strong wildlife viewing around rivers and remaining water."],
+November:["Seasonal transition","Early rains may arrive; landscapes begin turning greener and bird activity increases."],
+December:["Green season","Fresh vegetation and seasonal rains create a greener park and renewed birdlife."]
+};
+const months=document.getElementById("months"), info=document.getElementById("monthInfo");
+Object.keys(monthData).forEach((m,i)=>{
+const b=document.createElement("button"); b.className="month"+(i===0?" active":""); b.textContent=m;
+b.onclick=()=>{document.querySelectorAll(".month").forEach(x=>x.classList.remove("active"));b.classList.add("active");showMonth(m)};
+months.appendChild(b);
+});
+function showMonth(m){info.innerHTML="<strong>"+monthData[m][0]+"</strong><br>"+monthData[m][1]}
+showMonth("January");
+</script>
+</body>
+</html>
