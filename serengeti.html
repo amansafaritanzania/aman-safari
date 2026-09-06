@@ -1,264 +1,103 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Serengeti Luxury Safari - Kilimanjaro Expeditions</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Serengeti Safari | Aman Safari Tanzania</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    
-    body { 
-        font-family: Arial, sans-serif; 
-        line-height: 1.6; 
-        color: #333;
-    }
-    
-    /* Header */
-    header {
-        background: rgba(0,0,0,0.8);
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 100;
-        padding: 15px 0;
-    }
-    
-    nav {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    
-    .logo {
-        color: #C9A961;
-        font-size: 24px;
-        font-weight: bold;
-    }
-    
-    .menu a {
-        color: white;
-        text-decoration: none;
-        margin-left: 25px;
-        font-size: 14px;
-    }
-    
-    .menu a:hover, .menu a.active { color: #C9A961; }
-    
-    /* Hero */
-    .hero {
-        height: 100vh;
-        background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                    url('https://images.unsplash.com/photo-1516426122078-cd0988402c8b?q=80&w=2670') center/cover;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        color: white;
-        padding: 0 20px;
-    }
-    
-    .hero h1 {
-        font-size: 48px;
-        margin-bottom: 20px;
-    }
-    
-    .hero p {
-        font-size: 20px;
-        margin-bottom: 30px;
-    }
-    
-    .btn {
-        background: #C9A961;
-        color: white;
-        padding: 15px 40px;
-        text-decoration: none;
-        border-radius: 5px;
-        display: inline-block;
-        border: none;
-        cursor: pointer;
-        font-size: 16px;
-    }
-    
-    .btn:hover { background: #B89650; }
-    
-    /* Content Section */
-    .content {
-        max-width: 1000px;
-        margin: 80px auto;
-        padding: 0 20px;
-    }
-    
-    .content h2 {
-        text-align: center;
-        font-size: 36px;
-        margin-bottom: 40px;
-        color: #3D2B1F;
-    }
-    
-    .features {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 30px;
-        margin: 50px 0;
-    }
-    
-    .feature-box {
-        background: #F8F5F0;
-        padding: 30px;
-        border-radius: 10px;
-        border-left: 4px solid #C9A961;
-    }
-    
-    .feature-box h3 {
-        color: #3D2B1F;
-        margin-bottom: 15px;
-    }
-    
-    /* Best Time Widget */
-    .widget {
-        position: fixed;
-        right: 20px;
-        top: 100px;
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-        width: 280px;
-        border-left: 4px solid #C9A961;
-    }
-    
-    .widget h3 {
-        color: #3D2B1F;
-        margin-bottom: 15px;
-        font-size: 18px;
-    }
-    
-    .widget-item {
-        margin-bottom: 12px;
-        padding-bottom: 12px;
-        border-bottom: 1px solid #eee;
-    }
-    
-    .widget-item:last-child { border: none; }
-    
-    .widget-item strong {
-        color: #C9A961;
-        display: block;
-        margin-bottom: 3px;
-    }
-    
-    /* CTA Section */
-    .cta {
-        background: #3D2B1F;
-        color: white;
-        text-align: center;
-        padding: 60px 20px;
-        margin-top: 80px;
-    }
-    
-    .cta h2 {
-        font-size: 32px;
-        margin-bottom: 20px;
-    }
-    
-    /* Footer */
-    footer {
-        background: #1A1A1A;
-        color: #aaa;
-        text-align: center;
-        padding: 40px 20px;
-    }
-    
-    footer a { color: #C9A961; text-decoration: none; }
-    
-    /* Mobile */
-    @media (max-width: 768px) {
-        .hero h1 { font-size: 32px; }
-        .widget { display: none; }
-        .menu a { margin-left: 15px; font-size: 12px; }
-    }
+:root{--deep:#102019;--ink:#17231d;--cream:#f7f3ea;--gold:#b89552;--muted:#68736c}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:Montserrat,Arial,sans-serif;color:var(--ink);line-height:1.7;background:#fffdf8}
+a{text-decoration:none;color:inherit}img{width:100%;display:block;object-fit:cover}.container{width:min(1160px,92%);margin:auto}
+nav{position:fixed;top:0;left:0;right:0;z-index:10;color:#fff;transition:.3s}
+nav.scrolled{background:rgba(16,32,25,.96)}.navin{min-height:76px;display:flex;align-items:center;justify-content:space-between}
+.logo{font:700 28px "Cormorant Garamond",serif;letter-spacing:.06em}.logo small{display:block;text-align:center;font:600 8px Montserrat;letter-spacing:.27em;margin-top:-6px}
+.links{display:flex;gap:25px;align-items:center;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.links a:hover{color:#e5cc91}
+.ctaNav{border:1px solid #fff8;padding:9px 15px;border-radius:30px}.menu{display:none;background:none;border:0;color:#fff;font-size:28px}
+.hero{height:88vh;min-height:620px;position:relative;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+.hero>img{position:absolute;inset:0;height:100%;filter:brightness(.66);transform:scale(1.03)}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0003 20%,#08130edb 100%)}
+.heroText{position:relative;z-index:2;padding:150px 0 75px;max-width:780px}.eyebrow{color:#e3c987;font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;margin-bottom:14px}
+h1,h2,h3{font-family:"Cormorant Garamond",serif;line-height:1.05}h1{font-size:clamp(55px,8vw,92px);margin-bottom:18px}h2{font-size:clamp(40px,5vw,62px);margin-bottom:20px}
+.heroText p{max-width:680px;font-size:16px;color:#fffe}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:30px;border:1px solid var(--gold);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.primary{background:var(--gold);color:#fff}.secondary{border-color:#fff9;color:#fff}
+.section{padding:88px 0}.cream{background:var(--cream)}.grid2{display:grid;grid-template-columns:1.05fr .95fr;gap:65px;align-items:center}.photo{height:510px;overflow:hidden}.photo img{height:100%}.lead{font-size:18px;color:#344139;margin-bottom:16px}.muted{color:var(--muted);font-size:14px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:27px}.fact{background:#fff;padding:18px;border:1px solid #17231d1f}.fact strong{display:block;font:600 25px "Cormorant Garamond",serif}.fact span{font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.head{max-width:720px;margin-bottom:38px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{border:1px solid #17231d1f;background:#fff}.card img{height:225px}.card div{padding:22px}.card h3{font-size:30px;margin-bottom:8px}.card p{font-size:13px;color:var(--muted)}
+.dark{background:var(--deep);color:#fff}.monthGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.month{padding:17px;border:1px solid #fff2;background:#ffffff08}.month strong{display:block;font:600 22px "Cormorant Garamond",serif}.month span{font-size:10px;color:#fffa}
+.tool{background:#fff;color:var(--ink);padding:28px;border:1px solid #17231d1f}label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:700;margin-bottom:8px}select{width:100%;padding:13px;border:1px solid #d5d8d2;background:#fff;font:inherit;font-size:13px}.result{margin-top:17px;background:var(--deep);color:#fff;padding:20px}.result strong{display:block;font:600 30px "Cormorant Garamond",serif}.result span{font-size:12px;color:#fffb}
+.itinerary{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.day{background:var(--cream);padding:21px;border-top:2px solid var(--gold)}.day b{font-size:10px;color:var(--gold);letter-spacing:.1em}.day h3{font-size:28px;margin:8px 0}.day p{font-size:13px;color:var(--muted)}
+.banner{background:linear-gradient(#102019cc,#102019cc),url("serengeti.jpg") center/cover;color:#fff;text-align:center;padding:80px 20px}.banner h2{max-width:700px;margin:0 auto 15px}.banner p{max-width:650px;margin:auto;color:#fffc;font-size:14px}
+footer{background:#0b1711;color:#fff;padding:45px 0 25px}.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px;padding-bottom:28px;border-bottom:1px solid #fff2}.foot h3{font-size:28px;margin-bottom:9px}.foot p,.foot a{font-size:12px;color:#fffa}.flinks{display:grid;gap:7px}.copy{text-align:center;padding-top:18px;color:#fff6;font-size:10px}
+.whatsapp{position:fixed;right:18px;bottom:18px;width:54px;height:54px;border-radius:50%;background:#1f8b4c;color:#fff;display:grid;place-items:center;z-index:9;font-size:24px}
+@media(max-width:850px){.links{position:absolute;top:76px;left:0;right:0;display:none;flex-direction:column;align-items:stretch;gap:0;padding:8px 5%;background:#102019f7}.links.open{display:flex}.links a{padding:12px 0;border-bottom:1px solid #fff1}.ctaNav{text-align:center;margin:9px 0}.menu{display:block}.grid2{grid-template-columns:1fr}.cards,.itinerary{grid-template-columns:1fr 1fr}.foot{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.hero{min-height:650px}.heroText{padding:130px 0 55px}.section{padding:65px 0}.photo{height:380px}.facts,.cards,.itinerary,.foot{grid-template-columns:1fr}.monthGrid{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
+<nav id="nav"><div class="container navin">
+<a class="logo" href="index.html">AMAN SAFARI<small>TANZANIA</small></a>
+<button class="menu" id="menu" aria-label="Open menu">☰</button>
+<div class="links" id="links">
+<a href="index.html">Home</a><a href="index.html#destinations">Destinations</a><a href="#best-time">Best Time</a><a href="booking.html">Booking</a><a href="pay.html">Payments</a><a class="ctaNav" href="booking.html?destination=Serengeti">Plan My Safari</a>
+</div></div></nav>
 
-<!-- Header with full menu linking all pages -->
-<header>
-    <nav>
-        <div class="logo">KILIMANJARO</div>
-        <div class="menu">
-            <a href="index.html">Home</a>
-            <a href="kilimanjaro.html">Kilimanjaro</a>
-            <a href="serengeti.html" class="active">Serengeti</a>
-            <a href="ngorongoro.html">Ngorongoro</a>
-            <a href="tarangire.html">Tarangire</a>
-            <a href="ruaha.html">Ruaha</a>
-            <a href="booking.html">Book Now</a>
-        </div>
-    </nav>
-</header>
-
-<!-- Hero -->
 <section class="hero">
-    <div>
-        <h1>Serengeti Great Migration</h1>
-        <p>Witness the greatest wildlife spectacle on Earth</p>
-        <a href="booking.html?route=Serengeti" class="btn">Book Serengeti Safari</a>
-    </div>
+<img src="serengeti.jpg" alt="Serengeti landscape in Tanzania">
+<div class="container heroText"><div class="eyebrow">Northern Tanzania · Serengeti National Park</div>
+<h1>Where the Wild Moves</h1><p>Explore the open plains of the Serengeti, exceptional wildlife viewing and unforgettable safari days shaped around your journey.</p>
+<div class="actions"><a class="btn primary" href="booking.html?destination=Serengeti">Plan My Serengeti Safari</a><a class="btn secondary" href="#best-time">Find Your Best Month</a></div></div>
 </section>
 
-<!-- Best Time Widget - Same on all pages -->
-<div class="widget">
-    <h3>Best Time to Visit</h3>
-    <div class="widget-item">
-        <strong>Serengeti</strong>
-        Jun-Oct - Great Migration
-    </div>
-    <div class="widget-item">
-        <strong>Kilimanjaro</strong>
-        Jan-Mar & Jun-Oct
-    </div>
-    <div class="widget-item">
-        <strong>Ngorongoro</strong>
-        Jun-Oct - Dry Season
-    </div>
-    <div class="widget-item">
-        <strong>Tarangire</strong>
-        Jun-Feb - Elephant Season
-    </div>
-    <div class="widget-item">
-        <strong>Ruaha</strong>
-        Jun-Oct - Predator Activity
-    </div>
-</div>
+<section class="section cream"><div class="container grid2"><div class="photo"><img src="serengeti.jpg" alt="Serengeti safari scenery" loading="lazy"></div>
+<div><div class="eyebrow">The Serengeti Experience</div><h2>Endless plains. Extraordinary wildlife.</h2><p class="lead">Serengeti is one of Tanzania's defining safari destinations, known for vast grasslands, rich wildlife and seasonal animal movement.</p><p class="muted">Shape your journey around wildlife viewing, photography, seasonal migration, family travel or a slower luxury experience. Tell us what matters to you and we can build from there.</p>
+<div class="facts"><div class="fact"><strong>Wildlife</strong><span>Year-round opportunities</span></div><div class="fact"><strong>Migration</strong><span>Seasonal movement</span></div><div class="fact"><strong>Tailor-made</strong><span>Your travel style</span></div></div></div></div></section>
 
-<!-- Content -->
-<section class="content">
-    <h2>Experience the Serengeti</h2>
-    <p style="text-align: center; font-size: 18px; color: #666; margin-bottom: 50px;">
-        14,763 sq km of endless plains teeming with over 2 million wildebeest, zebras, and gazelles. 
-        Home to the Big Five and the annual Great Migration - nature's most dramatic event.
-    </p>
-    
-    <div class="features">
-        <div class="feature-box">
-            <h3>Great Migration</h3>
-            <p>June-October: Witness 2 million animals cross the Mara River. Predator action at its peak.</p>
-        </div>
-        <div class="feature-box">
-            <h3>Big Five Safaris</h3>
-            <p>Lion, leopard, elephant, rhino, buffalo. Highest concentration of predators in Africa.</p>
-        </div>
-        <div class="feature-box">
-            <h3>Luxury Mobile Camps</h3>
-            <p>Follow the migration in 5-star tented camps. Gourmet dining under the stars.</p>
-        </div>
-        <div class="feature-box">
-            <h3>Hot Air Balloon</h3>
-            <p>Sunrise flights over the plains. Champagne breakfast in the bush after landing.</p>
-        </div>
-        <div class="feature-box">
-            <h3>Expert Guides</h3>
-            <p>Local guides with 15
+<section class="section" id="experiences"><div class="container"><div class="head"><div class="eyebrow">Safari Experiences</div><h2>Build your Serengeti days around what you love.</h2><p class="muted">Choose the experiences that fit your travel style and let the route be shaped around your priorities.</p></div>
+<div class="cards"><article class="card"><img src="serengeti.jpg" alt="Serengeti safari" loading="lazy"><div><h3>Game Drives</h3><p>Explore different areas of the park with opportunities to encounter Tanzania's iconic wildlife.</p></div></article>
+<article class="card"><img src="park.jpg" alt="Tanzania safari landscape" loading="lazy"><div><h3>Great Migration</h3><p>Plan around seasonal wildlife movement when migration is an important part of your safari goals.</p></div></article>
+<article class="card"><img src="tarangire.jpg" alt="Tanzania wildlife safari" loading="lazy"><div><h3>Photography</h3><p>Create a flexible safari rhythm with time for observation, photography and memorable encounters.</p></div></article></div></div></section>
+
+<section class="section dark"><div class="container grid2"><div><div class="eyebrow">Seasonal Planning</div><h2>Choose your month with purpose.</h2><p style="color:#fffb;font-size:14px">The Serengeti changes through the year. Your ideal month depends on wildlife priorities, scenery, weather preferences and whether migration is central to your trip.</p></div>
+<div class="monthGrid"><div class="month"><strong>Jan–Mar</strong><span>Green season & calving opportunities</span></div><div class="month"><strong>Apr–May</strong><span>Green landscapes & quieter periods</span></div><div class="month"><strong>Jun–Jul</strong><span>Dry season & migration planning</span></div><div class="month"><strong>Aug–Sep</strong><span>Dry season & migration-focused trips</span></div><div class="month"><strong>Oct</strong><span>Wildlife viewing & changing conditions</span></div><div class="month"><strong>Nov–Dec</strong><span>Short rains & seasonal movement</span></div></div></div></section>
+
+<section class="section cream" id="best-time"><div class="container"><div class="head"><div class="eyebrow">Best Time Tool</div><h2>Tell us your month.</h2><p class="muted">Select a month for a simple Serengeti planning starting point. Conditions vary, so this is guidance rather than a guarantee.</p></div>
+<div class="tool"><label for="month">Travel month</label><select id="month"><option value="">Choose a month</option><option>January</option><option>February</option><option>March</option><option>April</option><option>May</option><option>June</option><option>July</option><option>August</option><option>September</option><option>October</option><option>November</option><option>December</option></select>
+<div class="result" id="result"><strong>Select a month</strong><span>Your Serengeti planning guidance will appear here.</span></div></div></div></section>
+
+<section class="section"><div class="container"><div class="head"><div class="eyebrow">Sample Journey</div><h2>A starting point for your Serengeti safari.</h2><p class="muted">Example structure only — not a fixed package or final quotation.</p></div>
+<div class="itinerary"><div class="day"><b>DAY 1–2</b><h3>Into the Wild</h3><p>Arrive in the safari area, settle in and begin exploring with your guide.</p></div><div class="day"><b>DAY 3–4</b><h3>Full Safari Days</h3><p>Spend longer days in the field, following wildlife opportunities and your interests.</p></div><div class="day"><b>DAY 5+</b><h3>Continue Your Journey</h3><p>Continue to another destination or finish your journey according to your itinerary.</p></div></div></div></section>
+
+<section class="banner"><div class="container"><div class="eyebrow">Your Tanzania Journey</div><h2>Ready to turn the Serengeti into your next adventure?</h2><p>Share your dates, group size and travel style. We'll use your request as the starting point for a personalized safari conversation.</p><div class="actions" style="justify-content:center"><a class="btn primary" href="booking.html?destination=Serengeti">Plan My Safari</a><a class="btn secondary" href="index.html#destinations">Explore More Destinations</a></div></div></section>
+
+<footer><div class="container"><div class="foot"><div><h3>Aman Safari Tanzania</h3><p>Tailor-made Tanzania safari journeys from Arusha.</p></div><div><h3>Explore</h3><div class="flinks"><a href="index.html">Home</a><a href="index.html#destinations">Destinations</a><a href="booking.html">Booking</a><a href="pay.html">Payments</a></div></div><div><h3>Contact</h3><div class="flinks"><a href="https://wa.me/255635509648" target="_blank" rel="noopener">WhatsApp</a><a href="mailto:amannelson824@gmail.com">amannelson824@gmail.com</a><span>+255 635 509 648</span></div></div></div><div class="copy">© 2026 Aman Safari Tanzania. All rights reserved.</div></div></footer>
+<a class="whatsapp" href="https://wa.me/255635509648" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">◉</a>
+
+<script>
+const nav=document.getElementById("nav"),menu=document.getElementById("menu"),links=document.getElementById("links");
+window.addEventListener("scroll",()=>nav.classList.toggle("scrolled",scrollY>30));
+menu.addEventListener("click",()=>links.classList.toggle("open"));
+links.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>links.classList.remove("open")));
+const info={
+January:["Green season","Good time for lush scenery and wildlife viewing; seasonal activity can be important in parts of the ecosystem."],
+February:["Calving season period","A strong month for travelers interested in seasonal wildlife activity and greener landscapes."],
+March:["Green season","Wildlife viewing can remain rewarding, with changing conditions and greener scenery."],
+April:["Green season","Often quieter for tourism. Expect wetter conditions and flexible safari planning."],
+May:["Green season","A quieter period with lush scenery; weather can be an important consideration."],
+June:["Dry season begins","Conditions often become drier, making wildlife viewing attractive for many visitors."],
+July:["Peak dry-season planning","A popular safari period. Migration timing varies, so specific movement should not be guaranteed."],
+August:["Dry season","Popular for wildlife-focused travel and migration planning, depending on where herds are."],
+September:["Dry season","Generally favorable for safari planning, with strong wildlife-viewing opportunities."],
+October:["Dry season","Useful for wildlife-focused trips before seasonal rains become more influential."],
+November:["Short-rain season","Greener landscapes return; rainfall can be variable."],
+December:["Short-rain season","Changing landscapes with seasonal rains and opportunities for a varied safari."]
+};
+document.getElementById("month").addEventListener("change",e=>{
+const r=document.getElementById("result"),v=info[e.target.value];
+r.innerHTML=v?`<strong>${v[0]}</strong><span>${v[1]}</span>`:`<strong>Select a month</strong><span>Your Serengeti planning guidance will appear here.</span>`;
+});
+</script>
+</body>
+</html>
