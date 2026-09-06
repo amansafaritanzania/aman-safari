@@ -3,183 +3,1372 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pay Deposit - Aman Safari Tanzania</title>
+
+<title>Secure Your Safari | Aman Safari Tanzania</title>
+
+<meta name="description" content="Secure your Tanzania safari with Aman Safari. Review payment options and submit your payment confirmation securely.">
+<meta name="keywords" content="Tanzania safari payment, Aman Safari Tanzania, Tanzania safari booking, safari deposit">
+<meta name="author" content="Aman Safari Tanzania">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-  /* Menu CSS */
-  #navbar {
-    background:#fff; 
-    border-bottom:1px solid #e8e2d9; 
-    position:sticky; 
-    top:0; 
-    z-index:999;
-    padding:12px 16px;
+:root{
+  --green:#102b20;
+  --green2:#173b2c;
+  --gold:#b48a45;
+  --cream:#f5f1e8;
+  --white:#ffffff;
+  --text:#20251f;
+  --muted:#6d716a;
+  --border:#e4dfd4;
+  --shadow:0 18px 55px rgba(16,43,32,.10);
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:"Montserrat",Arial,sans-serif;
+  color:var(--text);
+  background:var(--cream);
+  line-height:1.6;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(16,43,32,.97);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.navbar{
+  max-width:1200px;
+  margin:auto;
+  padding:15px 22px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+}
+
+.logo{
+  color:white;
+  text-decoration:none;
+  line-height:1;
+}
+
+.logo-main{
+  display:block;
+  font-family:"Cormorant Garamond",serif;
+  font-size:29px;
+  font-weight:700;
+  letter-spacing:2px;
+}
+
+.logo-sub{
+  display:block;
+  color:#d5bc8c;
+  font-size:9px;
+  letter-spacing:3px;
+  margin-top:4px;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:25px;
+}
+
+.nav-links a{
+  color:#f4f0e8;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.5px;
+  transition:.25s;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+  color:#d5bc8c;
+}
+
+.nav-cta{
+  border:1px solid #b48a45;
+  padding:10px 16px;
+  border-radius:30px;
+}
+
+.menu-btn{
+  display:none;
+  border:0;
+  background:none;
+  color:white;
+  font-size:27px;
+  cursor:pointer;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  min-height:470px;
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(90deg,rgba(5,19,13,.88),rgba(5,19,13,.48),rgba(5,19,13,.25)),
+    url("kilimanjaro.jpg") center/cover no-repeat;
+}
+
+.hero-content{
+  width:100%;
+  max-width:1200px;
+  margin:auto;
+  padding:80px 22px;
+  color:white;
+}
+
+.eyebrow{
+  color:#d5bc8c;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  margin-bottom:15px;
+}
+
+.hero h1{
+  max-width:750px;
+  margin:0;
+  font-family:"Cormorant Garamond",serif;
+  font-size:clamp(48px,7vw,82px);
+  line-height:.95;
+  font-weight:600;
+}
+
+.hero p{
+  max-width:650px;
+  margin:25px 0 0;
+  color:#eeeae1;
+  font-size:16px;
+}
+
+.hero-line{
+  width:65px;
+  height:2px;
+  background:var(--gold);
+  margin-top:28px;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.container{
+  max-width:1120px;
+  margin:auto;
+  padding:70px 22px;
+}
+
+.section-heading{
+  text-align:center;
+  max-width:720px;
+  margin:0 auto 45px;
+}
+
+.section-heading span{
+  color:var(--gold);
+  text-transform:uppercase;
+  letter-spacing:3px;
+  font-size:11px;
+  font-weight:700;
+}
+
+.section-heading h2{
+  margin:8px 0 12px;
+  font-family:"Cormorant Garamond",serif;
+  font-size:48px;
+  line-height:1;
+  color:var(--green);
+}
+
+.section-heading p{
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* =========================
+   PAYMENT LAYOUT
+========================= */
+
+.payment-grid{
+  display:grid;
+  grid-template-columns:1.4fr .8fr;
+  gap:28px;
+  align-items:start;
+}
+
+.card{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:30px;
+  box-shadow:var(--shadow);
+}
+
+.card h3{
+  margin:0 0 20px;
+  color:var(--green);
+  font-family:"Cormorant Garamond",serif;
+  font-size:31px;
+}
+
+.method{
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:22px;
+  margin-bottom:16px;
+  transition:.25s;
+}
+
+.method:hover{
+  border-color:#cbb78f;
+  transform:translateY(-2px);
+}
+
+.method-top{
+  display:flex;
+  align-items:center;
+  gap:13px;
+  margin-bottom:12px;
+}
+
+.method-number{
+  width:34px;
+  height:34px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:var(--green);
+  color:white;
+  font-size:13px;
+  font-weight:700;
+}
+
+.method h4{
+  margin:0;
+  color:var(--green);
+  font-size:15px;
+}
+
+.payment-details{
+  margin-left:47px;
+  color:#454941;
+  font-size:13px;
+  line-height:1.9;
+}
+
+.payment-details strong{
+  color:#1c211d;
+}
+
+.small-note{
+  margin-top:10px;
+  color:#858980;
+  font-size:11px;
+}
+
+/* =========================
+   SIDE PANEL
+========================= */
+
+.side-card{
+  background:var(--green);
+  color:white;
+  border-radius:18px;
+  padding:30px;
+  box-shadow:var(--shadow);
+}
+
+.side-card h3{
+  color:white;
+}
+
+.side-card p{
+  color:#d8ded8;
+  font-size:13px;
+}
+
+.steps{
+  margin:25px 0 0;
+}
+
+.step{
+  display:flex;
+  gap:14px;
+  margin-bottom:23px;
+}
+
+.step-icon{
+  flex:0 0 32px;
+  height:32px;
+  border:1px solid #b48a45;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#d5bc8c;
+  font-size:12px;
+  font-weight:700;
+}
+
+.step strong{
+  display:block;
+  font-size:13px;
+  margin-bottom:3px;
+}
+
+.step span{
+  color:#bfc8c0;
+  font-size:11px;
+}
+
+.help-box{
+  margin-top:28px;
+  padding-top:22px;
+  border-top:1px solid rgba(255,255,255,.15);
+}
+
+.whatsapp{
+  display:inline-flex;
+  margin-top:12px;
+  background:#fff;
+  color:var(--green);
+  text-decoration:none;
+  padding:12px 18px;
+  border-radius:30px;
+  font-size:12px;
+  font-weight:700;
+}
+
+/* =========================
+   WARNING
+========================= */
+
+.warning{
+  margin:35px auto 0;
+  max-width:850px;
+  background:#fffaf0;
+  border:1px solid #e7d4a9;
+  border-radius:14px;
+  padding:20px 22px;
+  font-size:12px;
+  color:#5c513c;
+}
+
+.warning strong{
+  color:#8a6527;
+}
+
+/* =========================
+   FORM
+========================= */
+
+.form-section{
+  background:white;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+
+.form-wrap{
+  max-width:850px;
+  margin:auto;
+}
+
+.form-card{
+  background:white;
+  border-radius:20px;
+  padding:40px;
+  box-shadow:var(--shadow);
+  border:1px solid var(--border);
+}
+
+.form-card h2{
+  margin:0 0 8px;
+  font-family:"Cormorant Garamond",serif;
+  color:var(--green);
+  font-size:45px;
+}
+
+.form-intro{
+  color:var(--muted);
+  font-size:13px;
+  margin-bottom:30px;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.field{
+  display:flex;
+  flex-direction:column;
+}
+
+.field.full{
+  grid-column:1/-1;
+}
+
+label{
+  color:#41463f;
+  font-size:11px;
+  font-weight:700;
+  margin-bottom:7px;
+  letter-spacing:.3px;
+}
+
+input,
+select,
+textarea{
+  width:100%;
+  border:1px solid #d8d5cd;
+  background:#fbfaf7;
+  border-radius:9px;
+  padding:13px 14px;
+  font-family:inherit;
+  font-size:13px;
+  color:#252923;
+  outline:none;
+  transition:.2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+  border-color:var(--gold);
+  background:white;
+  box-shadow:0 0 0 3px rgba(180,138,69,.10);
+}
+
+textarea{
+  min-height:120px;
+  resize:vertical;
+}
+
+.submit-btn{
+  width:100%;
+  margin-top:22px;
+  border:0;
+  background:var(--green);
+  color:white;
+  padding:16px;
+  border-radius:9px;
+  font-family:inherit;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.5px;
+  cursor:pointer;
+  transition:.25s;
+}
+
+.submit-btn:hover{
+  background:var(--green2);
+  transform:translateY(-1px);
+}
+
+.form-note{
+  text-align:center;
+  color:#858980;
+  font-size:10px;
+  margin-top:13px;
+  line-height:1.7;
+}
+
+/* =========================
+   TRUST
+========================= */
+
+.trust{
+  padding:55px 22px;
+  text-align:center;
+}
+
+.trust-inner{
+  max-width:850px;
+  margin:auto;
+}
+
+.trust h3{
+  margin:0 0 10px;
+  color:var(--green);
+  font-family:"Cormorant Garamond",serif;
+  font-size:34px;
+}
+
+.trust p{
+  color:var(--muted);
+  font-size:12px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  background:#0b2118;
+  color:white;
+  padding:45px 22px 25px;
+}
+
+.footer-inner{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  gap:30px;
+}
+
+.footer-brand{
+  font-family:"Cormorant Garamond",serif;
+  font-size:30px;
+}
+
+.footer-brand span{
+  display:block;
+  color:#b9a47d;
+  font-family:"Montserrat",Arial,sans-serif;
+  font-size:9px;
+  letter-spacing:3px;
+}
+
+.footer-info{
+  text-align:right;
+  color:#bdc5bf;
+  font-size:11px;
+  line-height:2;
+}
+
+.footer-info a{
+  color:#d5bc8c;
+  text-decoration:none;
+}
+
+.copyright{
+  max-width:1100px;
+  margin:30px auto 0;
+  padding-top:20px;
+  border-top:1px solid rgba(255,255,255,.1);
+  text-align:center;
+  color:#7e8981;
+  font-size:10px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:850px){
+
+  .nav-links{
+    display:none;
+    position:absolute;
+    top:70px;
+    left:0;
+    right:0;
+    padding:18px 22px 25px;
+    background:var(--green);
+    flex-direction:column;
+    align-items:flex-start;
+    gap:17px;
+    border-top:1px solid rgba(255,255,255,.08);
   }
-  #navbar nav {
-    max-width:1000px; 
-    margin:0 auto; 
-    display:flex; 
-    flex-wrap:wrap; 
-    align-items:center; 
-    justify-content:space-between; 
-    gap:12px;
+
+  .nav-links.show{
+    display:flex;
   }
-  #navbar .logo {
-    font-weight:800; 
-    font-size:18px; 
-    color:#1a1a1a;
+
+  .menu-btn{
+    display:block;
   }
-  #navbar .menu {
-    display:flex; 
-    flex-wrap:wrap; 
-    gap:14px; 
+
+  .payment-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    min-height:430px;
+  }
+
+  .hero h1{
+    font-size:58px;
+  }
+
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .field.full{
+    grid-column:auto;
+  }
+
+  .footer-inner{
+    flex-direction:column;
+  }
+
+  .footer-info{
+    text-align:left;
+  }
+}
+
+@media(max-width:600px){
+
+  .navbar{
+    padding:13px 17px;
+  }
+
+  .logo-main{
+    font-size:25px;
+  }
+
+  .hero-content{
+    padding:65px 20px;
+  }
+
+  .hero h1{
+    font-size:50px;
+  }
+
+  .hero p{
     font-size:14px;
   }
-  #navbar .menu a {
-    color:#1a7a3a; 
-    text-decoration:none; 
-    padding:4px 0;
-  }
-  #navbar .menu a.active, 
-  #navbar .menu a:hover {
-    color:#0f5c28; 
-    font-weight:600;
-  }
-  @media (max-width:600px) {
-    #navbar nav { flex-direction:column; align-items:flex-start; }
-    #navbar .menu { width:100%; }
+
+  .container{
+    padding:50px 16px;
   }
 
-  /* Page CSS */
-  body { font-family: -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin:0; background:#f7f5f0; color:#1a1a1a; }
-  .wrap { max-width: 520px; margin:0 auto; padding:24px 16px; }
-  .card { background:#fff; border-radius:16px; padding:20px; margin-bottom:16px; box-shadow:0 2px 12px rgba(0,0,0,.06); }
-  h1 { font-size:22px; margin:0 0 6px; }
-  .sub { color:#666; font-size:14px; margin-bottom:12px; }
-  .notice { background:#fff8e1; border:2px solid #f5c542; border-radius:12px; padding:14px; margin-bottom:16px; font-size:14px; line-height:1.5; }
-  .notice strong { color:#b45309; }
-  .method { border:2px solid #e8e2d9; border-radius:12px; padding:16px; margin:12px 0; }
-  .method h3 { margin:0 0 8px; font-size:16px; }
-  .payline { font-size:15px; line-height:1.7; }
-  input, select { width:100%; padding:12px; margin:6px 0 12px; border:1px solid #d6d0c7; border-radius:10px; font-size:15px; box-sizing:border-box; }
-  label { font-size:13px; color:#555; font-weight:600; }
-  button.submit { width:100%; background:#1a7a3a; color:#fff; border:none; padding:14px; border-radius:10px; font-size:16px; font-weight:700; cursor:pointer; }
-  .note { font-size:12px; color:#777; text-align:center; margin-top:12px; }
-  .footer { text-align:center; font-size:12px; color:#999; padding:20px; }
-  .badge { background:#fff3e0; color:#b45309; font-size:12px; padding:4px 10px; border-radius:20px; display:inline-block; margin-bottom:10px; }
+  .section-heading h2{
+    font-size:39px;
+  }
+
+  .card,
+  .side-card,
+  .form-card{
+    padding:22px;
+    border-radius:15px;
+  }
+
+  .form-card h2{
+    font-size:38px;
+  }
+
+  .payment-details{
+    margin-left:0;
+    margin-top:12px;
+  }
+
+  .method-top{
+    align-items:flex-start;
+  }
+}
 </style>
 </head>
+
 <body>
 
-<header id="navbar">
-    <nav>
-        <div class="logo">AMAN SAFARI ADVENTURES</div>
-        <div class="menu">
-            <a href="index.html">Home</a>
-            <a href="kilimanjaro.html">Kilimanjaro</a>
-            <a href="serengeti.html">Serengeti</a>
-            <a href="ngorongoro.html">Ngorongoro</a>
-            <a href="tarangire.html">Tarangire</a>
-            <a href="ruaha.html">Ruaha</a>
-            <a href="booking.html">Book Now</a>
-            <a href="about.html">About Us</a>
-            <a href="pay.html" class="active">Payments</a>
-        </div>
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+  <div class="navbar">
+
+    <a href="index.html" class="logo">
+      <span class="logo-main">AMAN SAFARI</span>
+      <span class="logo-sub">TANZANIA · YOUR TANZANIAN HOST</span>
+    </a>
+
+    <button class="menu-btn" onclick="toggleMenu()" aria-label="Open navigation">
+      ☰
+    </button>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="index.html#destinations">Destinations</a>
+      <a href="about.html">About</a>
+      <a href="booking.html">Booking</a>
+      <a href="pay.html" class="active">Payments</a>
+      <a href="https://wa.me/255635509648" class="nav-cta">WhatsApp</a>
     </nav>
+
+  </div>
+
 </header>
 
-<div class="wrap">
 
-  <div class="notice">
-    <strong>⚠️ SCHOOL BREAK NOTICE</strong><br>
-    I'm Amani, founder of Aman Safari. I'm in Form Five boarding school with ZERO phone access until <b>September 1, 2026</b>.<br><br>
-    Bookings open for: <b>October 2026 – August 2027</b><br>
-    Response time: First week of September<br><br>
-    Secure early-bird 2026/2027 rates now with a <b>$25 refundable hold</b>.
-  </div>
+<!-- =========================
+     HERO
+========================= -->
 
-  <div class="card">
-    <span class="badge">Aman Safari Tanzania</span>
-    <h1>Pay Your Safari Hold</h1>
-    <div class="sub">Lock early-bird pricing. Free cancellation anytime before September 1.</div>
-    <p style="font-size:14px; color:#444;">
-      Early-bird hold: <b>$25 USD</b><br>
-      Full deposit (30%): 5-Day $450 | 7-Day $540 | 7-Day + Zanzibar $660
+<section class="hero">
+
+  <div class="hero-content">
+
+    <div class="eyebrow">
+      Aman Safari Tanzania
+    </div>
+
+    <h1>
+      Secure Your<br>
+      Tanzania Journey.
+    </h1>
+
+    <p>
+      Ready to make your safari official? Review your agreed payment
+      instructions below, then send us your payment confirmation.
     </p>
+
+    <div class="hero-line"></div>
+
   </div>
 
-  <div class="card">
-    <div class="method">
-      <h3>1. M-Pesa Tanzania</h3>
-      <div class="payline">
-        Send to: <b>0699004685</b><br>
-        Name: <b>ADRIAN AUGUSTINE LUGAIMUKAMU</b><br>
-        <span style="font-size:12px;color:#777">Family M-Pesa account - Aman Safari Tanzania</span><br>
-        Reference: <b>Your full name</b>
+</section>
+
+
+<!-- =========================
+     PAYMENT INFORMATION
+========================= -->
+
+<main>
+
+<section class="container">
+
+  <div class="section-heading">
+
+    <span>Payment Information</span>
+
+    <h2>
+      A Simple Way To Confirm Your Safari
+    </h2>
+
+    <p>
+      Please use the payment method provided for your confirmed
+      itinerary. If you are unsure about the amount or payment
+      instructions, contact us before sending money.
+    </p>
+
+  </div>
+
+
+  <div class="payment-grid">
+
+    <!-- PAYMENT METHODS -->
+
+    <div class="card">
+
+      <h3>
+        Available Payment Methods
+      </h3>
+
+
+      <!-- MPESA -->
+
+      <div class="method">
+
+        <div class="method-top">
+
+          <div class="method-number">
+            01
+          </div>
+
+          <h4>
+            M-Pesa Tanzania
+          </h4>
+
+        </div>
+
+        <div class="payment-details">
+
+          Send to:
+          <strong>0699004685</strong><br>
+
+          Name:
+          <strong>ADRIAN AUGUSTINE LUGAIMUKAMU</strong><br>
+
+          Reference:
+          <strong>Your full name</strong>
+
+          <div class="small-note">
+            Family M-Pesa account — Aman Safari Tanzania
+          </div>
+
+        </div>
+
       </div>
+
+
+      <!-- BANK -->
+
+      <div class="method">
+
+        <div class="method-top">
+
+          <div class="method-number">
+            02
+          </div>
+
+          <h4>
+            CRDB Bank Transfer / Wise / WorldRemit
+          </h4>
+
+        </div>
+
+        <div class="payment-details">
+
+          Account Name:
+          <strong>AMAN MTAGWABA NELSON</strong><br>
+
+          Account Number:
+          <strong>10420565793</strong><br>
+
+          Bank:
+          <strong>CRDB Bank PLC, Tanzania</strong><br>
+
+          Branch:
+          <strong>Ilemela Municipal</strong><br>
+
+          SWIFT:
+          <strong>CORUTZTZ</strong>
+
+        </div>
+
+      </div>
+
+
+      <div class="warning">
+
+        <strong>Before you pay:</strong>
+        Please make sure your safari itinerary, agreed amount,
+        travel dates and payment instructions have been confirmed
+        with Aman Safari Tanzania. Never send passwords, PINs,
+        card numbers or banking login details through this form.
+
+      </div>
+
     </div>
 
-    <div class="method">
-      <h3>2. CRDB Bank Transfer / Wise / WorldRemit</h3>
-      <div class="payline">
-        Account Name: <b>AMAN MTAGWABA NELSON</b><br>
-        Account Number: <b>10420565793</b><br>
-        Bank: <b>CRDB Bank PLC, Tanzania</b><br>
-        Branch: <b>Ilemela Municipal</b><br>
-        SWIFT: <b>CORUTZTZ</b>
+
+    <!-- HOW IT WORKS -->
+
+    <aside class="side-card">
+
+      <h3>
+        How It Works
+      </h3>
+
+      <p>
+        Once your safari details and payment amount have been agreed,
+        confirmation takes just a few simple steps.
+      </p>
+
+
+      <div class="steps">
+
+        <div class="step">
+
+          <div class="step-icon">
+            1
+          </div>
+
+          <div>
+            <strong>Confirm your itinerary</strong>
+            <span>
+              Make sure your destination, dates and agreed amount are correct.
+            </span>
+          </div>
+
+        </div>
+
+
+        <div class="step">
+
+          <div class="step-icon">
+            2
+          </div>
+
+          <div>
+            <strong>Make your payment</strong>
+            <span>
+              Use one of the payment methods shown on this page.
+            </span>
+          </div>
+
+        </div>
+
+
+        <div class="step">
+
+          <div class="step-icon">
+            3
+          </div>
+
+          <div>
+            <strong>Send confirmation</strong>
+            <span>
+              Complete the confirmation form below with your transaction details.
+            </span>
+          </div>
+
+        </div>
+
+
+        <div class="step">
+
+          <div class="step-icon">
+            4
+          </div>
+
+          <div>
+            <strong>We review your payment</strong>
+            <span>
+              Your payment information is reviewed and your safari arrangements continue.
+            </span>
+          </div>
+
+        </div>
+
       </div>
+
+
+      <div class="help-box">
+
+        <strong>
+          Need help before paying?
+        </strong>
+
+        <p>
+          Contact Aman Safari before sending your payment if you
+          need to confirm an amount or itinerary.
+        </p>
+
+        <a
+          class="whatsapp"
+          href="https://wa.me/255635509648?text=Hello%20Aman%20Safari%2C%20I%20would%20like%20to%20confirm%20my%20safari%20payment."
+          target="_blank"
+          rel="noopener"
+        >
+          Chat on WhatsApp
+        </a>
+
+      </div>
+
+    </aside>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     CONFIRMATION FORM
+========================= -->
+
+<section class="form-section">
+
+  <div class="container">
+
+    <div class="form-wrap">
+
+      <div class="form-card">
+
+        <div class="eyebrow" style="color:#b48a45;">
+          Payment Confirmation
+        </div>
+
+        <h2>
+          Tell Us About Your Payment
+        </h2>
+
+        <p class="form-intro">
+          Paid already? Submit the details below so we can match
+          your payment with your safari booking.
+        </p>
+
+
+        <form
+          action="https://formsubmit.co/amannelson824@gmail.com"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+
+          <input
+            type="hidden"
+            name="_subject"
+            value="NEW SAFARI PAYMENT - Aman Safari Tanzania"
+          >
+
+          <input
+            type="hidden"
+            name="_next"
+            value="https://amansafaritanzania.github.io/aman-safari/index.html"
+          >
+
+          <input
+            type="hidden"
+            name="_captcha"
+            value="false"
+          >
+
+          <input
+            type="text"
+            name="_honey"
+            style="display:none"
+            tabindex="-1"
+            autocomplete="off"
+          >
+
+
+          <div class="form-grid">
+
+
+            <!-- NAME -->
+
+            <div class="field">
+
+              <label for="name">
+                FULL NAME
+              </label>
+
+              <input
+                id="name"
+                type="text"
+                name="Name"
+                placeholder="Your full name"
+                required
+              >
+
+            </div>
+
+
+            <!-- EMAIL -->
+
+            <div class="field">
+
+              <label for="email">
+                EMAIL ADDRESS
+              </label>
+
+              <input
+                id="email"
+                type="email"
+                name="Email"
+                placeholder="you@example.com"
+                required
+              >
+
+            </div>
+
+
+            <!-- WHATSAPP -->
+
+            <div class="field">
+
+              <label for="whatsapp">
+                WHATSAPP NUMBER
+              </label>
+
+              <input
+                id="whatsapp"
+                type="text"
+                name="WhatsApp"
+                placeholder="+1..."
+                required
+              >
+
+            </div>
+
+
+            <!-- AMOUNT -->
+
+            <div class="field">
+
+              <label for="amount">
+                AMOUNT PAID
+              </label>
+
+              <input
+                id="amount"
+                type="text"
+                name="Amount"
+                placeholder="e.g. 500 USD"
+                required
+              >
+
+            </div>
+
+
+            <!-- METHOD -->
+
+            <div class="field">
+
+              <label for="method">
+                PAYMENT METHOD
+              </label>
+
+              <select
+                id="method"
+                name="Payment Method"
+                required
+              >
+
+                <option value="">
+                  Select payment method
+                </option>
+
+                <option>
+                  M-Pesa Tanzania
+                </option>
+
+                <option>
+                  CRDB Bank Transfer
+                </option>
+
+                <option>
+                  Wise
+                </option>
+
+                <option>
+                  WorldRemit
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <!-- TRANSACTION ID -->
+
+            <div class="field">
+
+              <label for="transaction">
+                TRANSACTION ID / PAYMENT CODE
+              </label>
+
+              <input
+                id="transaction"
+                type="text"
+                name="Transaction ID"
+                placeholder="Enter transaction reference"
+                required
+              >
+
+            </div>
+
+
+            <!-- TRAVEL MONTH -->
+
+            <div class="field">
+
+              <label for="month">
+                EXPECTED TRAVEL MONTH
+              </label>
+
+              <input
+                id="month"
+                type="text"
+                name="Travel Month"
+                placeholder="e.g. October 2026"
+              >
+
+            </div>
+
+
+            <!-- RECEIPT -->
+
+            <div class="field">
+
+              <label for="receipt">
+                PAYMENT RECEIPT — OPTIONAL
+              </label>
+
+              <input
+                id="receipt"
+                type="file"
+                name="attachment"
+                accept="image/*,.pdf"
+              >
+
+            </div>
+
+
+            <!-- NOTES -->
+
+            <div class="field full">
+
+              <label for="notes">
+                ADDITIONAL NOTES
+              </label>
+
+              <textarea
+                id="notes"
+                name="Additional Notes"
+                placeholder="Anything we should know about this payment..."
+              ></textarea>
+
+            </div>
+
+          </div>
+
+
+          <button
+            type="submit"
+            class="submit-btn"
+          >
+            SUBMIT PAYMENT CONFIRMATION
+          </button>
+
+
+          <div class="form-note">
+
+            By submitting this form, you are sending your payment
+            confirmation details to Aman Safari Tanzania.
+            Do not include payment PINs, passwords, card security
+            codes or online banking credentials.
+
+          </div>
+
+        </form>
+
+      </div>
+
     </div>
+
   </div>
 
-  <div class="card">
-    <h3 style="margin-top:0;">3. Confirm Your Payment</h3>
-    <p class="sub">Paid? Upload your receipt. We confirm first week of September.</p>
-    
-    <form action="https://formsubmit.co/amannelson824@gmail.com" method="POST" enctype="multipart/form-data">
-      <input type="hidden" name="_subject" value="NEW SAFARI PAYMENT - Aman Safari">
-      <input type="hidden" name="_next" value="https://amansafaritanzania.github.io/aman-safari/index.html">
-      <input type="hidden" name="_autoresponse" value="Asante! We received your payment confirmation for Aman Safari Tanzania. I'm Amani, currently in Form Five boarding school until September 1, 2026 with zero phone access. I'll confirm your booking and send your full safari plan first week of September. Early-bird rate locked. Karibu Tanzania! - Amani, Aman Safari Tanzania">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="text" name="_honey" style="display:none">
+</section>
 
-      <label>Your Full Name</label>
-      <input type="text" name="Name" required>
-      
-      <label>Email</label>
-      <input type="email" name="Email" required>
-      
-      <label>WhatsApp Number</label>
-      <input type="text" name="WhatsApp" placeholder="+1..." required>
-      
-      <label>Amount Paid (USD)</label>
-      <input type="text" name="Amount" placeholder="25" required>
-      
-      <label>Payment Method</label>
-      <select name="Payment Method" required>
-        <option>M-Pesa</option>
-        <option>CRDB Bank Transfer</option>
-        <option>Wise / WorldRemit</option>
-      </select>
-      
-      <label>Transaction ID / M-Pesa Code</label>
-      <input type="text" name="Transaction ID" placeholder="QGH7X9Y2Z1" required>
-      
-      <label>Travel Month</label>
-      <input type="text" name="Travel Month" placeholder="October 2026">
-      
-      <label>Upload Receipt Screenshot (optional)</label>
-      <input type="file" name="attachment" accept="image/*,.pdf">
-      
-      <button type="submit" class="submit">Confirm Payment</button>
-      <p class="note">You will get an email confirmation instantly. Full booking confirmation first week of September.</p>
-    </form>
+
+<!-- =========================
+     TRUST SECTION
+========================= -->
+
+<section class="trust">
+
+  <div class="trust-inner">
+
+    <h3>
+      Your Tanzania Adventure Starts Here
+    </h3>
+
+    <p>
+      From the Serengeti plains to the slopes of Kilimanjaro,
+      Aman Safari Tanzania helps travelers experience Tanzania
+      through carefully planned safari journeys.
+    </p>
+
   </div>
 
-  <div class="footer">
-    Aman Safari Tanzania · Arusha<br>
-    WhatsApp: +255 635 509 648<br>
-    amannelson824@gmail.com
+</section>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+  <div class="footer-inner">
+
+    <div class="footer-brand">
+
+      AMAN SAFARI
+
+      <span>
+        TANZANIA · YOUR TANZANIAN HOST
+      </span>
+
+    </div>
+
+
+    <div class="footer-info">
+
+      Arusha, Tanzania<br>
+
+      WhatsApp:
+      <a href="https://wa.me/255635509648">
+        +255 635 509 648
+      </a>
+      <br>
+
+      Email:
+      <a href="mailto:amannelson824@gmail.com">
+        amannelson824@gmail.com
+      </a>
+
+    </div>
+
   </div>
 
-</div>
+
+  <div class="copyright">
+
+    © 2026 Aman Safari Tanzania. All rights reserved.
+
+  </div>
+
+</footer>
+
+
+<script>
+
+function toggleMenu(){
+
+  const menu = document.getElementById("navLinks");
+
+  menu.classList.toggle("show");
+
+}
+
+
+/* Close mobile menu after clicking a link */
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+
+  link.addEventListener("click", () => {
+
+    document
+      .getElementById("navLinks")
+      .classList
+      .remove("show");
+
+  });
+
+});
+
+</script>
+
 </body>
-        </html>
+</html>
