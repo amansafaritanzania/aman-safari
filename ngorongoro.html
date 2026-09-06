@@ -1,726 +1,105 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ngorongoro Crater Safari - Kilimanjaro Luxury Expeditions</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Explore the Ngorongoro Conservation Area with Aman Safari Tanzania. Discover the crater, wildlife, landscapes and tailor-made northern Tanzania safari journeys.">
+<title>Ngorongoro Safari | Aman Safari Tanzania</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-        font-family: 'Montserrat', sans-serif;
-        color: #333;
-        overflow-x: hidden;
-    }
-
-    h1, h2, h3 { font-family: 'Cormorant Garamond', serif; }
-
-    /* Header */
-    header {
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 1000;
-        padding: 20px 0;
-        transition: all 0.4s ease;
-        background: rgba(0,0,0,0.3);
-    }
-
-    header.scrolled {
-        background: rgba(26, 26, 26, 0.95);
-        backdrop-filter: blur(10px);
-        padding: 15px 0;
-    }
-
-    nav {
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 0 30px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
- .logo {
-        color: #C9A961;
-        font-size: 28px;
-        font-weight: 600;
-        letter-spacing: 2px;
-    }
-
- .menu a {
-        color: white;
-        text-decoration: none;
-        margin-left: 35px;
-        font-size: 13px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        transition: color 0.3s;
-    }
-
- .menu a:hover,.menu a.active { color: #C9A961; }
-
-    /* Hero */
- .hero {
-        height: 100vh;
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        color: white;
-        overflow: hidden;
-        background: linear-gradient(135deg, #3D2B1F 0%, #1A1A1A 100%);
-    }
-
- .hero-bg-image {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: -2;
-    }
-
- .hero::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6));
-        z-index: 0;
-    }
-
- .hero-content {
-        max-width: 900px;
-        padding: 0 30px;
-        z-index: 1;
-        position: relative;
-    }
-
- .hero h1 {
-        font-size: 72px;
-        font-weight: 300;
-        margin-bottom: 25px;
-        line-height: 1.2;
-    }
-
- .hero h1 span {
-        color: #C9A961;
-        font-weight: 600;
-    }
-
- .hero p {
-        font-size: 22px;
-        font-weight: 300;
-        margin-bottom: 40px;
-        opacity: 0.9;
-    }
-
- .btn {
-        background: linear-gradient(135deg, #C9A961 0%, #B89650 100%);
-        color: white;
-        padding: 18px 45px;
-        text-decoration: none;
-        border-radius: 50px;
-        display: inline-block;
-        border: none;
-        cursor: pointer;
-        font-size: 14px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        font-weight: 500;
-        transition: all 0.4s;
-        box-shadow: 0 10px 30px rgba(201, 169, 97, 0.3);
-    }
-
- .btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 15px 40px rgba(201, 169, 97, 0.5);
-    }
-
-    /* Content Section */
- .content {
-        max-width: 1000px;
-        margin: 120px auto;
-        padding: 0 30px;
-    }
-
- .content h2 {
-        text-align: center;
-        font-size: 48px;
-        font-weight: 300;
-        margin-bottom: 20px;
-        color: #3D2B1F;
-    }
-
- .intro-text {
-        text-align: center;
-        font-size: 18px;
-        color: #666;
-        margin-bottom: 60px;
-        line-height: 1.8;
-    }
-
- .features {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 35px;
-        margin: 60px 0;
-    }
-
- .feature-box {
-        background: #F8F5F0;
-        padding: 35px;
-        border-radius: 15px;
-        border-left: 4px solid #C9A961;
-        transition: all 0.3s;
-    }
-
- .feature-box:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-    }
-
- .feature-box i {
-        font-size: 36px;
-        color: #C9A961;
-        margin-bottom: 20px;
-    }
-
- .feature-box h3 {
-        color: #3D2B1F;
-        margin-bottom: 15px;
-        font-size: 24px;
-    }
-
- .feature-box p {
-        color: #666;
-        line-height: 1.7;
-    }
-
-    /* Widgets Container */
- .widgets-container {
-        position: fixed;
-        right: 20px;
-        top: 100px;
-        width: 320px;
-        z-index: 999;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    /* Weather Widget */
- .weather-widget {
-        background: white;
-        padding: 25px;
-        border-radius: 15px;
-        box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-        border-left: 4px solid #C9A961;
-    }
-
- .weather-widget h3 {
-        color: #3D2B1F;
-        margin-bottom: 15px;
-        font-size: 18px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-
- .weather-widget h3 i {
-        color: #C9A961;
-    }
-
- .month-selector {
-        width: 100%;
-        padding: 12px;
-        border: 2px solid #C9A961;
-        border-radius: 8px;
-        font-size: 15px;
-        margin-bottom: 20px;
-        cursor: pointer;
-        background: white;
-    }
-
- .weather-result {
-        background: #F8F5F0;
-        padding: 18px;
-        border-radius: 10px;
-        display: none;
-    }
-
- .weather-result.show {
-        display: block;
-        animation: fadeIn 0.4s ease;
-    }
-
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(-10px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
- .weather-stat {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 12px;
-        padding-bottom: 12px;
-        border-bottom: 1px solid #ddd;
-    }
-
- .weather-stat:last-child {
-        border-bottom: none;
-        margin-bottom: 0;
-        padding-bottom: 0;
-    }
-
- .weather-label {
-        color: #666;
-        font-size: 13px;
-    }
-
- .weather-value {
-        font-weight: 600;
-        color: #3D2B1F;
-        font-size: 14px;
-    }
-
- .recommendation {
-        margin-top: 15px;
-        padding: 12px;
-        border-radius: 8px;
-        font-size: 13px;
-        line-height: 1.6;
-    }
-
- .recommendation.excellent {
-        background: #d4edda;
-        color: #155724;
-        border-left: 3px solid #28a745;
-    }
-
- .recommendation.good {
-        background: #fff3cd;
-        color: #856404;
-        border-left: 3px solid #ffc107;
-    }
-
- .recommendation.poor {
-        background: #f8d7da;
-        color: #721c24;
-        border-left: 3px solid #dc3545;
-    }
-
-    /* Currency Converter Widget */
- .currency-widget {
-        background: white;
-        padding: 25px;
-        border-radius: 15px;
-        box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-        border-left: 4px solid #C9A961;
-    }
-
- .currency-widget h3 {
-        color: #3D2B1F;
-        margin-bottom: 15px;
-        font-size: 18px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-
- .currency-widget h3 i {
-        color: #C9A961;
-    }
-
- .currency-row {
-        display: flex;
-        gap: 10px;
-        margin-bottom: 12px;
-    }
-
- .currency-input {
-        flex: 1;
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        font-size: 14px;
-    }
-
- .currency-select {
-        width: 80px;
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        font-size: 14px;
-        cursor: pointer;
-    }
-
- .currency-result {
-        background: #F8F5F0;
-        padding: 12px;
-        border-radius: 8px;
-        text-align: center;
-        font-size: 13px;
-        color: #666;
-        margin-top: 10px;
-    }
-
-    /* CTA Section */
- .cta {
-        background: linear-gradient(135deg, #3D2B1F 0%, #1A1A1A 100%);
-        color: white;
-        text-align: center;
-        padding: 80px 30px;
-        margin-top: 100px;
-    }
-
- .cta h2 {
-        font-size: 42px;
-        font-weight: 300;
-        margin-bottom: 20px;
-    }
-
- .cta p {
-        font-size: 18px;
-        margin-bottom: 35px;
-        opacity: 0.9;
-    }
-
-    /* Footer */
-    footer {
-        background: #1A1A1A;
-        color: #aaa;
-        text-align: center;
-        padding: 60px 30px;
-    }
-
-    footer a { color: #C9A961; text-decoration: none; }
-
-    /* Mobile */
-    @media (max-width: 768px) {
-     .hero h1 { font-size: 40px; }
-     .hero p { font-size: 18px; }
-     .menu { display: none; }
-     .widgets-container {
-            position: relative;
-            width: 100%;
-            right: 0;
-            top: 0;
-            margin: 40px 20px;
-        }
-     .content h2 { font-size: 36px; }
-     .features { grid-template-columns: 1fr; }
-    }
+:root{--deep:#102019;--ink:#17231d;--cream:#f7f3ea;--gold:#b89552;--muted:#68736c}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:Montserrat,Arial,sans-serif;color:var(--ink);line-height:1.7;background:#fffdf8}
+a{text-decoration:none;color:inherit}img{width:100%;display:block;object-fit:cover}.container{width:min(1160px,92%);margin:auto}
+nav{position:fixed;top:0;left:0;right:0;z-index:10;color:#fff;transition:.3s}
+nav.scrolled{background:rgba(16,32,25,.96)}.navin{min-height:76px;display:flex;align-items:center;justify-content:space-between}
+.logo{font:700 28px "Cormorant Garamond",serif;letter-spacing:.06em}.logo small{display:block;text-align:center;font:600 8px Montserrat;letter-spacing:.27em;margin-top:-6px}
+.links{display:flex;gap:25px;align-items:center;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.links a:hover{color:#e5cc91}
+.ctaNav{border:1px solid #fff8;padding:9px 15px;border-radius:30px}.menu{display:none;background:none;border:0;color:#fff;font-size:28px}
+.hero{height:88vh;min-height:620px;position:relative;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+.hero>img{position:absolute;inset:0;height:100%;filter:brightness(.64);transform:scale(1.03)}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0003 20%,#08130edb 100%)}
+.heroText{position:relative;z-index:2;padding:150px 0 75px;max-width:780px}.eyebrow{color:#e3c987;font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;margin-bottom:14px}
+h1,h2,h3{font-family:"Cormorant Garamond",serif;line-height:1.05}h1{font-size:clamp(55px,8vw,92px);margin-bottom:18px}h2{font-size:clamp(40px,5vw,62px);margin-bottom:20px}
+.heroText p{max-width:680px;font-size:16px;color:#fffe}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:30px;border:1px solid var(--gold);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.primary{background:var(--gold);color:#fff}.secondary{border-color:#fff9;color:#fff}
+.section{padding:88px 0}.cream{background:var(--cream)}.grid2{display:grid;grid-template-columns:1.05fr .95fr;gap:65px;align-items:center}.photo{height:510px;overflow:hidden}.photo img{height:100%}.lead{font-size:18px;color:#344139;margin-bottom:16px}.muted{color:var(--muted);font-size:14px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:27px}.fact{background:#fff;padding:18px;border:1px solid #17231d1f}.fact strong{display:block;font:600 25px "Cormorant Garamond",serif}.fact span{font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.head{max-width:720px;margin-bottom:38px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{border:1px solid #17231d1f;background:#fff}.card img{height:225px}.card div{padding:22px}.card h3{font-size:30px;margin-bottom:8px}.card p{font-size:13px;color:var(--muted)}
+.dark{background:var(--deep);color:#fff}.featureGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.feature{padding:20px;border:1px solid #fff2;background:#ffffff08}.feature strong{display:block;font:600 25px "Cormorant Garamond",serif;margin-bottom:5px}.feature span{font-size:12px;color:#fffb}
+.tool{background:#fff;color:var(--ink);padding:28px;border:1px solid #17231d1f}label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:700;margin-bottom:8px}select{width:100%;padding:13px;border:1px solid #d5d8d2;background:#fff;font:inherit;font-size:13px}.result{margin-top:17px;background:var(--deep);color:#fff;padding:20px}.result strong{display:block;font:600 30px "Cormorant Garamond",serif}.result span{font-size:12px;color:#fffb}
+.itinerary{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.day{background:var(--cream);padding:21px;border-top:2px solid var(--gold)}.day b{font-size:10px;color:var(--gold);letter-spacing:.1em}.day h3{font-size:28px;margin:8px 0}.day p{font-size:13px;color:var(--muted)}
+.banner{background:linear-gradient(#102019cc,#102019cc),url("park.jpg") center/cover;color:#fff;text-align:center;padding:80px 20px}.banner h2{max-width:700px;margin:0 auto 15px}.banner p{max-width:650px;margin:auto;color:#fffc;font-size:14px}
+footer{background:#0b1711;color:#fff;padding:45px 0 25px}.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px;padding-bottom:28px;border-bottom:1px solid #fff2}.foot h3{font-size:28px;margin-bottom:9px}.foot p,.foot a{font-size:12px;color:#fffa}.flinks{display:grid;gap:7px}.copy{text-align:center;padding-top:18px;color:#fff6;font-size:10px}
+.whatsapp{position:fixed;right:18px;bottom:18px;width:54px;height:54px;border-radius:50%;background:#1f8b4c;color:#fff;display:grid;place-items:center;z-index:9;font-size:24px}
+@media(max-width:850px){.links{position:absolute;top:76px;left:0;right:0;display:none;flex-direction:column;align-items:stretch;gap:0;padding:8px 5%;background:#102019f7}.links.open{display:flex}.links a{padding:12px 0;border-bottom:1px solid #fff1}.ctaNav{text-align:center;margin:9px 0}.menu{display:block}.grid2{grid-template-columns:1fr}.cards,.featureGrid,.itinerary{grid-template-columns:1fr 1fr}.foot{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.hero{min-height:650px}.heroText{padding:130px 0 55px}.section{padding:65px 0}.photo{height:380px}.facts,.cards,.featureGrid,.itinerary,.foot{grid-template-columns:1fr}}
 </style>
-   <style>
-  #navbar {
-    background:#fff; 
-    border-bottom:1px solid #e8e2d9; 
-    position:sticky; 
-    top:0; 
-    z-index:999;
-    padding:12px 16px;
-  }
-  #navbar nav {
-    max-width:1000px; 
-    margin:0 auto; 
-    display:flex; 
-    flex-wrap:wrap; 
-    align-items:center; 
-    justify-content:space-between; 
-    gap:12px;
-  }
-  #navbar .logo {
-    font-weight:800; 
-    font-size:18px; 
-    color:#1a1a1a;
-  }
-  #navbar .menu {
-    display:flex; 
-    flex-wrap:wrap; 
-    gap:14px; 
-    font-size:14px;
-  }
-  #navbar .menu a {
-    color:#1a7a3a; 
-    text-decoration:none; 
-    padding:4px 0;
-  }
-  #navbar .menu a.active, 
-  #navbar .menu a:hover {
-    color:#0f5c28; 
-    font-weight:600;
-  }
-  
-  /* Mobile: stack menu under logo */
-  @media (max-width:600px) {
-    #navbar nav { flex-direction:column; align-items:flex-start; }
-    #navbar .menu { width:100%; }
-  }
-   </style>
 </head>
 <body>
+<nav id="nav"><div class="container navin">
+<a class="logo" href="index.html">AMAN SAFARI<small>TANZANIA</small></a>
+<button class="menu" id="menu" aria-label="Open menu">☰</button>
+<div class="links" id="links">
+<a href="index.html">Home</a><a href="index.html#destinations">Destinations</a><a href="#best-time">Best Time</a><a href="booking.html">Booking</a><a href="pay.html">Payments</a><a class="ctaNav" href="booking.html?destination=Ngorongoro">Plan My Safari</a>
+</div></div></nav>
 
-<!-- Header with full menu linking all pages -->
-<header id="navbar">
-    <nav>
-        <div class="logo">NGORONGORO CRATER</div>
-        <div class="menu">
-            <a href="index.html">Home</a>
-            <a href="kilimanjaro.html">Kilimanjaro</a>
-            <a href="serengeti.html">Serengeti</a>
-            <a href="ngorongoro.html" class="active">Ngorongoro</a>
-            <a href="tarangire.html">Tarangire</a>
-            <a href="ruaha.html">Ruaha</a>
-            <a href="booking.html">Book Now</a>
-            <a href="pay.html">payments</a>
-        </div>
-    </nav>
-</header>
-
-<!-- Hero -->
 <section class="hero">
-    <img src="ngorongoro.jpg.jpg"
-         alt="Ngorongoro Crater"
-         class="hero-bg-image"
-         onerror="this.style.display='none'">
-
-    <div class="hero-content">
-        <h1>Ngorongoro <span>Crater</span></h1>
-        <p>Descend into the world's largest intact caldera. A UNESCO World Heritage site with 25,000+ large animals.</p>
-        <a href="booking.html?route=Ngorongoro" class="btn">Book Ngorongoro Safari</a>
-    </div>
+<img src="park.jpg" alt="Ngorongoro landscape in Tanzania">
+<div class="container heroText"><div class="eyebrow">Northern Tanzania · Ngorongoro Conservation Area</div>
+<h1>Inside an Ancient World</h1><p>Discover the dramatic Ngorongoro landscape, remarkable wildlife and a northern Tanzania safari experience shaped around your journey.</p>
+<div class="actions"><a class="btn primary" href="booking.html?destination=Ngorongoro">Plan My Ngorongoro Safari</a><a class="btn secondary" href="#best-time">Find Your Best Month</a></div></div>
 </section>
 
-<!-- Widgets: Weather + Currency -->
-<div class="widgets-container">
-    <!-- Weather Widget -->
-    <div class="weather-widget">
-        <h3><i class="fas fa-calendar-alt"></i> When to Visit Ngorongoro</h3>
-        <select class="month-selector" id="monthSelect" onchange="updateWeather()">
-            <option value="">Select Month</option>
-            <option value="jan">January</option>
-            <option value="feb">February</option>
-            <option value="mar">March</option>
-            <option value="apr">April</option>
-            <option value="may">May</option>
-            <option value="jun">June</option>
-            <option value="jul">July</option>
-            <option value="aug">August</option>
-            <option value="sep">September</option>
-            <option value="oct">October</option>
-            <option value="nov">November</option>
-            <option value="dec">December</option>
-        </select>
+<section class="section cream"><div class="container grid2"><div class="photo"><img src="park.jpg" alt="Ngorongoro Conservation Area landscape" loading="lazy"></div>
+<div><div class="eyebrow">The Ngorongoro Experience</div><h2>A remarkable landscape at every turn.</h2>
+<p class="lead">The Ngorongoro Conservation Area is known for its dramatic crater landscape, wildlife and distinctive combination of natural and cultural heritage.</p>
+<p class="muted">A visit can be combined with Serengeti and other northern Tanzania destinations. Your itinerary can be designed around wildlife, photography, scenery, culture and the amount of time you have available.</p>
+<div class="facts"><div class="fact"><strong>Crater</strong><span>Dramatic natural landscape</span></div><div class="fact"><strong>Wildlife</strong><span>Rich viewing opportunities</span></div><div class="fact"><strong>Culture</strong><span>Living heritage</span></div></div></div></div></section>
 
-        <div class="weather-result" id="weatherResult">
-            <div class="weather-stat">
-                <span class="weather-label">Avg Temperature</span>
-                <span class="weather-value" id="temp">-</span>
-            </div>
-            <div class="weather-stat">
-                <span class="weather-label">Rainfall</span>
-                <span class="weather-value" id="rain">-</span>
-            </div>
-            <div class="weather-stat">
-                <span class="weather-label">Wildlife Viewing</span>
-                <span class="weather-value" id="wildlife">-</span>
-            </div>
-            <div class="recommendation" id="recommendation"></div>
-        </div>
-    </div>
+<section class="section" id="experiences"><div class="container"><div class="head"><div class="eyebrow">Ngorongoro Experiences</div><h2>More than a crater viewpoint.</h2><p class="muted">Build your visit around the parts of the conservation area that matter most to you.</p></div>
+<div class="cards"><article class="card"><img src="park.jpg" alt="Ngorongoro safari landscape" loading="lazy"><div><h3>Crater Safari</h3><p>Explore the crater floor with opportunities for wildlife viewing in a remarkable enclosed landscape.</p></div></article>
+<article class="card"><img src="serengeti.jpg" alt="Tanzania wildlife safari" loading="lazy"><div><h3>Wildlife & Photography</h3><p>Allow time for observation and photography while your guide helps shape each safari day.</p></div></article>
+<article class="card"><img src="tarangire.jpg" alt="Tanzania landscape" loading="lazy"><div><h3>Culture & Landscape</h3><p>Experience a destination where conservation, landscape and local communities are part of the story.</p></div></article></div></div></section>
 
-    <!-- Currency Converter Widget -->
-    <div class="currency-widget">
-        <h3><i class="fas fa-exchange-alt"></i> Currency Converter</h3>
-        <div class="currency-row">
-            <input type="number" class="currency-input" id="amount" value="1000" oninput="convertCurrency()">
-            <select class="currency-select" id="fromCurrency" onchange="convertCurrency()">
-                <option value="USD">USD</option>
-                <option value="EUR">EUR</option>
-                <option value="GBP">GBP</option>
-                <option value="TZS">TZS</option>
-            </select>
-        </div>
-        <div class="currency-row">
-            <input type="text" class="currency-input" id="convertedAmount" readonly>
-            <select class="currency-select" id="toCurrency" onchange="convertCurrency()">
-                <option value="TZS">TZS</option>
-                <option value="USD">USD</option>
-                <option value="EUR">EUR</option>
-                <option value="GBP">GBP</option>
-            </select>
-        </div>
-        <div class="currency-result" id="rateInfo">Live rates via exchangerate.host</div>
-    </div>
-</div>
+<section class="section dark"><div class="container grid2"><div><div class="eyebrow">Why Include Ngorongoro?</div><h2>A natural highlight of northern Tanzania.</h2><p style="color:#fffb;font-size:14px">Ngorongoro works especially well as part of a wider northern circuit. Combining it with other destinations can create a more varied journey instead of treating it as an isolated stop.</p></div>
+<div class="featureGrid"><div class="feature"><strong>Wildlife Focus</strong><span>A strong choice for travelers who want a concentrated wildlife experience.</span></div><div class="feature"><strong>Scenery</strong><span>Distinctive highland and crater landscapes add visual variety to a safari.</span></div><div class="feature"><strong>Flexible Routes</strong><span>Combine with Serengeti, Tarangire or other destinations according to your itinerary.</span></div><div class="feature"><strong>Tailor-made</strong><span>Shape the pace around your group, interests and travel dates.</span></div></div></div></section>
 
-<!-- Content -->
-<section class="content">
-    <h2>The Garden of Eden</h2>
-    <p class="intro-text">
-        The Ngorongoro Crater is a 260 sq km natural amphitheater and UNESCO World Heritage Site.
-        Formed 2-3 million years ago when a giant volcano collapsed, it now hosts the densest concentration
-        of wildlife in Africa. All Big Five species live here year-round, making it the only place in Tanzania
-        where you're almost guaranteed to see black rhino.
-    </p>
+<section class="section cream" id="best-time"><div class="container"><div class="head"><div class="eyebrow">Best Time Tool</div><h2>Choose your travel month.</h2><p class="muted">Use this as a planning guide. Weather and wildlife conditions can vary, so no month guarantees a particular experience.</p></div>
+<div class="tool"><label for="month">Travel month</label><select id="month"><option value="">Choose a month</option><option>January</option><option>February</option><option>March</option><option>April</option><option>May</option><option>June</option><option>July</option><option>August</option><option>September</option><option>October</option><option>November</option><option>December</option></select>
+<div class="result" id="result"><strong>Select a month</strong><span>Your Ngorongoro planning guidance will appear here.</span></div></div></div></section>
 
-    <div class="features">
-        <div class="feature-box">
-            <i class="fas fa-globe-africa"></i>
-            <h3>World's Largest Caldera</h3>
-            <p>600m deep, 20km wide. A self-contained ecosystem with lakes, forests, and grasslands supporting 25,000+ large mammals.</p>
-        </div>
+<section class="section"><div class="container"><div class="head"><div class="eyebrow">Sample Northern Circuit</div><h2>Let Ngorongoro be part of a bigger story.</h2><p class="muted">Example structure only — not a fixed package or final quotation.</p></div>
+<div class="itinerary"><div class="day"><b>DAY 1–2</b><h3>Arrival & First Safari</h3><p>Begin your northern Tanzania journey and settle into the safari rhythm.</p></div><div class="day"><b>DAY 3–4</b><h3>Ngorongoro</h3><p>Explore the conservation area and plan time for the crater experience.</p></div><div class="day"><b>DAY 5+</b><h3>Continue North</h3><p>Continue toward Serengeti or another destination according to your itinerary.</p></div></div></div></section>
 
-        <div class="feature-box">
-            <i class="fas fa-paw"></i>
-            <h3>Big Five Guaranteed</h3>
-            <p>Lion, leopard, elephant, buffalo, and black rhino all live on the crater floor. Highest predator density in Africa.</p>
-        </div>
+<section class="banner"><div class="container"><div class="eyebrow">Your Tanzania Journey</div><h2>Ready to make Ngorongoro part of your adventure?</h2><p>Share your dates, group size and travel style. We'll use your request as the starting point for a personalized safari conversation.</p><div class="actions" style="justify-content:center"><a class="btn primary" href="booking.html?destination=Ngorongoro">Plan My Safari</a><a class="btn secondary" href="index.html#destinations">Explore More Destinations</a></div></div></section>
 
-        <div class="feature-box">
-            <i class="fas fa-water"></i>
-            <h3>Lake Magadi</h3>
-            <p>Soda lake attracts thousands of flamingos. Hippo pools and Lerai Forest provide year-round water sources.</p>
-        </div>
-
-        <div class="feature-box">
-            <i class="fas fa-users"></i>
-            <h3>Maasai Culture</h3>
-            <p>Visit authentic Maasai villages on the crater rim. Learn traditional customs and support local communities.</p>
-        </div>
-
-        <div class="feature-box">
-            <i class="fas fa-bed"></i>
-            <h3>Rim Lodges</h3>
-            <p>Stay at luxury lodges perched on the crater rim with panoramic views. Wake up to sunrise over the caldera.</p>
-        </div>
-
-        <div class="feature-box">
-            <i class="fas fa-clock"></i>
-            <h3>3-5 Day Itineraries</h3>
-            <p>Perfect as a standalone safari or combined with Serengeti. Half-day crater floor game drives.</p>
-        </div>
-    </div>
-</section>
-
-<!-- CTA -->
-<section class="cta">
-    <h2>Experience the Crater</h2>
-    <p>Descend into Africa's Garden of Eden. Limited permits daily - book early.</p>
-    <a href="booking.html?route=Ngorongoro" class="btn">Start Planning</a>
-</section>
-
-<!-- Footer -->
-<footer>
-    <p><strong>Kilimanjaro Luxury Expeditions</strong></p>
-    <p>Arusha, Tanzania</p>
-    <p>Phone: <a href="tel:+255699004685">+255 699 004 685</a> |
-       Email: <a href="mailto:amannelson824@gmail.com">amannelson824@gmail.com</a> |
-       WhatsApp: <a href="https://wa.me/255635509648">Chat Now</a></p>
-    <p style="margin-top: 20px; font-size: 14px;">&copy; 2026 All rights reserved</p>
-</footer>
-
+<footer><div class="container"><div class="foot"><div><h3>Aman Safari Tanzania</h3><p>Tailor-made Tanzania safari journeys from Arusha.</p></div><div><h3>Explore</h3><div class="flinks"><a href="index.html">Home</a><a href="index.html#destinations">Destinations</a><a href="booking.html">Booking</a><a href="pay.html">Payments</a></div></div><div><h3>Contact</h3><div class="flinks"><a href="https://wa.me/255635509648" target="_blank" rel="noopener">WhatsApp</a><a href="mailto:amannelson824@gmail.com">amannelson824@gmail.com</a><span>+255 635 509 648</span></div></div></div><div class="copy">© 2026 Aman Safari Tanzania. All rights reserved.</div></div></footer>
+<a class="whatsapp" href="https://wa.me/255635509648" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">◉</a>
 <script>
-    // Navbar scroll effect
-    window.addEventListener('scroll', () => {
-        document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
-    });
-
-    // Ngorongoro Weather Data by Month
-    const ngorongoroWeather = {
-        jan: { temp: '15-25°C', rain: 'Light', wildlife: 'Excellent', rating: 'excellent',
-               text: 'Dry season. Cool rim temps. Calving season begins. Black rhino visible. BEST TIME.' },
-        feb: { temp: '16-26°C', rain: 'Light', wildlife: 'Excellent', rating: 'excellent',
-               text: 'Peak calving. Predator action intense. Green crater floor. Prime photography.' },
-        mar: { temp: '16-25°C', rain: 'Moderate', wildlife: 'Good', rating: 'good',
-               text: 'Long rains begin. Fewer tourists. Roads to rim can be muddy but crater floor accessible.' },
-        apr: { temp: '15-24°C', rain: 'Heavy', wildlife: 'Fair', rating: 'poor',
-               text: 'Heaviest rains. Many lodges close. Access difficult. Avoid unless experienced.' },
-        may: { temp: '14-23°C', rain: 'Moderate', wildlife: 'Good', rating: 'good',
-               text: 'Rains ending. Lush crater. Migratory birds arrive. Great value, fewer crowds.' },
-        jun: { temp: '12-22°C', rain: 'None', wildlife: 'Excellent', rating: 'excellent',
-               text: 'Dry season starts. Cold on rim. Wildlife concentrates at water. Crystal clear views.' },
-        jul: { temp: '11-21°C', rain: 'None', wildlife: 'Excellent', rating: 'excellent',
-               text: 'Coldest month. Bring layers. Dusty but spectacular. All Big Five active daily.' },
-        aug: { temp: '12-22°C', rain: 'None', wildlife: 'Excellent', rating: 'excellent',
-               text: 'Peak season. Cold mornings, warm days. Permit limits mean book early. Spectacular.' },
-        sep: { temp: '14-24°C', rain: 'None', wildlife: 'Excellent', rating: 'excellent',
-               text: 'Driest month. Water sources critical. Best predator sightings. Dusty conditions.' },
-        oct: { temp: '16-25°C', rain: 'Light', wildlife: 'Excellent', rating: 'excellent',
-               text: 'Short rains may start late month. Still excellent viewing. Last chance before rains.' },
-        nov: { temp: '17-25°C', rain: 'Light-Moderate', wildlife: 'Good', rating: 'good',
-               text: 'Short rains. Crater turns green. Fewer tourists. Good compromise month.' },
-        dec: { temp: '16-25°C', rain: 'Light', wildlife: 'Excellent', rating: 'excellent',
-               text: 'Festive season. Green and beautiful. Calving starts late month. Book early.' }
-    };
-
-    function updateWeather() {
-        const month = document.getElementById('monthSelect').value;
-        const resultDiv = document.getElementById('weatherResult');
-
-        if (!month) {
-            resultDiv.classList.remove('show');
-            return;
-        }
-
-        const data = ngorongoroWeather[month];
-        document.getElementById('temp').textContent = data.temp;
-        document.getElementById('rain').textContent = data.rain;
-        document.getElementById('wildlife').textContent = data.wildlife;
-
-        const recDiv = document.getElementById('recommendation');
-        recDiv.className = 'recommendation ' + data.rating;
-        recDiv.textContent = data.text;
-
-        resultDiv.classList.add('show');
-    }
-
-    // Currency Converter - Uses live rates from exchangerate.host
-    let rates = {};
-
-    async function fetchRates() {
-        try {
-            const res = await fetch('https://api.exchangerate.host/latest?base=USD&symbols=EUR,GBP,TZS');
-            const data = await res.json();
-            rates = { USD: 1,...data.rates };
-            document.getElementById('rateInfo').textContent = 'Live rates updated: ' + new Date().toLocaleDateString();
-        } catch (e) {
-            // Fallback rates if API fails
-            rates = { USD: 1, EUR: 0.92, GBP: 0.79, TZS: 2510 };
-            document.getElementById('rateInfo').textContent = 'Using cached rates (offline)';
-        }
-        convertCurrency();
-    }
-
-    function convertCurrency() {
-        const amount = parseFloat(document.getElementById('amount').value) || 0;
-        const from = document.getElementById('fromCurrency').value;
-        const to = document.getElementById('toCurrency').value;
-
-        if (!rates[from] ||!rates[to]) return;
-
-        const usdAmount = amount / rates[from];
-        const converted = (usdAmount * rates[to]).toFixed(2);
-
-        document.getElementById('convertedAmount').value = converted;
-    }
-
-    // Load rates on page load
-    fetchRates();
+const nav=document.getElementById("nav"),menu=document.getElementById("menu"),links=document.getElementById("links");
+window.addEventListener("scroll",()=>nav.classList.toggle("scrolled",scrollY>30));
+menu.addEventListener("click",()=>links.classList.toggle("open"));
+links.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>links.classList.remove("open")));
+const info={
+January:["Green-season planning","A lush period for scenery and wildlife, with changing weather conditions."],
+February:["Green-season planning","A good option for greener landscapes and wildlife-focused northern circuit trips."],
+March:["Changing conditions","Wetter conditions can occur; flexible planning is useful."],
+April:["Wetter period","Often wetter, making flexible schedules and appropriate planning important."],
+May:["Transition period","Green landscapes can remain attractive while conditions vary."],
+June:["Dry-season planning","A popular period for northern Tanzania travel, with generally drier conditions."],
+July:["Popular safari period","A busy travel period with strong wildlife-focused planning opportunities."],
+August:["Popular safari period","A widely chosen month for northern circuit travel and wildlife viewing."],
+September:["Dry-season planning","Often favorable for safari planning, though exact conditions vary."],
+October:["Dry-season planning","A useful month for wildlife-focused travel before seasonal rains become more influential."],
+November:["Short-rain season","Greener scenery returns, while rainfall can be variable."],
+December:["Holiday-season planning","A popular travel period with changing weather and a lively northern Tanzania circuit."]
+};
+document.getElementById("month").addEventListener("change",e=>{
+const r=document.getElementById("result"),v=info[e.target.value];
+r.innerHTML=v?`<strong>${v[0]}</strong><span>${v[1]}</span>`:`<strong>Select a month</strong><span>Your Ngorongoro planning guidance will appear here.</span>`;
+});
 </script>
-   <!-- Sticky WhatsApp Button -->
-<a href="https://wa.me/255635509648?text=Hi%20Amani!%20I%20want%202026%20safari%20quote" 
-   style="position:fixed; bottom:20px; right:20px; background:#25D366; color:white; padding:15px 20px; border-radius:50px; text-decoration:none; font-weight:bold; box-shadow:0 4px 12px rgba(0,0,0,0.3); z-index:9999;">
-   💬 WhatsApp Quote
-</a>
-
 </body>
-  </html>
+</html>
