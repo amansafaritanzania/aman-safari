@@ -1,210 +1,112 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kilimanjaro Luxury Expeditions - Tanzania Safaris</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Explore Mount Kilimanjaro with Aman Safari Tanzania. Plan a guided climb with route, preparation and travel support tailored to your journey.">
+<title>Kilimanjaro Climb | Aman Safari Tanzania</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-    
-    header {
-        background: rgba(0,0,0,0.5);
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 100;
-        padding: 15px 0;
-    }
-    
-    nav {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    
-    .logo { color: #C9A961; font-size: 24px; font-weight: bold; }
-    .menu a {
-        color: white;
-        text-decoration: none;
-        margin-left: 25px;
-        font-size: 14px;
-    }
-    .menu a:hover, .menu a.active { color: #C9A961; }
-    
-    .hero {
-        height: 100vh;
-        background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.5)), 
-                    url('kilimanjaro.jpg') center/cover;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        color: white;
-        padding: 0 20px;
-    }
-    
-    .hero h1 { font-size: 48px; margin-bottom: 20px; }
-    .hero p { font-size: 20px; margin-bottom: 30px; }
-    
-    .btn {
-        background: #C9A961;
-        color: white;
-        padding: 15px 40px;
-        text-decoration: none;
-        border-radius: 5px;
-        display: inline-block;
-    }
-    
-    .destinations {
-        max-width: 1200px;
-        margin: 80px auto;
-        padding: 0 20px;
-    }
-    
-    .destinations h2 {
-        text-align: center;
-        font-size: 36px;
-        margin-bottom: 50px;
-        color: #3D2B1F;
-    }
-    
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-    }
-    
-    .card {
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        transition: transform 0.3s;
-    }
-    
-    .card:hover { transform: translateY(-5px); }
-    
-    .card img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-    }
-    
-    .card-content {
-        padding: 20px;
-    }
-    
-    .card h3 {
-        color: #3D2B1F;
-        margin-bottom: 10px;
-    }
-    
-    footer {
-        background: #1A1A1A;
-        color: #aaa;
-        text-align: center;
-        padding: 40px 20px;
-        margin-top: 80px;
-    }
-    
-    footer a { color: #C9A961; text-decoration: none; }
-    
-    @media (max-width: 768px) {
-        .hero h1 { font-size: 32px; }
-        .menu a { margin-left: 15px; font-size: 12px; }
-    }
+:root{--deep:#102019;--ink:#17231d;--cream:#f7f3ea;--gold:#b89552;--muted:#68736c}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:Montserrat,Arial,sans-serif;color:var(--ink);line-height:1.7;background:#fffdf8}
+a{text-decoration:none;color:inherit}img{width:100%;display:block;object-fit:cover}.container{width:min(1160px,92%);margin:auto}
+nav{position:fixed;top:0;left:0;right:0;z-index:10;color:#fff;transition:.3s}
+nav.scrolled{background:rgba(16,32,25,.96)}.navin{min-height:76px;display:flex;align-items:center;justify-content:space-between}
+.logo{font:700 28px "Cormorant Garamond",serif;letter-spacing:.06em}.logo small{display:block;text-align:center;font:600 8px Montserrat;letter-spacing:.27em;margin-top:-6px}
+.links{display:flex;gap:25px;align-items:center;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.links a:hover{color:#e5cc91}
+.ctaNav{border:1px solid #fff8;padding:9px 15px;border-radius:30px}.menu{display:none;background:none;border:0;color:#fff;font-size:28px}
+.hero{height:88vh;min-height:620px;position:relative;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+.hero>img{position:absolute;inset:0;height:100%;filter:brightness(.68);transform:scale(1.03)}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0003 20%,#08130edb 100%)}
+.heroText{position:relative;z-index:2;padding:150px 0 75px;max-width:780px}.eyebrow{color:#e3c987;font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;margin-bottom:14px}
+h1,h2,h3{font-family:"Cormorant Garamond",serif;line-height:1.05}h1{font-size:clamp(55px,8vw,92px);margin-bottom:18px}h2{font-size:clamp(40px,5vw,62px);margin-bottom:20px}
+.heroText p{max-width:680px;font-size:16px;color:#fffe}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:30px;border:1px solid var(--gold);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.primary{background:var(--gold);color:#fff}.secondary{border-color:#fff9;color:#fff}
+.section{padding:88px 0}.cream{background:var(--cream)}.grid2{display:grid;grid-template-columns:1.05fr .95fr;gap:65px;align-items:center}.photo{height:510px;overflow:hidden}.photo img{height:100%}.lead{font-size:18px;color:#344139;margin-bottom:16px}.muted{color:var(--muted);font-size:14px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:27px}.fact{background:#fff;padding:18px;border:1px solid #17231d1f}.fact strong{display:block;font:600 25px "Cormorant Garamond",serif}.fact span{font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.head{max-width:720px;margin-bottom:38px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{border:1px solid #17231d1f;background:#fff}.card img{height:225px}.card div{padding:22px}.card h3{font-size:30px;margin-bottom:8px}.card p{font-size:13px;color:var(--muted)}
+.routeGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.route{padding:20px;background:#fff;border:1px solid #17231d1f}.route b{font-size:10px;color:var(--gold);letter-spacing:.1em;text-transform:uppercase}.route h3{font-size:28px;margin:8px 0}.route p{font-size:13px;color:var(--muted)}
+.dark{background:var(--deep);color:#fff}.checkGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.check{padding:19px;border:1px solid #fff2;background:#ffffff08}.check strong{display:block;font:600 25px "Cormorant Garamond",serif;margin-bottom:5px}.check span{font-size:12px;color:#fffb}
+.tool{background:#fff;color:var(--ink);padding:28px;border:1px solid #17231d1f}label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:700;margin-bottom:8px}select{width:100%;padding:13px;border:1px solid #d5d8d2;background:#fff;font:inherit;font-size:13px}.result{margin-top:17px;background:var(--deep);color:#fff;padding:20px}.result strong{display:block;font:600 30px "Cormorant Garamond",serif}.result span{font-size:12px;color:#fffb}
+.banner{background:linear-gradient(#102019cc,#102019cc),url("kilimanjaro.jpg") center/cover;color:#fff;text-align:center;padding:80px 20px}.banner h2{max-width:700px;margin:0 auto 15px}.banner p{max-width:650px;margin:auto;color:#fffc;font-size:14px}
+footer{background:#0b1711;color:#fff;padding:45px 0 25px}.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px;padding-bottom:28px;border-bottom:1px solid #fff2}.foot h3{font-size:28px;margin-bottom:9px}.foot p,.foot a{font-size:12px;color:#fffa}.flinks{display:grid;gap:7px}.copy{text-align:center;padding-top:18px;color:#fff6;font-size:10px}
+.whatsapp{position:fixed;right:18px;bottom:18px;width:54px;height:54px;border-radius:50%;background:#1f8b4c;color:#fff;display:grid;place-items:center;z-index:9;font-size:24px}
+@media(max-width:850px){.links{position:absolute;top:76px;left:0;right:0;display:none;flex-direction:column;align-items:stretch;gap:0;padding:8px 5%;background:#102019f7}.links.open{display:flex}.links a{padding:12px 0;border-bottom:1px solid #fff1}.ctaNav{text-align:center;margin:9px 0}.menu{display:block}.grid2{grid-template-columns:1fr}.cards,.routeGrid,.checkGrid{grid-template-columns:1fr 1fr}.foot{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.hero{min-height:650px}.heroText{padding:130px 0 55px}.section{padding:65px 0}.photo{height:380px}.facts,.cards,.routeGrid,.checkGrid,.foot{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-
-<header>
-    <nav>
-        <div class="logo">KILIMANJARO CLIMB</div>
-        <div class="menu">
-            <a href="index.html" class="active">Home</a>
-            <a href="kilimanjaro.html">Kilimanjaro</a>
-            <a href="serengeti.html">Serengeti</a>
-            <a href="ngorongoro.html">Ngorongoro</a>
-            <a href="tarangire.html">Tarangire</a>
-            <a href="ruaha.html">Ruaha</a>
-            <a href="booking.html">Booking</a>
-        </div>
-    </nav>
-</header>
+<nav id="nav"><div class="container navin">
+<a class="logo" href="index.html">AMAN SAFARI<small>TANZANIA</small></a>
+<button class="menu" id="menu" aria-label="Open menu">☰</button>
+<div class="links" id="links">
+<a href="index.html">Home</a><a href="index.html#destinations">Destinations</a><a href="#routes">Routes</a><a href="booking.html">Booking</a><a href="pay.html">Payments</a><a class="ctaNav" href="booking.html?destination=Kilimanjaro">Plan My Climb</a>
+</div></div></nav>
 
 <section class="hero">
-    <div>
-        <h1>Tanzania Luxury Safaris</h1>
-        <p>From the Roof of Africa to the Great Migration</p>
-        <a href="#destinations" class="btn">Explore Destinations</a>
-    </div>
+<img src="kilimanjaro.jpg" alt="Mount Kilimanjaro in Tanzania">
+<div class="container heroText"><div class="eyebrow">Kilimanjaro Region · Tanzania</div>
+<h1>Stand Above the Clouds</h1><p>Take on Mount Kilimanjaro with a carefully planned guided climb, thoughtful pacing and a journey built around your route and travel goals.</p>
+<div class="actions"><a class="btn primary" href="booking.html?destination=Kilimanjaro">Plan My Kilimanjaro Climb</a><a class="btn secondary" href="#routes">Explore Routes</a></div></div>
 </section>
 
-<section class="destinations" id="destinations">
-    <h2>Our Destinations</h2>
-    <div class="grid">
-        <div class="card">
-            <img src:url"kilimanjaro.jpg" alt="Kilimanjaro">
-            <div class="card-content">
-                <h3>Mt. Kilimanjaro</h3>
-                <p>Summit Africa's highest peak. 5,895m of pure adventure.</p>
-                <a href="kilimanjaro.html" class="btn" style="margin-top: 15px; padding: 10px 25px;">View Details</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <img src="serengeti.jpg" alt="Serengeti">
-            <div class="card-content">
-                <h3>Serengeti</h3>
-                <p>Witness the Great Migration and Big Five in endless plains.</p>
-                <a href="serengeti.html" class="btn" style="margin-top: 15px; padding: 10px 25px;">View Details</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1575550959106-5a7defe28b56?q=80&w=2670" alt="Ngorongoro">
-            <div class="card-content">
-                <h3>Ngorongoro Crater</h3>
-                <p>World's largest intact caldera with incredible wildlife density.</p>
-                <a href="ngorongoro.html" class="btn" style="margin-top: 15px; padding: 10px 25px;">View Details</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <img src="tarangire.jpg" alt="Tarangire">
-            <div class="card-content">
-                <h3>Tarangire</h3>
-                <p>Ancient baobabs and massive elephant herds.</p>
-                <a href="tarangire.html" class="btn" style="margin-top: 15px; padding: 10px 25px;">View Details</a>
-            </div>
-        </div>
-        
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?q=80&w=2670" alt="Ruaha">
-            <div class="card-content">
-                <h3>Ruaha</h3>
-                <p>Remote wilderness with 10% of Africa's lion population.</p>
-                <a href="ruaha.html" class="btn" style="margin-top: 15px; padding: 10px 25px;">View Details</a>
-            </div>
-        </div>
-    </div>
-</section>
+<section class="section cream"><div class="container grid2"><div class="photo"><img src="kilimanjaro.jpg" alt="Mount Kilimanjaro landscape" loading="lazy"></div>
+<div><div class="eyebrow">The Kilimanjaro Experience</div><h2>A mountain journey, not just a summit.</h2>
+<p class="lead">Kilimanjaro rises above northern Tanzania and offers a unique trekking experience through changing landscapes toward the summit.</p>
+<p class="muted">A successful climb is about preparation, sensible pacing, route choice, acclimatization and a strong support team. Your itinerary can also include safari or other Tanzania experiences before or after the trek.</p>
+<div class="facts"><div class="fact"><strong>5,895 m</strong><span>Summit elevation</span></div><div class="fact"><strong>Routes</strong><span>Different route options</span></div><div class="fact"><strong>Guided</strong><span>Planned with support</span></div></div></div></div></section>
 
-<footer>
-    <p><strong>Kilimanjaro Luxury Expeditions</strong></p>
-    <p>Arusha, Tanzania</p>
-    <p>Phone: <a href="tel:+255699004685">+255 699 004 685</a></p>
-    <p>Email: <a href="mailto:amannelson824@gmail.com">amannelson824@gmail.com</a></p>
-    <p style="margin-top: 20px; font-size: 14px;">&copy; 2026 All rights reserved</p>
-</footer>
-   <!-- Sticky WhatsApp Button -->
-<a href="https://wa.me/255635509648?text=Hi%20Amani!%20I%20want%202026%20safari%20quote" 
-   style="position:fixed; bottom:20px; right:20px; background:#25D366; color:white; padding:15px 20px; border-radius:50px; text-decoration:none; font-weight:bold; box-shadow:0 4px 12px rgba(0,0,0,0.3); z-index:9999;">
-   💬 WhatsApp Quote
-</a>
+<section class="section" id="routes"><div class="container"><div class="head"><div class="eyebrow">Choose Your Route</div><h2>The route shapes the experience.</h2><p class="muted">Different routes have different scenery, schedules and acclimatization profiles. The right choice depends on your goals and available time.</p></div>
+<div class="routeGrid">
+<article class="route"><b>Scenic</b><h3>Lemosho</h3><p>A scenic approach with a longer itinerary option that can allow more gradual acclimatization.</p></article>
+<article class="route"><b>Popular</b><h3>Machame</h3><p>A well-known route with varied landscapes and a classic trekking experience.</p></article>
+<article class="route"><b>Steady</b><h3>Marangu</h3><p>A different mountain experience with established hut accommodation along the route.</p></article>
+<article class="route"><b>Remote</b><h3>Rongai</h3><p>An approach from the northern side of the mountain with a quieter route character.</p></article>
+<article class="route"><b>Exclusive</b><h3>Umbwe</h3><p>A demanding route profile suited to trekkers seeking a more challenging approach.</p></article>
+<article class="route"><b>Custom</b><h3>Route Advice</h3><p>Not sure which route fits? Tell us your experience, time and goals and we can discuss the options.</p></article>
+</div></div></section>
 
+<section class="section dark"><div class="container grid2"><div><div class="eyebrow">Prepare With Purpose</div><h2>Good preparation makes the journey better.</h2><p style="color:#fffb;font-size:14px">Before booking, consider your fitness, trekking experience, travel dates, route length and acclimatization needs. A qualified local mountain team should guide the operational and safety decisions.</p></div>
+<div class="checkGrid"><div class="check"><strong>Pacing</strong><span>Gradual trekking schedules matter on high-altitude climbs.</span></div><div class="check"><strong>Acclimatization</strong><span>Allow enough time for your body to adjust to altitude.</span></div><div class="check"><strong>Gear</strong><span>Prepare clothing and equipment for changing mountain conditions.</span></div><div class="check"><strong>Support</strong><span>Plan your climb with an experienced, properly organized team.</span></div></div></div></section>
+
+<section class="section cream" id="best-time"><div class="container"><div class="head"><div class="eyebrow">Best Time Tool</div><h2>Choose your climbing month.</h2><p class="muted">Use this as a planning guide. Mountain weather can change quickly, so no month guarantees summit conditions.</p></div>
+<div class="tool"><label for="month">Climbing month</label><select id="month"><option value="">Choose a month</option><option>January</option><option>February</option><option>March</option><option>April</option><option>May</option><option>June</option><option>July</option><option>August</option><option>September</option><option>October</option><option>November</option><option>December</option></select>
+<div class="result" id="result"><strong>Select a month</strong><span>Your Kilimanjaro planning guidance will appear here.</span></div></div></div></section>
+
+<section class="section"><div class="container"><div class="head"><div class="eyebrow">Extend The Journey</div><h2>Climb Kilimanjaro. Then discover Tanzania.</h2><p class="muted">Many travelers combine their mountain adventure with a safari. We can discuss a journey that connects Kilimanjaro with destinations such as Serengeti, Ngorongoro, Tarangire or Ruaha.</p></div>
+<div class="cards"><article class="card"><img src="serengeti.jpg" alt="Serengeti safari" loading="lazy"><div><h3>Serengeti</h3><p>Continue from the mountain into Tanzania's famous safari landscapes.</p></div></article>
+<article class="card"><img src="park.jpg" alt="Tanzania national park" loading="lazy"><div><h3>Ngorongoro</h3><p>Add a remarkable crater experience to a northern Tanzania itinerary.</p></div></article>
+<article class="card"><img src="tarangire.jpg" alt="Tarangire safari landscape" loading="lazy"><div><h3>Tarangire</h3><p>Explore another northern destination for wildlife and distinctive scenery.</p></div></article></div></div></section>
+
+<section class="banner"><div class="container"><div class="eyebrow">Your Mountain Journey</div><h2>Ready to plan your Kilimanjaro adventure?</h2><p>Share your dates, group size and preferred route. We'll use your request as the starting point for a personalized conversation.</p><div class="actions" style="justify-content:center"><a class="btn primary" href="booking.html?destination=Kilimanjaro">Plan My Climb</a><a class="btn secondary" href="index.html#destinations">Explore More Destinations</a></div></div></section>
+
+<footer><div class="container"><div class="foot"><div><h3>Aman Safari Tanzania</h3><p>Tanzania mountain and safari journeys from Arusha.</p></div><div><h3>Explore</h3><div class="flinks"><a href="index.html">Home</a><a href="index.html#destinations">Destinations</a><a href="booking.html">Booking</a><a href="pay.html">Payments</a></div></div><div><h3>Contact</h3><div class="flinks"><a href="https://wa.me/255635509648" target="_blank" rel="noopener">WhatsApp</a><a href="mailto:amannelson824@gmail.com">amannelson824@gmail.com</a><span>+255 635 509 648</span></div></div></div><div class="copy">© 2026 Aman Safari Tanzania. All rights reserved.</div></div></footer>
+<a class="whatsapp" href="https://wa.me/255635509648" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">◉</a>
+<script>
+const nav=document.getElementById("nav"),menu=document.getElementById("menu"),links=document.getElementById("links");
+window.addEventListener("scroll",()=>nav.classList.toggle("scrolled",scrollY>30));
+menu.addEventListener("click",()=>links.classList.toggle("open"));
+links.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>links.classList.remove("open")));
+const info={
+January:["Favorable planning period","Often a popular climbing period, but mountain weather can still change quickly."],
+February:["Favorable planning period","Often suitable for trekking, with conditions varying by elevation and weather."],
+March:["Changing conditions","A wetter period can be possible; plan with flexibility and proper gear."],
+April:["Wetter period","Often wetter, so route and timing decisions should account for mountain conditions."],
+May:["Transition period","Conditions can vary. A well-planned itinerary and appropriate equipment are important."],
+June:["Drier-season planning","Often a popular period for mountain trekking, while conditions remain variable."],
+July:["Popular climbing period","A commonly chosen month for trekking; cold and altitude remain serious considerations."],
+August:["Popular climbing period","Often a busy trekking period with generally favorable planning conditions."],
+September:["Popular climbing period","A strong planning month for many trekkers, though summit conditions are never guaranteed."],
+October:["Popular climbing period","Often suitable for trekking with changing weather and temperatures by elevation."],
+November:["Variable and wetter","Short rains can affect conditions; flexibility and preparation matter."],
+December:["Holiday-season planning","A popular travel period, with variable mountain weather and colder high-altitude conditions."]
+};
+document.getElementById("month").addEventListener("change",e=>{
+const r=document.getElementById("result"),v=info[e.target.value];
+r.innerHTML=v?`<strong>${v[0]}</strong><span>${v[1]}</span>`:`<strong>Select a month</strong><span>Your Kilimanjaro planning guidance will appear here.</span>`;
+});
+</script>
 </body>
-                   </html>
+</html>
