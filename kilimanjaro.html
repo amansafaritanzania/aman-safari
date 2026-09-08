@@ -426,6 +426,162 @@ footer{background:#0b1711;color:#fff;padding:45px 0 25px}.foot{display:grid;grid
 .whatsapp{position:fixed;right:18px;bottom:18px;width:54px;height:54px;border-radius:50%;background:#1f8b4c;color:#fff;display:grid;place-items:center;z-index:9;font-size:24px}
 @media(max-width:850px){.links{position:absolute;top:76px;left:0;right:0;display:none;flex-direction:column;align-items:stretch;gap:0;padding:8px 5%;background:#102019f7}.links.open{display:flex}.links a{padding:12px 0;border-bottom:1px solid #fff1}.ctaNav{text-align:center;margin:9px 0}.menu{display:block}.grid2{grid-template-columns:1fr}.cards,.routeGrid,.checkGrid{grid-template-columns:1fr 1fr}.foot{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.hero{min-height:650px}.heroText{padding:130px 0 55px}.section{padding:65px 0}.photo{height:380px}.facts,.cards,.routeGrid,.checkGrid,.foot{grid-template-columns:1fr}}
+/* =========================================
+   BUILD MY KILIMANJARO CLIMB
+   ========================================= */
+
+.climbPlanner {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid #e8e2d9;
+  border-radius: 18px;
+  padding: 32px;
+  box-shadow: 0 18px 50px rgba(0,0,0,.08);
+}
+
+.plannerIntro {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 30px;
+}
+
+.plannerIntro h2 {
+  margin-bottom: 12px;
+}
+
+.plannerStep {
+  display: none;
+}
+
+.plannerStep.active {
+  display: block;
+}
+
+.plannerStep h3 {
+  margin-bottom: 18px;
+}
+
+.plannerOptions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.plannerOption {
+  background: #faf8f3;
+  border: 1px solid #ddd6ca;
+  border-radius: 12px;
+  padding: 18px;
+  cursor: pointer;
+  transition: .25s ease;
+}
+
+.plannerOption:hover {
+  border-color: #b48a45;
+  transform: translateY(-2px);
+}
+
+.plannerOption.selected {
+  border-color: #b48a45;
+  background: #f4ecdc;
+  box-shadow: 0 0 0 2px rgba(180,138,69,.15);
+}
+
+.plannerOption strong {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.plannerOption span {
+  font-size: 14px;
+  opacity: .75;
+}
+
+.plannerNavigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.plannerProgress {
+  height: 5px;
+  background: #eee9df;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 28px;
+}
+
+.plannerProgressBar {
+  height: 100%;
+  width: 20%;
+  background: #b48a45;
+  transition: width .3s ease;
+}
+
+.plannerResult {
+  display: none;
+  text-align: center;
+  background: #f8f4ec;
+  border-radius: 15px;
+  padding: 28px;
+  margin-top: 25px;
+}
+
+.plannerResult.show {
+  display: block;
+}
+
+.plannerResult h3 {
+  margin-bottom: 12px;
+}
+
+.plannerSummary {
+  text-align: left;
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.plannerSummary div {
+  padding: 9px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.plannerSummary div:last-child {
+  border-bottom: none;
+}
+
+.plannerActions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media (max-width: 650px) {
+
+  .climbPlanner {
+    padding: 22px 16px;
+    border-radius: 14px;
+  }
+
+  .plannerOptions {
+    grid-template-columns: 1fr;
+  }
+
+  .plannerNavigation {
+    flex-direction: column;
+  }
+
+  .plannerNavigation .btn {
+    width: 100%;
+  }
+
+}
+
 </style>
 </head>
 <body>
@@ -817,7 +973,261 @@ footer{background:#0b1711;color:#fff;padding:45px 0 25px}.foot{display:grid;grid
   </div>
 
 </section>
+<!-- =========================================
+     BUILD MY KILIMANJARO CLIMB
+     ========================================= -->
 
+<section class="section" id="climb-planner">
+
+  <div class="climbPlanner">
+
+    <div class="plannerIntro">
+      <span class="eyebrow">PLAN YOUR CLIMB</span>
+
+      <h2>Build My Kilimanjaro Climb</h2>
+
+      <p>
+        Tell us a little about your plans and we'll create
+        a simple starting point for your Kilimanjaro adventure.
+      </p>
+    </div>
+
+    <div class="plannerProgress">
+      <div class="plannerProgressBar" id="plannerProgressBar"></div>
+    </div>
+
+
+    <!-- STEP 1 -->
+
+    <div class="plannerStep active" data-step="1">
+
+      <h3>When are you thinking of climbing?</h3>
+
+      <div class="plannerOptions">
+
+        <div class="plannerOption" data-value="Jan–Mar">
+          <strong>January – March</strong>
+          <span>Early-year climb</span>
+        </div>
+
+        <div class="plannerOption" data-value="Jun–Aug">
+          <strong>June – August</strong>
+          <span>Mid-year climb</span>
+        </div>
+
+        <div class="plannerOption" data-value="Sep–Oct">
+          <strong>September – October</strong>
+          <span>Later-year climb</span>
+        </div>
+
+        <div class="plannerOption" data-value="Not sure">
+          <strong>I'm not sure yet</strong>
+          <span>I need advice on timing</span>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- STEP 2 -->
+
+    <div class="plannerStep" data-step="2">
+
+      <h3>How many travelers are you planning for?</h3>
+
+      <div class="plannerOptions">
+
+        <div class="plannerOption" data-value="1">
+          <strong>1 traveler</strong>
+          <span>Solo adventure</span>
+        </div>
+
+        <div class="plannerOption" data-value="2">
+          <strong>2 travelers</strong>
+          <span>Traveling together</span>
+        </div>
+
+        <div class="plannerOption" data-value="3–5">
+          <strong>3–5 travelers</strong>
+          <span>Small group</span>
+        </div>
+
+        <div class="plannerOption" data-value="6+">
+          <strong>6+ travelers</strong>
+          <span>Larger group</span>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- STEP 3 -->
+
+    <div class="plannerStep" data-step="3">
+
+      <h3>What kind of climb are you looking for?</h3>
+
+      <div class="plannerOptions">
+
+        <div class="plannerOption" data-value="Scenic">
+          <strong>Scenic & gradual</strong>
+          <span>I want to enjoy the mountain and scenery</span>
+        </div>
+
+        <div class="plannerOption" data-value="Popular">
+          <strong>Popular & well-known</strong>
+          <span>I want a classic Kilimanjaro experience</span>
+        </div>
+
+        <div class="plannerOption" data-value="Quiet">
+          <strong>Quieter experience</strong>
+          <span>I prefer a less busy route</span>
+        </div>
+
+        <div class="plannerOption" data-value="Challenging">
+          <strong>More challenging</strong>
+          <span>I'm looking for a demanding adventure</span>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- STEP 4 -->
+
+    <div class="plannerStep" data-step="4">
+
+      <h3>How many days would you like to spend on the mountain?</h3>
+
+      <div class="plannerOptions">
+
+        <div class="plannerOption" data-value="5–6 days">
+          <strong>5–6 days</strong>
+          <span>Shorter climb</span>
+        </div>
+
+        <div class="plannerOption" data-value="7 days">
+          <strong>7 days</strong>
+          <span>Balanced option</span>
+        </div>
+
+        <div class="plannerOption" data-value="8+ days">
+          <strong>8+ days</strong>
+          <span>More time on the mountain</span>
+        </div>
+
+        <div class="plannerOption" data-value="Not sure">
+          <strong>Not sure</strong>
+          <span>Help me choose</span>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- STEP 5 -->
+
+    <div class="plannerStep" data-step="5">
+
+      <h3>Would you like to combine your climb with a safari?</h3>
+
+      <div class="plannerOptions">
+
+        <div class="plannerOption" data-value="Yes">
+          <strong>Yes, definitely</strong>
+          <span>I'd like a Kilimanjaro + safari experience</span>
+        </div>
+
+        <div class="plannerOption" data-value="Maybe">
+          <strong>Maybe</strong>
+          <span>I'd like to see the options</span>
+        </div>
+
+        <div class="plannerOption" data-value="No">
+          <strong>No</strong>
+          <span>Kilimanjaro only for now</span>
+        </div>
+
+        <div class="plannerOption" data-value="Advice">
+          <strong>I'd like advice</strong>
+          <span>Help me decide</span>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- NAVIGATION -->
+
+    <div class="plannerNavigation">
+
+      <button
+        type="button"
+        class="btn"
+        id="plannerBack"
+        style="display:none;">
+        ← Back
+      </button>
+
+      <button
+        type="button"
+        class="btn btn-gold"
+        id="plannerNext">
+        Continue →
+      </button>
+
+    </div>
+
+
+    <!-- RESULT -->
+
+    <div class="plannerResult" id="plannerResult">
+
+      <h3>Your Kilimanjaro Planning Starting Point</h3>
+
+      <p>
+        Based on your answers, here's what you've told us
+        about the climb you're considering.
+      </p>
+
+      <div class="plannerSummary" id="plannerSummary"></div>
+
+      <p>
+        Every climb should be planned around the traveler,
+        route, timing and current conditions. Our team can
+        help turn this starting point into a detailed plan.
+      </p>
+
+      <div class="plannerActions">
+
+        <a
+          href="booking.html?destination=Kilimanjaro"
+          class="btn btn-gold"
+          id="plannerBooking">
+          Request My Climb Plan
+        </a>
+
+        <a
+          href="https://wa.me/255635509648?text=Hi%20Aman%20Safari!%20I%20used%20your%20Kilimanjaro%20climb%20planner%20and%20would%20like%20help%20planning%20my%20climb."
+          class="btn"
+          id="plannerWhatsApp"
+          target="_blank"
+          rel="noopener">
+          WhatsApp Aman Safari
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 <section class="section dark"><div class="container grid2"><div><div class="eyebrow">Prepare With Purpose</div><h2>Good preparation makes the journey better.</h2><p style="color:#fffb;font-size:14px">Before booking, consider your fitness, trekking experience, travel dates, route length and acclimatization needs. A qualified local mountain team should guide the operational and safety decisions.</p></div>
 <div class="checkGrid"><div class="check"><strong>Pacing</strong><span>Gradual trekking schedules matter on high-altitude climbs.</span></div><div class="check"><strong>Acclimatization</strong><span>Allow enough time for your body to adjust to altitude.</span></div><div class="check"><strong>Gear</strong><span>Prepare clothing and equipment for changing mountain conditions.</span></div><div class="check"><strong>Support</strong><span>Plan your climb with an experienced, properly organized team.</span></div></div></div></section>
 
