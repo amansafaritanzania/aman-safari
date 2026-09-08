@@ -1,72 +1,783 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Aman Stats</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body { font-family: sans-serif; background: #1a1a1a; color: #fff; padding: 20px; }
-        h1 { color: #C9A961; }
-        .stat { background: #2a2a2a; padding: 15px; margin: 10px 0; border-radius: 8px; }
-        .stat h3 { color: #C9A961; margin: 0 0 10px 0; }
-        button { background: #C9A961; color: #000; border: none; padding: 10px 20px; border-radius: 5px; margin: 5px; }
-        pre { background: #000; padding: 10px; overflow-x: auto; font-size: 12px; }
-    </style>
-</head>
-<body>
-    <h1>🦁 Aman Safari Stats</h1>
-    
-    <div class="stat">
-        <h3>Total Visitors</h3>
-        <div id="totalVisits">0</div>
-    </div>
-    
-    <div class="stat">
-        <h3>Total Clicks</h3>
-        <div id="totalClicks">0</div>
-    </div>
-    
-    <button onclick="showVisits()">Show All Visitors</button>
-    <button onclick="showClicks()">Show All Clicks</button>
-    <button onclick="clearData()">Clear Data</button>
-    
-    <div id="output"></div>
+<html lang="en">
 
-    <script>
-        function updateStats() {
-            const visits = JSON.parse(localStorage.getItem('aman_visits') || '[]');
-            const clicks = JSON.parse(localStorage.getItem('aman_clicks') || '[]');
-            document.getElementById('totalVisits').innerText = visits.length;
-            document.getElementById('totalClicks').innerText = clicks.length;
-        }
-        
-        function showVisits() {
-            const visits = JSON.parse(localStorage.getItem('aman_visits') || '[]');
-            let html = '<h3>Visitor Log</h3>';
-            visits.reverse().forEach(v => {
-                html += `<pre>Time: ${v.time}\nPage: ${v.page}\nFrom: ${v.referrer}\nDevice: ${v.screen}</pre>`;
-            });
-            document.getElementById('output').innerHTML = html;
-        }
-        
-        function showClicks() {
-            const clicks = JSON.parse(localStorage.getItem('aman_clicks') || '[]');
-            let html = '<h3>Click Log</h3>';
-            clicks.reverse().forEach(c => {
-                html += `<pre>Time: ${c.time}\nClicked: ${c.text}\nLink: ${c.href}\nPage: ${c.page}</pre>`;
-            });
-            document.getElementById('output').innerHTML = html;
-        }
-        
-        function clearData() {
-            if(confirm('Delete all tracking data?')) {
-                localStorage.removeItem('aman_visits');
-                localStorage.removeItem('aman_clicks');
-                updateStats();
-                document.getElementById('output').innerHTML = '';
-            }
-        }
-        
-        updateStats();
-    </script>
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Aman Safari | Analytics Command Center</title>
+
+<meta name="robots" content="noindex,nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet">
+
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #0b1712;
+    color: #f4efe5;
+    font-family: Montserrat, sans-serif;
+}
+
+
+/* HEADER */
+
+header {
+    padding: 24px 7%;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    font-size: 13px;
+    letter-spacing: 4px;
+}
+
+.brand span {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #b9975b;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+}
+
+.status {
+    color: #b9975b;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+
+/* HERO */
+
+.hero {
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 70px 7% 45px;
+}
+
+.eyebrow {
+    color: #b9975b;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+}
+
+h1 {
+    margin: 18px 0;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(50px, 8vw, 88px);
+
+    line-height: .9;
+
+    font-weight: 600;
+}
+
+.hero p {
+    max-width: 650px;
+
+    color: #aeb8b1;
+
+    line-height: 1.8;
+}
+
+
+/* DASHBOARD */
+
+.dashboard {
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 10px 7% 70px;
+}
+
+
+/* CARDS */
+
+.cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(210px, 1fr));
+
+    gap: 18px;
+}
+
+.card {
+    background: #12221b;
+
+    border: 1px solid rgba(185,151,91,.18);
+
+    padding: 28px;
+
+    min-height: 155px;
+}
+
+.card-label {
+    color: #8f9b93;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+.card-title {
+    margin-top: 18px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 29px;
+}
+
+
+/* SECTIONS */
+
+.section {
+    margin-top: 60px;
+}
+
+.section h2 {
+    margin-bottom: 10px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 40px;
+}
+
+.section p {
+    color: #aeb8b1;
+
+    line-height: 1.7;
+}
+
+
+/* ACTIONS */
+
+.actions {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 15px;
+
+    margin-top: 25px;
+}
+
+.action {
+    display: block;
+
+    padding: 23px;
+
+    background: #162b21;
+
+    border: 1px solid rgba(185,151,91,.18);
+
+    color: #f4efe5;
+
+    text-decoration: none;
+
+    transition: .25s;
+}
+
+.action:hover {
+    transform: translateY(-3px);
+
+    border-color: #b9975b;
+}
+
+.action strong {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #b9975b;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+}
+
+.action small {
+    color: #aeb8b1;
+
+    line-height: 1.5;
+}
+
+
+/* NOTICE */
+
+.notice {
+    margin-top: 50px;
+
+    padding: 24px;
+
+    background: #101e18;
+
+    border-left: 2px solid #b9975b;
+
+    color: #aeb8b1;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+/* FOOTER */
+
+footer {
+    padding: 30px 7%;
+
+    border-top: 1px solid rgba(255,255,255,.08);
+
+    color: #69736d;
+
+    font-size: 10px;
+
+    letter-spacing: 1px;
+
+    text-align: center;
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px) {
+
+    header {
+        padding: 22px;
+    }
+
+    .hero,
+    .dashboard {
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    h1 {
+        font-size: 58px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="brand">
+
+        AMAN SAFARI
+
+        <span>TANZANIA · ANALYTICS</span>
+
+    </div>
+
+
+    <div class="status">
+
+        ● TRACKING LIVE
+
+    </div>
+
+</header>
+
+
+
+<section class="hero">
+
+    <div class="eyebrow">
+
+        Private Business Control Center
+
+    </div>
+
+
+    <h1>
+
+        Know Your<br>
+
+        Visitors.
+
+    </h1>
+
+
+    <p>
+
+        Understand how travellers discover Aman Safari Tanzania,
+        which destinations attract attention, and which actions
+        show genuine interest in booking a safari.
+
+    </p>
+
+</section>
+
+
+
+<main class="dashboard">
+
+
+    <!-- OVERVIEW -->
+
+    <div class="cards">
+
+
+        <div class="card">
+
+            <div class="card-label">
+
+                Website Visitors
+
+            </div>
+
+            <div class="card-title">
+
+                Live in Analytics
+
+            </div>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <div class="card-label">
+
+                Page Views
+
+            </div>
+
+            <div class="card-title">
+
+                Live in Analytics
+
+            </div>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <div class="card-label">
+
+                WhatsApp Interest
+
+            </div>
+
+            <div class="card-title">
+
+                Event Tracking
+
+            </div>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <div class="card-label">
+
+                Booking Interest
+
+            </div>
+
+            <div class="card-title">
+
+                Event Tracking
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- ANALYTICS -->
+
+    <section class="section">
+
+        <h2>
+
+            Analytics Command Center
+
+        </h2>
+
+
+        <p>
+
+            Your real visitor data is stored centrally in
+            Google Analytics. Use the controls below to open
+            the live reports.
+
+        </p>
+
+
+
+        <div class="actions">
+
+
+            <a
+                class="action"
+                href="https://analytics.google.com/"
+                target="_blank"
+                rel="noopener"
+            >
+
+                <strong>
+
+                    OPEN GOOGLE ANALYTICS
+
+                </strong>
+
+
+                <small>
+
+                    Open the main Aman Safari analytics account.
+
+                </small>
+
+            </a>
+
+
+
+            <a
+                class="action"
+                href="https://analytics.google.com/"
+                target="_blank"
+                rel="noopener"
+            >
+
+                <strong>
+
+                    REAL-TIME VISITORS
+
+                </strong>
+
+
+                <small>
+
+                    See visitors currently active on the website.
+
+                </small>
+
+            </a>
+
+
+
+            <a
+                class="action"
+                href="https://analytics.google.com/"
+                target="_blank"
+                rel="noopener"
+            >
+
+                <strong>
+
+                    EVENTS
+
+                </strong>
+
+
+                <small>
+
+                    Review WhatsApp, booking and payment interactions.
+
+                </small>
+
+            </a>
+
+
+
+            <a
+                class="action"
+                href="https://analytics.google.com/"
+                target="_blank"
+                rel="noopener"
+            >
+
+                <strong>
+
+                    AUDIENCE
+
+                </strong>
+
+
+                <small>
+
+                    Explore countries, devices and visitor behaviour.
+
+                </small>
+
+            </a>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- BUSINESS INTELLIGENCE -->
+
+    <section class="section">
+
+        <h2>
+
+            What We're Measuring
+
+        </h2>
+
+
+        <div class="actions">
+
+
+            <div class="action">
+
+                <strong>
+
+                    🦁 DESTINATIONS
+
+                </strong>
+
+
+                <small>
+
+                    Discover which safari destinations
+                    receive the most attention.
+
+                </small>
+
+            </div>
+
+
+
+            <div class="action">
+
+                <strong>
+
+                    💬 WHATSAPP
+
+                </strong>
+
+
+                <small>
+
+                    Measure visitors who actively try
+                    to contact Aman Safari.
+
+                </small>
+
+            </div>
+
+
+
+            <div class="action">
+
+                <strong>
+
+                    📩 BOOKINGS
+
+                </strong>
+
+
+                <small>
+
+                    Track visitors who move toward
+                    the booking process.
+
+                </small>
+
+            </div>
+
+
+
+            <div class="action">
+
+                <strong>
+
+                    💳 PAYMENTS
+
+                </strong>
+
+
+                <small>
+
+                    Measure interest in the payment
+                    process.
+
+                </small>
+
+            </div>
+
+
+
+            <div class="action">
+
+                <strong>
+
+                    📱 DEVICES
+
+                </strong>
+
+
+                <small>
+
+                    Understand mobile, tablet and
+                    desktop usage.
+
+                </small>
+
+            </div>
+
+
+
+            <div class="action">
+
+                <strong>
+
+                    🌍 LOCATIONS
+
+                </strong>
+
+
+                <small>
+
+                    Understand where your website
+                    visitors are coming from.
+
+                </small>
+
+            </div>
+
+
+
+            <div class="action">
+
+                <strong>
+
+                    🔎 TRAFFIC SOURCES
+
+                </strong>
+
+
+                <small>
+
+                    See how travellers discover
+                    Aman Safari.
+
+                </small>
+
+            </div>
+
+
+
+            <div class="action">
+
+                <strong>
+
+                    📈 TRENDS
+
+                </strong>
+
+
+                <small>
+
+                    Compare website activity over
+                    time.
+
+                </small>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- IMPORTANT -->
+
+    <div class="notice">
+
+        <strong>
+
+            Privacy & Security
+
+        </strong>
+
+        <br><br>
+
+        Analytics should measure website behaviour,
+        not collect sensitive customer information.
+
+        Never send passwords, payment PINs, banking
+        credentials or private booking information
+        to analytics.
+
+    </div>
+
+
+</main>
+
+
+
+<footer>
+
+    AMAN SAFARI TANZANIA
+
+    ·
+
+    BUSINESS ANALYTICS
+
+</footer>
+
+
 </body>
-      </html>
+
+</html>
