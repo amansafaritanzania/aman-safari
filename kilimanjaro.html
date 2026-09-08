@@ -1732,6 +1732,302 @@ quizRestart.addEventListener("click", () => {
   showQuizStep(1);
 
 });
+  /* =========================================
+   BUILD MY KILIMANJARO CLIMB — PLANNER
+   ========================================= */
+
+(function () {
+
+  const steps = document.querySelectorAll('.plannerStep');
+  const nextButton = document.getElementById('plannerNext');
+  const backButton = document.getElementById('plannerBack');
+  const progressBar = document.getElementById('plannerProgressBar');
+  const resultBox = document.getElementById('plannerResult');
+  const summaryBox = document.getElementById('plannerSummary');
+
+  if (
+    !steps.length ||
+    !nextButton ||
+    !backButton ||
+    !progressBar ||
+    !resultBox ||
+    !summaryBox
+  ) {
+    return;
+  }
+
+  let currentStep = 1;
+
+  const answers = {
+    timing: '',
+    travelers: '',
+    experience: '',
+    days: '',
+    safari: ''
+  };
+
+
+  /* -----------------------------------------
+     SHOW STEP
+     ----------------------------------------- */
+
+  function showStep(step) {
+
+    steps.forEach(function (item) {
+
+      item.classList.toggle(
+        'active',
+        Number(item.dataset.step) === step
+      );
+
+    });
+
+    progressBar.style.width =
+      ((step / steps.length) * 100) + '%';
+
+    backButton.style.display =
+      step === 1 ? 'none' : 'inline-block';
+
+    nextButton.textContent =
+      step === steps.length
+        ? 'Build My Climb →'
+        : 'Continue →';
+
+  }
+
+
+  /* -----------------------------------------
+     SAVE ANSWER
+     ----------------------------------------- */
+
+  steps.forEach(function (step) {
+
+    const options =
+      step.querySelectorAll('.plannerOption');
+
+    options.forEach(function (option) {
+
+      option.addEventListener('click', function () {
+
+        options.forEach(function (item) {
+          item.classList.remove('selected');
+        });
+
+        option.classList.add('selected');
+
+        const value = option.dataset.value;
+
+        if (currentStep === 1) {
+          answers.timing = value;
+        }
+
+        if (currentStep === 2) {
+          answers.travelers = value;
+        }
+
+        if (currentStep === 3) {
+          answers.experience = value;
+        }
+
+        if (currentStep === 4) {
+          answers.days = value;
+        }
+
+        if (currentStep === 5) {
+          answers.safari = value;
+        }
+
+      });
+
+    });
+
+  });
+
+
+  /* -----------------------------------------
+     NEXT
+     ----------------------------------------- */
+
+  nextButton.addEventListener('click', function () {
+
+    const current =
+      document.querySelector(
+        '.plannerStep[data-step="' + currentStep + '"]'
+      );
+
+    const selected =
+      current.querySelector('.plannerOption.selected');
+
+    if (!selected) {
+
+      alert('Please choose an option before continuing.');
+
+      return;
+
+    }
+
+
+    if (currentStep < steps.length) {
+
+      currentStep++;
+
+      showStep(currentStep);
+
+      document
+        .getElementById('climb-planner')
+        .scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+
+      return;
+
+    }
+
+
+    buildResult();
+
+  });
+
+
+  /* -----------------------------------------
+     BACK
+     ----------------------------------------- */
+
+  backButton.addEventListener('click', function () {
+
+    if (currentStep > 1) {
+
+      currentStep--;
+
+      showStep(currentStep);
+
+    }
+
+  });
+
+
+  /* -----------------------------------------
+     BUILD RESULT
+     ----------------------------------------- */
+
+  function buildResult() {
+
+    summaryBox.innerHTML = `
+
+      <div>
+        <strong>Preferred timing:</strong>
+        ${answers.timing}
+      </div>
+
+      <div>
+        <strong>Travelers:</strong>
+        ${answers.travelers}
+      </div>
+
+      <div>
+        <strong>Climb style:</strong>
+        ${answers.experience}
+      </div>
+
+      <div>
+        <strong>Mountain days:</strong>
+        ${answers.days}
+      </div>
+
+      <div>
+        <strong>Safari after the climb:</strong>
+        ${answers.safari}
+      </div>
+
+    `;
+
+
+    resultBox.classList.add('show');
+
+
+    /* -----------------------------------------
+       GA4 EVENT
+       ----------------------------------------- */
+
+    if (typeof gtag === 'function') {
+
+      gtag('event', 'kilimanjaro_climb_planner_complete', {
+
+        timing: answers.timing,
+
+        travelers: answers.travelers,
+
+        experience: answers.experience,
+
+        mountain_days: answers.days,
+
+        safari_interest: answers.safari
+
+      });
+
+    }
+
+
+    resultBox.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+
+  }
+
+
+  /* -----------------------------------------
+     BOOKING BUTTON
+     ----------------------------------------- */
+
+  const bookingButton =
+    document.getElementById('plannerBooking');
+
+  if (bookingButton) {
+
+    bookingButton.addEventListener('click', function () {
+
+      if (typeof gtag === 'function') {
+
+        gtag('event', 'kilimanjaro_planner_booking_click');
+
+      }
+
+    });
+
+  }
+
+
+  /* -----------------------------------------
+     WHATSAPP BUTTON
+     ----------------------------------------- */
+
+  const whatsappButton =
+    document.getElementById('plannerWhatsApp');
+
+  if (whatsappButton) {
+
+    whatsappButton.addEventListener('click', function () {
+
+      if (typeof gtag === 'function') {
+
+        gtag('event', 'kilimanjaro_planner_whatsapp_click');
+
+      }
+
+    });
+
+  }
+
+
+  /* -----------------------------------------
+     INITIAL STATE
+     ----------------------------------------- */
+
+  showStep(currentStep);
+
+})();
   
 </script>
 </body>
