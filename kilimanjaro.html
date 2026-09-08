@@ -1,6 +1,109 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <!-- =========================================
+     AMAN SAFARI TANZANIA — GOOGLE ANALYTICS
+     ========================================= -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CXLYLHXQ88"></script>
+
+<script>
+window.dataLayer = window.dataLayer || [];
+
+function gtag() {
+    dataLayer.push(arguments);
+}
+
+gtag('js', new Date());
+
+gtag('config', 'G-CXLYLHXQ88');
+
+
+/* =========================================
+   AMAN SAFARI BUSINESS EVENT TRACKING
+   ========================================= */
+
+document.addEventListener('click', function(event) {
+
+    const link = event.target.closest('a');
+
+    if (!link) return;
+
+    const text = (link.innerText || link.textContent || '')
+        .trim()
+        .substring(0, 80);
+
+    const href = link.href || '';
+
+    const page = window.location.pathname;
+
+    let eventName = 'link_click';
+
+
+    /* WhatsApp */
+
+    if (
+        href.includes('wa.me') ||
+        href.includes('whatsapp.com')
+    ) {
+
+        eventName = 'whatsapp_click';
+
+    }
+
+
+    /* Booking */
+
+    else if (
+        href.includes('booking.html') ||
+        text.toLowerCase().includes('book now') ||
+        text.toLowerCase().includes('book safari')
+    ) {
+
+        eventName = 'booking_click';
+
+    }
+
+
+    /* Payment */
+
+    else if (
+        href.includes('pay.html') ||
+        text.toLowerCase().includes('payment') ||
+        text.toLowerCase().includes('pay deposit')
+    ) {
+
+        eventName = 'payment_click';
+
+    }
+
+
+    /* Safari destinations */
+
+    else if (
+        /kilimanjaro|serengeti|ngorongoro|tarangire|ruaha|manyara/i
+        .test(href)
+    ) {
+
+        eventName = 'destination_click';
+
+    }
+
+
+    /* Send event */
+
+    gtag('event', eventName, {
+
+        link_text: text,
+
+        page_path: page
+
+    });
+
+});
+</script>
+
+<!-- END AMAN SAFARI ANALYTICS -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Explore Mount Kilimanjaro with Aman Safari Tanzania. Plan a guided climb with route, preparation and travel support tailored to your journey.">
