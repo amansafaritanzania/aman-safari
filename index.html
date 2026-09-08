@@ -1442,267 +1442,681 @@ document.addEventListener('click', function(event) {
     </div>
   </section>
 
-  <script>
+ <script>
+    /* =========================
+       AMAN SAFARI — BUSINESS ANALYTICS
+    ========================== */
+
+    function amanEvent(eventName, parameters = {}) {
+        if (typeof gtag === "function") {
+            gtag("event", eventName, parameters);
+        }
+    }
+
+
     /* =========================
        NAVIGATION
     ========================== */
+
     const siteHeader = document.getElementById("siteHeader");
     const navToggle = document.getElementById("navToggle");
     const navLinks = document.getElementById("navLinks");
 
     window.addEventListener("scroll", () => {
-      siteHeader.classList.toggle("scrolled", window.scrollY > 25);
+        siteHeader.classList.toggle(
+            "scrolled",
+            window.scrollY > 25
+        );
     }, { passive: true });
 
+
     navToggle.addEventListener("click", () => {
-      const open = navLinks.classList.toggle("open");
-      navToggle.setAttribute("aria-expanded", String(open));
-      navToggle.innerHTML = open
-        ? '<i class="fa-solid fa-xmark"></i>'
-        : '<i class="fa-solid fa-bars"></i>';
+
+        const open = navLinks.classList.toggle("open");
+
+        navToggle.setAttribute(
+            "aria-expanded",
+            String(open)
+        );
+
+        navToggle.innerHTML = open
+            ? '<i class="fa-solid fa-xmark"></i>'
+            : '<i class="fa-solid fa-bars"></i>';
     });
 
+
     navLinks.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-        navToggle.setAttribute("aria-expanded", "false");
-        navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
-      });
+
+        link.addEventListener("click", () => {
+
+            navLinks.classList.remove("open");
+
+            navToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            navToggle.innerHTML =
+                '<i class="fa-solid fa-bars"></i>';
+        });
+
     });
+
+
 
     /* =========================
        BEST TIME BY MONTH
-       General planning guidance only.
     ========================== */
+
     const monthData = {
-      January: {
-        summary: "Warm and generally good for safari; a strong month for combining wildlife with a Kilimanjaro climb.",
-        focus: "Wildlife + Kilimanjaro"
-      },
-      February: {
-        summary: "A popular period for northern Tanzania wildlife and often a strong month for the calving season in the Serengeti ecosystem.",
-        focus: "Wildlife + calving season"
-      },
-      March: {
-        summary: "A transition month. Conditions can vary, so a route should be chosen around your priorities.",
-        focus: "Flexible itineraries"
-      },
-      April: {
-        summary: "One of the wetter periods in many northern safari areas. Some travelers prefer the quieter atmosphere and lower-season feel.",
-        focus: "Quieter travel"
-      },
-      May: {
-        summary: "Green landscapes and fewer visitors can make this attractive for travelers who value scenery and a quieter safari.",
-        focus: "Green season"
-      },
-      June: {
-        summary: "A popular start to the drier period in northern Tanzania, with strong safari conditions in many areas.",
-        focus: "Safari + dry season"
-      },
-      July: {
-        summary: "Peak travel period in many northern circuits. Advance planning is especially useful for popular routes.",
-        focus: "Peak safari season"
-      },
-      August: {
-        summary: "A popular dry-season month with strong wildlife viewing opportunities and high demand in key destinations.",
-        focus: "Peak safari season"
-      },
-      September: {
-        summary: "Dry-season travel remains popular, with generally favorable conditions across many northern safari routes.",
-        focus: "Safari + hiking"
-      },
-      October: {
-        summary: "A useful shoulder-season option in many areas, with generally good safari conditions.",
-        focus: "Safari"
-      },
-      November: {
-        summary: "Short rains can begin. Landscapes may become greener and visitor numbers can be lower.",
-        focus: "Green landscapes"
-      },
-      December: {
-        summary: "A festive travel period with good options for combining wildlife, culture and coastal extensions.",
-        focus: "Safari + coast"
-      }
+
+        January: {
+            summary:
+                "Warm and generally good for safari; a strong month for combining wildlife with a Kilimanjaro climb.",
+            focus:
+                "Wildlife + Kilimanjaro"
+        },
+
+        February: {
+            summary:
+                "A popular period for northern Tanzania wildlife and often a strong month for the calving season in the Serengeti ecosystem.",
+            focus:
+                "Wildlife + calving season"
+        },
+
+        March: {
+            summary:
+                "A transition month. Conditions can vary, so a route should be chosen around your priorities.",
+            focus:
+                "Flexible itineraries"
+        },
+
+        April: {
+            summary:
+                "One of the wetter periods in many northern safari areas. Some travelers prefer the quieter atmosphere and lower-season feel.",
+            focus:
+                "Quieter travel"
+        },
+
+        May: {
+            summary:
+                "Green landscapes and fewer visitors can make this attractive for travelers who value scenery and a quieter safari.",
+            focus:
+                "Green season"
+        },
+
+        June: {
+            summary:
+                "A popular start to the drier period in northern Tanzania, with strong safari conditions in many areas.",
+            focus:
+                "Safari + dry season"
+        },
+
+        July: {
+            summary:
+                "Peak travel period in many northern circuits. Advance planning is especially useful for popular routes.",
+            focus:
+                "Peak safari season"
+        },
+
+        August: {
+            summary:
+                "A popular dry-season month with strong wildlife viewing opportunities and high demand in key destinations.",
+            focus:
+                "Peak safari season"
+        },
+
+        September: {
+            summary:
+                "Dry-season travel remains popular, with generally favorable conditions across many northern safari routes.",
+            focus:
+                "Safari + hiking"
+        },
+
+        October: {
+            summary:
+                "A useful shoulder-season option in many areas, with generally good safari conditions.",
+            focus:
+                "Safari"
+        },
+
+        November: {
+            summary:
+                "Short rains can begin. Landscapes may become greener and visitor numbers can be lower.",
+            focus:
+                "Green landscapes"
+        },
+
+        December: {
+            summary:
+                "A festive travel period with good options for combining wildlife, culture and coastal extensions.",
+            focus:
+                "Safari + coast"
+        }
+
     };
 
-    const monthSelect = document.getElementById("monthSelect");
-    const monthResult = document.getElementById("monthResult");
+
+    const monthSelect =
+        document.getElementById("monthSelect");
+
+    const monthResult =
+        document.getElementById("monthResult");
+
 
     function updateMonth() {
-      const data = monthData[monthSelect.value];
-      monthResult.innerHTML =
-        "<strong>" + monthSelect.value + "</strong><br>" +
-        data.summary +
-        "<br><br><strong>Good focus:</strong> " + data.focus +
-        "<br><br><small>Exact conditions vary by destination and year. Ask us for a route based on your dates.</small>";
+
+        const data =
+            monthData[monthSelect.value];
+
+        monthResult.innerHTML =
+            "<strong>" +
+            monthSelect.value +
+            "</strong><br>" +
+
+            data.summary +
+
+            "<br><br><strong>Good focus:</strong> " +
+            data.focus +
+
+            "<br><br><small>" +
+            "Exact conditions vary by destination and year. " +
+            "Ask us for a route based on your dates." +
+            "</small>";
+
+
+        /* BUSINESS EVENT */
+
+        amanEvent(
+            "best_time_select",
+            {
+                month: monthSelect.value
+            }
+        );
     }
 
-    monthSelect.addEventListener("change", updateMonth);
+
+    monthSelect.addEventListener(
+        "change",
+        updateMonth
+    );
+
+
     updateMonth();
 
+
+
     /* =========================
-       SIMPLE CURRENCY ESTIMATOR
-       Planning estimates — not live exchange rates.
+       CURRENCY ESTIMATOR
+       Planning estimates only.
     ========================== */
+
     const rates = {
-      TZS: 2700,
-      EUR: 0.92,
-      GBP: 0.78,
-      AUD: 1.53,
-      CAD: 1.36
+
+        TZS: 2700,
+        EUR: 0.92,
+        GBP: 0.78,
+        AUD: 1.53,
+        CAD: 1.36
+
     };
+
 
     const currencyNames = {
-      TZS: "TZS",
-      EUR: "EUR",
-      GBP: "GBP",
-      AUD: "AUD",
-      CAD: "CAD"
+
+        TZS: "TZS",
+        EUR: "EUR",
+        GBP: "GBP",
+        AUD: "AUD",
+        CAD: "CAD"
+
     };
 
-    const usdAmount = document.getElementById("usdAmount");
-    const currencySelect = document.getElementById("currencySelect");
-    const currencyOutput = document.getElementById("currencyOutput");
+
+    const usdAmount =
+        document.getElementById("usdAmount");
+
+    const currencySelect =
+        document.getElementById("currencySelect");
+
+    const currencyOutput =
+        document.getElementById("currencyOutput");
+
 
     function updateCurrency() {
-      const amount = Number(usdAmount.value) || 0;
-      const currency = currencySelect.value;
-      const value = amount * rates[currency];
 
-      currencyOutput.textContent =
-        "≈ " + currencyNames[currency] + " " +
-        value.toLocaleString(undefined, { maximumFractionDigits: 0 });
+        const amount =
+            Number(usdAmount.value) || 0;
+
+        const currency =
+            currencySelect.value;
+
+        const value =
+            amount * rates[currency];
+
+
+        currencyOutput.textContent =
+            "≈ " +
+            currencyNames[currency] +
+            " " +
+            value.toLocaleString(
+                undefined,
+                {
+                    maximumFractionDigits: 0
+                }
+            );
     }
 
-    usdAmount.addEventListener("input", updateCurrency);
-    currencySelect.addEventListener("change", updateCurrency);
+
+    usdAmount.addEventListener(
+        "input",
+        updateCurrency
+    );
+
+
+    currencySelect.addEventListener(
+        "change",
+        () => {
+
+            updateCurrency();
+
+            amanEvent(
+                "currency_select",
+                {
+                    currency: currencySelect.value
+                }
+            );
+
+        }
+    );
+
+
     updateCurrency();
 
-    /* =========================
-       BOOKING FORM UX
-       FormSubmit remains the delivery service.
-    ========================== */
-    const bookingForm = document.getElementById("bookingForm");
-    const formMessage = document.getElementById("formMessage");
 
-    bookingForm.addEventListener("submit", () => {
-      formMessage.style.display = "block";
+
+    /* =========================
+       PLAN MY SAFARI FORM
+    ========================== */
+
+    const bookingForm =
+        document.getElementById("bookingForm");
+
+    const formMessage =
+        document.getElementById("formMessage");
+
+
+    let plannerStarted = false;
+
+
+    /* Track first interaction only */
+
+    bookingForm.querySelectorAll(
+        "input, select, textarea"
+    ).forEach(field => {
+
+        field.addEventListener(
+            "focus",
+            () => {
+
+                if (plannerStarted) return;
+
+                plannerStarted = true;
+
+                amanEvent(
+                    "planner_start"
+                );
+
+            },
+            { once: true }
+        );
+
     });
+
+
+    /* Track destination interest */
+
+    const destination =
+        document.getElementById("destination");
+
+
+    destination.addEventListener(
+        "change",
+        () => {
+
+            if (!destination.value) return;
+
+            amanEvent(
+                "planner_destination_select",
+                {
+                    destination:
+                        destination.value
+                }
+            );
+
+        }
+    );
+
+
+    /* Track inquiry submission */
+
+    bookingForm.addEventListener(
+        "submit",
+        () => {
+
+            formMessage.style.display =
+                "block";
+
+
+            amanEvent(
+                "planner_submit"
+            );
+
+        }
+    );
+
+
 
     /* =========================
        SAFARI ASSISTANT
-       Temporary local keyword foundation.
-       This is intentionally separate from Aman AI.
     ========================== */
-    const chatLauncher = document.getElementById("chatLauncher");
-    const chatWindow = document.getElementById("chatWindow");
-    const chatMessages = document.getElementById("chatMessages");
-    const chatInput = document.getElementById("chatInput");
-    const chatSend = document.getElementById("chatSend");
 
-    chatLauncher.addEventListener("click", () => {
-      chatWindow.classList.toggle("active");
-      if (chatWindow.classList.contains("active")) chatInput.focus();
-    });
+    const chatLauncher =
+        document.getElementById("chatLauncher");
 
-    function addChatMessage(text, sender) {
-      const div = document.createElement("div");
-      div.className = "msg " + sender;
-      div.textContent = text;
-      chatMessages.appendChild(div);
-      chatMessages.scrollTop = chatMessages.scrollHeight;
+    const chatWindow =
+        document.getElementById("chatWindow");
+
+    const chatMessages =
+        document.getElementById("chatMessages");
+
+    const chatInput =
+        document.getElementById("chatInput");
+
+    const chatSend =
+        document.getElementById("chatSend");
+
+
+    chatLauncher.addEventListener(
+        "click",
+        () => {
+
+            const opening =
+                !chatWindow.classList.contains("active");
+
+
+            chatWindow.classList.toggle(
+                "active"
+            );
+
+
+            if (opening) {
+
+                chatInput.focus();
+
+
+                amanEvent(
+                    "assistant_open"
+                );
+
+            }
+
+        }
+    );
+
+
+    function addChatMessage(
+        text,
+        sender
+    ) {
+
+        const div =
+            document.createElement("div");
+
+        div.className =
+            "msg " + sender;
+
+        div.textContent =
+            text;
+
+        chatMessages.appendChild(
+            div
+        );
+
+        chatMessages.scrollTop =
+            chatMessages.scrollHeight;
     }
+
+
 
     function assistantReply(input) {
-      const text = input.toLowerCase();
 
-      if (text.includes("book") || text.includes("plan") || text.includes("quote")) {
-        return "Absolutely. Tell us your preferred destination, travel dates and group size, then use the Plan My Safari form below for a detailed inquiry.";
-      }
+        const text =
+            input.toLowerCase();
 
-      if (text.includes("best time") || text.includes("month") || text.includes("when")) {
-        return "The best month depends on your destination and priorities. Use the Best Time by Month tool on this page, then we can help match the route to your dates.";
-      }
 
-      if (text.includes("price") || text.includes("cost") || text.includes("budget")) {
-        return "Safari prices depend on route, accommodation, transport, park fees, dates and group size. Send your details through Plan My Safari for a tailored quote rather than relying on a generic price.";
-      }
+        if (
+            text.includes("book") ||
+            text.includes("plan") ||
+            text.includes("quote")
+        ) {
 
-      if (text.includes("kilimanjaro")) {
-        return "Kilimanjaro planning depends on route, number of days, season and the support level you choose. Open the Kilimanjaro page or start a trip inquiry.";
-      }
+            return "Absolutely. Tell us your preferred destination, travel dates and group size, then use the Plan My Safari form below for a detailed inquiry.";
 
-      if (text.includes("serengeti")) {
-        return "Serengeti offers different experiences throughout the year. Your exact travel month matters, so use the Best Time tool and then request a personalized route.";
-      }
+        }
 
-      if (text.includes("destination") || text.includes("park")) {
-        return "Aman Safari currently highlights Kilimanjaro, Serengeti, Ngorongoro, Tarangire and Ruaha. You can combine destinations into a tailor-made journey.";
-      }
 
-      return "I can help with Tanzania destinations, travel seasons, safari planning and starting an inquiry. What would you like to explore?";
+        if (
+            text.includes("best time") ||
+            text.includes("month") ||
+            text.includes("when")
+        ) {
+
+            return "The best month depends on your destination and priorities. Use the Best Time by Month tool on this page, then we can help match the route to your dates.";
+
+        }
+
+
+        if (
+            text.includes("price") ||
+            text.includes("cost") ||
+            text.includes("budget")
+        ) {
+
+            return "Safari prices depend on route, accommodation, transport, park fees, dates and group size. Send your details through Plan My Safari for a tailored quote rather than relying on a generic price.";
+
+        }
+
+
+        if (
+            text.includes("kilimanjaro")
+        ) {
+
+            return "Kilimanjaro planning depends on route, number of days, season and the support level you choose. Open the Kilimanjaro page or start a trip inquiry.";
+
+        }
+
+
+        if (
+            text.includes("serengeti")
+        ) {
+
+            return "Serengeti offers different experiences throughout the year. Your exact travel month matters, so use the Best Time tool and then request a personalized route.";
+
+        }
+
+
+        if (
+            text.includes("destination") ||
+            text.includes("park")
+        ) {
+
+            return "Aman Safari currently highlights Kilimanjaro, Serengeti, Ngorongoro, Tarangire and Ruaha. You can combine destinations into a tailor-made journey.";
+
+        }
+
+
+        return "I can help with Tanzania destinations, travel seasons, safari planning and starting an inquiry. What would you like to explore?";
+
     }
+
+
 
     function sendChat() {
-      const text = chatInput.value.trim();
-      if (!text) return;
 
-      addChatMessage(text, "user");
-      chatInput.value = "";
+        const text =
+            chatInput.value.trim();
 
-      setTimeout(() => {
-        addChatMessage(assistantReply(text), "bot");
-      }, 350);
+
+        if (!text) return;
+
+
+        addChatMessage(
+            text,
+            "user"
+        );
+
+
+        chatInput.value = "";
+
+
+        /* IMPORTANT:
+           We track that a message was sent,
+           but NEVER send the actual message
+           to Google Analytics.
+        */
+
+        amanEvent(
+            "assistant_message_sent"
+        );
+
+
+        setTimeout(
+            () => {
+
+                addChatMessage(
+                    assistantReply(text),
+                    "bot"
+                );
+
+            },
+            350
+        );
+
     }
 
-    chatSend.addEventListener("click", sendChat);
 
-    chatInput.addEventListener("keydown", event => {
-      if (event.key === "Enter") sendChat();
-    });
 
-    document.querySelectorAll("[data-quick]").forEach(button => {
-      button.addEventListener("click", () => {
-        chatInput.value = button.dataset.quick;
-        sendChat();
-      });
-    });
+    chatSend.addEventListener(
+        "click",
+        sendChat
+    );
+
+
+    chatInput.addEventListener(
+        "keydown",
+        event => {
+
+            if (
+                event.key === "Enter"
+            ) {
+
+                sendChat();
+
+            }
+
+        }
+    );
+
+
 
     /* =========================
-       LIGHTWEIGHT VISITOR / CLICK COUNTER
-       Stored only in this visitor's browser.
+       QUICK ASSISTANT ACTIONS
     ========================== */
-    try {
-      const isOwnStatsPage = window.location.href.includes("stats");
-      const isInternalReferral = document.referrer.includes("amansafaritanzania.github.io");
 
-      if (!isOwnStatsPage && !isInternalReferral) {
-        const visits = JSON.parse(localStorage.getItem("aman_visits") || "[]");
-        visits.push({
-          time: new Date().toISOString(),
-          page: window.location.pathname,
-          referrer: document.referrer || "Direct",
-          screen: window.innerWidth + "x" + window.innerHeight
+    document
+        .querySelectorAll("[data-quick]")
+        .forEach(button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    const quick =
+                        button.dataset.quick;
+
+
+                    let action =
+                        "other";
+
+
+                    if (
+                        quick
+                            .toLowerCase()
+                            .includes("best time")
+                    ) {
+
+                        action =
+                            "best_time";
+
+                    }
+
+                    else if (
+                        quick
+                            .toLowerCase()
+                            .includes("plan")
+                    ) {
+
+                        action =
+                            "plan_safari";
+
+                    }
+
+                    else if (
+                        quick
+                            .toLowerCase()
+                            .includes("destination")
+                    ) {
+
+                        action =
+                            "destinations";
+
+                    }
+
+
+                    amanEvent(
+                        "assistant_quick_action",
+                        {
+                            action: action
+                        }
+                    );
+
+
+                    chatInput.value =
+                        quick;
+
+                    sendChat();
+
+                }
+            );
+
         });
-        localStorage.setItem("aman_visits", JSON.stringify(visits));
-      }
 
-      document.addEventListener("click", event => {
-        const target = event.target.closest("a, button");
-        if (!target) return;
 
-        const clicks = JSON.parse(localStorage.getItem("aman_clicks") || "[]");
-        clicks.push({
-          time: new Date().toISOString(),
-          text: (target.innerText || target.textContent || "").trim(),
-          href: target.href || "button",
-          page: window.location.pathname
-        });
-        localStorage.setItem("aman_clicks", JSON.stringify(clicks));
-      });
-    } catch (error) {
-      console.warn("Local visitor tracking unavailable.", error);
-    }
-  </script>
+
+    /* =========================
+       OLD LOCALSTORAGE TRACKING
+       REMOVED
+       
+       Google Analytics 4 is now
+       the central tracking system.
+    ========================== */
+
+
+    console.log(
+        "Aman Safari analytics active."
+    );
+
+</script>
 </body>
 </html>
