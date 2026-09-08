@@ -294,14 +294,188 @@ footer a{color:var(--gold);text-decoration:none}
   <p style="margin-top:16px">© 2026 Aman Safari Tanzania · All rights reserved</p>
 </footer>
 
-<script>
-const toggle=document.querySelector('.menu-toggle'),menu=document.getElementById('mainMenu');
-toggle.addEventListener('click',()=>{const open=menu.classList.toggle('open');toggle.setAttribute('aria-expanded',open)});
-menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');toggle.setAttribute('aria-expanded','false')}));
-const date=document.getElementById('date');
-date.min=new Date().toISOString().split('T')[0];
-const route=new URLSearchParams(location.search).get('route');
-if(route) document.getElementById('route').value=route;
+ <script>
+/* =========================================
+   AMAN SAFARI — BOOKING PAGE
+   MENU + DATE + BUSINESS ANALYTICS
+   ========================================= */
+
+
+/* ---------- MOBILE MENU ---------- */
+
+const toggle = document.querySelector('.menu-toggle');
+const menu = document.getElementById('mainMenu');
+
+if (toggle && menu) {
+
+    toggle.addEventListener('click', () => {
+
+        const open = menu.classList.toggle('open');
+
+        toggle.setAttribute('aria-expanded', open);
+
+    });
+
+
+    menu.querySelectorAll('a').forEach(a => {
+
+        a.addEventListener('click', () => {
+
+            menu.classList.remove('open');
+
+            toggle.setAttribute('aria-expanded', 'false');
+
+        });
+
+    });
+
+}
+
+
+/* ---------- DATE ---------- */
+
+const date = document.getElementById('date');
+
+if (date) {
+
+    date.min = new Date().toISOString().split('T')[0];
+
+}
+
+
+/* ---------- PRESELECT DESTINATION ---------- */
+
+const route = new URLSearchParams(location.search).get('route');
+
+if (route) {
+
+    const routeSelect = document.getElementById('route');
+
+    if (routeSelect) {
+
+        routeSelect.value = route;
+
+    }
+
+}
+
+
+/* =========================================
+   BUSINESS ANALYTICS
+   ========================================= */
+
+
+/* ---------- BOOKING FORM START ---------- */
+
+const bookingForm = document.querySelector('form');
+
+let bookingStarted = false;
+
+if (bookingForm) {
+
+    bookingForm.addEventListener('focusin', function(event) {
+
+        if (bookingStarted) return;
+
+        const field = event.target;
+
+        if (
+            field.matches('input') ||
+            field.matches('select') ||
+            field.matches('textarea')
+        ) {
+
+            bookingStarted = true;
+
+            gtag('event', 'booking_form_start', {
+
+                page_path: window.location.pathname
+
+            });
+
+        }
+
+    });
+
+
+    /* ---------- DESTINATION ---------- */
+
+    const destination = document.getElementById('route');
+
+    if (destination) {
+
+        destination.addEventListener('change', function() {
+
+            const selected = this.value;
+
+            if (!selected) return;
+
+            gtag('event', 'booking_destination_select', {
+
+                destination: selected,
+
+                page_path: window.location.pathname
+
+            });
+
+        });
+
+    }
+
+
+    /* ---------- FORM SUBMIT ---------- */
+
+    bookingForm.addEventListener('submit', function() {
+
+        gtag('event', 'booking_form_submit', {
+
+            page_path: window.location.pathname
+
+        });
+
+    });
+
+}
+
+
+/* ---------- EMAIL + PHONE CLICKS ---------- */
+
+document.addEventListener('click', function(event) {
+
+    const link = event.target.closest('a');
+
+    if (!link) return;
+
+    const href = link.href || '';
+
+
+    /* EMAIL */
+
+    if (href.startsWith('mailto:')) {
+
+        gtag('event', 'email_click', {
+
+            page_path: window.location.pathname
+
+        });
+
+    }
+
+
+    /* PHONE */
+
+    else if (href.startsWith('tel:')) {
+
+        gtag('event', 'phone_click', {
+
+            page_path: window.location.pathname
+
+        });
+
+    }
+
+});
 </script>
+
 </body>
 </html>
