@@ -130,7 +130,130 @@ h1,h2,h3{font-family:"Cormorant Garamond",serif;line-height:1.05}h1{font-size:cl
 .section{padding:88px 0}.cream{background:var(--cream)}.grid2{display:grid;grid-template-columns:1.05fr .95fr;gap:65px;align-items:center}.photo{height:510px;overflow:hidden}.photo img{height:100%}.lead{font-size:18px;color:#344139;margin-bottom:16px}.muted{color:var(--muted);font-size:14px}
 .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:27px}.fact{background:#fff;padding:18px;border:1px solid #17231d1f}.fact strong{display:block;font:600 25px "Cormorant Garamond",serif}.fact span{font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
 .head{max-width:720px;margin-bottom:38px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{border:1px solid #17231d1f;background:#fff}.card img{height:225px}.card div{padding:22px}.card h3{font-size:30px;margin-bottom:8px}.card p{font-size:13px;color:var(--muted)}
-.routeGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.route{padding:20px;background:#fff;border:1px solid #17231d1f}.route b{font-size:10px;color:var(--gold);letter-spacing:.1em;text-transform:uppercase}.route h3{font-size:28px;margin:8px 0}.route p{font-size:13px;color:var(--muted)}
+.routeGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+
+.route{
+  padding:24px;
+  background:#fff;
+  border:1px solid #17231d1f;
+  cursor:pointer;
+  transition:.25s ease;
+  position:relative;
+}
+
+.route:hover{
+  transform:translateY(-4px);
+  box-shadow:0 14px 35px #17231d12;
+  border-color:var(--gold);
+}
+
+.route.active{
+  border-color:var(--gold);
+  box-shadow:0 14px 35px #17231d18;
+}
+
+.route b{
+  font-size:10px;
+  color:var(--gold);
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+
+.route h3{
+  font-size:28px;
+  margin:8px 0;
+}
+
+.route p{
+  font-size:13px;
+  color:var(--muted);
+}
+
+.routeHint{
+  display:block;
+  margin-top:15px;
+  font-size:10px;
+  font-weight:700;
+  color:var(--gold);
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+
+.routeDetails{
+  display:none;
+  margin-top:22px;
+  padding:25px;
+  background:var(--deep);
+  color:#fff;
+  animation:routeOpen .25s ease;
+}
+
+.routeDetails.show{
+  display:block;
+}
+
+.routeDetails h3{
+  font-size:36px;
+  margin-bottom:8px;
+}
+
+.routeDetails p{
+  color:#fffb;
+  font-size:13px;
+  margin-bottom:18px;
+}
+
+.routeStats{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+  margin:18px 0;
+}
+
+.routeStat{
+  border:1px solid #fff2;
+  background:#ffffff08;
+  padding:15px;
+}
+
+.routeStat strong{
+  display:block;
+  font:600 22px "Cormorant Garamond",serif;
+  margin-bottom:3px;
+}
+
+.routeStat span{
+  font-size:9px;
+  color:#fffb;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+
+.routeCTA{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:46px;
+  padding:0 20px;
+  background:var(--gold);
+  color:#fff;
+  border-radius:30px;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+@keyframes routeOpen{
+  from{opacity:0;transform:translateY(-5px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+@media(max-width:600px){
+  .routeStats{
+    grid-template-columns:1fr;
+  }
+}
 .dark{background:var(--deep);color:#fff}.checkGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.check{padding:19px;border:1px solid #fff2;background:#ffffff08}.check strong{display:block;font:600 25px "Cormorant Garamond",serif;margin-bottom:5px}.check span{font-size:12px;color:#fffb}
 .tool{background:#fff;color:var(--ink);padding:28px;border:1px solid #17231d1f}label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:700;margin-bottom:8px}select{width:100%;padding:13px;border:1px solid #d5d8d2;background:#fff;font:inherit;font-size:13px}.result{margin-top:17px;background:var(--deep);color:#fff;padding:20px}.result strong{display:block;font:600 30px "Cormorant Garamond",serif}.result span{font-size:12px;color:#fffb}
 .banner{background:linear-gradient(#102019cc,#102019cc),url("kilimanjaro.jpg") center/cover;color:#fff;text-align:center;padding:80px 20px}.banner h2{max-width:700px;margin:0 auto 15px}.banner p{max-width:650px;margin:auto;color:#fffc;font-size:14px}
@@ -161,15 +284,127 @@ footer{background:#0b1711;color:#fff;padding:45px 0 25px}.foot{display:grid;grid
 <p class="muted">A successful climb is about preparation, sensible pacing, route choice, acclimatization and a strong support team. Your itinerary can also include safari or other Tanzania experiences before or after the trek.</p>
 <div class="facts"><div class="fact"><strong>5,895 m</strong><span>Summit elevation</span></div><div class="fact"><strong>Routes</strong><span>Different route options</span></div><div class="fact"><strong>Guided</strong><span>Planned with support</span></div></div></div></div></section>
 
-<section class="section" id="routes"><div class="container"><div class="head"><div class="eyebrow">Choose Your Route</div><h2>The route shapes the experience.</h2><p class="muted">Different routes have different scenery, schedules and acclimatization profiles. The right choice depends on your goals and available time.</p></div>
-<div class="routeGrid">
-<article class="route"><b>Scenic</b><h3>Lemosho</h3><p>A scenic approach with a longer itinerary option that can allow more gradual acclimatization.</p></article>
-<article class="route"><b>Popular</b><h3>Machame</h3><p>A well-known route with varied landscapes and a classic trekking experience.</p></article>
-<article class="route"><b>Steady</b><h3>Marangu</h3><p>A different mountain experience with established hut accommodation along the route.</p></article>
-<article class="route"><b>Remote</b><h3>Rongai</h3><p>An approach from the northern side of the mountain with a quieter route character.</p></article>
-<article class="route"><b>Exclusive</b><h3>Umbwe</h3><p>A demanding route profile suited to trekkers seeking a more challenging approach.</p></article>
-<article class="route"><b>Custom</b><h3>Route Advice</h3><p>Not sure which route fits? Tell us your experience, time and goals and we can discuss the options.</p></article>
-</div></div></section>
+<section class="section" id="routes">
+  <div class="container">
+
+    <div class="head">
+      <div class="eyebrow">Choose Your Route</div>
+      <h2>The route shapes the experience.</h2>
+      <p class="muted">
+        Every route has a different character. Select a route below to explore
+        its general profile and decide which option you would like to discuss.
+      </p>
+    </div>
+
+    <div class="routeGrid">
+
+      <article class="route" data-route="Lemosho">
+        <b>Scenic</b>
+        <h3>Lemosho</h3>
+        <p>
+          A scenic western approach with a longer itinerary option and varied
+          mountain landscapes.
+        </p>
+        <span class="routeHint">Tap to explore →</span>
+      </article>
+
+      <article class="route" data-route="Machame">
+        <b>Popular</b>
+        <h3>Machame</h3>
+        <p>
+          A well-known route with varied scenery and a classic trekking
+          experience.
+        </p>
+        <span class="routeHint">Tap to explore →</span>
+      </article>
+
+      <article class="route" data-route="Marangu">
+        <b>Established</b>
+        <h3>Marangu</h3>
+        <p>
+          A different mountain experience using established hut accommodation
+          along the route.
+        </p>
+        <span class="routeHint">Tap to explore →</span>
+      </article>
+
+      <article class="route" data-route="Rongai">
+        <b>Remote</b>
+        <h3>Rongai</h3>
+        <p>
+          An approach from the northern side of Kilimanjaro with a quieter
+          route character.
+        </p>
+        <span class="routeHint">Tap to explore →</span>
+      </article>
+
+      <article class="route" data-route="Umbwe">
+        <b>Demanding</b>
+        <h3>Umbwe</h3>
+        <p>
+          A demanding approach suited to trekkers looking for a more
+          challenging route profile.
+        </p>
+        <span class="routeHint">Tap to explore →</span>
+      </article>
+
+      <article class="route" data-route="Advice">
+        <b>Not Sure?</b>
+        <h3>Route Advice</h3>
+        <p>
+          Tell us your available time, experience and goals and discuss which
+          route may fit your plans.
+        </p>
+        <span class="routeHint">Get route advice →</span>
+      </article>
+
+    </div>
+
+    <!-- Interactive route information -->
+    <div class="routeDetails" id="routeDetails">
+
+      <h3 id="routeTitle">Choose a route</h3>
+
+      <p id="routeDescription">
+        Select one of the routes above to explore its general profile.
+      </p>
+
+      <div class="routeStats">
+
+        <div class="routeStat">
+          <strong id="routeCharacter">—</strong>
+          <span>Route character</span>
+        </div>
+
+        <div class="routeStat">
+          <strong id="routeAccommodation">—</strong>
+          <span>Accommodation</span>
+        </div>
+
+        <div class="routeStat">
+          <strong id="routeDuration">—</strong>
+          <span>Typical planning range</span>
+        </div>
+
+        <div class="routeStat">
+          <strong id="routeSuitability">—</strong>
+          <span>Planning consideration</span>
+        </div>
+
+      </div>
+
+      <a
+        class="routeCTA"
+        id="routeBooking"
+        href="booking.html?destination=Kilimanjaro"
+      >
+        Plan This Route
+      </a>
+
+    </div>
+
+  </div>
+</section>
 
 <section class="section dark"><div class="container grid2"><div><div class="eyebrow">Prepare With Purpose</div><h2>Good preparation makes the journey better.</h2><p style="color:#fffb;font-size:14px">Before booking, consider your fitness, trekking experience, travel dates, route length and acclimatization needs. A qualified local mountain team should guide the operational and safety decisions.</p></div>
 <div class="checkGrid"><div class="check"><strong>Pacing</strong><span>Gradual trekking schedules matter on high-altitude climbs.</span></div><div class="check"><strong>Acclimatization</strong><span>Allow enough time for your body to adjust to altitude.</span></div><div class="check"><strong>Gear</strong><span>Prepare clothing and equipment for changing mountain conditions.</span></div><div class="check"><strong>Support</strong><span>Plan your climb with an experienced, properly organized team.</span></div></div></div></section>
@@ -210,6 +445,136 @@ document.getElementById("month").addEventListener("change",e=>{
 const r=document.getElementById("result"),v=info[e.target.value];
 r.innerHTML=v?`<strong>${v[0]}</strong><span>${v[1]}</span>`:`<strong>Select a month</strong><span>Your Kilimanjaro planning guidance will appear here.</span>`;
 });
+
+/* =========================================
+   AMAN SAFARI — KILIMANJARO ROUTE EXPLORER
+   ========================================= */
+
+const routeData = {
+
+  Lemosho: {
+    character: "Scenic",
+    accommodation: "Camping",
+    duration: "Longer itineraries available",
+    suitability: "Good for gradual route planning",
+    description:
+      "Lemosho approaches Kilimanjaro from the western side and is known for varied scenery. Longer itineraries can provide more time for gradual acclimatization.",
+  },
+
+  Machame: {
+    character: "Classic trekking",
+    accommodation: "Camping",
+    duration: "Medium to longer itineraries",
+    suitability: "Popular route option",
+    description:
+      "Machame is one of the best-known Kilimanjaro approaches, offering varied landscapes and a classic trekking experience.",
+  },
+
+  Marangu: {
+    character: "Established",
+    accommodation: "Mountain huts",
+    duration: "Medium itineraries",
+    suitability: "Different accommodation style",
+    description:
+      "Marangu provides a different Kilimanjaro experience because accommodation is provided in established mountain huts rather than camping throughout.",
+  },
+
+  Rongai: {
+    character: "Northern approach",
+    accommodation: "Camping",
+    duration: "Medium to longer itineraries",
+    suitability: "Quieter route character",
+    description:
+      "Rongai approaches Kilimanjaro from the northern side of the mountain and offers a different perspective from the more commonly used southern and western approaches.",
+  },
+
+  Umbwe: {
+    character: "Demanding",
+    accommodation: "Camping",
+    duration: "Shorter or custom itineraries",
+    suitability: "More challenging profile",
+    description:
+      "Umbwe has a demanding route profile and is generally considered a more challenging approach. Route choice should take trekking experience and acclimatization planning into account.",
+  },
+
+  Advice: {
+    character: "Personalized",
+    accommodation: "Depends on route",
+    duration: "Depends on itinerary",
+    suitability: "Best when you're unsure",
+    description:
+      "Not sure which route fits your plans? Share your available time, trekking experience and priorities with Aman Safari and we can discuss the available options.",
+  }
+
+};
+
+const routeCards = document.querySelectorAll(".route");
+
+const routeDetails = document.getElementById("routeDetails");
+const routeTitle = document.getElementById("routeTitle");
+const routeDescription = document.getElementById("routeDescription");
+const routeCharacter = document.getElementById("routeCharacter");
+const routeAccommodation = document.getElementById("routeAccommodation");
+const routeDuration = document.getElementById("routeDuration");
+const routeSuitability = document.getElementById("routeSuitability");
+const routeBooking = document.getElementById("routeBooking");
+
+routeCards.forEach(card => {
+
+  card.addEventListener("click", () => {
+
+    const route = card.dataset.route;
+    const data = routeData[route];
+
+    if (!data) return;
+
+    routeCards.forEach(item => {
+      item.classList.remove("active");
+    });
+
+    card.classList.add("active");
+
+    routeTitle.textContent = route === "Advice"
+      ? "Let's find your route"
+      : route + " Route";
+
+    routeDescription.textContent = data.description;
+
+    routeCharacter.textContent = data.character;
+    routeAccommodation.textContent = data.accommodation;
+    routeDuration.textContent = data.duration;
+    routeSuitability.textContent = data.suitability;
+
+    routeBooking.href =
+      "booking.html?destination=Kilimanjaro&route=" +
+      encodeURIComponent(route);
+
+    routeDetails.classList.add("show");
+
+    routeDetails.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest"
+    });
+
+    /* GA4 business event */
+
+    if (typeof gtag === "function") {
+
+      gtag("event", "kilimanjaro_route_select", {
+
+        route_name: route,
+
+        page_path: window.location.pathname
+
+      });
+
+    }
+
+  });
+
+});
+
+  
 </script>
 </body>
 </html>
