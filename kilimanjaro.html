@@ -130,17 +130,182 @@ h1,h2,h3{font-family:"Cormorant Garamond",serif;line-height:1.05}h1{font-size:cl
 .section{padding:88px 0}.cream{background:var(--cream)}.grid2{display:grid;grid-template-columns:1.05fr .95fr;gap:65px;align-items:center}.photo{height:510px;overflow:hidden}.photo img{height:100%}.lead{font-size:18px;color:#344139;margin-bottom:16px}.muted{color:var(--muted);font-size:14px}
 .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:27px}.fact{background:#fff;padding:18px;border:1px solid #17231d1f}.fact strong{display:block;font:600 25px "Cormorant Garamond",serif}.fact span{font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
 .head{max-width:720px;margin-bottom:38px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{border:1px solid #17231d1f;background:#fff}.card img{height:225px}.card div{padding:22px}.card h3{font-size:30px;margin-bottom:8px}.card p{font-size:13px;color:var(--muted)}
-.routeGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+/* =========================================
+   KILIMANJARO ROUTE QUIZ
+   ========================================= */
 
-.route{
-  padding:24px;
+.routeQuiz{
   background:#fff;
   border:1px solid #17231d1f;
-  cursor:pointer;
-  transition:.25s ease;
-  position:relative;
+  padding:32px;
+  max-width:850px;
+  box-shadow:0 15px 45px #17231d0d;
 }
 
+.quizProgress{
+  height:4px;
+  background:#e8e5dc;
+  margin-bottom:28px;
+  overflow:hidden;
+}
+
+.quizProgressBar{
+  height:100%;
+  width:20%;
+  background:var(--gold);
+  transition:.3s ease;
+}
+
+.quizStep{
+  display:none;
+}
+
+.quizStep.active{
+  display:block;
+}
+
+.quizStep h3{
+  font-size:34px;
+  margin-bottom:8px;
+}
+
+.quizStep p{
+  color:var(--muted);
+  font-size:13px;
+  margin-bottom:22px;
+}
+
+.quizOptions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.quizOption{
+  padding:17px;
+  background:#fffdf8;
+  border:1px solid #17231d1f;
+  cursor:pointer;
+  text-align:left;
+  font-family:Montserrat,Arial,sans-serif;
+  font-size:12px;
+  font-weight:600;
+  transition:.2s ease;
+}
+
+.quizOption:hover{
+  border-color:var(--gold);
+  transform:translateY(-2px);
+}
+
+.quizOption.selected{
+  border-color:var(--gold);
+  background:#b8955210;
+}
+
+.quizNext{
+  margin-top:22px;
+  border:0;
+  background:var(--gold);
+  color:#fff;
+  padding:13px 22px;
+  border-radius:30px;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  cursor:pointer;
+}
+
+.quizNext:disabled{
+  opacity:.4;
+  cursor:not-allowed;
+}
+
+.quizResult{
+  display:none;
+  margin-top:25px;
+  padding:28px;
+  background:var(--deep);
+  color:#fff;
+}
+
+.quizResult.show{
+  display:block;
+}
+
+.quizResult .eyebrow{
+  margin-bottom:8px;
+}
+
+.quizResult h3{
+  font-size:42px;
+  margin-bottom:10px;
+}
+
+.quizResult p{
+  color:#fffb;
+  font-size:13px;
+  margin-bottom:18px;
+}
+
+.quizReason{
+  padding:15px;
+  border:1px solid #fff2;
+  background:#ffffff08;
+  margin-bottom:20px;
+}
+
+.quizReason strong{
+  display:block;
+  font:600 23px "Cormorant Garamond",serif;
+  margin-bottom:4px;
+}
+
+.quizReason span{
+  font-size:11px;
+  color:#fffb;
+}
+
+.quizActions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.quizRestart{
+  min-height:46px;
+  padding:0 20px;
+  border-radius:30px;
+  border:1px solid #fff7;
+  background:transparent;
+  color:#fff;
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  cursor:pointer;
+}
+
+@media(max-width:600px){
+
+  .routeQuiz{
+    padding:22px;
+  }
+
+  .quizOptions{
+    grid-template-columns:1fr;
+  }
+
+  .quizStep h3{
+    font-size:30px;
+  }
+
+  .quizResult h3{
+    font-size:36px;
+  }
+
+}
 .route:hover{
   transform:translateY(-4px);
   box-shadow:0 14px 35px #17231d12;
@@ -406,6 +571,253 @@ footer{background:#0b1711;color:#fff;padding:45px 0 25px}.foot{display:grid;grid
   </div>
 </section>
 
+  <section class="section cream" id="route-quiz">
+
+  <div class="container">
+
+    <div class="head">
+
+      <div class="eyebrow">Kilimanjaro Route Guide</div>
+
+      <h2>Which route could fit your journey?</h2>
+
+      <p class="muted">
+        Not sure where to start? Answer five quick questions and we'll
+        suggest a route profile to discuss when planning your climb.
+      </p>
+
+    </div>
+
+    <div class="routeQuiz">
+
+      <div class="quizProgress">
+        <div class="quizProgressBar" id="quizProgressBar"></div>
+      </div>
+
+
+      <!-- QUESTION 1 -->
+
+      <div class="quizStep active" data-step="1">
+
+        <h3>How much time can you allow for the climb?</h3>
+
+        <p>
+          Choose the option closest to your current travel plans.
+        </p>
+
+        <div class="quizOptions">
+
+          <button class="quizOption" data-value="short">
+            I have limited time
+          </button>
+
+          <button class="quizOption" data-value="medium">
+            I have around a week
+          </button>
+
+          <button class="quizOption" data-value="long">
+            I can allow more time
+          </button>
+
+          <button class="quizOption" data-value="flexible">
+            I'm flexible
+          </button>
+
+        </div>
+
+        <button class="quizNext" disabled>
+          Continue
+        </button>
+
+      </div>
+
+
+      <!-- QUESTION 2 -->
+
+      <div class="quizStep" data-step="2">
+
+        <h3>What matters most to you?</h3>
+
+        <p>
+          Think about the experience you want from the mountain.
+        </p>
+
+        <div class="quizOptions">
+
+          <button class="quizOption" data-value="scenery">
+            Scenery and landscapes
+          </button>
+
+          <button class="quizOption" data-value="classic">
+            A classic trekking experience
+          </button>
+
+          <button class="quizOption" data-value="quiet">
+            A quieter route character
+          </button>
+
+          <button class="quizOption" data-value="challenge">
+            A more challenging experience
+          </button>
+
+        </div>
+
+        <button class="quizNext" disabled>
+          Continue
+        </button>
+
+      </div>
+
+
+      <!-- QUESTION 3 -->
+
+      <div class="quizStep" data-step="3">
+
+        <h3>What accommodation style do you prefer?</h3>
+
+        <p>
+          This helps narrow the route profiles.
+        </p>
+
+        <div class="quizOptions">
+
+          <button class="quizOption" data-value="camping">
+            Camping
+          </button>
+
+          <button class="quizOption" data-value="huts">
+            Mountain huts
+          </button>
+
+          <button class="quizOption" data-value="either">
+            Either is fine
+          </button>
+
+        </div>
+
+        <button class="quizNext" disabled>
+          Continue
+        </button>
+
+      </div>
+
+
+      <!-- QUESTION 4 -->
+
+      <div class="quizStep" data-step="4">
+
+        <h3>How would you describe your trekking experience?</h3>
+
+        <p>
+          There is no wrong answer. This is simply for planning.
+        </p>
+
+        <div class="quizOptions">
+
+          <button class="quizOption" data-value="first">
+            This would be my first major trek
+          </button>
+
+          <button class="quizOption" data-value="some">
+            I've done some trekking
+          </button>
+
+          <button class="quizOption" data-value="experienced">
+            I'm an experienced trekker
+          </button>
+
+        </div>
+
+        <button class="quizNext" disabled>
+          Continue
+        </button>
+
+      </div>
+
+
+      <!-- QUESTION 5 -->
+
+      <div class="quizStep" data-step="5">
+
+        <h3>What would you like help with?</h3>
+
+        <p>
+          Choose the closest match.
+        </p>
+
+        <div class="quizOptions">
+
+          <button class="quizOption" data-value="route">
+            Choosing the route
+          </button>
+
+          <button class="quizOption" data-value="planning">
+            Building the itinerary
+          </button>
+
+          <button class="quizOption" data-value="gear">
+            Preparation and gear
+          </button>
+
+          <button class="quizOption" data-value="safari">
+            Adding a safari afterwards
+          </button>
+
+        </div>
+
+        <button class="quizNext" disabled>
+          See My Route Suggestion
+        </button>
+
+      </div>
+
+
+      <!-- RESULT -->
+
+      <div class="quizResult" id="quizResult">
+
+        <div class="eyebrow">
+          Your Planning Suggestion
+        </div>
+
+        <h3 id="quizRouteName">
+          Lemosho
+        </h3>
+
+        <p id="quizRouteDescription"></p>
+
+        <div class="quizReason">
+
+          <strong>Why this profile?</strong>
+
+          <span id="quizReasonText"></span>
+
+        </div>
+
+        <div class="quizActions">
+
+          <a
+            class="routeCTA"
+            id="quizBooking"
+            href="booking.html?destination=Kilimanjaro"
+          >
+            Discuss This Route
+          </a>
+
+          <button class="quizRestart" id="quizRestart">
+            Take Quiz Again
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
 <section class="section dark"><div class="container grid2"><div><div class="eyebrow">Prepare With Purpose</div><h2>Good preparation makes the journey better.</h2><p style="color:#fffb;font-size:14px">Before booking, consider your fitness, trekking experience, travel dates, route length and acclimatization needs. A qualified local mountain team should guide the operational and safety decisions.</p></div>
 <div class="checkGrid"><div class="check"><strong>Pacing</strong><span>Gradual trekking schedules matter on high-altitude climbs.</span></div><div class="check"><strong>Acclimatization</strong><span>Allow enough time for your body to adjust to altitude.</span></div><div class="check"><strong>Gear</strong><span>Prepare clothing and equipment for changing mountain conditions.</span></div><div class="check"><strong>Support</strong><span>Plan your climb with an experienced, properly organized team.</span></div></div></div></section>
 
@@ -573,7 +985,343 @@ routeCards.forEach(card => {
   });
 
 });
+/* =========================================
+   AMAN SAFARI — KILIMANJARO ROUTE QUIZ
+   ========================================= */
 
+const quizSteps = document.querySelectorAll(".quizStep");
+const quizProgressBar = document.getElementById("quizProgressBar");
+
+const quizResult = document.getElementById("quizResult");
+const quizRouteName = document.getElementById("quizRouteName");
+const quizRouteDescription = document.getElementById("quizRouteDescription");
+const quizReasonText = document.getElementById("quizReasonText");
+const quizBooking = document.getElementById("quizBooking");
+const quizRestart = document.getElementById("quizRestart");
+
+let quizCurrentStep = 1;
+
+let quizAnswers = {};
+
+const quizScores = {
+  Lemosho: 0,
+  Machame: 0,
+  Marangu: 0,
+  Rongai: 0,
+  Umbwe: 0
+};
+
+
+/* Answer scoring */
+
+function scoreQuizAnswer(value){
+
+  if(value === "long" || value === "flexible"){
+    quizScores.Lemosho += 2;
+    quizScores.Machame += 1;
+    quizScores.Rongai += 1;
+  }
+
+  if(value === "short"){
+    quizScores.Marangu += 2;
+    quizScores.Umbwe += 1;
+  }
+
+  if(value === "scenery"){
+    quizScores.Lemosho += 3;
+    quizScores.Machame += 2;
+    quizScores.Rongai += 1;
+  }
+
+  if(value === "classic"){
+    quizScores.Machame += 3;
+    quizScores.Marangu += 2;
+  }
+
+  if(value === "quiet"){
+    quizScores.Rongai += 3;
+    quizScores.Lemosho += 1;
+  }
+
+  if(value === "challenge"){
+    quizScores.Umbwe += 3;
+  }
+
+  if(value === "camping"){
+    quizScores.Lemosho += 1;
+    quizScores.Machame += 1;
+    quizScores.Rongai += 1;
+    quizScores.Umbwe += 1;
+  }
+
+  if(value === "huts"){
+    quizScores.Marangu += 3;
+  }
+
+  if(value === "first"){
+    quizScores.Lemosho += 1;
+    quizScores.Marangu += 1;
+  }
+
+  if(value === "some"){
+    quizScores.Machame += 2;
+    quizScores.Lemosho += 1;
+  }
+
+  if(value === "experienced"){
+    quizScores.Umbwe += 2;
+    quizScores.Machame += 1;
+  }
+
+  if(value === "route"){
+    quizScores.Lemosho += 1;
+    quizScores.Machame += 1;
+  }
+
+  if(value === "planning"){
+    quizScores.Lemosho += 1;
+    quizScores.Machame += 1;
+    quizScores.Rongai += 1;
+  }
+
+  if(value === "gear"){
+    quizScores.Lemosho += 1;
+    quizScores.Machame += 1;
+  }
+
+  if(value === "safari"){
+    quizScores.Lemosho += 1;
+    quizScores.Rongai += 1;
+  }
+
+}
+
+
+/* Select answer */
+
+quizSteps.forEach(step => {
+
+  const options = step.querySelectorAll(".quizOption");
+  const nextButton = step.querySelector(".quizNext");
+
+  options.forEach(option => {
+
+    option.addEventListener("click", () => {
+
+      options.forEach(item =>
+        item.classList.remove("selected")
+      );
+
+      option.classList.add("selected");
+
+      step.dataset.answer = option.dataset.value;
+
+      nextButton.disabled = false;
+
+    });
+
+  });
+
+
+  nextButton.addEventListener("click", () => {
+
+    const answer = step.dataset.answer;
+
+    if(!answer) return;
+
+    quizAnswers[quizCurrentStep] = answer;
+
+    scoreQuizAnswer(answer);
+
+    if(quizCurrentStep < 5){
+
+      quizCurrentStep++;
+
+      showQuizStep(quizCurrentStep);
+
+    }else{
+
+      showQuizResult();
+
+    }
+
+  });
+
+});
+
+
+/* Show question */
+
+function showQuizStep(stepNumber){
+
+  quizSteps.forEach(step => {
+
+    step.classList.toggle(
+      "active",
+      Number(step.dataset.step) === stepNumber
+    );
+
+  });
+
+  quizProgressBar.style.width =
+    ((stepNumber / 5) * 100) + "%";
+
+}
+
+
+/* Calculate result */
+
+function getQuizWinner(){
+
+  let winner = "Lemosho";
+  let highest = -1;
+
+  Object.keys(quizScores).forEach(route => {
+
+    if(quizScores[route] > highest){
+
+      highest = quizScores[route];
+      winner = route;
+
+    }
+
+  });
+
+  return winner;
+
+}
+
+
+/* Result descriptions */
+
+const quizDescriptions = {
+
+  Lemosho:
+    "Your answers point toward a route profile where scenic variety and allowing more time for the mountain are important planning considerations.",
+
+  Machame:
+    "Your answers point toward a classic trekking profile with varied scenery and a well-known approach to Kilimanjaro.",
+
+  Marangu:
+    "Your answers point toward a route profile where established hut accommodation and a different mountain experience may be important considerations.",
+
+  Rongai:
+    "Your answers point toward a northern approach with a quieter route character as an important consideration.",
+
+  Umbwe:
+    "Your answers point toward a more demanding route profile. Your trekking experience and overall itinerary should be discussed carefully when planning."
+};
+
+
+/* Why explanation */
+
+function getQuizReason(route){
+
+  const reasons = {
+
+    Lemosho:
+      "Your answers gave strong weight to scenery, flexibility and allowing more time for the mountain.",
+
+    Machame:
+      "Your answers favored a classic trekking experience with varied scenery.",
+
+    Marangu:
+      "Your answers placed more importance on established hut accommodation or a more straightforward route profile.",
+
+    Rongai:
+      "Your answers placed more importance on a quieter route character and a northern approach.",
+
+    Umbwe:
+      "Your answers placed more emphasis on challenge and trekking experience."
+  };
+
+  return reasons[route];
+
+}
+
+
+/* Show result */
+
+function showQuizResult(){
+
+  const winner = getQuizWinner();
+
+  quizSteps.forEach(step =>
+    step.classList.remove("active")
+  );
+
+  quizProgressBar.style.width = "100%";
+
+  quizRouteName.textContent = winner;
+
+  quizRouteDescription.textContent =
+    quizDescriptions[winner];
+
+  quizReasonText.textContent =
+    getQuizReason(winner);
+
+  quizBooking.href =
+    "booking.html?destination=Kilimanjaro&route=" +
+    encodeURIComponent(winner);
+
+  quizResult.classList.add("show");
+
+  if(typeof gtag === "function"){
+
+    gtag("event", "kilimanjaro_route_quiz_complete", {
+
+      recommended_route: winner,
+
+      page_path: window.location.pathname
+
+    });
+
+  }
+
+  quizResult.scrollIntoView({
+    behavior:"smooth",
+    block:"center"
+  });
+
+}
+
+
+/* Restart */
+
+quizRestart.addEventListener("click", () => {
+
+  quizCurrentStep = 1;
+
+  quizAnswers = {};
+
+  Object.keys(quizScores).forEach(route => {
+    quizScores[route] = 0;
+  });
+
+  quizSteps.forEach(step => {
+
+    step.classList.remove("active");
+
+    step.removeAttribute("data-answer");
+
+    step.querySelectorAll(".quizOption")
+      .forEach(option =>
+        option.classList.remove("selected")
+      );
+
+    const button = step.querySelector(".quizNext");
+
+    if(button){
+      button.disabled = true;
+    }
+
+  });
+
+  quizResult.classList.remove("show");
+
+  showQuizStep(1);
+
+});
   
 </script>
 </body>
