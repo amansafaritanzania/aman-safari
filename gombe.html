@@ -146,6 +146,193 @@ footer{background:#0c1c16;color:rgba(255,255,255,.72);padding:40px 6%;font-size:
 .wa{position:fixed;right:20px;bottom:20px;z-index:30;background:#25d366;color:#fff;padding:13px 18px;border-radius:40px;font-size:12px;font-weight:700;box-shadow:0 10px 25px rgba(0,0,0,.2)}
 @media(max-width:800px){.nav-links{display:none;position:absolute;top:100%;left:0;width:100%;background:rgba(16,39,31,.98);padding:20px 6%;flex-direction:column;align-items:flex-start}.nav-links.open{display:flex}.menu-btn{display:block}.hero{min-height:78vh}.hero p{font-size:14px}.intro{grid-template-columns:1fr;gap:35px}.cards,.journey{grid-template-columns:1fr}.facts{grid-template-columns:1fr}.months{grid-template-columns:repeat(3,1fr)}.btn.alt{margin:10px 0 0}}
 @media(max-width:480px){.months{grid-template-columns:repeat(2,1fr)}.month{padding:13px 9px}.month-info{padding:22px}}
+
+
+/* =========================================
+   AMAN SAFARI — LIVE FLOATING SAFARI AI
+   ========================================= */
+.aman-ai-launcher{
+  position:fixed;
+  right:18px;
+  bottom:86px;
+  z-index:9998;
+  width:58px;
+  height:58px;
+  border:0;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  color:#fff;
+  background:linear-gradient(145deg,#c6a15b,#9f793a);
+  box-shadow:0 14px 34px rgba(0,0,0,.25);
+  transition:transform .22s ease,box-shadow .22s ease;
+}
+.aman-ai-launcher:hover{transform:translateY(-2px);box-shadow:0 18px 42px rgba(0,0,0,.3)}
+.aman-ai-launcher svg{width:25px;height:25px}
+.aman-ai-launcher::before{
+  content:"";
+  position:absolute;
+  inset:-5px;
+  border:1px solid rgba(198,161,91,.5);
+  border-radius:50%;
+  animation:amanAiPulse 2.5s infinite;
+}
+.aman-ai-launcher::after{
+  content:"Safari AI";
+  position:absolute;
+  right:68px;
+  white-space:nowrap;
+  padding:8px 11px;
+  border-radius:999px;
+  background:rgba(14,32,22,.96);
+  color:#fff;
+  font:700 10px Montserrat,Arial,sans-serif;
+  letter-spacing:.4px;
+  box-shadow:0 8px 24px rgba(0,0,0,.16);
+  pointer-events:none;
+}
+@keyframes amanAiPulse{
+  0%,100%{transform:scale(1);opacity:.65}
+  50%{transform:scale(1.13);opacity:0}
+}
+.aman-ai-panel{
+  position:fixed;
+  right:18px;
+  bottom:156px;
+  z-index:9999;
+  width:min(410px,calc(100vw - 28px));
+  height:min(620px,calc(100dvh - 180px));
+  display:none;
+  flex-direction:column;
+  overflow:hidden;
+  border-radius:22px;
+  background:#fff;
+  border:1px solid rgba(23,56,45,.12);
+  box-shadow:0 28px 80px rgba(0,0,0,.28);
+  font-family:Montserrat,Arial,sans-serif;
+}
+.aman-ai-panel.active{display:flex}
+.aman-ai-head{
+  flex:0 0 auto;
+  padding:15px 16px 13px;
+  color:#fff;
+  background:linear-gradient(145deg,#17382d,#10271f);
+}
+.aman-ai-headrow{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.aman-ai-brand{display:flex;align-items:center;gap:11px;min-width:0}
+.aman-ai-avatar{
+  width:40px;height:40px;flex:0 0 40px;border-radius:50%;
+  display:grid;place-items:center;
+  background:rgba(255,255,255,.11);
+  border:1px solid rgba(255,255,255,.2);
+}
+.aman-ai-avatar svg{width:20px;height:20px}
+.aman-ai-brandtext{min-width:0}
+.aman-ai-brandtext strong{display:block;font-size:14px;line-height:1.25}
+.aman-ai-brandtext span{
+  display:block;margin-top:3px;font-size:10px;line-height:1.25;
+  color:rgba(255,255,255,.72);white-space:nowrap;overflow:hidden;text-overflow:ellipsis
+}
+.aman-ai-close{
+  width:36px;height:36px;flex:0 0 36px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.08);color:#fff;cursor:pointer;font-size:19px
+}
+.aman-ai-status{display:flex;align-items:center;gap:7px;margin-top:11px;font-size:10px;color:rgba(255,255,255,.76)}
+.aman-ai-dot{width:7px;height:7px;border-radius:50%;background:#6add8a;box-shadow:0 0 0 4px rgba(106,221,138,.12)}
+.aman-ai-messages{
+  flex:1 1 auto;
+  min-height:0;
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
+  padding:15px;
+  background:#f7f5ef;
+  scroll-behavior:smooth;
+}
+.aman-ai-msg{
+  max-width:88%;
+  margin-bottom:10px;
+  padding:10px 13px;
+  border-radius:15px;
+  font-size:12px;
+  line-height:1.55;
+  word-wrap:break-word;
+  white-space:pre-wrap;
+}
+.aman-ai-msg.bot{background:#fff;color:#26332c;border:1px solid #e9e4da;border-bottom-left-radius:5px}
+.aman-ai-msg.user{margin-left:auto;background:#c6a15b;color:#fff;border-bottom-right-radius:5px}
+.aman-ai-welcome strong{display:block;margin-bottom:5px;color:#17382d}
+.aman-ai-quick{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+.aman-ai-quick button{
+  border:1px solid #c6a15b;
+  border-radius:999px;
+  padding:7px 10px;
+  background:#fff;
+  color:#8e6b31;
+  cursor:pointer;
+  font:700 10px Montserrat,Arial,sans-serif;
+}
+.aman-ai-typing{
+  flex:0 0 auto;
+  display:none;
+  gap:4px;
+  padding:8px 15px 10px;
+  background:#f7f5ef;
+}
+.aman-ai-typing span{width:6px;height:6px;border-radius:50%;background:#a99b88;animation:amanType 1s infinite ease-in-out}
+.aman-ai-typing span:nth-child(2){animation-delay:.15s}
+.aman-ai-typing span:nth-child(3){animation-delay:.3s}
+@keyframes amanType{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-4px)}}
+.aman-ai-input{
+  flex:0 0 auto;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:11px;
+  padding-bottom:max(11px,env(safe-area-inset-bottom));
+  border-top:1px solid #e5ded2;
+  background:#fff;
+}
+.aman-ai-input input{
+  flex:1;min-width:0;min-height:46px;
+  border:1px solid #ddd6ca;border-radius:999px;
+  padding:11px 14px;outline:none;background:#fff;color:#18211d;
+  font:400 16px Montserrat,Arial,sans-serif;
+}
+.aman-ai-input input:focus{border-color:#c6a15b;box-shadow:0 0 0 3px rgba(198,161,91,.12)}
+.aman-ai-send{
+  width:46px;height:46px;flex:0 0 46px;border:0;border-radius:50%;
+  display:grid;place-items:center;background:#c6a15b;color:#fff;cursor:pointer
+}
+.aman-ai-send svg{width:19px;height:19px}
+.aman-ai-send:disabled{opacity:.55;cursor:not-allowed}
+body.aman-ai-mobile-open{overflow:hidden}
+
+@media(max-width:650px){
+  .aman-ai-launcher{
+    right:14px;
+    bottom:calc(76px + env(safe-area-inset-bottom));
+    width:56px;height:56px
+  }
+  .aman-ai-launcher::after{display:none}
+  .aman-ai-panel{
+    inset:auto 0 0 0;
+    width:100%;
+    height:min(82dvh,720px);
+    max-height:82dvh;
+    border-radius:22px 22px 0 0;
+    border-left:0;border-right:0;border-bottom:0;
+    box-shadow:0 -20px 70px rgba(0,0,0,.28)
+  }
+  .aman-ai-messages{padding:14px}
+  .aman-ai-msg{max-width:92%;font-size:13px}
+  .aman-ai-quick{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+  .aman-ai-quick::-webkit-scrollbar{display:none}
+  .aman-ai-quick button{flex:0 0 auto}
+}
+
 </style>
 </head>
 <body>
@@ -279,6 +466,243 @@ months.appendChild(b);
 function showMonth(m){info.innerHTML="<div><strong>"+m+" · "+monthData[m][0]+"</strong><br><span>"+monthData[m][1]+"</span></div>"}
 showMonth("January");
 </script>
-  <script src="safari-ai.js"></script>
+
+
+<!-- =========================================
+     AMAN SAFARI — LIVE FLOATING SAFARI AI
+     ========================================= -->
+<button class="aman-ai-launcher" id="amanAiLauncher" type="button"
+        aria-label="Open Aman Safari AI" aria-expanded="false" aria-controls="amanAiPanel">
+  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v7A2.5 2.5 0 0 1 17.5 15H10l-4.8 4v-4.2A2.5 2.5 0 0 1 4 12.5v-7Z"
+          stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+    <path d="M8 9h8M8 6.5h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+  </svg>
+</button>
+
+<section class="aman-ai-panel" id="amanAiPanel" aria-label="Aman Safari AI">
+  <div class="aman-ai-head">
+    <div class="aman-ai-headrow">
+      <div class="aman-ai-brand">
+        <div class="aman-ai-avatar" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="m12 3 2.4 6.6L21 12l-6.6 2.4L12 21l-2.4-6.6L3 12l6.6-2.4L12 3Z"
+                  stroke="currentColor" stroke-width="1.6"/>
+          </svg>
+        </div>
+        <div class="aman-ai-brandtext">
+          <strong>Aman Safari AI</strong>
+          <span>Gombe National Park specialist</span>
+        </div>
+      </div>
+      <button class="aman-ai-close" id="amanAiClose" type="button" aria-label="Close Safari AI">×</button>
+    </div>
+    <div class="aman-ai-status">
+      <span class="aman-ai-dot"></span>
+      <span>Live Tanzania travel assistant</span>
+    </div>
+  </div>
+
+  <div class="aman-ai-messages" id="amanAiMessages" aria-live="polite">
+    <div class="aman-ai-msg bot aman-ai-welcome">
+      <strong>Jambo! 👋</strong>
+      Ask me about Gombe National Park, Tanzania travel planning, seasons, routes or your safari.
+      <div class="aman-ai-quick">
+        <button type="button" data-ai-quick="What is the best time to visit Gombe?">Best Time</button>
+<button type="button" data-ai-quick="How do I reach Gombe National Park?">Getting There</button>
+<button type="button" data-ai-quick="What is chimpanzee tracking like in Gombe?">Chimp Tracking</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="aman-ai-typing" id="amanAiTyping" aria-hidden="true">
+    <span></span><span></span><span></span>
+  </div>
+
+  <form class="aman-ai-input" id="amanAiForm">
+    <input id="amanAiInput" type="text" autocomplete="off"
+           placeholder="Ask Safari AI..." aria-label="Ask Aman Safari AI">
+    <button class="aman-ai-send" id="amanAiSend" type="submit" aria-label="Send message">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M21 3 10.5 13.5M21 3l-6.5 18-4-7.5L3 9l18-6Z"
+              stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </form>
+</section>
+
+
+<script>
+/* =========================================
+   AMAN SAFARI — LIVE SAFARI AI BACKEND
+   ========================================= */
+(() => {
+  const API_URL = "https://amanai-mdtj.onrender.com/chat";
+  const PAGE_CONTEXT = "Gombe National Park";
+
+  const launcher = document.getElementById("amanAiLauncher");
+  const panel = document.getElementById("amanAiPanel");
+  const closeBtn = document.getElementById("amanAiClose");
+  const messages = document.getElementById("amanAiMessages");
+  const typing = document.getElementById("amanAiTyping");
+  const form = document.getElementById("amanAiForm");
+  const input = document.getElementById("amanAiInput");
+  const sendBtn = document.getElementById("amanAiSend");
+
+  if (!launcher || !panel || !messages || !form || !input || !sendBtn) return;
+
+  const makeId = prefix =>
+    prefix + "_" + Date.now() + "_" + Math.random().toString(36).slice(2,8);
+
+  const userKey = "amanSafariWebUserId";
+  const chatKey = "amanSafariWebChatId";
+
+  let userId = localStorage.getItem(userKey);
+  if (!userId) {
+    userId = makeId("web");
+    localStorage.setItem(userKey, userId);
+  }
+
+  let chatId = localStorage.getItem(chatKey) || "";
+  let sending = false;
+
+  const track = (name, params = {}) => {
+    if (typeof gtag === "function") {
+      gtag("event", name, params);
+    }
+  };
+
+  const scrollBottom = () => {
+    requestAnimationFrame(() => {
+      messages.scrollTop = messages.scrollHeight;
+    });
+  };
+
+  const addMessage = (text, sender) => {
+    const bubble = document.createElement("div");
+    bubble.className = "aman-ai-msg " + sender;
+    bubble.textContent = text;
+    messages.appendChild(bubble);
+    scrollBottom();
+  };
+
+  const setTyping = visible => {
+    if (!typing) return;
+    typing.style.display = visible ? "flex" : "none";
+    typing.setAttribute("aria-hidden", visible ? "false" : "true");
+    if (visible) scrollBottom();
+  };
+
+  const setSending = value => {
+    sending = value;
+    sendBtn.disabled = value;
+    input.disabled = value;
+  };
+
+  const openChat = () => {
+    panel.classList.add("active");
+    launcher.setAttribute("aria-expanded","true");
+    if (window.matchMedia("(max-width:650px)").matches) {
+      document.body.classList.add("aman-ai-mobile-open");
+    }
+    setTimeout(() => input.focus(),120);
+    track("safari_ai_open",{page:PAGE_CONTEXT});
+    scrollBottom();
+  };
+
+  const closeChat = () => {
+    panel.classList.remove("active");
+    launcher.setAttribute("aria-expanded","false");
+    document.body.classList.remove("aman-ai-mobile-open");
+  };
+
+  launcher.addEventListener("click",() => {
+    panel.classList.contains("active") ? closeChat() : openChat();
+  });
+
+  if (closeBtn) closeBtn.addEventListener("click",closeChat);
+
+  document.addEventListener("keydown",event => {
+    if (event.key === "Escape" && panel.classList.contains("active")) closeChat();
+  });
+
+  async function sendMessage(forcedText = null) {
+    const visitorText = String(forcedText || input.value || "").trim();
+    if (!visitorText || sending) return;
+
+    addMessage(visitorText,"user");
+    input.value = "";
+    setSending(true);
+    setTyping(true);
+    track("safari_ai_message",{page:PAGE_CONTEXT});
+
+    const backendMessage =
+      "Aman Safari Tanzania website visitor currently viewing " +
+      PAGE_CONTEXT +
+      ". Visitor message: " +
+      visitorText;
+
+    try {
+      const response = await fetch(API_URL,{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({
+          userId,
+          chatId: chatId || undefined,
+          message: backendMessage
+        })
+      });
+
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.error || "Safari AI unavailable");
+      }
+
+      if (data.chatId) {
+        chatId = data.chatId;
+        localStorage.setItem(chatKey,chatId);
+      }
+
+      addMessage(
+        data.reply || "I could not prepare a reply just now. Please try again.",
+        "bot"
+      );
+
+    } catch (error) {
+      console.error("Aman Safari AI error:",error);
+      addMessage(
+        "I’m having trouble reaching Safari AI right now. Please try again, or use WhatsApp for trip planning.",
+        "bot"
+      );
+      track("safari_ai_error",{page:PAGE_CONTEXT});
+    } finally {
+      setTyping(false);
+      setSending(false);
+      if (panel.classList.contains("active")) input.focus();
+    }
+  }
+
+  form.addEventListener("submit",event => {
+    event.preventDefault();
+    sendMessage();
+  });
+
+  messages.addEventListener("click",event => {
+    const button = event.target.closest("[data-ai-quick]");
+    if (!button) return;
+    sendMessage(button.dataset.aiQuick);
+  });
+
+  window.addEventListener("resize",() => {
+    if (!window.matchMedia("(max-width:650px)").matches) {
+      document.body.classList.remove("aman-ai-mobile-open");
+    } else if (panel.classList.contains("active")) {
+      document.body.classList.add("aman-ai-mobile-open");
+    }
+  });
+})();
+</script>
+
 </body>
 </html>
