@@ -1324,6 +1324,354 @@ document.addEventListener('click', function(event) {
       .chat-status{display:none}
     }
 
+
+
+    /* =========================================
+       AMAN SAFARI — ORGANIZED DROPDOWN MENU v1
+       Desktop: hover/focus dropdowns
+       Mobile: tap parent to expand choices first
+       ========================================= */
+
+    .nav-links{
+      position:relative;
+      gap:14px;
+    }
+
+    .nav-menu-item{
+      position:relative;
+      display:flex;
+      align-items:center;
+    }
+
+    .nav-menu-item.has-mega{
+      position:static;
+    }
+
+    .nav-parent,
+    .nav-direct{
+      color:rgba(255,255,255,.92);
+      font:600 11px/1.2 Montserrat,Arial,sans-serif;
+      letter-spacing:1px;
+      text-transform:uppercase;
+    }
+
+    .nav-parent{
+      display:flex;
+      align-items:center;
+      gap:6px;
+      padding:12px 0;
+      border:0;
+      background:transparent;
+      cursor:pointer;
+      transition:.2s ease;
+    }
+
+    .nav-parent i{
+      font-size:8px;
+      transition:transform .2s ease;
+    }
+
+    .nav-parent:hover,
+    .nav-parent:focus-visible,
+    .nav-menu-item:hover > .nav-parent,
+    .nav-menu-item:focus-within > .nav-parent{
+      color:var(--gold);
+    }
+
+    .nav-parent:focus-visible{
+      outline:2px solid rgba(225,200,135,.7);
+      outline-offset:5px;
+      border-radius:4px;
+    }
+
+    .nav-dropdown{
+      position:absolute;
+      top:calc(100% + 13px);
+      z-index:1400;
+      opacity:0;
+      visibility:hidden;
+      pointer-events:none;
+      transform:translateY(9px);
+      transition:opacity .18s ease,transform .18s ease,visibility .18s;
+      background:#fffdf8;
+      color:var(--ink);
+      border:1px solid rgba(24,33,29,.1);
+      border-radius:14px;
+      box-shadow:0 24px 65px rgba(0,0,0,.24);
+    }
+
+    .nav-dropdown::before{
+      content:"";
+      position:absolute;
+      left:0;
+      right:0;
+      top:-15px;
+      height:15px;
+    }
+
+    .small-dropdown{
+      left:-18px;
+      width:290px;
+      padding:9px;
+    }
+
+    .small-dropdown a{
+      display:block;
+      padding:12px 13px !important;
+      border-radius:9px;
+      color:var(--ink) !important;
+      text-transform:none !important;
+      letter-spacing:0 !important;
+    }
+
+    .small-dropdown a + a{
+      border-top:1px solid rgba(24,33,29,.07);
+    }
+
+    .small-dropdown a:hover,
+    .small-dropdown a:focus-visible{
+      background:#f4eee1;
+    }
+
+    .small-dropdown span{
+      display:block;
+      color:var(--green);
+      font-size:12px;
+      font-weight:700;
+    }
+
+    .small-dropdown small{
+      display:block;
+      margin-top:3px;
+      color:var(--muted);
+      font-size:10px;
+      font-weight:500;
+      line-height:1.45;
+    }
+
+    .mega-dropdown{
+      left:0;
+      right:0;
+      display:grid;
+      grid-template-columns:1.25fr 1fr 1fr 1fr;
+      gap:8px;
+      min-width:760px;
+      padding:18px;
+    }
+
+    .mega-intro{
+      padding:14px 18px 14px 10px;
+      border-right:1px solid rgba(24,33,29,.1);
+    }
+
+    .mega-intro > span{
+      display:block;
+      margin-bottom:7px;
+      color:#9b7839;
+      font-size:9px;
+      font-weight:800;
+      letter-spacing:1.5px;
+      text-transform:uppercase;
+    }
+
+    .mega-intro strong{
+      display:block;
+      font-family:"Cormorant Garamond",serif;
+      color:var(--green);
+      font-size:25px;
+      line-height:1.05;
+    }
+
+    .mega-intro p{
+      margin:9px 0 12px;
+      color:var(--muted);
+      font-size:10px;
+      line-height:1.55;
+    }
+
+    .mega-intro a{
+      color:#9b7839 !important;
+      padding:0 !important;
+      font-size:10px !important;
+      text-transform:none !important;
+      letter-spacing:0 !important;
+      font-weight:700 !important;
+    }
+
+    .mega-group{
+      padding:12px;
+    }
+
+    .mega-heading{
+      margin-bottom:8px;
+      color:#9b7839;
+      font-size:9px;
+      font-weight:800;
+      letter-spacing:1.2px;
+      text-transform:uppercase;
+    }
+
+    .mega-group a{
+      display:block;
+      padding:8px 7px !important;
+      border-radius:7px;
+      color:var(--ink) !important;
+      font-size:11px !important;
+      text-transform:none !important;
+      letter-spacing:0 !important;
+    }
+
+    .mega-group a:hover,
+    .mega-group a:focus-visible{
+      color:var(--green) !important;
+      background:#f4eee1;
+    }
+
+    @media(min-width:901px){
+      .nav-menu-item:hover > .nav-dropdown,
+      .nav-menu-item:focus-within > .nav-dropdown{
+        opacity:1;
+        visibility:visible;
+        pointer-events:auto;
+        transform:translateY(0);
+      }
+
+      .nav-menu-item:hover > .nav-parent i,
+      .nav-menu-item:focus-within > .nav-parent i{
+        transform:rotate(180deg);
+      }
+    }
+
+    @media(max-width:1050px) and (min-width:901px){
+      .nav-links{gap:10px}
+      .nav-parent,.nav-direct{font-size:10px;letter-spacing:.7px}
+      .mega-dropdown{min-width:690px}
+    }
+
+    @media(max-width:900px){
+      .nav-links{
+        top:78px;
+        left:12px;
+        right:12px;
+        max-height:calc(100dvh - 94px);
+        overflow-y:auto;
+        overscroll-behavior:contain;
+        padding:8px !important;
+        border-radius:16px;
+      }
+
+      .nav-links.open{display:flex}
+
+      .nav-menu-item{
+        display:block;
+        width:100%;
+        border-bottom:1px solid rgba(255,255,255,.09);
+      }
+
+      .nav-menu-item.has-mega{
+        position:relative;
+      }
+
+      .nav-parent{
+        width:100%;
+        justify-content:space-between;
+        padding:14px 12px;
+        color:#fff;
+        font-size:11px;
+      }
+
+      .nav-menu-item.open > .nav-parent{
+        color:var(--gold);
+      }
+
+      .nav-menu-item.open > .nav-parent i{
+        transform:rotate(180deg);
+      }
+
+      .nav-direct{
+        display:block;
+        width:100%;
+        padding:14px 12px !important;
+        border-bottom:1px solid rgba(255,255,255,.09);
+      }
+
+      .nav-cta{
+        margin-top:8px;
+        border-bottom:1px solid var(--gold) !important;
+      }
+
+      .nav-dropdown,
+      .mega-dropdown,
+      .small-dropdown{
+        position:static;
+        display:none;
+        width:100%;
+        min-width:0;
+        opacity:1;
+        visibility:visible;
+        pointer-events:auto;
+        transform:none;
+        margin:0 0 8px;
+        padding:7px;
+        border-radius:11px;
+        box-shadow:none;
+        background:rgba(255,255,255,.97);
+      }
+
+      .nav-dropdown::before{display:none}
+
+      .nav-menu-item.open > .nav-dropdown{
+        display:block;
+      }
+
+      .mega-dropdown{
+        grid-template-columns:1fr;
+      }
+
+      .mega-intro{
+        padding:12px;
+        border-right:0;
+        border-bottom:1px solid rgba(24,33,29,.09);
+      }
+
+      .mega-intro strong{font-size:23px}
+      .mega-intro p{font-size:11px}
+
+      .mega-group{
+        padding:10px 11px;
+      }
+
+      .mega-group + .mega-group{
+        border-top:1px solid rgba(24,33,29,.08);
+      }
+
+      .mega-group a{
+        padding:10px 8px !important;
+        font-size:12px !important;
+      }
+
+      .small-dropdown a{
+        padding:11px !important;
+      }
+
+      .small-dropdown span{font-size:12px}
+      .small-dropdown small{font-size:10px}
+    }
+
+    @media(max-width:420px){
+      .nav-links{
+        left:8px;
+        right:8px;
+        top:72px;
+        max-height:calc(100dvh - 84px);
+      }
+
+      .nav-parent,
+      .nav-direct{
+        font-size:10px;
+      }
+    }
+
 </style>
 </head>
 
@@ -1341,22 +1689,79 @@ document.addEventListener('click', function(event) {
       </button>
 
       <nav class="nav-links" id="navLinks" aria-label="Main navigation">
-        <a href="index.html" class="active">Home</a>
-        <a href="#destinations">Destinations</a>
-        <a href="kilimanjaro.html">Kilimanjaro</a>
-        <a href="serengeti.html">Serengeti</a>
-        <a href="ngorongoro.html">Ngorongoro</a>
-        <a href="tarangire.html">Tarangire</a>
-        <a href="ruaha.html">Ruaha</a>
-        <a href="nyerere.html">Nyerere</a>
-        <a href="lake-manyara.html">Manyara</a>
-        <a href="mikumi.html">Mikumi</a>
-        <a href="gombe.html">Gombe</a>
-        <a href="saadani.html">Saadani</a>
-        <a href="about.html">About</a>
-        <a href="booking.html">Booking</a>
-        <a href="pay.html">Payments</a>
-        <a href="#planner" class="nav-cta">Plan My Safari</a>
+        <a href="index.html" class="nav-direct active">Home</a>
+
+        <div class="nav-menu-item has-mega">
+          <button class="nav-parent" type="button" aria-expanded="false">
+            Destinations <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+          </button>
+
+          <div class="nav-dropdown mega-dropdown">
+            <div class="mega-intro">
+              <span>Explore Tanzania</span>
+              <strong>Choose where your journey begins.</strong>
+              <p>Browse destinations by safari region, then open the park you want to explore.</p>
+              <a href="#destinations">View all destinations →</a>
+            </div>
+
+            <div class="mega-group">
+              <div class="mega-heading">Northern Tanzania</div>
+              <a href="serengeti.html">Serengeti</a>
+              <a href="ngorongoro.html">Ngorongoro</a>
+              <a href="tarangire.html">Tarangire</a>
+              <a href="lake-manyara.html">Lake Manyara</a>
+              <a href="kilimanjaro.html">Kilimanjaro</a>
+            </div>
+
+            <div class="mega-group">
+              <div class="mega-heading">Southern Tanzania</div>
+              <a href="ruaha.html">Ruaha</a>
+              <a href="nyerere.html">Nyerere</a>
+              <a href="mikumi.html">Mikumi</a>
+            </div>
+
+            <div class="mega-group">
+              <div class="mega-heading">Western & Coast</div>
+              <a href="gombe.html">Gombe</a>
+              <a href="saadani.html">Saadani</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav-menu-item">
+          <button class="nav-parent" type="button" aria-expanded="false">
+            Plan Your Trip <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+          </button>
+          <div class="nav-dropdown small-dropdown">
+            <a href="#planner"><span>Build My Safari</span><small>Start with your dates and travel style</small></a>
+            <a href="booking.html"><span>Booking</span><small>Send your trip request</small></a>
+            <a href="kilimanjaro.html"><span>Kilimanjaro Climb</span><small>Explore routes and climb planning</small></a>
+          </div>
+        </div>
+
+        <div class="nav-menu-item">
+          <button class="nav-parent" type="button" aria-expanded="false">
+            Travel Tools <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+          </button>
+          <div class="nav-dropdown small-dropdown">
+            <a href="#tools"><span>Best Time to Visit</span><small>Month-by-month planning guidance</small></a>
+            <a href="#tools"><span>Currency Estimator</span><small>Simple trip-budget conversion</small></a>
+            <a href="#destinations"><span>Destination Finder</span><small>Compare Tanzania experiences</small></a>
+          </div>
+        </div>
+
+        <div class="nav-menu-item">
+          <button class="nav-parent" type="button" aria-expanded="false">
+            About <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+          </button>
+          <div class="nav-dropdown small-dropdown">
+            <a href="about.html"><span>About Aman Safari</span><small>Learn about the business</small></a>
+            <a href="booking.html"><span>Contact & Booking</span><small>Start a conversation about your trip</small></a>
+          </div>
+        </div>
+
+        <a href="pay.html" class="nav-direct">Payments</a>
+        <a href="#planner" class="nav-cta nav-direct">Plan My Safari</a>
       </nav>
     </div>
   </header>
@@ -1913,6 +2318,7 @@ document.addEventListener('click', function(event) {
     const siteHeader = document.getElementById("siteHeader");
     const navToggle = document.getElementById("navToggle");
     const navLinks = document.getElementById("navLinks");
+    const navMenuItems = [...navLinks.querySelectorAll(".nav-menu-item")];
 
     window.addEventListener("scroll", () => {
         siteHeader.classList.toggle(
@@ -1921,37 +2327,76 @@ document.addEventListener('click', function(event) {
         );
     }, { passive: true });
 
+    function closeNavMenuItems(exceptItem = null) {
+        navMenuItems.forEach(item => {
+            if (item === exceptItem) return;
+            item.classList.remove("open");
+            const button = item.querySelector(":scope > .nav-parent");
+            if (button) button.setAttribute("aria-expanded", "false");
+        });
+    }
+
+    function closeMobileNav() {
+        navLinks.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+        navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+        closeNavMenuItems();
+    }
 
     navToggle.addEventListener("click", () => {
-
         const open = navLinks.classList.toggle("open");
 
-        navToggle.setAttribute(
-            "aria-expanded",
-            String(open)
-        );
-
+        navToggle.setAttribute("aria-expanded", String(open));
         navToggle.innerHTML = open
             ? '<i class="fa-solid fa-xmark"></i>'
             : '<i class="fa-solid fa-bars"></i>';
+
+        if (!open) closeNavMenuItems();
     });
 
+    navMenuItems.forEach(item => {
+        const parentButton = item.querySelector(":scope > .nav-parent");
+        if (!parentButton) return;
+
+        parentButton.addEventListener("click", event => {
+            // Desktop uses hover/focus. On phones/tablets, the first tap
+            // expands choices instead of navigating anywhere.
+            if (window.innerWidth <= 900) {
+                event.preventDefault();
+
+                const willOpen = !item.classList.contains("open");
+                closeNavMenuItems(item);
+                item.classList.toggle("open", willOpen);
+                parentButton.setAttribute("aria-expanded", String(willOpen));
+            }
+        });
+    });
 
     navLinks.querySelectorAll("a").forEach(link => {
-
         link.addEventListener("click", () => {
-
-            navLinks.classList.remove("open");
-
-            navToggle.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-            navToggle.innerHTML =
-                '<i class="fa-solid fa-bars"></i>';
+            if (window.innerWidth <= 900) closeMobileNav();
         });
+    });
 
+    document.addEventListener("click", event => {
+        if (window.innerWidth <= 900) return;
+        if (!siteHeader.contains(event.target)) closeNavMenuItems();
+    });
+
+    document.addEventListener("keydown", event => {
+        if (event.key === "Escape") {
+            closeNavMenuItems();
+            if (window.innerWidth <= 900) closeMobileNav();
+        }
+    });
+
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 900) {
+            navLinks.classList.remove("open");
+            navToggle.setAttribute("aria-expanded", "false");
+            navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+            closeNavMenuItems();
+        }
     });
 
 
