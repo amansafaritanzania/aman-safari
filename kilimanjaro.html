@@ -796,6 +796,97 @@ body.aman-ai-mobile-open{overflow:auto}
     border-radius:20px;
   }
 }
+
+
+/* =========================================
+   SAFARI AI RESPONSIVE ISOLATION v2
+   Prevent destination-page CSS from squeezing chat
+   ========================================= */
+.aman-ai-panel{
+  padding:0 !important;
+  margin:0 !important;
+  text-align:left !important;
+  box-sizing:border-box !important;
+  min-width:0 !important;
+}
+.aman-ai-panel *{box-sizing:border-box}
+.aman-ai-headrow{min-width:0}
+.aman-ai-brand{min-width:0;flex:1}
+.aman-ai-brandtext{min-width:0;flex:1}
+.aman-ai-brandtext strong,
+.aman-ai-brandtext span{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+@media(max-width:650px){
+  .aman-ai-panel{
+    left:12px !important;
+    right:12px !important;
+    bottom:calc(12px + env(safe-area-inset-bottom)) !important;
+    width:auto !important;
+    height:min(76dvh,660px) !important;
+    max-height:calc(100dvh - 24px) !important;
+    border-radius:20px !important;
+  }
+  .aman-ai-head{padding:10px 12px 9px !important}
+  .aman-ai-avatar{
+    width:34px !important;
+    height:34px !important;
+    flex:0 0 34px !important;
+  }
+  .aman-ai-avatar svg{width:18px !important;height:18px !important}
+  .aman-ai-brand{gap:8px !important}
+  .aman-ai-brandtext strong{font-size:14px !important}
+  .aman-ai-brandtext span{display:none !important}
+  .aman-ai-status{
+    margin-top:5px !important;
+    font-size:9px !important;
+  }
+  .aman-ai-close{
+    width:32px !important;
+    height:32px !important;
+    flex:0 0 32px !important;
+  }
+  .aman-ai-messages{padding:12px !important}
+  .aman-ai-msg{
+    max-width:92% !important;
+    font-size:13px !important;
+    padding:11px 13px !important;
+  }
+  .aman-ai-input{
+    padding:9px !important;
+    padding-bottom:max(9px,env(safe-area-inset-bottom)) !important;
+  }
+  .aman-ai-input input{
+    min-height:44px !important;
+    font-size:16px !important;
+  }
+  .aman-ai-send{
+    width:44px !important;
+    height:44px !important;
+    flex:0 0 44px !important;
+  }
+}
+
+@media(max-width:380px){
+  .aman-ai-panel{
+    left:8px !important;
+    right:8px !important;
+    bottom:calc(8px + env(safe-area-inset-bottom)) !important;
+    height:min(78dvh,640px) !important;
+  }
+}
+
+@media(max-height:560px) and (max-width:900px){
+  .aman-ai-panel{
+    height:88dvh !important;
+    max-height:88dvh !important;
+  }
+  .aman-ai-status{display:none !important}
+}
+
 </style>
 </head>
 <body>
@@ -2258,7 +2349,7 @@ quizRestart.addEventListener("click", () => {
   </svg>
 </button>
 
-<section class="aman-ai-panel" id="amanAiPanel" aria-label="Aman Safari AI">
+<div class="aman-ai-panel" id="amanAiPanel" role="dialog" aria-label="Aman Safari AI">
   <div class="aman-ai-head">
     <div class="aman-ai-headrow">
       <div class="aman-ai-brand">
@@ -2307,7 +2398,7 @@ quizRestart.addEventListener("click", () => {
       </svg>
     </button>
   </form>
-</section>
+</div>
 
 
 <script>
