@@ -1266,6 +1266,64 @@ document.addEventListener('click', function(event) {
         max-height:80dvh;
       }
     }
+
+    /* =========================================
+       SAFARI AI RESPONSIVE ISOLATION v2
+       Prevent page CSS from squeezing the chat
+       ========================================= */
+    .chat-window{
+      padding:0 !important;
+      margin:0 !important;
+      text-align:left !important;
+      box-sizing:border-box !important;
+      min-width:0 !important;
+    }
+    .chat-window *{box-sizing:border-box}
+    .chat-head-top{min-width:0}
+    .chat-brand{min-width:0;flex:1}
+    .chat-brand > div:last-child{min-width:0}
+    .chat-brand strong,.chat-brand span{
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+    }
+
+    @media(max-width:650px){
+      .chat-window{
+        left:12px !important;
+        right:12px !important;
+        bottom:calc(12px + env(safe-area-inset-bottom)) !important;
+        width:auto !important;
+        height:min(76dvh,660px) !important;
+        max-height:calc(100dvh - 24px) !important;
+        border-radius:20px !important;
+      }
+      .chat-head{padding:10px 12px 9px}
+      .chat-avatar{width:34px;height:34px;flex:0 0 34px;font-size:14px}
+      .chat-brand{gap:8px}
+      .chat-brand strong{font-size:14px}
+      .chat-brand span{display:none}
+      .chat-status{margin-top:5px;font-size:9px}
+      .chat-close{width:32px;height:32px;flex:0 0 32px}
+      .chat-messages{padding:12px}
+      .msg{font-size:13px;max-width:92%}
+      .chat-input{padding:9px;padding-bottom:max(9px,env(safe-area-inset-bottom))}
+    }
+
+    @media(max-width:380px){
+      .chat-window{
+        left:8px !important;
+        right:8px !important;
+        bottom:calc(8px + env(safe-area-inset-bottom)) !important;
+        height:min(78dvh,640px) !important;
+      }
+    }
+
+    @media(max-height:560px) and (max-width:900px){
+      .chat-window{height:88dvh !important;max-height:88dvh !important}
+      .chat-status{display:none}
+    }
+
 </style>
 </head>
 
@@ -1703,7 +1761,7 @@ document.addEventListener('click', function(event) {
     <i class="fa-brands fa-whatsapp"></i> WhatsApp
   </a>
 
-  <section class="chat-window" id="chatWindow" aria-label="Aman Safari AI Concierge">
+  <div class="chat-window" id="chatWindow" role="dialog" aria-label="Aman Safari AI Concierge">
 
   <div class="chat-head">
 
@@ -1835,7 +1893,7 @@ document.addEventListener('click', function(event) {
 
   </div>
 
-</section>
+</div>
  <script>
     /* =========================
        AMAN SAFARI — BUSINESS ANALYTICS
