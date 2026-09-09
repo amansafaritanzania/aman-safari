@@ -1231,7 +1231,32 @@ document.addEventListener('click', function(event) {
       .hero-bg { animation: none; }
       * { transition-duration: .01ms !important; }
     }
-  </style>
+  
+    /* =========================================
+       AMAN SAFARI AI — MOBILE-FIRST LIVE CHAT
+       ========================================= */
+    .chat-launcher{right:18px;bottom:88px;width:60px;height:60px;z-index:1201;isolation:isolate}
+    .chat-launcher::after{content:"Safari AI";position:absolute;right:70px;white-space:nowrap;padding:8px 11px;border-radius:999px;background:rgba(14,32,22,.96);color:#fff;font-size:10px;font-weight:700;letter-spacing:.4px;box-shadow:0 8px 24px rgba(0,0,0,.18);pointer-events:none}
+    .chat-window{right:18px;bottom:160px;width:min(420px,calc(100vw - 28px));height:min(660px,calc(100dvh - 185px));max-height:660px;z-index:1202}
+    .chat-messages{overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+    .chat-input{position:sticky;bottom:0;z-index:4;padding-bottom:max(12px,env(safe-area-inset-bottom))}
+    .chat-input input{min-height:46px;font-size:16px}
+    .chat-input button{width:46px;height:46px;flex-basis:46px}
+    body.chat-open-mobile{overflow:hidden;touch-action:none}
+
+    @media (max-width:650px){
+      .chat-launcher{right:14px;bottom:calc(74px + env(safe-area-inset-bottom));width:56px;height:56px}
+      .chat-launcher::after{display:none}
+      .whatsapp{right:14px;bottom:calc(12px + env(safe-area-inset-bottom));min-height:48px}
+      .chat-window{inset:auto 0 0 0;width:100%;height:min(82dvh,720px);max-height:82dvh;border-radius:22px 22px 0 0;border-left:0;border-right:0;border-bottom:0;box-shadow:0 -20px 70px rgba(0,0,0,.28)}
+      .chat-messages{padding:14px}
+      .msg{max-width:92%;font-size:13px}
+      .quick-actions{flex-wrap:nowrap;overflow-x:auto;padding-bottom:3px;scrollbar-width:none}
+      .quick-actions::-webkit-scrollbar{display:none}
+      .quick-actions button{flex:0 0 auto}
+    }
+
+</style>
 </head>
 
 <body>
@@ -1715,7 +1740,7 @@ document.addEventListener('click', function(event) {
       </div>
 
       <div style="margin-top:6px;">
-        I'm your Tanzania safari concierge. I can help you explore
+        I’m your live Tanzania Safari AI. I can help you explore
         destinations, choose a travel period, understand Kilimanjaro,
         or start planning your trip.
       </div>
@@ -2176,1736 +2201,202 @@ document.addEventListener('click', function(event) {
 
 
 /* =========================================
-   AMAN SAFARI AI CONCIERGE
+   AMAN SAFARI AI — LIVE BACKEND INTEGRATION
    ========================================= */
 
 (() => {
+    const API_URL = "https://amanai-mdtj.onrender.com/chat";
 
-    const chatLauncher =
-        document.getElementById("chatLauncher");
+    const chatLauncher = document.getElementById("chatLauncher");
+    const chatWindow = document.getElementById("chatWindow");
+    const chatMessages = document.getElementById("chatMessages");
+    const chatInput = document.getElementById("chatInput");
+    const chatSend = document.getElementById("chatSend");
+    const chatClose = document.getElementById("chatClose");
+    const chatTyping = document.getElementById("chatTyping");
 
-    const chatWindow =
-        document.getElementById("chatWindow");
+    if (!chatLauncher || !chatWindow || !chatMessages || !chatInput || !chatSend) return;
 
-    const chatMessages =
-        document.getElementById("chatMessages");
+    const makeId = prefix =>
+        prefix + "_" + Date.now() + "_" + Math.random().toString(36).slice(2, 8);
 
-    const chatInput =
-        document.getElementById("chatInput");
+    const userIdKey = "amanSafariWebUserId";
+    const chatIdKey = "amanSafariWebChatId";
 
-    const chatSend =
-        document.getElementById("chatSend");
-
-    const chatClose =
-        document.getElementById("chatClose");
-
-    const chatTyping =
-        document.getElementById("chatTyping");
-
-
-    if (
-        !chatLauncher ||
-        !chatWindow ||
-        !chatMessages ||
-        !chatInput ||
-        !chatSend
-    ) {
-        return;
+    let userId = localStorage.getItem(userIdKey);
+    if (!userId) {
+        userId = makeId("web");
+        localStorage.setItem(userIdKey, userId);
     }
 
+    let chatId = localStorage.getItem(chatIdKey) || "";
+    let sending = false;
 
-    /* =========================================
-       CONCIERGE STATE
-       ========================================= */
-
-    const conciergeState = {
-
-        planning: false,
-
-        step: 0,
-
-        answers: {
-            experience: "",
-            dates: "",
-            travelers: "",
-            destination: ""
-        }
-
-    };
-
-
-    /* =========================================
-       OPEN / CLOSE
-       ========================================= */
-
-    function openConcierge() {
-
-        chatWindow.classList.add("active");
-
-        chatLauncher.setAttribute(
-            "aria-expanded",
-            "true"
-        );
-
-        chatInput.focus();
-
-        amanEvent(
-            "assistant_open"
-        );
-
+    function scrollToBottom() {
+        requestAnimationFrame(() => {
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        });
     }
 
-
-    function closeConcierge() {
-
-        chatWindow.classList.remove("active");
-
-        chatLauncher.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-        chatLauncher.focus();
-
-    }
-
-
-    chatLauncher.addEventListener(
-        "click",
-        () => {
-
-            if (
-                chatWindow.classList.contains("active")
-            ) {
-
-                closeConcierge();
-
-            } else {
-
-                openConcierge();
-
-            }
-
-        }
-    );
-
-
-    if (chatClose) {
-
-        chatClose.addEventListener(
-            "click",
-            closeConcierge
-        );
-
-    }
-
-
-    document.addEventListener(
-        "keydown",
-        event => {
-
-            if (
-                event.key === "Escape" &&
-                chatWindow.classList.contains("active")
-            ) {
-
-                closeConcierge();
-
-            }
-
-        }
-    );
-
-
-    /* =========================================
-       MESSAGE SYSTEM
-       ========================================= */
-
-    function addChatMessage(
-        content,
-        sender,
-        allowHTML = false
-    ) {
-
-        const div =
-            document.createElement("div");
-
-        div.className =
-            "msg " + sender;
-
-        if (allowHTML) {
-
-            div.innerHTML =
-                content;
-
-        } else {
-
-            div.textContent =
-                content;
-
-        }
-
+    function addChatMessage(content, sender) {
+        const div = document.createElement("div");
+        div.className = "msg " + sender;
+        div.textContent = content;
         chatMessages.appendChild(div);
-
-        chatMessages.scrollTop =
-            chatMessages.scrollHeight;
-
+        scrollToBottom();
     }
-
 
     function showTyping() {
-
         if (!chatTyping) return;
-
-        chatTyping.style.display =
-            "flex";
-
-        chatMessages.scrollTop =
-            chatMessages.scrollHeight;
-
+        chatTyping.style.display = "flex";
+        chatTyping.setAttribute("aria-hidden", "false");
+        scrollToBottom();
     }
-
 
     function hideTyping() {
-
         if (!chatTyping) return;
-
-        chatTyping.style.display =
-            "none";
-
+        chatTyping.style.display = "none";
+        chatTyping.setAttribute("aria-hidden", "true");
     }
 
+    function setSending(state) {
+        sending = state;
+        chatSend.disabled = state;
+        chatInput.disabled = state;
+        chatSend.style.opacity = state ? ".6" : "1";
+    }
 
-    function botReply(
-        text,
-        delay = 450
-    ) {
+    function openConcierge() {
+        chatWindow.classList.add("active");
+        chatLauncher.setAttribute("aria-expanded", "true");
 
+        if (window.matchMedia("(max-width: 650px)").matches) {
+            document.body.classList.add("chat-open-mobile");
+        }
+
+        setTimeout(() => chatInput.focus(), 120);
+
+        if (typeof amanEvent === "function") {
+            amanEvent("assistant_open", { source: "floating_safari_ai" });
+        }
+
+        scrollToBottom();
+    }
+
+    function closeConcierge() {
+        chatWindow.classList.remove("active");
+        chatLauncher.setAttribute("aria-expanded", "false");
+        document.body.classList.remove("chat-open-mobile");
+    }
+
+    chatLauncher.addEventListener("click", () => {
+        chatWindow.classList.contains("active") ? closeConcierge() : openConcierge();
+    });
+
+    if (chatClose) chatClose.addEventListener("click", closeConcierge);
+
+    document.addEventListener("keydown", event => {
+        if (event.key === "Escape" && chatWindow.classList.contains("active")) {
+            closeConcierge();
+        }
+    });
+
+    async function sendChat(forcedText = null) {
+        const visibleText = String(forcedText || chatInput.value || "").trim();
+        if (!visibleText || sending) return;
+
+        addChatMessage(visibleText, "user");
+        chatInput.value = "";
+        setSending(true);
         showTyping();
 
-        setTimeout(
-            () => {
-
-                hideTyping();
-
-                addChatMessage(
-                    text,
-                    "bot",
-                    true
-                );
-
-            },
-            delay
-        );
-
-    }
-
-
-    /* =========================================
-       DESTINATION DATA
-       ========================================= */
-
-    const destinations = {
-
-        kilimanjaro: {
-            name: "Kilimanjaro",
-            text:
-                "Tanzania's highest mountain at 5,895m. Route choice, climbing days and travel period all matter when planning a climb."
-        },
-
-        serengeti: {
-            name: "Serengeti",
-            text:
-                "A classic wildlife destination with excellent game viewing and seasonal experiences. Your travel month can make a big difference to what you experience."
-        },
-
-        ngorongoro: {
-            name: "Ngorongoro",
-            text:
-                "A remarkable crater landscape combining wildlife, scenery and cultural experiences. It works especially well as part of a Northern Circuit journey."
-        },
-
-        tarangire: {
-            name: "Tarangire",
-            text:
-                "Known for elephants, baobabs and varied wildlife. It can be a strong addition to a Northern Tanzania safari."
-        },
-
-        ruaha: {
-            name: "Ruaha",
-            text:
-                "A more remote safari experience with dramatic landscapes and strong wildlife opportunities. It can suit travelers looking beyond the busiest northern routes."
-        },
-
-        nyerere: {
-            name: "Nyerere",
-            text:
-                "A southern Tanzania destination offering a different style of safari experience, including opportunities to explore by boat as well as by vehicle."
-        },
-
-        manyara: {
-            name: "Lake Manyara",
-            text:
-                "A compact and varied destination that can work well within a Northern Circuit itinerary."
-        },
-
-        mikumi: {
-            name: "Mikumi",
-            text:
-                "A practical southern Tanzania safari option with accessible wildlife experiences and good potential for combining with other southern destinations."
-        },
-
-        gombe: {
-            name: "Gombe",
-            text:
-                "A distinctive western Tanzania destination known for its forest environment and chimpanzee experiences."
-        },
-
-        saadani: {
-            name: "Saadani",
-            text:
-                "A unique coastal safari option where wildlife and the Indian Ocean can form part of the same journey."
+        if (typeof amanEvent === "function") {
+            amanEvent("assistant_message_sent", { source: "floating_safari_ai" });
         }
 
-    };
-
-
-    /* =========================================
-       DESTINATION CARD
-       ========================================= */
-
-    function destinationCard(
-        destination
-    ) {
-
-        const slug =
-            destination.name
-                .toLowerCase()
-                .replace(/\s+/g, "");
-
-        let page =
-            "";
-
-        if (
-            slug === "kilimanjaro"
-        ) {
-            page =
-                "kilimanjaro.html";
-        }
-
-        else if (
-            slug === "serengeti"
-        ) {
-            page =
-                "serengeti.html";
-        }
-
-        else if (
-            slug === "ngorongoro"
-        ) {
-            page =
-                "ngorongoro.html";
-        }
-
-        else if (
-            slug === "tarangire"
-        ) {
-            page =
-                "tarangire.html";
-        }
-
-        else if (
-            slug === "ruaha"
-        ) {
-            page =
-                "ruaha.html";
-        }
-
-        else if (
-            slug === "nyerere"
-        ) {
-            page =
-                "nyerere.html";
-        }
-
-        else if (
-            slug === "lakemanyara"
-        ) {
-            page =
-                "manyara.html";
-        }
-
-        else if (
-            slug === "mikumi"
-        ) {
-            page =
-                "mikumi.html";
-        }
-
-        else if (
-            slug === "gombe"
-        ) {
-            page =
-                "gombe.html";
-        }
-
-        else if (
-            slug === "saadani"
-        ) {
-            page =
-                "saadani.html";
-        }
-
-
-        return `
-            <div class="chat-card">
-
-                <strong>
-                    ${destination.name}
-                </strong>
-
-                <div>
-                    ${destination.text}
-                </div>
-
-                <div class="chat-card-actions">
-
-                    ${
-                        page
-                        ?
-                        `
-                        <a
-                            href="${page}"
-                            data-concierge-destination="${destination.name}"
-                        >
-                            Explore ${destination.name}
-                        </a>
-                        `
-                        :
-                        ""
-                    }
-
-                    <a
-                        href="#planner"
-                        data-concierge-plan="true"
-                    >
-                        Plan My Safari
-                    </a>
-
-                </div>
-
-            </div>
-        `;
-
-    }
-
-
-    /* =========================================
-       CONVERSION CARD
-       ========================================= */
-
-    function conversionCard() {
-
-        return `
-
-            <div class="chat-card">
-
-                <strong>
-                    Ready to plan?
-                </strong>
-
-                <div>
-                    The fastest way to get a tailored Tanzania
-                    journey is to send your trip details.
-                </div>
-
-                <div class="chat-card-actions">
-
-                    <a
-                        href="#planner"
-                        data-concierge-plan="true"
-                    >
-                        Plan My Safari
-                    </a>
-
-                    <a
-                        href="booking.html"
-                        data-concierge-booking="true"
-                    >
-                        Booking
-                    </a>
-
-                    <a
-                        href="https://wa.me/255635509648?text=Hi%20Aman%20Safari!%20I%20would%20like%20to%20plan%20a%20Tanzania%20trip."
-                        target="_blank"
-                        rel="noopener"
-                        data-concierge-whatsapp="true"
-                    >
-                        WhatsApp
-                    </a>
-
-                </div>
-
-            </div>
-
-        `;
-
-    }
-
-
-    /* =========================================
-       INTENT DETECTION
-       ========================================= */
-
-    function detectIntent(
-        input
-    ) {
-
-        const text =
-            input
-                .toLowerCase()
-                .trim();
-
-
-        if (
-            /^(hi|hello|hey|jambo|habari|mambo)\b/.test(text)
-        ) {
-            return "greeting";
-        }
-
-
-        if (
-            text.includes("kilimanjaro") ||
-            text.includes("mountain") ||
-            text.includes("climb")
-        ) {
-            return "kilimanjaro";
-        }
-
-
-        if (
-            text.includes("serengeti") ||
-            text.includes("migration")
-        ) {
-            return "serengeti";
-        }
-
-
-        if (
-            text.includes("ngorongoro") ||
-            text.includes("crater")
-        ) {
-            return "ngorongoro";
-        }
-
-
-        if (
-            text.includes("tarangire") ||
-            text.includes("elephant")
-        ) {
-            return "tarangire";
-        }
-
-
-        if (
-            text.includes("ruaha")
-        ) {
-            return "ruaha";
-        }
-
-
-        if (
-            text.includes("nyerere") ||
-            text.includes("selous")
-        ) {
-            return "nyerere";
-        }
-
-
-        if (
-            text.includes("manyara")
-        ) {
-            return "manyara";
-        }
-
-
-        if (
-            text.includes("mikumi")
-        ) {
-            return "mikumi";
-        }
-
-
-        if (
-            text.includes("gombe") ||
-            text.includes("chimp")
-        ) {
-            return "gombe";
-        }
-
-
-        if (
-            text.includes("saadani") ||
-            text.includes("coast") ||
-            text.includes("beach")
-        ) {
-            return "saadani";
-        }
-
-
-        if (
-            text.includes("destination") ||
-            text.includes("where should") ||
-            text.includes("which park") ||
-            text.includes("parks")
-        ) {
-            return "destinations";
-        }
-
-
-        if (
-            text.includes("best time") ||
-            text.includes("when should") ||
-            text.includes("when to") ||
-            text.includes("season") ||
-            text.includes("month")
-        ) {
-            return "best_time";
-        }
-
-
-        if (
-            text.includes("price") ||
-            text.includes("cost") ||
-            text.includes("budget") ||
-            text.includes("how much")
-        ) {
-            return "price";
-        }
-
-
-        if (
-            text.includes("book") ||
-            text.includes("booking") ||
-            text.includes("reserve")
-        ) {
-            return "booking";
-        }
-
-
-        if (
-            text.includes("plan") ||
-            text.includes("itinerary") ||
-            text.includes("trip") ||
-            text.includes("safari")
-        ) {
-            return "planning";
-        }
-
-
-        if (
-            text.includes("wildlife") ||
-            text.includes("animal") ||
-            text.includes("animals") ||
-            text.includes("game")
-        ) {
-            return "wildlife";
-        }
-
-
-        if (
-            text.includes("family") ||
-            text.includes("kids") ||
-            text.includes("children")
-        ) {
-            return "family";
-        }
-
-
-        if (
-            text.includes("how many days") ||
-            text.includes("duration") ||
-            text.includes("days")
-        ) {
-            return "duration";
-        }
-
-
-        return "general";
-
-    }
-
-
-    /* =========================================
-       DESTINATIONS RESPONSE
-       ========================================= */
-
-    function destinationsReply() {
-
-        return `
-
-            <div>
-                Tanzania offers very different experiences depending
-                on what you want from the journey.
-            </div>
-
-            ${destinationCard(destinations.serengeti)}
-
-            ${destinationCard(destinations.ngorongoro)}
-
-            ${destinationCard(destinations.kilimanjaro)}
-
-            ${destinationCard(destinations.tarangire)}
-
-            ${destinationCard(destinations.ruaha)}
-
-            <div class="chat-card-actions">
-
-                <a
-                    href="#planner"
-                    data-concierge-plan="true"
-                >
-                    Help Me Choose
-                </a>
-
-            </div>
-
-        `;
-
-    }
-
-
-    /* =========================================
-       PLANNING FLOW
-       ========================================= */
-
-    function startPlanning() {
-
-        conciergeState.planning =
-            true;
-
-        conciergeState.step =
-            1;
-
-        conciergeState.answers = {
-            experience: "",
-            dates: "",
-            travelers: "",
-            destination: ""
-        };
-
-
-        amanEvent(
-            "assistant_planning_started"
-        );
-
-
-        botReply(
-            `
-                <div>
-                    Great — let's build a simple starting point for your Tanzania trip.
-                </div>
-
-                <div class="chat-card">
-                    <strong>1. What interests you most?</strong>
-
-                    <div class="quick-actions">
-
-                        <button type="button" data-plan-answer="Wildlife safari">
-                            Wildlife
-                        </button>
-
-                        <button type="button" data-plan-answer="Kilimanjaro">
-                            Kilimanjaro
-                        </button>
-
-                        <button type="button" data-plan-answer="Wildlife + beach">
-                            Safari + Beach
-                        </button>
-
-                        <button type="button" data-plan-answer="Not sure">
-                            Not sure
-                        </button>
-
-                    </div>
-                </div>
-            `
-        );
-
-    }
-
-
-    function planningQuestion() {
-
-        if (
-            conciergeState.step === 2
-        ) {
-
-            return `
-
-                <div class="chat-card">
-
-                    <strong>2. When are you hoping to travel?</strong>
-
-                    <div class="quick-actions">
-
-                        <button type="button" data-plan-answer="Jan–Mar">
-                            Jan–Mar
-                        </button>
-
-                        <button type="button" data-plan-answer="Jun–Aug">
-                            Jun–Aug
-                        </button>
-
-                        <button type="button" data-plan-answer="Sep–Oct">
-                            Sep–Oct
-                        </button>
-
-                        <button type="button" data-plan-answer="Not sure">
-                            Not sure
-                        </button>
-
-                    </div>
-
-                </div>
-
-            `;
-
-        }
-
-
-        if (
-            conciergeState.step === 3
-        ) {
-
-            return `
-
-                <div class="chat-card">
-
-                    <strong>3. How many travelers?</strong>
-
-                    <div class="quick-actions">
-
-                        <button type="button" data-plan-answer="1 traveler">
-                            1
-                        </button>
-
-                        <button type="button" data-plan-answer="2 travelers">
-                            2
-                        </button>
-
-                        <button type="button" data-plan-answer="3–5 travelers">
-                            3–5
-                        </button>
-
-                        <button type="button" data-plan-answer="6+ travelers">
-                            6+
-                        </button>
-
-                    </div>
-
-                </div>
-
-            `;
-
-        }
-
-
-        if (
-            conciergeState.step === 4
-        ) {
-
-            return `
-
-                <div class="chat-card">
-
-                    <strong>4. Which direction interests you?</strong>
-
-                    <div class="quick-actions">
-
-                        <button type="button" data-plan-answer="Northern Tanzania">
-                            Northern
-                        </button>
-
-                        <button type="button" data-plan-answer="Southern Tanzania">
-                            Southern
-                        </button>
-
-                        <button type="button" data-plan-answer="Kilimanjaro">
-                            Kilimanjaro
-                        </button>
-
-                        <button type="button" data-plan-answer="Not sure">
-                            Help me choose
-                        </button>
-
-                    </div>
-
-                </div>
-
-            `;
-
-        }
-
-        return "";
-
-    }
-
-
-    function finishPlanning() {
-
-        conciergeState.planning =
-            false;
-
-
-        let suggestion =
-            "a tailor-made Tanzania journey";
-
-
-        if (
-            conciergeState.answers.experience
-                .toLowerCase()
-                .includes("kilimanjaro")
-        ) {
-
-            suggestion =
-                "a Kilimanjaro-focused journey";
-
-        }
-
-        else if (
-            conciergeState.answers.experience
-                .toLowerCase()
-                .includes("wildlife")
-        ) {
-
-            suggestion =
-                "a wildlife-focused safari";
-
-        }
-
-
-        addChatMessage(
-
-            `
-                <div>
-                    Based on what you've shared, a good starting point is
-                    <strong>${suggestion}</strong>.
-                </div>
-
-                <div class="chat-card">
-
-                    <strong>Your planning summary</strong>
-
-                    <div>
-                        <b>Interest:</b>
-                        ${conciergeState.answers.experience}
-                    </div>
-
-                    <div>
-                        <b>Travel period:</b>
-                        ${conciergeState.answers.dates}
-                    </div>
-
-                    <div>
-                        <b>Travelers:</b>
-                        ${conciergeState.answers.travelers}
-                    </div>
-
-                    <div>
-                        <b>Direction:</b>
-                        ${conciergeState.answers.destination}
-                    </div>
-
-                </div>
-
-                ${conversionCard()}
-
-            `,
-
-            "bot",
-            true
-        );
-
-
-        amanEvent(
-            "assistant_planning_complete"
-        );
-
-    }
-
-
-    function handlePlanningAnswer(
-        answer
-    ) {
-
-        if (
-            conciergeState.step === 1
-        ) {
-
-            conciergeState.answers.experience =
-                answer;
-
-            conciergeState.step =
-                2;
-
-        }
-
-        else if (
-            conciergeState.step === 2
-        ) {
-
-            conciergeState.answers.dates =
-                answer;
-
-            conciergeState.step =
-                3;
-
-        }
-
-        else if (
-            conciergeState.step === 3
-        ) {
-
-            conciergeState.answers.travelers =
-                answer;
-
-            conciergeState.step =
-                4;
-
-        }
-
-        else if (
-            conciergeState.step === 4
-        ) {
-
-            conciergeState.answers.destination =
-                answer;
-
-            finishPlanning();
-
-            return;
-
-        }
-
-
-        botReply(
-            planningQuestion()
-        );
-
-    }
-
-
-    /* =========================================
-       GENERAL RESPONSES
-       ========================================= */
-
-    function assistantReply(
-        input
-    ) {
-
-        const intent =
-            detectIntent(input);
-
-
-        if (
-            intent === "greeting"
-        ) {
-
-            return `
-                <div>
-                    Jambo! 👋 Welcome to Aman Safari Tanzania.
-                </div>
-
-                <div style="margin-top:6px;">
-                    I can help you explore destinations, travel seasons,
-                    Kilimanjaro, safari planning and the next step toward
-                    your journey.
-                </div>
-
-                <div class="quick-actions">
-
-                    <button type="button" data-quick="Help me plan my Tanzania safari">
-                        Plan My Safari
-                    </button>
-
-                    <button type="button" data-quick="What destinations do you offer?">
-                        Destinations
-                    </button>
-
-                </div>
-            `;
-
-        }
-
-
-        if (
-            intent === "kilimanjaro"
-        ) {
-
-            return `
-                ${destinationCard(destinations.kilimanjaro)}
-
-                <div style="margin-top:10px;">
-                    If you're considering a climb, the route and number
-                    of mountain days are important planning decisions.
-                </div>
-            `;
-
-        }
-
-
-        if (
-            intent === "serengeti"
-        ) {
-
-            return `
-                ${destinationCard(destinations.serengeti)}
-
-                <div style="margin-top:10px;">
-                    Tell me your travel month if you'd like help thinking
-                    about the seasonal experience.
-                </div>
-            `;
-
-        }
-
-
-        if (
-            intent === "ngorongoro"
-        ) {
-
-            return destinationCard(
-                destinations.ngorongoro
+        const backendMessage =
+            "Aman Safari Tanzania website visitor: " + visibleText;
+
+        try {
+            const response = await fetch(API_URL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    userId,
+                    chatId: chatId || undefined,
+                    message: backendMessage
+                })
+            });
+
+            const data = await response.json().catch(() => ({}));
+
+            if (!response.ok || !data.success) {
+                throw new Error(data.error || "Safari AI is temporarily unavailable.");
+            }
+
+            if (data.chatId) {
+                chatId = data.chatId;
+                localStorage.setItem(chatIdKey, chatId);
+            }
+
+            addChatMessage(
+                data.reply || "I could not prepare a reply just now. Please try again.",
+                "bot"
             );
 
-        }
+        } catch (error) {
+            console.error("Aman Safari AI error:", error);
 
-
-        if (
-            intent === "tarangire"
-        ) {
-
-            return destinationCard(
-                destinations.tarangire
+            addChatMessage(
+                "I’m having trouble reaching the Safari AI right now. Please try again or use WhatsApp.",
+                "bot"
             );
 
+            if (typeof amanEvent === "function") {
+                amanEvent("assistant_error", { source: "floating_safari_ai" });
+            }
+
+        } finally {
+            hideTyping();
+            setSending(false);
+            if (chatWindow.classList.contains("active")) chatInput.focus();
         }
-
-
-        if (
-            intent === "ruaha"
-        ) {
-
-            return destinationCard(
-                destinations.ruaha
-            );
-
-        }
-
-
-        if (
-            intent === "nyerere"
-        ) {
-
-            return destinationCard(
-                destinations.nyerere
-            );
-
-        }
-
-
-        if (
-            intent === "manyara"
-        ) {
-
-            return destinationCard(
-                destinations.manyara
-            );
-
-        }
-
-
-        if (
-            intent === "mikumi"
-        ) {
-
-            return destinationCard(
-                destinations.mikumi
-            );
-
-        }
-
-
-        if (
-            intent === "gombe"
-        ) {
-
-            return destinationCard(
-                destinations.gombe
-            );
-
-        }
-
-
-        if (
-            intent === "saadani"
-        ) {
-
-            return destinationCard(
-                destinations.saadani
-            );
-
-        }
-
-
-        if (
-            intent === "destinations"
-        ) {
-
-            return destinationsReply();
-
-        }
-
-
-        if (
-            intent === "best_time"
-        ) {
-
-            return `
-                <div>
-                    There isn't one single best month for every Tanzania
-                    experience. Wildlife, Kilimanjaro and the coast can
-                    have different ideal periods.
-                </div>
-
-                <div class="chat-card">
-                    <strong>Best next step</strong>
-                    Use the Best Time tool on this page, then tell me
-                    your destination and travel month.
-                </div>
-            `;
-
-        }
-
-
-        if (
-            intent === "price"
-        ) {
-
-            amanEvent(
-                "assistant_price_question"
-            );
-
-
-            return `
-                <div>
-                    Safari costs depend on your destination, dates,
-                    group size, accommodation and the services included.
-                </div>
-
-                <div class="chat-card">
-                    <strong>No generic price</strong>
-                    Rather than showing you a misleading fixed figure,
-                    send your trip details and Aman Safari can prepare
-                    the appropriate inquiry.
-                </div>
-
-                ${conversionCard()}
-            `;
-
-        }
-
-
-        if (
-            intent === "booking"
-        ) {
-
-            amanEvent(
-                "assistant_booking_intent"
-            );
-
-
-            return `
-                <div>
-                    Absolutely. You can start with the booking page,
-                    or send your trip details first so the journey can
-                    be planned around what you actually want.
-                </div>
-
-                ${conversionCard()}
-            `;
-
-        }
-
-
-        if (
-            intent === "planning"
-        ) {
-
-            startPlanning();
-
-            return null;
-
-        }
-
-
-        if (
-            intent === "wildlife"
-        ) {
-
-            return `
-                <div>
-                    For wildlife, the Northern Circuit is a strong place
-                    to start, with destinations such as Serengeti,
-                    Ngorongoro and Tarangire. Southern Tanzania offers
-                    a different, more remote style of safari.
-                </div>
-
-                <div class="chat-card-actions">
-
-                    <a
-                        href="serengeti.html"
-                        data-concierge-destination="Serengeti"
-                    >
-                        Serengeti
-                    </a>
-
-                    <a
-                        href="ngorongoro.html"
-                        data-concierge-destination="Ngorongoro"
-                    >
-                        Ngorongoro
-                    </a>
-
-                    <a
-                        href="ruaha.html"
-                        data-concierge-destination="Ruaha"
-                    >
-                        Ruaha
-                    </a>
-
-                </div>
-            `;
-
-        }
-
-
-        if (
-            intent === "family"
-        ) {
-
-            return `
-                <div>
-                    Family trips are best planned around the children's
-                    ages, travel dates, pace and destinations you want
-                    to experience.
-                </div>
-
-                ${conversionCard()}
-            `;
-
-        }
-
-
-        if (
-            intent === "duration"
-        ) {
-
-            return `
-                <div>
-                    The right trip length depends on how many destinations
-                    you want to combine and how much time you want in each
-                    place. A focused safari can be shorter, while a multi-
-                    destination journey needs more time.
-                </div>
-
-                ${conversionCard()}
-            `;
-
-        }
-
-
-        return `
-            <div>
-                I can help you with Tanzania destinations, wildlife,
-                Kilimanjaro, travel seasons, safari planning and booking.
-            </div>
-
-            <div class="quick-actions">
-
-                <button type="button" data-quick="Which Tanzania destination is best for wildlife?">
-                    Wildlife
-                </button>
-
-                <button type="button" data-quick="What is the best time to visit Tanzania?">
-                    Best Time
-                </button>
-
-                <button type="button" data-quick="Help me plan my Tanzania safari">
-                    Plan My Safari
-                </button>
-
-            </div>
-        `;
-
     }
 
+    chatSend.addEventListener("click", () => sendChat());
 
-    /* =========================================
-       SEND MESSAGE
-       ========================================= */
+    chatInput.addEventListener("keydown", event => {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            sendChat();
+        }
+    });
 
-    function sendChat(
-        forcedText = null
-    ) {
+    document.addEventListener("click", event => {
+        const quick = event.target.closest("[data-quick]");
+        if (!quick) return;
 
-        const text =
-            forcedText ||
-            chatInput.value.trim();
-
-
+        const text = quick.dataset.quick;
         if (!text) return;
 
-
-        addChatMessage(
-            text,
-            "user"
-        );
-
-
-        chatInput.value =
-            "";
-
-
-        amanEvent(
-            "assistant_message_sent"
-        );
-
-
-        /* Planning answers are handled separately. */
-
-        if (
-            conciergeState.planning
-        ) {
-
-            handlePlanningAnswer(
-                text
-            );
-
-            return;
-
+        if (typeof amanEvent === "function") {
+            amanEvent("assistant_quick_action", {
+                action: text.substring(0, 60)
+            });
         }
 
+        sendChat(text);
+    });
 
-        const response =
-            assistantReply(text);
-
-
-        if (
-            response === null
-        ) {
-
-            return;
-
+    window.addEventListener("resize", () => {
+        if (!window.matchMedia("(max-width: 650px)").matches) {
+            document.body.classList.remove("chat-open-mobile");
+        } else if (chatWindow.classList.contains("active")) {
+            document.body.classList.add("chat-open-mobile");
         }
+    });
 
-
-        botReply(
-            response
-        );
-
-    }
-
-
-    chatSend.addEventListener(
-        "click",
-        () => sendChat()
-    );
-
-
-    chatInput.addEventListener(
-        "keydown",
-        event => {
-
-            if (
-                event.key === "Enter"
-            ) {
-
-                event.preventDefault();
-
-                sendChat();
-
-            }
-
-        }
-    );
-
-
-    /* =========================================
-       QUICK ACTIONS
-       ========================================= */
-
-    function bindConciergeActions() {
-
-        document
-            .querySelectorAll(
-                "[data-quick]:not([data-bound])"
-            )
-            .forEach(button => {
-
-                button.dataset.bound =
-                    "true";
-
-
-                button.addEventListener(
-                    "click",
-                    () => {
-
-                        const quick =
-                            button.dataset.quick;
-
-
-                        let action =
-                            "other";
-
-
-                        const lower =
-                            quick.toLowerCase();
-
-
-                        if (
-                            lower.includes("best time")
-                        ) {
-
-                            action =
-                                "best_time";
-
-                        }
-
-                        else if (
-                            lower.includes("plan")
-                        ) {
-
-                            action =
-                                "plan_safari";
-
-                        }
-
-                        else if (
-                            lower.includes("destination")
-                        ) {
-
-                            action =
-                                "destinations";
-
-                        }
-
-                        else if (
-                            lower.includes("wildlife")
-                        ) {
-
-                            action =
-                                "wildlife";
-
-                        }
-
-                        else if (
-                            lower.includes("kilimanjaro")
-                        ) {
-
-                            action =
-                                "kilimanjaro";
-
-                        }
-
-
-                        amanEvent(
-                            "assistant_quick_action",
-                            {
-                                action: action
-                            }
-                        );
-
-
-                        sendChat(
-                            quick
-                        );
-
-                    }
-                );
-
-            });
-
-
-        document
-            .querySelectorAll(
-                "[data-plan-answer]:not([data-bound])"
-            )
-            .forEach(button => {
-
-                button.dataset.bound =
-                    "true";
-
-
-                button.addEventListener(
-                    "click",
-                    () => {
-
-                        const answer =
-                            button.dataset.planAnswer;
-
-
-                        sendChat(
-                            answer
-                        );
-
-                    }
-                );
-
-            });
-
-
-        document
-            .querySelectorAll(
-                "[data-concierge-plan]:not([data-bound])"
-            )
-            .forEach(link => {
-
-                link.dataset.bound =
-                    "true";
-
-
-                link.addEventListener(
-                    "click",
-                    () => {
-
-                        amanEvent(
-                            "assistant_plan_click"
-                        );
-
-                    }
-                );
-
-            });
-
-
-        document
-            .querySelectorAll(
-                "[data-concierge-booking]:not([data-bound])"
-            )
-            .forEach(link => {
-
-                link.dataset.bound =
-                    "true";
-
-
-                link.addEventListener(
-                    "click",
-                    () => {
-
-                        amanEvent(
-                            "assistant_conversion_click",
-                            {
-                                action: "booking"
-                            }
-                        );
-
-                    }
-                );
-
-            });
-
-
-        document
-            .querySelectorAll(
-                "[data-concierge-whatsapp]:not([data-bound])"
-            )
-            .forEach(link => {
-
-                link.dataset.bound =
-                    "true";
-
-
-                link.addEventListener(
-                    "click",
-                    () => {
-
-                        amanEvent(
-                            "assistant_conversion_click",
-                            {
-                                action: "whatsapp"
-                            }
-                        );
-
-                    }
-                );
-
-            });
-
-
-        document
-            .querySelectorAll(
-                "[data-concierge-destination]:not([data-bound])"
-            )
-            .forEach(link => {
-
-                link.dataset.bound =
-                    "true";
-
-
-                link.addEventListener(
-                    "click",
-                    () => {
-
-                        amanEvent(
-                            "assistant_destination_click",
-                            {
-                                destination:
-                                    link.dataset.conciergeDestination
-                            }
-                        );
-
-                    }
-                );
-
-            });
-
-    }
-
-
-    /* =========================================
-       WATCH FOR NEW CHAT BUTTONS
-       ========================================= */
-
-    const conciergeObserver =
-        new MutationObserver(
-            () => {
-
-                bindConciergeActions();
-
-            }
-        );
-
-
-    conciergeObserver.observe(
-        chatMessages,
-        {
-            childList: true,
-            subtree: true
-        }
-    );
-
-
-    bindConciergeActions();
-
-
-    console.log(
-        "Aman Safari AI Concierge active."
-    );
-
-})();
- </script>
-  <script src="safari-ai.js"></script>
+    console.log("Aman Safari live AI connected:", API_URL);
+})();</script>
 </body>
 </html>
