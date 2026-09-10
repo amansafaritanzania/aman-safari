@@ -596,6 +596,187 @@ footer{background:#0b1711;color:#fff;padding:45px 0 25px}.foot{display:grid;grid
 }
 
 
+
+
+
+/* =========================================
+   AMAN SAFARI AI — SELF-CONTAINED RESPONSIVE v4
+   Widget shell lives in this HTML file.
+   ========================================= */
+.aman-ai-launcher,
+.aman-ai-panel,
+.aman-ai-panel *{box-sizing:border-box}
+
+.aman-ai-launcher{
+  position:fixed!important;
+  right:18px!important;
+  bottom:86px!important;
+  z-index:2147483000!important;
+  width:60px!important;
+  height:60px!important;
+  padding:0!important;
+  margin:0!important;
+  border:0!important;
+  border-radius:50%!important;
+  display:grid!important;
+  place-items:center!important;
+  cursor:pointer!important;
+  color:#fff!important;
+  background:linear-gradient(145deg,#c6a15b,#9f793a)!important;
+  box-shadow:0 14px 34px rgba(0,0,0,.26)!important;
+  transition:transform .22s ease,box-shadow .22s ease!important;
+}
+.aman-ai-launcher:hover{transform:translateY(-2px);box-shadow:0 18px 42px rgba(0,0,0,.31)!important}
+.aman-ai-launcher svg{width:25px!important;height:25px!important;display:block!important}
+.aman-ai-launcher::before{
+  content:"";
+  position:absolute;
+  inset:-5px;
+  border:1px solid rgba(198,161,91,.5);
+  border-radius:50%;
+  animation:amanAiPulseV4 2.5s infinite;
+  pointer-events:none;
+}
+.aman-ai-launcher::after{
+  content:"Safari AI";
+  position:absolute;
+  right:72px;
+  white-space:nowrap;
+  padding:8px 11px;
+  border-radius:999px;
+  background:rgba(14,32,22,.96);
+  color:#fff;
+  font:700 11px Montserrat,Arial,sans-serif;
+  letter-spacing:.4px;
+  box-shadow:0 8px 24px rgba(0,0,0,.16);
+  pointer-events:none;
+}
+@keyframes amanAiPulseV4{0%,100%{transform:scale(1);opacity:.65}50%{transform:scale(1.13);opacity:0}}
+
+.aman-ai-panel{
+  padding:0!important;
+  margin:0!important;
+  text-align:left!important;
+  box-sizing:border-box!important;
+  min-width:0!important;
+  position:fixed!important;
+  right:18px!important;
+  bottom:156px!important;
+  z-index:2147483001!important;
+  width:min(460px,calc(100vw - 36px))!important;
+  height:min(680px,76dvh)!important;
+  max-height:calc(100dvh - 24px)!important;
+  display:none!important;
+  flex-direction:column!important;
+  overflow:hidden!important;
+  border-radius:22px!important;
+  background:#fff!important;
+  border:1px solid rgba(23,56,45,.12)!important;
+  box-shadow:0 28px 80px rgba(0,0,0,.28)!important;
+  font-family:Montserrat,Arial,sans-serif!important;
+  color:#18211d!important;
+}
+.aman-ai-panel.active{display:flex!important}
+.aman-ai-panel *{box-sizing:border-box}
+
+.aman-ai-head{
+  flex:0 0 auto!important;
+  padding:14px 16px 12px!important;
+  margin:0!important;
+  background:linear-gradient(145deg,#17382d,#10271f)!important;
+  color:#fff!important;
+}
+.aman-ai-headrow{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:10px!important;min-width:0!important}
+.aman-ai-brand{display:flex!important;align-items:center!important;gap:10px!important;min-width:0!important;flex:1!important}
+.aman-ai-avatar{
+  width:40px!important;height:40px!important;flex:0 0 40px!important;border-radius:50%!important;
+  display:grid!important;place-items:center!important;background:rgba(255,255,255,.11)!important;
+  border:1px solid rgba(255,255,255,.2)!important;color:#fff!important;
+}
+.aman-ai-avatar svg{width:20px!important;height:20px!important;display:block!important}
+.aman-ai-brandtext{min-width:0!important;flex:1!important}
+.aman-ai-brandtext strong,.aman-ai-brandtext span{display:block!important;overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important}
+.aman-ai-brandtext strong{font:700 15px/1.25 Montserrat,Arial,sans-serif!important;color:#fff!important;margin:0!important}
+.aman-ai-brandtext span{margin-top:3px!important;font:500 10px/1.25 Montserrat,Arial,sans-serif!important;color:rgba(255,255,255,.72)!important}
+.aman-ai-close{
+  width:34px!important;height:34px!important;flex:0 0 34px!important;border-radius:50%!important;
+  border:1px solid rgba(255,255,255,.18)!important;background:rgba(255,255,255,.08)!important;
+  color:#fff!important;cursor:pointer!important;font:400 19px/1 Arial,sans-serif!important;padding:0!important;margin:0!important;
+}
+.aman-ai-status{display:flex!important;align-items:center!important;gap:7px!important;margin-top:7px!important;font:500 10px/1.3 Montserrat,Arial,sans-serif!important;color:rgba(255,255,255,.76)!important}
+.aman-ai-dot{width:7px!important;height:7px!important;border-radius:50%!important;background:#6add8a!important;box-shadow:0 0 0 4px rgba(106,221,138,.12)!important}
+
+.aman-ai-messages{
+  flex:1 1 auto!important;min-height:0!important;overflow-y:auto!important;overscroll-behavior:contain!important;
+  -webkit-overflow-scrolling:touch!important;padding:16px!important;margin:0!important;background:#f7f5ef!important;scroll-behavior:smooth!important;
+}
+.aman-ai-msg{
+  max-width:88%!important;margin:0 0 11px!important;padding:12px 14px!important;border-radius:15px!important;
+  font:400 13px/1.55 Montserrat,Arial,sans-serif!important;word-wrap:break-word!important;white-space:pre-wrap!important;
+}
+.aman-ai-msg.bot{background:#fff!important;color:#26332c!important;border:1px solid #e9e4da!important;border-bottom-left-radius:5px!important}
+.aman-ai-msg.user{margin-left:auto!important;background:#c6a15b!important;color:#fff!important;border-bottom-right-radius:5px!important}
+.aman-ai-welcome strong{display:block!important;margin-bottom:5px!important;color:#17382d!important}
+.aman-ai-quick{display:flex!important;flex-wrap:wrap!important;gap:7px!important;margin-top:10px!important}
+.aman-ai-quick button{
+  border:1px solid #c6a15b!important;border-radius:999px!important;padding:8px 10px!important;background:#fff!important;
+  color:#8e6b31!important;cursor:pointer!important;font:700 10px/1.2 Montserrat,Arial,sans-serif!important;margin:0!important;
+}
+.aman-ai-typing{
+  flex:0 0 auto!important;display:none;gap:4px!important;padding:8px 15px 10px!important;margin:0!important;background:#f7f5ef!important;
+}
+.aman-ai-typing.visible{display:flex!important}
+.aman-ai-typing span{width:6px!important;height:6px!important;border-radius:50%!important;background:#a99b88!important;animation:amanTypeV4 1s infinite ease-in-out!important}
+.aman-ai-typing span:nth-child(2){animation-delay:.15s!important}.aman-ai-typing span:nth-child(3){animation-delay:.3s!important}
+@keyframes amanTypeV4{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-4px)}}
+
+.aman-ai-compose{
+  flex:0 0 auto!important;display:flex!important;align-items:flex-end!important;gap:8px!important;padding:10px!important;
+  padding-bottom:max(10px,env(safe-area-inset-bottom))!important;border-top:1px solid #e5ded2!important;background:#fff!important;margin:0!important;
+}
+.aman-ai-textarea{
+  flex:1!important;min-width:0!important;min-height:46px!important;max-height:116px!important;resize:none!important;
+  border:1px solid #ddd6ca!important;border-radius:16px!important;padding:11px 13px!important;outline:none!important;
+  background:#fff!important;color:#18211d!important;font:400 16px/1.35 Montserrat,Arial,sans-serif!important;margin:0!important;
+}
+.aman-ai-textarea:focus{border-color:#c6a15b!important;box-shadow:0 0 0 3px rgba(198,161,91,.12)!important}
+.aman-ai-send{
+  width:46px!important;height:46px!important;flex:0 0 46px!important;border:0!important;border-radius:50%!important;
+  display:grid!important;place-items:center!important;background:#c6a15b!important;color:#fff!important;cursor:pointer!important;padding:0!important;margin:0!important;
+}
+.aman-ai-send svg{width:19px!important;height:19px!important;display:block!important}
+.aman-ai-send:disabled{opacity:.55!important;cursor:not-allowed!important}
+
+@media(max-width:650px){
+  .aman-ai-launcher{right:12px!important;bottom:calc(76px + env(safe-area-inset-bottom))!important;width:56px!important;height:56px!important}
+  .aman-ai-launcher::after{display:none!important}
+  .aman-ai-panel{
+    left:12px!important;right:12px!important;bottom:calc(12px + env(safe-area-inset-bottom))!important;
+    width:auto!important;height:76dvh!important;max-height:calc(100dvh - 24px)!important;border-radius:20px!important;
+  }
+  .aman-ai-head{padding:10px 12px 9px!important}
+  .aman-ai-avatar{width:34px!important;height:34px!important;flex:0 0 34px!important}
+  .aman-ai-avatar svg{width:18px!important;height:18px!important}
+  .aman-ai-brand{gap:8px!important}
+  .aman-ai-brandtext strong{font-size:14px!important}
+  .aman-ai-brandtext span{display:none!important}
+  .aman-ai-status{margin-top:5px!important;font-size:9px!important}
+  .aman-ai-close{width:32px!important;height:32px!important;flex:0 0 32px!important}
+  .aman-ai-messages{padding:12px!important}
+  .aman-ai-msg{max-width:92%!important;font-size:13px!important;padding:11px 13px!important}
+  .aman-ai-compose{padding:9px!important;padding-bottom:max(9px,env(safe-area-inset-bottom))!important}
+  .aman-ai-textarea{font-size:16px!important;min-height:44px!important}
+  .aman-ai-send{width:44px!important;height:44px!important;flex:0 0 44px!important}
+}
+@media(max-width:380px){
+  .aman-ai-panel{left:8px!important;right:8px!important;bottom:calc(8px + env(safe-area-inset-bottom))!important;max-height:calc(100dvh - 16px)!important}
+  .aman-ai-launcher{right:8px!important}
+}
+@media(max-height:560px) and (max-width:900px){
+  .aman-ai-panel{height:88dvh!important;max-height:88dvh!important}
+  .aman-ai-status{display:none!important}
+}
+
 </style>
 </head>
 <body>
@@ -2044,6 +2225,340 @@ quizRestart.addEventListener("click", () => {
 })();
   
 </script>
-  <script src="aman-safari-ai-responsive-v2.js"></script>
+
+
+
+
+<!-- =========================================
+     AMAN SAFARI AI — SELF-CONTAINED WIDGET v4
+     ========================================= -->
+<button class="aman-ai-launcher" id="amanAiLauncher" type="button"
+        aria-label="Open Aman Safari AI" aria-expanded="false" aria-controls="amanAiPanel">
+  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v7A2.5 2.5 0 0 1 17.5 15H10l-4.8 4v-4.2A2.5 2.5 0 0 1 4 12.5v-7Z"
+          stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+    <path d="M8 9h8M8 6.5h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+  </svg>
+</button>
+
+<div class="aman-ai-panel" id="amanAiPanel" role="dialog" aria-modal="false" aria-label="Aman Safari AI">
+  <div class="aman-ai-head">
+    <div class="aman-ai-headrow">
+      <div class="aman-ai-brand">
+        <div class="aman-ai-avatar" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="m12 3 2.4 6.6L21 12l-6.6 2.4L12 21l-2.4-6.6L3 12l6.6-2.4L12 3Z"
+                  stroke="currentColor" stroke-width="1.6"/>
+          </svg>
+        </div>
+        <div class="aman-ai-brandtext">
+          <strong>Aman Safari AI</strong>
+          <span id="amanAiSubtitle">Tanzania safari planning assistant</span>
+        </div>
+      </div>
+      <button class="aman-ai-close" id="amanAiClose" type="button" aria-label="Close Safari AI">×</button>
+    </div>
+    <div class="aman-ai-status">
+      <span class="aman-ai-dot"></span>
+      <span>Live Tanzania travel assistant</span>
+    </div>
+  </div>
+
+  <div class="aman-ai-messages" id="amanAiMessages" aria-live="polite"></div>
+
+  <div class="aman-ai-typing" id="amanAiTyping" aria-hidden="true">
+    <span></span><span></span><span></span>
+  </div>
+
+  <form class="aman-ai-compose" id="amanAiForm">
+    <textarea class="aman-ai-textarea" id="amanAiInput" rows="1" maxlength="1800"
+              autocomplete="off" placeholder="Ask Safari AI..." aria-label="Ask Aman Safari AI"></textarea>
+    <button class="aman-ai-send" id="amanAiSend" type="submit" aria-label="Send message">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M21 3 10.5 13.5M21 3l-6.5 18-4-7.5L3 9l18-6Z"
+              stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </form>
+</div>
+
+
+<script>
+/* =========================================
+   AMAN SAFARI AI — PUBLIC BACKEND v4
+   Self-contained: no external Safari-AI JS file required.
+   ========================================= */
+(() => {
+  "use strict";
+
+  const API_URL = "https://amanai-mdtj.onrender.com/chat/safari-public";
+  const USER_KEY = "amanSafariUserId";
+  const CHAT_KEY = "amanSafariChatId";
+  const HISTORY_KEY = "amanSafariHistory";
+  const HISTORY_LIMIT = 20;
+
+  const launcher = document.getElementById("amanAiLauncher");
+  const panel = document.getElementById("amanAiPanel");
+  const closeBtn = document.getElementById("amanAiClose");
+  const messages = document.getElementById("amanAiMessages");
+  const typing = document.getElementById("amanAiTyping");
+  const form = document.getElementById("amanAiForm");
+  const input = document.getElementById("amanAiInput");
+  const sendBtn = document.getElementById("amanAiSend");
+  const subtitle = document.getElementById("amanAiSubtitle");
+
+  if (!launcher || !panel || !closeBtn || !messages || !typing || !form || !input || !sendBtn) return;
+
+  const makeId = prefix => {
+    if (window.crypto && typeof window.crypto.randomUUID === "function") {
+      return `${prefix}_${window.crypto.randomUUID()}`;
+    }
+    return `${prefix}_${Date.now()}_${Math.random().toString(36).slice(2,10)}`;
+  };
+
+  let userId = localStorage.getItem(USER_KEY);
+  if (!userId) {
+    userId = makeId("visitor");
+    localStorage.setItem(USER_KEY, userId);
+  }
+
+  let chatId = localStorage.getItem(CHAT_KEY);
+  if (!chatId) {
+    chatId = makeId("safari");
+    localStorage.setItem(CHAT_KEY, chatId);
+  }
+
+  let history = [];
+  try {
+    const saved = JSON.parse(localStorage.getItem(HISTORY_KEY) || "[]");
+    if (Array.isArray(saved)) history = saved.slice(-HISTORY_LIMIT);
+  } catch (_) {
+    history = [];
+  }
+
+  let sending = false;
+
+  const pageTitle = document.title || "Aman Safari Tanzania";
+  const pageHeading = document.querySelector("h1")?.textContent?.trim() || "";
+  const pageDescription = document.querySelector('meta[name="description"]')?.content?.trim() || "";
+  const pagePath = window.location.pathname || "/";
+
+  if (subtitle) {
+    const cleanTitle = pageTitle.split("|")[0].trim();
+    subtitle.textContent = cleanTitle && cleanTitle !== "Aman Safari Tanzania" ? `${cleanTitle} specialist` : "Tanzania safari planning assistant";
+  }
+
+  const pageContext = [
+    "Website: Aman Safari Tanzania",
+    `Page title: ${pageTitle}`,
+    `Page path: ${pagePath}`,
+    pageHeading ? `Main heading: ${pageHeading}` : "",
+    pageDescription ? `Page description: ${pageDescription}` : ""
+  ].filter(Boolean).join("\n").slice(0,1800);
+
+  function track(name, params = {}) {
+    try {
+      if (typeof window.gtag === "function") {
+        window.gtag("event", name, { page_path: pagePath, ...params });
+      }
+    } catch (_) {}
+  }
+
+  function saveHistory() {
+    try {
+      localStorage.setItem(HISTORY_KEY, JSON.stringify(history.slice(-HISTORY_LIMIT)));
+    } catch (_) {}
+  }
+
+  function scrollBottom() {
+    requestAnimationFrame(() => {
+      messages.scrollTop = messages.scrollHeight;
+    });
+  }
+
+  function addMessage(text, sender, extraClass = "") {
+    const bubble = document.createElement("div");
+    bubble.className = `aman-ai-msg ${sender}${extraClass ? ` ${extraClass}` : ""}`;
+    bubble.textContent = String(text || "");
+    messages.appendChild(bubble);
+    scrollBottom();
+    return bubble;
+  }
+
+  function addWelcome() {
+    const wrap = document.createElement("div");
+    wrap.className = "aman-ai-msg bot aman-ai-welcome";
+
+    const strong = document.createElement("strong");
+    strong.textContent = "Jambo! 👋";
+    wrap.appendChild(strong);
+    wrap.appendChild(document.createTextNode("Ask me about Tanzania destinations, seasons, routes, itineraries, or Kilimanjaro planning."));
+
+    const quick = document.createElement("div");
+    quick.className = "aman-ai-quick";
+
+    const prompts = pageHeading && !/go beyond the ordinary/i.test(pageHeading)
+      ? [
+          `What is the best time to visit ${pageHeading}?`,
+          `How should I plan a trip around ${pageHeading}?`,
+          "Help me plan a Tanzania safari"
+        ]
+      : [
+          "Help me choose a Tanzania safari destination",
+          "What is the best time for a Tanzania safari?",
+          "Help me plan a Kilimanjaro climb"
+        ];
+
+    const labels = ["Best Time", "Plan This Trip", "Ask Safari AI"];
+    prompts.forEach((prompt, index) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.dataset.aiQuick = prompt;
+      button.textContent = labels[index];
+      quick.appendChild(button);
+    });
+
+    wrap.appendChild(quick);
+    messages.appendChild(wrap);
+  }
+
+  function renderHistory() {
+    messages.innerHTML = "";
+    if (!history.length) {
+      addWelcome();
+      return;
+    }
+    history.slice(-10).forEach(item => {
+      if (!item || !item.content) return;
+      addMessage(item.content, item.role === "assistant" ? "bot" : "user");
+    });
+  }
+
+  function setTyping(visible) {
+    typing.classList.toggle("visible", Boolean(visible));
+    typing.setAttribute("aria-hidden", visible ? "false" : "true");
+    if (visible) scrollBottom();
+  }
+
+  function setSending(value) {
+    sending = Boolean(value);
+    sendBtn.disabled = sending;
+    input.disabled = sending;
+  }
+
+  function openChat() {
+    panel.classList.add("active");
+    launcher.style.display = "none";
+    launcher.setAttribute("aria-expanded", "true");
+    track("safari_ai_open");
+    setTimeout(() => input.focus(), 80);
+    scrollBottom();
+  }
+
+  function closeChat() {
+    panel.classList.remove("active");
+    launcher.style.display = "grid";
+    launcher.setAttribute("aria-expanded", "false");
+  }
+
+  launcher.addEventListener("click", openChat);
+  closeBtn.addEventListener("click", closeChat);
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && panel.classList.contains("active")) closeChat();
+  });
+
+  input.addEventListener("input", () => {
+    input.style.height = "auto";
+    input.style.height = `${Math.min(input.scrollHeight,116)}px`;
+  });
+
+  input.addEventListener("keydown", event => {
+    if (event.key === "Enter" && !event.shiftKey) {
+      event.preventDefault();
+      if (!sending) form.requestSubmit();
+    }
+  });
+
+  messages.addEventListener("click", event => {
+    const button = event.target.closest("[data-ai-quick]");
+    if (!button) return;
+    sendMessage(button.dataset.aiQuick || "");
+  });
+
+  async function sendMessage(forcedText = "") {
+    const visitorText = String(forcedText || input.value || "").trim();
+    if (!visitorText || sending) return;
+
+    addMessage(visitorText, "user");
+    input.value = "";
+    input.style.height = "auto";
+
+    const requestHistory = history.slice(-8);
+    history.push({ role: "user", content: visitorText });
+    saveHistory();
+
+    setSending(true);
+    setTyping(true);
+    track("safari_ai_message");
+
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 40000);
+
+    try {
+      const response = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        signal: controller.signal,
+        body: JSON.stringify({
+          userId,
+          chatId,
+          message: visitorText,
+          pageContext,
+          history: requestHistory
+        })
+      });
+
+      const data = await response.json().catch(() => ({}));
+      const serverReply = String(data.reply || data.message || "").trim();
+
+      if (!response.ok || data.success === false) {
+        const errorReply = serverReply || "Safari AI is temporarily unavailable. Please try again or use WhatsApp.";
+        addMessage(errorReply, "bot");
+        track("safari_ai_error", { status: response.status });
+        return;
+      }
+
+      const reply = serverReply || "I could not prepare a reply just now. Please try again.";
+      addMessage(reply, "bot");
+      history.push({ role: "assistant", content: reply });
+      saveHistory();
+      track("safari_ai_reply");
+    } catch (error) {
+      const timeout = error && error.name === "AbortError";
+      addMessage(
+        timeout
+          ? "Safari AI is taking longer than expected. Please try again or use WhatsApp."
+          : "I’m having trouble reaching the Safari AI right now. Please try again or use WhatsApp.",
+        "bot"
+      );
+      track("safari_ai_error", { reason: timeout ? "timeout" : "network" });
+      console.error("Aman Safari AI error:", error);
+    } finally {
+      clearTimeout(timeoutId);
+      setTyping(false);
+      setSending(false);
+      if (panel.classList.contains("active")) input.focus();
+    }
+  }
+
+  form.addEventListener("submit", event => {
+    event.preventDefault();
+    sendMessage();
+  });
+
+  renderHistory();
+})();
+</script>
+
 </body>
 </html>
