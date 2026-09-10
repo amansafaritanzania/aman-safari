@@ -1,8 +1,7 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-
-<!-- =========================================
+  <!-- =========================================
      AMAN SAFARI TANZANIA — GOOGLE ANALYTICS
      ========================================= -->
 
@@ -16,7 +15,13 @@ function gtag() {
 }
 
 gtag('js', new Date());
+
 gtag('config', 'G-CXLYLHXQ88');
+
+
+/* =========================================
+   AMAN SAFARI BUSINESS EVENT TRACKING
+   ========================================= */
 
 document.addEventListener('click', function(event) {
 
@@ -29,963 +34,145 @@ document.addEventListener('click', function(event) {
         .substring(0, 80);
 
     const href = link.href || '';
+
     const page = window.location.pathname;
 
     let eventName = 'link_click';
+
+
+    /* WhatsApp */
 
     if (
         href.includes('wa.me') ||
         href.includes('whatsapp.com')
     ) {
+
         eventName = 'whatsapp_click';
 
-    } else if (
+    }
+
+
+    /* Booking */
+
+    else if (
         href.includes('booking.html') ||
         text.toLowerCase().includes('book now') ||
         text.toLowerCase().includes('book safari')
     ) {
+
         eventName = 'booking_click';
 
-    } else if (
+    }
+
+
+    /* Payment */
+
+    else if (
         href.includes('pay.html') ||
         text.toLowerCase().includes('payment') ||
         text.toLowerCase().includes('pay deposit')
     ) {
+
         eventName = 'payment_click';
 
-    } else if (
-        /kilimanjaro|serengeti|ngorongoro|tarangire|ruaha|manyara/i.test(href)
-    ) {
-        eventName = 'destination_click';
     }
 
+
+    /* Safari destinations */
+
+    else if (
+        /kilimanjaro|serengeti|ngorongoro|tarangire|ruaha|manyara/i
+        .test(href)
+    ) {
+
+        eventName = 'destination_click';
+
+    }
+
+
+    /* Send event */
+
     gtag('event', eventName, {
+
         link_text: text,
+
         page_path: page
+
     });
 
 });
 </script>
 
 <!-- END AMAN SAFARI ANALYTICS -->
-
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<meta name="description" content="Explore Ngorongoro Conservation Area with Aman Safari Tanzania. Plan a wildlife, landscape and northern Tanzania safari journey around your travel dates and interests.">
-
-<meta name="theme-color" content="#102019">
-
-<title>Ngorongoro Safari Tanzania | Aman Safari Tanzania</title>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mikumi National Park | Aman Safari Tanzania</title>
+<meta name="description" content="Explore Mikumi National Park in southern Tanzania with Aman Safari Tanzania — open savannah, Mkata floodplain, elephants, lions, buffalo, birdlife and guided safari experiences.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-
 <style>
-
-:root{
---deep:#102019;
---deep2:#0b1711;
---ink:#17231d;
---cream:#f7f3ea;
---gold:#b89552;
---gold2:#e3c987;
---muted:#68736c;
---line:#17231d1f;
+:root{--green:#17382d;--green2:#10271f;--gold:#c6a15b;--cream:#f6f1e7;--ink:#18211d;--muted:#68736d}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:Montserrat,Arial,sans-serif;color:var(--ink);background:var(--cream);line-height:1.7}
+a{text-decoration:none;color:inherit}
+.nav{position:fixed;top:0;left:0;width:100%;z-index:20;padding:20px 6%;display:flex;align-items:center;justify-content:space-between;transition:.3s;color:#fff}
+.nav.scrolled{background:rgba(16,39,31,.96);padding:13px 6%;box-shadow:0 8px 30px rgba(0,0,0,.15)}
+.logo{font-family:"Cormorant Garamond",serif;font-size:28px;font-weight:700;letter-spacing:1.5px}.logo span{color:var(--gold)}
+.nav-links{display:flex;gap:24px;align-items:center;font-size:12px;text-transform:uppercase;letter-spacing:1px;font-weight:600}
+.nav-links a:hover{color:#e1c681}.nav-cta{border:1px solid rgba(255,255,255,.7);padding:9px 15px;border-radius:30px}
+.menu-btn{display:none;background:none;border:0;color:#fff;font-size:27px}
+.hero{min-height:88vh;display:grid;place-items:center;text-align:center;padding:120px 6% 80px;position:relative;overflow:hidden;color:#fff;background:#12251e}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(9,25,19,.42),rgba(9,25,19,.74)),url("https://images.unsplash.com/photo-1591089101324-2280d9260001?auto=format&fit=crop&fm=jpg&q=85&w=2400") center/cover}
+.hero-content{position:relative;z-index:1;max-width:900px}
+.kicker{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#e1c681;font-weight:700;margin-bottom:18px}
+h1,h2,h3{font-family:"Cormorant Garamond",serif}
+h1{font-size:clamp(54px,8vw,92px);line-height:.95;margin-bottom:24px}
+.hero p{max-width:700px;margin:0 auto 30px;font-size:16px;color:rgba(255,255,255,.9)}
+.btn{display:inline-block;padding:14px 22px;border-radius:3px;background:var(--gold);color:#15251e;font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase}
+.btn.alt{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.6);margin-left:8px}
+section{padding:85px 6%}.container{max-width:1180px;margin:auto}
+.intro{display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:center}
+.eyebrow{color:#9b7839;text-transform:uppercase;letter-spacing:2px;font-size:11px;font-weight:700;margin-bottom:10px}
+h2{font-size:clamp(38px,5vw,60px);line-height:1.05;margin-bottom:18px}.lead{font-size:17px;color:var(--muted)}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#d9d0c1;margin-top:35px}
+.fact{background:var(--cream);padding:22px}.fact strong{display:block;font-family:"Cormorant Garamond",serif;font-size:29px;color:var(--green)}
+.fact span{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
+.dark{background:var(--green);color:#fff}.dark .lead{color:rgba(255,255,255,.72)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:35px}
+.card{padding:30px;background:#fff;border:1px solid #e5ded2}.dark .card{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1)}
+.card h3{font-size:28px;margin-bottom:9px}.card p{font-size:13px;color:var(--muted)}.dark .card p{color:rgba(255,255,255,.7)}
+.best{background:#eee7db}
+.month-picker{margin-top:32px;background:rgba(255,255,255,.62);border:1px solid #d8cdbd;padding:18px;border-radius:6px;box-shadow:0 18px 45px rgba(35,45,38,.07)}
+.months{display:grid;grid-template-columns:repeat(6,1fr);gap:9px}
+.month{position:relative;border:1px solid #d0c5b5;background:#faf7f1;padding:14px 10px 12px;cursor:pointer;font:600 11px Montserrat;text-transform:uppercase;letter-spacing:.7px;color:var(--ink);border-radius:4px;transition:.2s;text-align:left}
+.month::after{content:"";display:block;width:24px;height:3px;background:#d6c8b4;margin-top:10px;border-radius:4px}
+.month:nth-child(-n+3)::after{background:#8a9b72}
+.month:nth-child(n+4):nth-child(-n+5)::after{background:#c6a15b}
+.month:nth-child(n+6):nth-child(-n+10)::after{background:#6f8b78}
+.month:nth-child(n+11)::after{background:#9b8060}
+.month.active,.month:hover{background:var(--green);color:#fff;border-color:var(--green);transform:translateY(-2px);box-shadow:0 9px 18px rgba(23,56,45,.15)}
+.month.active::before{content:"✓";position:absolute;right:10px;top:9px;font-size:12px;color:#e1c681}
+.month.active::after,.month:hover::after{background:var(--gold)}
+.month-info{margin-top:14px;background:var(--green);color:#fff;padding:26px 28px;border-radius:5px;min-height:112px;display:flex;align-items:center;box-shadow:0 14px 30px rgba(23,56,45,.13)}
+.month-info strong{font-family:"Cormorant Garamond",serif;font-size:29px;color:#e1c681;display:inline-block;margin-right:8px}
+.month-info br+*{color:rgba(255,255,255,.82)}
+@media(max-width:800px){.months{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:480px){.months{grid-template-columns:repeat(2,1fr)}.month{padding:13px 9px}.month-info{padding:22px}}
+.journey{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
+.step{background:#fff;padding:28px;border-top:3px solid var(--gold)}.step small{color:#9b7839;font-weight:700;letter-spacing:1px}
+.step h3{font-size:27px;margin:8px 0}
+.cta{text-align:center;background:linear-gradient(135deg,var(--green),var(--green2));color:#fff}.cta p{max-width:650px;margin:0 auto 25px;color:rgba(255,255,255,.76)}
+footer{background:#0c1c16;color:rgba(255,255,255,.72);padding:40px 6%;font-size:12px}
+.footer-inner{max-width:1180px;margin:auto;display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
+.footer-title{font-family:"Cormorant Garamond",serif;font-size:25px;color:#fff}
+.wa{position:fixed;right:20px;bottom:20px;z-index:30;background:#25d366;color:#fff;padding:13px 18px;border-radius:40px;font-size:12px;font-weight:700;box-shadow:0 10px 25px rgba(0,0,0,.2)}
+@media(max-width:800px){
+.nav-links{display:none;position:absolute;top:100%;left:0;width:100%;background:rgba(16,39,31,.98);padding:20px 6%;flex-direction:column;align-items:flex-start}
+.nav-links.open{display:flex}.menu-btn{display:block}.hero{min-height:78vh}.hero p{font-size:14px}
+.intro{grid-template-columns:1fr;gap:35px}.cards,.journey{grid-template-columns:1fr}.facts{grid-template-columns:1fr}
+.btn.alt{margin:10px 0 0}
 }
-
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-}
-
-html{
-scroll-behavior:smooth;
-}
-
-body{
-font-family:Montserrat,Arial,sans-serif;
-color:var(--ink);
-line-height:1.7;
-background:#fffdf8;
-}
-
-a{
-text-decoration:none;
-color:inherit;
-}
-
-button,
-select{
-font-family:inherit;
-}
-
-img{
-width:100%;
-display:block;
-object-fit:cover;
-}
-
-.container{
-width:min(1160px,92%);
-margin:auto;
-}
-
-/* =========================
-   NAVIGATION
-========================= */
-
-nav{
-position:fixed;
-top:0;
-left:0;
-right:0;
-z-index:100;
-color:#fff;
-transition:.3s ease;
-}
-
-nav.scrolled{
-background:rgba(16,32,25,.97);
-box-shadow:0 8px 30px rgba(0,0,0,.14);
-}
-
-.navin{
-min-height:76px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-}
-
-.logo{
-font:700 28px "Cormorant Garamond",serif;
-letter-spacing:.06em;
-}
-
-.logo small{
-display:block;
-text-align:center;
-font:600 8px Montserrat;
-letter-spacing:.27em;
-margin-top:-6px;
-}
-
-.links{
-display:flex;
-gap:25px;
-align-items:center;
-font-size:11px;
-font-weight:700;
-letter-spacing:.08em;
-text-transform:uppercase;
-}
-
-.links a{
-transition:.2s ease;
-}
-
-.links a:hover{
-color:var(--gold2);
-}
-
-.ctaNav{
-border:1px solid #fff8;
-padding:9px 15px;
-border-radius:30px;
-}
-
-.menu{
-display:none;
-background:none;
-border:0;
-color:#fff;
-font-size:28px;
-cursor:pointer;
-}
-
-/* =========================
-   HERO
-========================= */
-
-.hero{
-height:88vh;
-min-height:650px;
-position:relative;
-display:flex;
-align-items:flex-end;
-color:#fff;
-overflow:hidden;
-}
-
-.hero>img{
-position:absolute;
-inset:0;
-height:100%;
-filter:brightness(.62);
-transform:scale(1.03);
-}
-
-.hero:after{
-content:"";
-position:absolute;
-inset:0;
-background:
-linear-gradient(180deg,#0002 15%,#08130ee8 100%);
-}
-
-.heroText{
-position:relative;
-z-index:2;
-padding:150px 0 75px;
-max-width:820px;
-}
-
-.eyebrow{
-color:var(--gold2);
-font-size:11px;
-font-weight:700;
-letter-spacing:.22em;
-text-transform:uppercase;
-margin-bottom:14px;
-}
-
-h1,
-h2,
-h3{
-font-family:"Cormorant Garamond",serif;
-line-height:1.05;
-}
-
-h1{
-font-size:clamp(55px,8vw,94px);
-margin-bottom:18px;
-}
-
-h2{
-font-size:clamp(40px,5vw,62px);
-margin-bottom:20px;
-}
-
-.heroText p{
-max-width:700px;
-font-size:16px;
-color:#fffe;
-}
-
-.actions{
-display:flex;
-gap:12px;
-flex-wrap:wrap;
-margin-top:28px;
-}
-
-.btn{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-min-height:48px;
-padding:0 22px;
-border-radius:30px;
-border:1px solid var(--gold);
-font-size:11px;
-font-weight:700;
-letter-spacing:.08em;
-text-transform:uppercase;
-cursor:pointer;
-transition:.25s ease;
-}
-
-.btn:hover{
-transform:translateY(-2px);
-}
-
-.primary{
-background:var(--gold);
-color:#fff;
-}
-
-.secondary{
-border-color:#fff9;
-color:#fff;
-}
-
-/* =========================
-   SECTIONS
-========================= */
-
-.section{
-padding:88px 0;
-}
-
-.cream{
-background:var(--cream);
-}
-
-.dark{
-background:var(--deep);
-color:#fff;
-}
-
-.grid2{
-display:grid;
-grid-template-columns:1.05fr .95fr;
-gap:65px;
-align-items:center;
-}
-
-.photo{
-height:510px;
-overflow:hidden;
-}
-
-.photo img{
-height:100%;
-}
-
-.lead{
-font-size:18px;
-color:#344139;
-margin-bottom:16px;
-}
-
-.muted{
-color:var(--muted);
-font-size:14px;
-}
-
-.head{
-max-width:720px;
-margin-bottom:38px;
-}
-
-/* =========================
-   FACTS
-========================= */
-
-.facts{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:10px;
-margin-top:27px;
-}
-
-.fact{
-background:#fff;
-padding:18px;
-border:1px solid var(--line);
-}
-
-.fact strong{
-display:block;
-font:600 25px "Cormorant Garamond",serif;
-}
-
-.fact span{
-font-size:9px;
-text-transform:uppercase;
-letter-spacing:.08em;
-color:var(--muted);
-}
-
-/* =========================
-   EXPERIENCE CARDS
-========================= */
-
-.cards{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:18px;
-}
-
-.card{
-border:1px solid var(--line);
-background:#fff;
-transition:.25s ease;
-}
-
-.card:hover{
-transform:translateY(-4px);
-box-shadow:0 15px 35px rgba(0,0,0,.08);
-}
-
-.card img{
-height:225px;
-}
-
-.card div{
-padding:22px;
-}
-
-.card h3{
-font-size:30px;
-margin-bottom:8px;
-}
-
-.card p{
-font-size:13px;
-color:var(--muted);
-}
-
-/* =========================
-   EXPERIENCE SELECTOR
-========================= */
-
-.selectorGrid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:14px;
-}
-
-.selector{
-width:100%;
-border:1px solid #17231d22;
-background:#fff;
-padding:22px;
-text-align:left;
-cursor:pointer;
-transition:.25s ease;
-}
-
-.selector:hover{
-transform:translateY(-2px);
-border-color:var(--gold);
-}
-
-.selector.active{
-border-color:var(--gold);
-background:#f4ecdc;
-box-shadow:0 0 0 2px rgba(184,149,82,.13);
-}
-
-.selector strong{
-display:block;
-font:600 28px "Cormorant Garamond",serif;
-margin-bottom:6px;
-}
-
-.selector span{
-font-size:12px;
-color:var(--muted);
-}
-
-.selectorResult{
-margin-top:18px;
-background:var(--deep);
-color:#fff;
-padding:25px;
-display:none;
-}
-
-.selectorResult.show{
-display:block;
-}
-
-.selectorResult h3{
-font-size:34px;
-margin-bottom:8px;
-}
-
-.selectorResult p{
-font-size:13px;
-color:#fffb;
-}
-
-/* =========================
-   FEATURE GRID
-========================= */
-
-.featureGrid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:12px;
-}
-
-.feature{
-padding:22px;
-border:1px solid #fff2;
-background:#ffffff08;
-}
-
-.feature strong{
-display:block;
-font:600 25px "Cormorant Garamond",serif;
-margin-bottom:5px;
-}
-
-.feature span{
-font-size:12px;
-color:#fffb;
-}
-
-/* =========================
-   BEST TIME TOOL
-========================= */
-
-.tool{
-background:#fff;
-color:var(--ink);
-padding:28px;
-border:1px solid var(--line);
-box-shadow:0 15px 40px rgba(0,0,0,.06);
-}
-
-label{
-display:block;
-font-size:10px;
-text-transform:uppercase;
-letter-spacing:.1em;
-font-weight:700;
-margin-bottom:8px;
-}
-
-select{
-width:100%;
-padding:13px;
-border:1px solid #d5d8d2;
-background:#fff;
-font:inherit;
-font-size:13px;
-cursor:pointer;
-}
-
-.result{
-margin-top:17px;
-background:var(--deep);
-color:#fff;
-padding:20px;
-}
-
-.result strong{
-display:block;
-font:600 30px "Cormorant Garamond",serif;
-}
-
-.result span{
-font-size:12px;
-color:#fffb;
-}
-
-/* =========================
-   PLANNER
-========================= */
-
-.planner{
-max-width:900px;
-margin:auto;
-background:#fff;
-border:1px solid var(--line);
-padding:32px;
-box-shadow:0 18px 50px rgba(0,0,0,.08);
-}
-
-.progress{
-height:5px;
-background:#eee9df;
-border-radius:10px;
-overflow:hidden;
-margin-bottom:28px;
-}
-
-.progressBar{
-height:100%;
-width:25%;
-background:var(--gold);
-transition:.3s ease;
-}
-
-.planStep{
-display:none;
-}
-
-.planStep.active{
-display:block;
-}
-
-.planStep h3{
-font-size:35px;
-margin-bottom:20px;
-}
-
-.planOptions{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:12px;
-}
-
-.planOption{
-border:1px solid #ddd6ca;
-background:#faf8f3;
-padding:18px;
-border-radius:12px;
-cursor:pointer;
-text-align:left;
-transition:.25s ease;
-}
-
-.planOption:hover{
-border-color:var(--gold);
-}
-
-.planOption.selected{
-background:#f4ecdc;
-border-color:var(--gold);
-box-shadow:0 0 0 2px rgba(184,149,82,.12);
-}
-
-.planOption strong{
-display:block;
-margin-bottom:4px;
-}
-
-.planOption span{
-font-size:12px;
-color:var(--muted);
-}
-
-.planNav{
-display:flex;
-justify-content:space-between;
-gap:12px;
-margin-top:25px;
-}
-
-.backBtn{
-background:#fff;
-color:var(--ink);
-}
-
-.planResult{
-display:none;
-margin-top:25px;
-background:var(--deep);
-color:#fff;
-padding:28px;
-}
-
-.planResult.show{
-display:block;
-}
-
-.planResult h3{
-font-size:38px;
-margin-bottom:10px;
-}
-
-.planResult p{
-font-size:13px;
-color:#fffb;
-}
-
-.planSummary{
-margin:20px 0;
-background:#ffffff0d;
-padding:17px;
-}
-
-.planSummary div{
-padding:8px 0;
-border-bottom:1px solid #fff2;
-font-size:12px;
-}
-
-.planSummary div:last-child{
-border-bottom:0;
-}
-
-.planActions{
-display:flex;
-gap:12px;
-flex-wrap:wrap;
-}
-
-/* =========================
-   ITINERARY
-========================= */
-
-.itinerary{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:15px;
-}
-
-.day{
-background:var(--cream);
-padding:21px;
-border-top:2px solid var(--gold);
-}
-
-.day b{
-font-size:10px;
-color:var(--gold);
-letter-spacing:.1em;
-}
-
-.day h3{
-font-size:28px;
-margin:8px 0;
-}
-
-.day p{
-font-size:13px;
-color:var(--muted);
-}
-
-/* =========================
-   FAQ
-========================= */
-
-.faq{
-max-width:850px;
-margin:auto;
-}
-
-.faqItem{
-border-bottom:1px solid #17231d22;
-}
-
-.faqQuestion{
-width:100%;
-padding:20px 0;
-background:none;
-border:0;
-display:flex;
-justify-content:space-between;
-align-items:center;
-font:600 22px "Cormorant Garamond",serif;
-text-align:left;
-cursor:pointer;
-color:var(--ink);
-}
-
-.faqQuestion span{
-font-family:Montserrat;
-font-size:20px;
-}
-
-.faqAnswer{
-display:none;
-padding:0 0 20px;
-font-size:13px;
-color:var(--muted);
-}
-
-.faqItem.open .faqAnswer{
-display:block;
-}
-
-/* =========================
-   BANNER
-========================= */
-
-.banner{
-background:
-linear-gradient(#102019dc,#102019dc),
-url("park.jpg") center/cover;
-color:#fff;
-text-align:center;
-padding:90px 20px;
-}
-
-.banner h2{
-max-width:720px;
-margin:0 auto 15px;
-}
-
-.banner p{
-max-width:650px;
-margin:auto;
-color:#fffc;
-font-size:14px;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-background:var(--deep2);
-color:#fff;
-padding:45px 0 25px;
-}
-
-.foot{
-display:grid;
-grid-template-columns:1.4fr 1fr 1fr;
-gap:30px;
-padding-bottom:28px;
-border-bottom:1px solid #fff2;
-}
-
-.foot h3{
-font-size:28px;
-margin-bottom:9px;
-}
-
-.foot p,
-.foot a,
-.foot span{
-font-size:12px;
-color:#fffa;
-}
-
-.flinks{
-display:grid;
-gap:7px;
-}
-
-.flinks a:hover{
-color:var(--gold2);
-}
-
-.copy{
-text-align:center;
-padding-top:18px;
-color:#fff6;
-font-size:10px;
-}
-
-/* =========================
-   WHATSAPP
-========================= */
-
-.whatsapp{
-position:fixed;
-right:18px;
-bottom:18px;
-width:56px;
-height:56px;
-border-radius:50%;
-background:#1f8b4c;
-color:#fff;
-display:grid;
-place-items:center;
-z-index:90;
-font-size:24px;
-box-shadow:0 8px 25px rgba(0,0,0,.25);
-transition:.25s ease;
-}
-
-.whatsapp:hover{
-transform:scale(1.06);
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media(max-width:850px){
-
-.links{
-position:absolute;
-top:76px;
-left:0;
-right:0;
-display:none;
-flex-direction:column;
-align-items:stretch;
-gap:0;
-padding:8px 5%;
-background:#102019f7;
-}
-
-.links.open{
-display:flex;
-}
-
-.links a{
-padding:12px 0;
-border-bottom:1px solid #fff1;
-}
-
-.ctaNav{
-text-align:center;
-margin:9px 0;
-}
-
-.menu{
-display:block;
-}
-
-.grid2{
-grid-template-columns:1fr;
-}
-
-.cards,
-.featureGrid,
-.itinerary{
-grid-template-columns:1fr 1fr;
-}
-
-.foot{
-grid-template-columns:1fr 1fr;
-}
-
-}
-
-@media(max-width:600px){
-
-.hero{
-min-height:680px;
-}
-
-.heroText{
-padding:130px 0 55px;
-}
-
-.section{
-padding:65px 0;
-}
-
-.photo{
-height:380px;
-}
-
-.facts,
-.cards,
-.featureGrid,
-.itinerary,
-.foot,
-.selectorGrid,
-.planOptions{
-grid-template-columns:1fr;
-}
-
-.planner{
-padding:22px 16px;
-}
-
-.planNav{
-flex-direction:column;
-}
-
-.planNav .btn{
-width:100%;
-}
-
-.planActions{
-flex-direction:column;
-}
-
-.planActions .btn{
-width:100%;
-}
-
-}
-
-/* =========================
-   ACCESSIBILITY
-========================= */
-
-button:focus-visible,
-a:focus-visible,
-select:focus-visible{
-outline:2px solid var(--gold);
-outline-offset:3px;
-}
-
 
 
 /* =========================================
@@ -1323,1825 +510,138 @@ body.aman-ai-mobile-open{overflow:auto}
 
 </style>
 </head>
-
 <body>
-
-<!-- =========================
-     NAVIGATION
-========================= -->
-
-<nav id="nav">
-
-<div class="container navin">
-
-<a class="logo" href="index.html">
-AMAN SAFARI
-<small>TANZANIA</small>
-</a>
-
-<button class="menu" id="menu" aria-label="Open menu">
-☰
-</button>
-
-<div class="links" id="links">
-
-<a href="index.html">Home</a>
-
-<a href="index.html#destinations">Destinations</a>
-
-<a href="#experiences">Experiences</a>
-
-<a href="#best-time">Best Time</a>
-
-<a href="#planner">Plan Safari</a>
-
-<a href="booking.html">Booking</a>
-
-<a href="pay.html">Payments</a>
-
-<a class="ctaNav"
-href="booking.html?destination=Ngorongoro">
-Plan My Safari
-</a>
-
-</div>
-
-</div>
-
+<header class="nav" id="nav">
+<a class="logo" href="index.html">AMAN <span>SAFARI</span></a>
+<button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+<nav class="nav-links" id="navLinks">
+<a href="index.html">Home</a><a href="index.html#destinations">Destinations</a><a href="index.html#best-time">Best Time</a>
+<a href="booking.html?destination=Mikumi">Booking</a><a href="pay.html">Payments</a>
 </nav>
+</header>
 
-
-<!-- =========================
-     HERO
-========================= -->
-
+<main>
 <section class="hero">
-
-<img
-src="ngorongoro.jpg.jpg"
-alt="Ngorongoro Conservation Area landscape in Tanzania">
-
-<div class="container heroText">
-
-<div class="eyebrow">
-Northern Tanzania · Ngorongoro Conservation Area
+<div class="hero-content">
+<div class="kicker">Southern Tanzania · Mikumi National Park</div>
+<h1>Open Plains. Wild Horizons.</h1>
+<p>Discover the Mkata floodplain, classic African savannah and a wildlife-rich southern safari experience with room to breathe.</p>
+<a class="btn" href="booking.html?destination=Mikumi">Plan My Mikumi Safari</a>
+<a class="btn alt" href="index.html">Back Home</a>
 </div>
-
-<h1>
-Inside an Ancient World
-</h1>
-
-<p>
-Discover the dramatic Ngorongoro landscape, remarkable wildlife and a northern Tanzania safari experience shaped around your dates, interests and pace.
-</p>
-
-<div class="actions">
-
-<a
-class="btn primary"
-href="booking.html?destination=Ngorongoro">
-Plan My Ngorongoro Safari
-</a>
-
-<a
-class="btn secondary"
-href="#planner">
-Build My Safari
-</a>
-
-</div>
-
-</div>
-
 </section>
 
-
-<!-- =========================
-     INTRO
-========================= -->
-
-<section class="section cream">
-
-<div class="container grid2">
-
-<div class="photo">
-
-<img
-src="park.jpg"
-alt="Ngorongoro Conservation Area landscape"
-loading="lazy">
-
-</div>
-
+<section>
+<div class="container intro">
 <div>
-
-<div class="eyebrow">
-The Ngorongoro Experience
-</div>
-
-<h2>
-A remarkable landscape at every turn.
-</h2>
-
-<p class="lead">
-The Ngorongoro Conservation Area is known for its dramatic crater landscape, wildlife and distinctive combination of natural and cultural heritage.
-</p>
-
-<p class="muted">
-A visit can be combined with Serengeti and other northern Tanzania destinations. Your itinerary can be shaped around wildlife, photography, scenery, culture and the amount of time you have available.
-</p>
-
+<div class="eyebrow">The Destination</div>
+<h2>A Classic Safari Within Easy Reach</h2>
+<p class="lead">Mikumi National Park is shaped by the open Mkata floodplain, woodland and seasonal water sources. Its accessible wildlife-viewing areas make it a strong choice for a shorter southern Tanzania safari.</p>
 <div class="facts">
-
-<div class="fact">
-<strong>Crater</strong>
-<span>Dramatic natural landscape</span>
+<div class="fact"><strong>Mkata</strong><span>Floodplain</span></div>
+<div class="fact"><strong>3,230 km²</strong><span>Park Area</span></div>
+<div class="fact"><strong>Southern</strong><span>Safari Circuit</span></div>
 </div>
-
-<div class="fact">
-<strong>Wildlife</strong>
-<span>Rich viewing opportunities</span>
 </div>
-
-<div class="fact">
-<strong>Culture</strong>
-<span>Living heritage</span>
+<div>
+<p class="lead">Elephants, lions, buffalo, giraffes, zebras, hippos and many other species can be encountered here. The park also supports rich birdlife and guided activities that add variety beyond the classic game drive.</p>
 </div>
-
 </div>
-
-</div>
-
-</div>
-
 </section>
 
-
-<!-- =========================
-     EXPERIENCES
-========================= -->
-
-<section class="section" id="experiences">
-
+<section class="dark">
 <div class="container">
-
-<div class="head">
-
-<div class="eyebrow">
-Ngorongoro Experiences
-</div>
-
-<h2>
-Choose what matters most.
-</h2>
-
-<p class="muted">
-Ngorongoro can be experienced in different ways. Start with your priority and shape the wider journey around it.
-</p>
-
-</div>
-
+<div class="eyebrow">Signature Experiences</div>
+<h2>Explore the Floodplain & Beyond</h2>
 <div class="cards">
-
-<article class="card">
-
-<img
-src="park.jpg"
-alt="Ngorongoro safari landscape"
-loading="lazy">
-
-<div>
-
-<h3>
-Crater Safari
-</h3>
-
-<p>
-Explore the crater floor with opportunities for wildlife viewing in a remarkable natural setting.
-</p>
-
+<article class="card"><h3>Game Drives</h3><p>Follow the tracks around the Mkata floodplain and open savannah in search of elephants, lions, buffalo and other wildlife.</p></article>
+<article class="card"><h3>Guided Walks</h3><p>Experience the bush at a slower pace, with attention to tracks, plants, birds and the smaller details of the ecosystem.</p></article>
+<article class="card"><h3>Birding</h3><p>Acacia woodland and seasonal pans attract rollers, bee-eaters, hornbills, raptors and other birdlife.</p></article>
 </div>
-
-</article>
-
-
-<article class="card">
-
-<img
-src="ngorongoro.jpg.jpg"
-alt="Ngorongoro landscape"
-loading="lazy">
-
-<div>
-
-<h3>
-Wildlife & Photography
-</h3>
-
-<p>
-Allow time for observation, scenery and photography while your safari rhythm follows your interests.
-</p>
-
 </div>
-
-</article>
-
-
-<article class="card">
-
-<img
-src="tarangire.jpg"
-alt="Tanzania safari landscape"
-loading="lazy">
-
-<div>
-
-<h3>
-Landscape & Culture
-</h3>
-
-<p>
-Experience a destination where conservation, landscapes and communities are part of the wider story.
-</p>
-
-</div>
-
-</article>
-
-</div>
-
-</div>
-
 </section>
 
-
-<!-- =========================
-     EXPERIENCE SELECTOR
-========================= -->
-
-<section class="section cream">
-
+<section>
 <div class="container">
-
-<div class="head">
-
-<div class="eyebrow">
-Find Your Ngorongoro Style
+<div class="eyebrow">Why Include Mikumi?</div>
+<h2>A Smart Choice for the Southern Circuit</h2>
+<div class="cards">
+<article class="card"><h3>Wildlife Access</h3><p>Open plains and a good network of tracks can make wildlife viewing rewarding without requiring a long expedition.</p></article>
+<article class="card"><h3>Dar Connection</h3><p>Mikumi is accessible by road from Dar es Salaam and can work well for travelers with limited time.</p></article>
+<article class="card"><h3>Easy Pairing</h3><p>Build a broader southern journey by combining Mikumi with Nyerere, Ruaha or other nearby experiences.</p></article>
 </div>
-
-<h2>
-What would you most like from Ngorongoro?
-</h2>
-
-<p class="muted">
-Choose the closest match. Your selection is a planning suggestion, not a fixed itinerary.
-</p>
-
 </div>
-
-<div class="selectorGrid">
-
-<button
-class="selector"
-data-style="wildlife">
-
-<strong>Wildlife First</strong>
-
-<span>
-I want my visit focused mainly on wildlife viewing.
-</span>
-
-</button>
-
-
-<button
-class="selector"
-data-style="scenery">
-
-<strong>Scenery</strong>
-
-<span>
-The landscape and dramatic views are a major reason I'm coming.
-</span>
-
-</button>
-
-
-<button
-class="selector"
-data-style="photography">
-
-<strong>Photography</strong>
-
-<span>
-I want time for observation, scenery and photography.
-</span>
-
-</button>
-
-
-<button
-class="selector"
-data-style="circuit">
-
-<strong>Wider Northern Circuit</strong>
-
-<span>
-I want Ngorongoro to be part of a larger Tanzania safari.
-</span>
-
-</button>
-
-</div>
-
-<div
-class="selectorResult"
-id="selectorResult">
-
-<h3 id="selectorTitle">
-Your Ngorongoro Style
-</h3>
-
-<p id="selectorText">
-Choose an option above to see a planning suggestion.
-</p>
-
-</div>
-
-</div>
-
 </section>
 
-
-<!-- =========================
-     WHY NGORONGORO
-========================= -->
-
-<section class="section dark">
-
-<div class="container grid2">
-
-<div>
-
-<div class="eyebrow">
-Why Include Ngorongoro?
-</div>
-
-<h2>
-A natural highlight of northern Tanzania.
-</h2>
-
-<p style="color:#fffb;font-size:14px">
-
-Ngorongoro can work especially well within a wider northern Tanzania itinerary. Combining destinations creates opportunities to experience different landscapes and safari environments during one journey.
-
-</p>
-
-</div>
-
-<div class="featureGrid">
-
-<div class="feature">
-
-<strong>
-Wildlife Focus
-</strong>
-
-<span>
-A strong choice for travelers looking for a concentrated wildlife experience.
-</span>
-
-</div>
-
-
-<div class="feature">
-
-<strong>
-Scenery
-</strong>
-
-<span>
-Distinctive highland and crater landscapes add visual variety to a safari.
-</span>
-
-</div>
-
-
-<div class="feature">
-
-<strong>
-Northern Circuit
-</strong>
-
-<span>
-Combine with Serengeti, Tarangire or other destinations according to your itinerary.
-</span>
-
-</div>
-
-
-<div class="feature">
-
-<strong>
-Tailor-made
-</strong>
-
-<span>
-Shape the pace around your group, interests and travel dates.
-</span>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     BEST TIME
-========================= -->
-
-<section
-class="section cream"
-id="best-time">
-
+<section class="best" id="best-time">
 <div class="container">
-
-<div class="head">
-
-<div class="eyebrow">
-Best Time Tool
+<div class="eyebrow">Best Time By Month</div>
+<h2>Choose Your Travel Month</h2>
+<p class="lead">Dry months generally make wildlife easier to spot around water, while greener months bring lush scenery and strong birding conditions.</p>
+<div class="month-picker"><div class="months" id="months"></div></div>
+<div class="month-info" id="monthInfo"></div>
 </div>
-
-<h2>
-Choose your travel month.
-</h2>
-
-<p class="muted">
-Use this as a planning guide. Weather and wildlife conditions vary, so no month guarantees a particular experience.
-</p>
-
-</div>
-
-<div class="tool">
-
-<label for="month">
-Travel month
-</label>
-
-<select id="month">
-
-<option value="">
-Choose a month
-</option>
-
-<option>January</option>
-<option>February</option>
-<option>March</option>
-<option>April</option>
-<option>May</option>
-<option>June</option>
-<option>July</option>
-<option>August</option>
-<option>September</option>
-<option>October</option>
-<option>November</option>
-<option>December</option>
-
-</select>
-
-<div
-class="result"
-id="result">
-
-<strong>
-Select a month
-</strong>
-
-<span>
-Your Ngorongoro planning guidance will appear here.
-</span>
-
-</div>
-
-</div>
-
-</div>
-
 </section>
 
-
-<!-- =========================
-     NGORONGORO PLANNER
-========================= -->
-
-<section
-class="section"
-id="planner">
-
+<section>
 <div class="container">
-
-<div class="head">
-
-<div class="eyebrow">
-Build Your Ngorongoro Safari
+<div class="eyebrow">Sample Southern Journey</div>
+<h2>A Flexible Way Into Mikumi</h2>
+<div class="journey">
+<div class="step"><small>01 · ARRIVAL</small><h3>Dar es Salaam</h3><p>Start from Dar es Salaam by road or connect by air depending on your itinerary.</p></div>
+<div class="step"><small>02 · MIKUMI</small><h3>Wildlife Safari</h3><p>Spend your safari time around the floodplain with game drives and, where arranged, guided activities.</p></div>
+<div class="step"><small>03 · EXTEND</small><h3>Nyerere or Ruaha</h3><p>Continue south for a longer wildlife journey or combine Mikumi with another southern destination.</p></div>
 </div>
-
-<h2>
-Start shaping your journey.
-</h2>
-
-<p class="muted">
-Answer four simple questions and get a starting point for your safari conversation with Aman Safari.
-</p>
-
 </div>
-
-<div class="planner">
-
-<div class="progress">
-
-<div
-class="progressBar"
-id="progressBar">
-</div>
-
-</div>
-
-
-<!-- STEP 1 -->
-
-<div
-class="planStep active"
-data-step="1">
-
-<h3>
-What is your main reason for visiting?
-</h3>
-
-<div class="planOptions">
-
-<button
-class="planOption"
-data-question="purpose"
-data-value="Wildlife">
-
-<strong>
-Wildlife
-</strong>
-
-<span>
-Focus the visit around wildlife viewing.
-</span>
-
-</button>
-
-
-<button
-class="planOption"
-data-question="purpose"
-data-value="Scenery">
-
-<strong>
-Scenery
-</strong>
-
-<span>
-Experience the landscape and dramatic surroundings.
-</span>
-
-</button>
-
-
-<button
-class="planOption"
-data-question="purpose"
-data-value="Photography">
-
-<strong>
-Photography
-</strong>
-
-<span>
-Allow time for observation and photography.
-</span>
-
-</button>
-
-
-<button
-class="planOption"
-data-question="purpose"
-data-value="Full Northern Circuit">
-
-<strong>
-Full Northern Circuit
-</strong>
-
-<span>
-Make Ngorongoro part of a wider Tanzania journey.
-</span>
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- STEP 2 -->
-
-<div
-class="planStep"
-data-step="2">
-
-<h3>
-How many travelers?
-</h3>
-
-<div class="planOptions">
-
-<button
-class="planOption"
-data-question="group"
-data-value="1">
-
-<strong>
-Solo
-</strong>
-
-<span>
-One traveler.
-</span>
-
-</button>
-
-
-<button
-class="planOption"
-data-question="group"
-data-value="2">
-
-<strong>
-2 Travelers
-</strong>
-
-<span>
-A journey for two.
-</span>
-
-</button>
-
-
-<button
-class="planOption"
-data-question="group"
-data-value="3–5">
-
-<strong>
-3–5 Travelers
-</strong>
-
-<span>
-Small group travel.
-</span>
-
-</button>
-
-
-<button
-class="planOption"
-data-question="group"
-data-value="6+">
-
-<strong>
-6+ Travelers
-</strong>
-
-<span>
-Larger group planning.
-</span>
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- STEP 3 -->
-
-<div
-class="planStep"
-data-step="3">
-
-<h3>
-How much time do you have?
-</h3>
-
-<div class="planOptions">
-
-<button
-class="planOption"
-data-question="duration"
-data-value="Short visit">
-
-<strong>
-Short Visit
-</strong>
-
-<span>
-I have limited time available.
-</span>
-
-</button>
-
-
-<button
-class="planOption"
-data-question="duration"
-data-value="Several days">
-
-<strong>
-Several Days
-</strong>
-
-<span>
-I have time for a more relaxed journey.
-</span>
-
-</button>
-
-
-<button
-class="planOption"
-data-question="duration"
-data-value="Longer journey">
-
-<strong>
-Longer Journey
-</strong>
-
-<span>
-I want to explore multiple destinations.
-</span>
-
-</button>
-
-
-<button
-class="planOption"
-data-question="duration"
-data-value="Not sure">
-
-<strong>
-Not Sure
-</strong>
-
-<span>
-I would like advice.
-</span>
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- STEP 4 -->
-
-<div
-class="planStep"
-data-step="4">
-
-<h3>
-Would you like to combine Ngorongoro with another destination?
-</h3>
-
-<div class="planOptions">
-
-<button
-class="planOption"
-data-question="extension"
-data-value="Serengeti">
-
-<strong>
-Serengeti
-</strong>
-
-<span>
-Add another major northern Tanzania safari destination.
-</span>
-
-</button>
-
-
-<button
-class="planOption"
-data-question="extension"
-data-value="Tarangire">
-
-<strong>
-Tarangire
-</strong>
-
-<span>
-Add another wildlife destination to the journey.
-</span>
-
-</button>
-
-
-<button
-class="planOption"
-data-question="extension"
-data-value="Multiple destinations">
-
-<strong>
-Multiple Destinations
-</strong>
-
-<span>
-I want a broader Tanzania itinerary.
-</span>
-
-</button>
-
-
-<button
-class="planOption"
-data-question="extension"
-data-value="Ngorongoro only">
-
-<strong>
-Ngorongoro Only
-</strong>
-
-<span>
-I want to focus on this destination.
-</span>
-
-</button>
-
-</div>
-
-</div>
-
-
-<div class="planNav">
-
-<button
-class="btn backBtn"
-id="planBack"
-type="button">
-Back
-</button>
-
-<button
-class="btn primary"
-id="planNext"
-type="button">
-Continue
-</button>
-
-</div>
-
-
-<div
-class="planResult"
-id="planResult">
-
-<h3>
-Your Ngorongoro Starting Plan
-</h3>
-
-<p>
-Here is a starting point based on your answers. Your final itinerary can be adjusted around your dates, interests and availability.
-</p>
-
-<div class="planSummary">
-
-<div>
-<strong>Main interest:</strong>
-<span id="summaryPurpose"></span>
-</div>
-
-<div>
-<strong>Travelers:</strong>
-<span id="summaryGroup"></span>
-</div>
-
-<div>
-<strong>Available time:</strong>
-<span id="summaryDuration"></span>
-</div>
-
-<div>
-<strong>Wider journey:</strong>
-<span id="summaryExtension"></span>
-</div>
-
-</div>
-
-<div class="planActions">
-
-<a
-class="btn primary"
-id="plannerBooking"
-href="booking.html?destination=Ngorongoro">
-Continue to Booking
-</a>
-
-<a
-class="btn secondary"
-id="plannerWhatsApp"
-href="https://wa.me/255635509648?text=Hi%20Aman%20Safari!%20I%20used%20your%20Ngorongoro%20safari%20planner%20and%20would%20like%20help%20planning%20my%20trip."
-target="_blank"
-rel="noopener">
-Talk on WhatsApp
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
 </section>
 
-
-<!-- =========================
-     SAMPLE ITINERARY
-========================= -->
-
-<section class="section">
-
+<section class="cta">
 <div class="container">
-
-<div class="head">
-
-<div class="eyebrow">
-Sample Northern Circuit
+<div class="eyebrow">Ready to Explore?</div>
+<h2>Let's Build Your Mikumi Journey</h2>
+<p>Tell us your dates, group size and preferred travel style. We'll shape the route around your priorities.</p>
+<a class="btn" href="booking.html?destination=Mikumi">Start Your Booking</a>
 </div>
-
-<h2>
-Let Ngorongoro be part of a bigger story.
-</h2>
-
-<p class="muted">
-Example structure only — not a fixed package or final quotation.
-</p>
-
-</div>
-
-<div class="itinerary">
-
-<div class="day">
-
-<b>
-DAY 1–2
-</b>
-
-<h3>
-Arrival & First Safari
-</h3>
-
-<p>
-Begin your northern Tanzania journey and settle into the safari rhythm.
-</p>
-
-</div>
-
-
-<div class="day">
-
-<b>
-DAY 3–4
-</b>
-
-<h3>
-Ngorongoro
-</h3>
-
-<p>
-Explore the conservation area and plan time for the crater experience.
-</p>
-
-</div>
-
-
-<div class="day">
-
-<b>
-DAY 5+
-</b>
-
-<h3>
-Continue North
-</h3>
-
-<p>
-Continue toward Serengeti or another destination according to your itinerary.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
 </section>
-
-
-<!-- =========================
-     FAQ
-========================= -->
-
-<section class="section cream">
-
-<div class="container">
-
-<div class="head">
-
-<div class="eyebrow">
-Ngorongoro Questions
-</div>
-
-<h2>
-Before you plan.
-</h2>
-
-</div>
-
-<div class="faq">
-
-<div class="faqItem">
-
-<button class="faqQuestion">
-
-Is Ngorongoro suitable for a short trip?
-
-<span>+</span>
-
-</button>
-
-<div class="faqAnswer">
-
-Ngorongoro can be included in different styles of northern Tanzania journeys. The right structure depends on your available time and whether you want to combine it with other destinations.
-
-</div>
-
-</div>
-
-
-<div class="faqItem">
-
-<button class="faqQuestion">
-
-Can I combine Ngorongoro with Serengeti?
-
-<span>+</span>
-
-</button>
-
-<div class="faqAnswer">
-
-Yes. Ngorongoro and Serengeti can be included together as part of a wider northern Tanzania safari itinerary.
-
-</div>
-
-</div>
-
-
-<div class="faqItem">
-
-<button class="faqQuestion">
-
-Can I plan around photography?
-
-<span>+</span>
-
-</button>
-
-<div class="faqAnswer">
-
-Yes. When photography is important to you, you can mention it when sending your request so the itinerary conversation can take your interests into account.
-
-</div>
-
-</div>
-
-
-<div class="faqItem">
-
-<button class="faqQuestion">
-
-Can I ask questions before booking?
-
-<span>+</span>
-
-</button>
-
-<div class="faqAnswer">
-
-Absolutely. You can use the booking form or WhatsApp to discuss your travel plans before making a booking decision.
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     FINAL CTA
-========================= -->
-
-<section class="banner">
-
-<div class="container">
-
-<div class="eyebrow">
-Your Tanzania Journey
-</div>
-
-<h2>
-Ready to make Ngorongoro part of your adventure?
-</h2>
-
-<p>
-Share your dates, group size and travel style. We'll use your request as the starting point for a personalized safari conversation.
-</p>
-
-<div
-class="actions"
-style="justify-content:center">
-
-<a
-class="btn primary"
-href="booking.html?destination=Ngorongoro">
-Plan My Safari
-</a>
-
-<a
-class="btn secondary"
-href="index.html#destinations">
-Explore More Destinations
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
+</main>
 
 <footer>
-
-<div class="container">
-
-<div class="foot">
-
-<div>
-
-<h3>
-Aman Safari Tanzania
-</h3>
-
-<p>
-Tailor-made Tanzania safari journeys from Arusha.
-</p>
-
+<div class="footer-inner">
+<div><div class="footer-title">Aman Safari Tanzania</div><p>Arusha, Tanzania · +255 635 509 648</p><p>amannelson824@gmail.com</p></div>
+<div><p><a href="index.html">Home</a> · <a href="booking.html">Booking</a> · <a href="pay.html">Payments</a></p><p>© 2026 Aman Safari Tanzania</p></div>
 </div>
-
-
-<div>
-
-<h3>
-Explore
-</h3>
-
-<div class="flinks">
-
-<a href="index.html">
-Home
-</a>
-
-<a href="index.html#destinations">
-Destinations
-</a>
-
-<a href="booking.html">
-Booking
-</a>
-
-<a href="pay.html">
-Payments
-</a>
-
-</div>
-
-</div>
-
-
-<div>
-
-<h3>
-Contact
-</h3>
-
-<div class="flinks">
-
-<a
-href="https://wa.me/255635509648"
-target="_blank"
-rel="noopener">
-WhatsApp
-</a>
-
-<a href="mailto:amannelson824@gmail.com">
-amannelson824@gmail.com
-</a>
-
-<span>
-+255 635 509 648
-</span>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="copy">
-© 2026 Aman Safari Tanzania. All rights reserved.
-</div>
-
-</div>
-
 </footer>
-
-
-<!-- =========================
-     WHATSAPP
-========================= -->
-
-<a
-class="whatsapp"
-href="https://wa.me/255635509648"
-target="_blank"
-rel="noopener"
-aria-label="Chat on WhatsApp">
-◉
-</a>
-
+<a class="wa" href="https://wa.me/255635509648" target="_blank" rel="noopener">WhatsApp</a>
 
 <script>
+const nav=document.getElementById("nav"),menuBtn=document.getElementById("menuBtn"),navLinks=document.getElementById("navLinks");
+window.addEventListener("scroll",()=>nav.classList.toggle("scrolled",window.scrollY>30));
+menuBtn.addEventListener("click",()=>navLinks.classList.toggle("open"));
 
-/* =========================================
-   NAVIGATION
-========================================= */
-
-const nav =
-document.getElementById("nav");
-
-const menu =
-document.getElementById("menu");
-
-const links =
-document.getElementById("links");
-
-window.addEventListener("scroll", function(){
-
-    nav.classList.toggle(
-        "scrolled",
-        window.scrollY > 30
-    );
-
-});
-
-menu.addEventListener("click", function(){
-
-    links.classList.toggle("open");
-
-});
-
-links.querySelectorAll("a").forEach(function(a){
-
-    a.addEventListener("click", function(){
-
-        links.classList.remove("open");
-
-    });
-
-});
-
-
-/* =========================================
-   EXPERIENCE SELECTOR
-========================================= */
-
-const selectorButtons =
-document.querySelectorAll(".selector");
-
-const selectorResult =
-document.getElementById("selectorResult");
-
-const selectorTitle =
-document.getElementById("selectorTitle");
-
-const selectorText =
-document.getElementById("selectorText");
-
-const experienceData = {
-
-    wildlife:[
-        "Wildlife First",
-        "Your visit should prioritize time for wildlife viewing and a safari rhythm shaped around the opportunities available during your travel period."
-    ],
-
-    scenery:[
-        "Scenery Focus",
-        "Your planning should allow time to appreciate the dramatic crater and surrounding highland landscapes rather than rushing through the experience."
-    ],
-
-    photography:[
-        "Photography Focus",
-        "Consider a comfortable safari rhythm that allows time for observation, changing light and photography."
-    ],
-
-    circuit:[
-        "Wider Northern Circuit",
-        "Ngorongoro can become one part of a broader journey including destinations such as Serengeti or Tarangire."
-    ]
-
+const monthData={
+January:["Green season","Lush scenery and active birdlife make this a rewarding month for travelers who enjoy greener landscapes."],
+February:["Green season","Vegetation remains rich and birding is strong, with wildlife viewing continuing across the park."],
+March:["Green season","Rain can affect some travel days, but the landscape is vibrant and atmospheric."],
+April:["Wet season","Expect wetter conditions and lush scenery. Flexible scheduling is especially useful."],
+May:["Transition","The landscape begins drying and conditions become more favorable for classic wildlife viewing."],
+June:["Dry season begins","Drier conditions can improve visibility and wildlife concentration around water."],
+July:["Dry season","A strong month for game drives, with open vegetation and generally favorable safari conditions."],
+August:["Dry season","Wildlife is often easier to spot around dependable water sources in the drier landscape."],
+September:["Dry season","Warm, dry conditions support classic safari viewing across the floodplain and woodland."],
+October:["Dry season","A strong period for wildlife viewing before seasonal rains begin to return."],
+November:["Seasonal transition","Early rains can refresh the landscape and bring renewed bird activity."],
+December:["Green season","Fresh vegetation and seasonal rain create greener scenery and active birdlife."]
 };
-
-selectorButtons.forEach(function(button){
-
-    button.addEventListener("click", function(){
-
-        selectorButtons.forEach(function(item){
-
-            item.classList.remove("active");
-
-        });
-
-        button.classList.add("active");
-
-        const style =
-        button.dataset.style;
-
-        selectorTitle.textContent =
-        experienceData[style][0];
-
-        selectorText.textContent =
-        experienceData[style][1];
-
-        selectorResult.classList.add("show");
-
-        if(typeof gtag === "function"){
-
-            gtag(
-                "event",
-                "ngorongoro_experience_select",
-                {
-                    experience_style:style
-                }
-            );
-
-        }
-
-    });
-
+const months=document.getElementById("months"),info=document.getElementById("monthInfo");
+Object.keys(monthData).forEach((m,i)=>{
+const b=document.createElement("button");b.className="month"+(i===0?" active":"");b.textContent=m;
+b.onclick=()=>{document.querySelectorAll(".month").forEach(x=>x.classList.remove("active"));b.classList.add("active");showMonth(m)};
+months.appendChild(b);
 });
-
-
-/* =========================================
-   BEST TIME TOOL
-========================================= */
-
-const info = {
-
-January:[
-"Green-season planning",
-"A lush period for scenery and wildlife, with changing weather conditions."
-],
-
-February:[
-"Green-season planning",
-"A useful period for greener landscapes and wildlife-focused northern circuit trips."
-],
-
-March:[
-"Changing conditions",
-"Wetter conditions can occur, so flexible planning is useful."
-],
-
-April:[
-"Wetter period",
-"Often wetter, making flexible schedules and appropriate planning important."
-],
-
-May:[
-"Transition period",
-"Green landscapes can remain attractive while conditions vary."
-],
-
-June:[
-"Dry-season planning",
-"A popular period for northern Tanzania travel, with generally drier conditions."
-],
-
-July:[
-"Popular safari period",
-"A busy travel period with strong wildlife-focused planning opportunities."
-],
-
-August:[
-"Popular safari period",
-"A widely chosen month for northern circuit travel and wildlife viewing."
-],
-
-September:[
-"Dry-season planning",
-"Often useful for safari planning, although exact conditions vary."
-],
-
-October:[
-"Dry-season planning",
-"A useful month for wildlife-focused travel before seasonal rains become more influential."
-],
-
-November:[
-"Short-rain season",
-"Greener scenery returns, while rainfall can be variable."
-],
-
-December:[
-"Holiday-season planning",
-"A popular travel period with changing weather and a lively northern Tanzania circuit."
-]
-
-};
-
-const month =
-document.getElementById("month");
-
-const result =
-document.getElementById("result");
-
-month.addEventListener("change", function(e){
-
-    const selected =
-    e.target.value;
-
-    const data =
-    info[selected];
-
-    if(data){
-
-        result.innerHTML =
-        "<strong>" +
-        data[0] +
-        "</strong>" +
-        "<span>" +
-        data[1] +
-        "</span>";
-
-        if(typeof gtag === "function"){
-
-            gtag(
-                "event",
-                "ngorongoro_best_time_select",
-                {
-                    month:selected
-                }
-            );
-
-        }
-
-    } else {
-
-        result.innerHTML =
-        "<strong>Select a month</strong>" +
-        "<span>Your Ngorongoro planning guidance will appear here.</span>";
-
-    }
-
-});
-
-
-/* =========================================
-   NGORONGORO PLANNER
-========================================= */
-
-(function(){
-
-const steps =
-document.querySelectorAll(".planStep");
-
-const options =
-document.querySelectorAll(".planOption");
-
-const next =
-document.getElementById("planNext");
-
-const back =
-document.getElementById("planBack");
-
-const progress =
-document.getElementById("progressBar");
-
-const planResult =
-document.getElementById("planResult");
-
-const answers = {
-
-    purpose:"",
-    group:"",
-    duration:"",
-    extension:""
-
-};
-
-let currentStep = 1;
-
-
-/* SELECT OPTION */
-
-options.forEach(function(option){
-
-    option.addEventListener("click", function(){
-
-        const question =
-        option.dataset.question;
-
-        options.forEach(function(item){
-
-            if(item.dataset.question === question){
-
-                item.classList.remove("selected");
-
-            }
-
-        });
-
-        option.classList.add("selected");
-
-        answers[question] =
-        option.dataset.value;
-
-    });
-
-});
-
-
-/* SHOW STEP */
-
-function showStep(step){
-
-    steps.forEach(function(item){
-
-        item.classList.toggle(
-            "active",
-            Number(item.dataset.step) === step
-        );
-
-    });
-
-    progress.style.width =
-    ((step / 4) * 100) + "%";
-
-    back.style.visibility =
-    step === 1 ? "hidden" : "visible";
-
-    next.textContent =
-    step === 4
-        ? "Build My Plan"
-        : "Continue";
-
+function showMonth(m){
+  info.innerHTML="<div><strong>"+m+" · "+monthData[m][0]+"</strong><br><span>"+monthData[m][1]+"</span></div>";
 }
-
-
-/* NEXT */
-
-next.addEventListener("click", function(){
-
-    const current =
-    steps[currentStep - 1];
-
-    const firstOption =
-    current.querySelector(".planOption");
-
-    const questionName =
-    firstOption.dataset.question;
-
-    if(!answers[questionName]){
-
-        alert("Please choose an option first.");
-
-        return;
-
-    }
-
-    if(currentStep < 4){
-
-        currentStep++;
-
-        showStep(currentStep);
-
-        return;
-
-    }
-
-    buildResult();
-
-});
-
-
-/* BACK */
-
-back.addEventListener("click", function(){
-
-    if(currentStep > 1){
-
-        currentStep--;
-
-        showStep(currentStep);
-
-    }
-
-});
-
-
-/* BUILD RESULT */
-
-function buildResult(){
-
-    document.getElementById("summaryPurpose")
-        .textContent =
-        answers.purpose;
-
-    document.getElementById("summaryGroup")
-        .textContent =
-        answers.group;
-
-    document.getElementById("summaryDuration")
-        .textContent =
-        answers.duration;
-
-    document.getElementById("summaryExtension")
-        .textContent =
-        answers.extension;
-
-    planResult.classList.add("show");
-
-    planResult.scrollIntoView({
-        behavior:"smooth",
-        block:"center"
-    });
-
-    if(typeof gtag === "function"){
-
-        gtag(
-            "event",
-            "ngorongoro_safari_planner_complete",
-            {
-                purpose:answers.purpose,
-                group_size:answers.group,
-                duration:answers.duration,
-                extension:answers.extension
-            }
-        );
-
-    }
-
-}
-
-
-/* BOOKING TRACKING */
-
-document
-.getElementById("plannerBooking")
-.addEventListener("click", function(){
-
-    if(typeof gtag === "function"){
-
-        gtag(
-            "event",
-            "ngorongoro_planner_booking_click"
-        );
-
-    }
-
-});
-
-
-/* WHATSAPP TRACKING */
-
-document
-.getElementById("plannerWhatsApp")
-.addEventListener("click", function(){
-
-    if(typeof gtag === "function"){
-
-        gtag(
-            "event",
-            "ngorongoro_planner_whatsapp_click"
-        );
-
-    }
-
-});
-
-
-showStep(1);
-
-})();
-
-
-/* =========================================
-   FAQ
-========================================= */
-
-document
-.querySelectorAll(".faqQuestion")
-.forEach(function(question){
-
-    question.addEventListener("click", function(){
-
-        const item =
-        question.parentElement;
-
-        const wasOpen =
-        item.classList.contains("open");
-
-        document
-        .querySelectorAll(".faqItem")
-        .forEach(function(other){
-
-            other.classList.remove("open");
-
-            const symbol =
-            other.querySelector(
-                ".faqQuestion span"
-            );
-
-            if(symbol){
-                symbol.textContent = "+";
-            }
-
-        });
-
-        if(!wasOpen){
-
-            item.classList.add("open");
-
-            const symbol =
-            question.querySelector(
-                "span"
-            );
-
-            if(symbol){
-                symbol.textContent = "−";
-            }
-
-            if(typeof gtag === "function"){
-
-                gtag(
-                    "event",
-                    "ngorongoro_faq_open",
-                    {
-                        question:
-                        question.innerText
-                        .replace("+","")
-                        .replace("−","")
-                        .trim()
-                    }
-                );
-
-            }
-
-        }
-
-    });
-
-});
-
+showMonth("January");
 </script>
 
 
@@ -3169,7 +669,7 @@ document
         </div>
         <div class="aman-ai-brandtext">
           <strong>Aman Safari AI</strong>
-          <span>Ngorongoro Conservation Area specialist</span>
+          <span>Mikumi National Park specialist</span>
         </div>
       </div>
       <button class="aman-ai-close" id="amanAiClose" type="button" aria-label="Close Safari AI">×</button>
@@ -3183,11 +683,11 @@ document
   <div class="aman-ai-messages" id="amanAiMessages" aria-live="polite">
     <div class="aman-ai-msg bot aman-ai-welcome">
       <strong>Jambo! 👋</strong>
-      Ask me about Ngorongoro Conservation Area, Tanzania travel planning, seasons or your safari.
+      Ask me about Mikumi National Park, Tanzania travel planning, seasons or your safari.
       <div class="aman-ai-quick">
-        <button type="button" data-ai-quick="What is the best time to visit Ngorongoro?">Best Time</button>
-<button type="button" data-ai-quick="What should I know before visiting Ngorongoro Crater?">Crater Visit</button>
-<button type="button" data-ai-quick="How can I combine Ngorongoro with Serengeti and Tarangire?">Safari Plan</button>
+        <button type="button" data-ai-quick="What is the best time to visit Mikumi National Park?">Best Time</button>
+<button type="button" data-ai-quick="How do I get to Mikumi National Park?">Getting There</button>
+<button type="button" data-ai-quick="What wildlife can I see in Mikumi?">Wildlife</button>
       </div>
     </div>
   </div>
@@ -3211,11 +711,12 @@ document
 
 <script>
 /* =========================================
-   AMAN SAFARI — LIVE SAFARI AI BACKEND
+   AMAN SAFARI — PUBLIC SAFARI AI CONNECTION
+   Keeps this page's existing widget/icon.
    ========================================= */
 (() => {
-  const API_URL = "https://amanai-mdtj.onrender.com/chat";
-  const PAGE_CONTEXT = "Ngorongoro Conservation Area";
+  const API_URL = "https://amanai-mdtj.onrender.com/chat/safari-public";
+  const DESTINATION_CONTEXT = "Mikumi National Park";
 
   const launcher = document.getElementById("amanAiLauncher");
   const panel = document.getElementById("amanAiPanel");
@@ -3228,23 +729,72 @@ document
 
   if (!launcher || !panel || !messages || !form || !input || !sendBtn) return;
 
-  const makeId = prefix =>
-    prefix + "_" + Date.now() + "_" + Math.random().toString(36).slice(2,8);
+  const makeId = prefix => {
+    if (window.crypto && typeof window.crypto.randomUUID === "function") {
+      return prefix + "_" + window.crypto.randomUUID();
+    }
+    return prefix + "_" + Date.now() + "_" + Math.random().toString(36).slice(2,10);
+  };
 
-  const userKey = "amanSafariWebUserId";
-  const chatKey = "amanSafariWebChatId";
+  const USER_KEY = "amanSafariUserId";
+  const CHAT_KEY = "amanSafariChatId";
+  const HISTORY_KEY = "amanSafariHistory";
 
-  let userId = localStorage.getItem(userKey);
-  if (!userId) {
-    userId = makeId("web");
-    localStorage.setItem(userKey,userId);
+  // Migrate old website visitor keys once so existing visitors keep continuity.
+  let userId =
+    localStorage.getItem(USER_KEY) ||
+    localStorage.getItem("amanSafariWebUserId") ||
+    makeId("web");
+
+  let chatId =
+    localStorage.getItem(CHAT_KEY) ||
+    localStorage.getItem("amanSafariWebChatId") ||
+    makeId("chat");
+
+  localStorage.setItem(USER_KEY, userId);
+  localStorage.setItem(CHAT_KEY, chatId);
+
+  let history = [];
+  try {
+    const saved = JSON.parse(localStorage.getItem(HISTORY_KEY) || "[]");
+    if (Array.isArray(saved)) history = saved.slice(-20);
+  } catch (_) {
+    history = [];
   }
 
-  let chatId = localStorage.getItem(chatKey) || "";
   let sending = false;
 
-  const track = (name,params={}) => {
-    if (typeof gtag === "function") gtag("event",name,params);
+  const getPageContext = () => {
+    const title = document.title || DESTINATION_CONTEXT;
+    const heading = document.querySelector("h1")?.textContent?.trim() || "";
+    const description =
+      document.querySelector('meta[name="description"]')?.getAttribute("content")?.trim() || "";
+
+    return [
+      "Aman Safari Tanzania destination page.",
+      "Destination: " + DESTINATION_CONTEXT,
+      "Page title: " + title,
+      "Page path: " + window.location.pathname,
+      heading ? "Main heading: " + heading : "",
+      description ? "Page description: " + description : "",
+      "Answer the visitor with this destination as the current page context unless they clearly ask about another destination."
+    ].filter(Boolean).join("\n");
+  };
+
+  const saveHistory = () => {
+    history = history.slice(-20);
+    try {
+      localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+    } catch (_) {}
+  };
+
+  const track = (name, params = {}) => {
+    if (typeof gtag === "function") {
+      gtag("event", name, {
+        page: DESTINATION_CONTEXT,
+        ...params
+      });
+    }
   };
 
   const scrollBottom = () => {
@@ -3253,10 +803,10 @@ document
     });
   };
 
-  const addMessage = (text,sender) => {
+  const addMessage = (text, sender) => {
     const bubble = document.createElement("div");
     bubble.className = "aman-ai-msg " + sender;
-    bubble.textContent = text;
+    bubble.textContent = String(text || "");
     messages.appendChild(bubble);
     scrollBottom();
   };
@@ -3264,7 +814,7 @@ document
   const setTyping = visible => {
     if (!typing) return;
     typing.style.display = visible ? "flex" : "none";
-    typing.setAttribute("aria-hidden",visible ? "false" : "true");
+    typing.setAttribute("aria-hidden", visible ? "false" : "true");
     if (visible) scrollBottom();
   };
 
@@ -3276,55 +826,62 @@ document
 
   const openChat = () => {
     panel.classList.add("active");
-    launcher.setAttribute("aria-expanded","true");
+    launcher.setAttribute("aria-expanded", "true");
+
     if (window.matchMedia("(max-width:650px)").matches) {
       document.body.classList.add("aman-ai-mobile-open");
     }
-    setTimeout(() => input.focus(),120);
-    track("safari_ai_open",{page:PAGE_CONTEXT});
+
+    setTimeout(() => input.focus(), 120);
+    track("safari_ai_open");
     scrollBottom();
   };
 
   const closeChat = () => {
     panel.classList.remove("active");
-    launcher.setAttribute("aria-expanded","false");
+    launcher.setAttribute("aria-expanded", "false");
     document.body.classList.remove("aman-ai-mobile-open");
   };
 
-  launcher.addEventListener("click",() => {
+  launcher.addEventListener("click", () => {
     panel.classList.contains("active") ? closeChat() : openChat();
   });
 
-  if (closeBtn) closeBtn.addEventListener("click",closeChat);
+  if (closeBtn) closeBtn.addEventListener("click", closeChat);
 
-  document.addEventListener("keydown",event => {
-    if (event.key === "Escape" && panel.classList.contains("active")) closeChat();
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && panel.classList.contains("active")) {
+      closeChat();
+    }
   });
 
-  async function sendMessage(forcedText=null) {
-    const visitorText = String(forcedText || input.value || "").trim();
+  async function sendMessage(forcedText = null) {
+    const visitorText = String(forcedText ?? input.value ?? "").trim();
     if (!visitorText || sending) return;
 
-    addMessage(visitorText,"user");
+    const requestHistory = history.slice(-8);
+
+    addMessage(visitorText, "user");
+    history.push({ role: "user", content: visitorText });
+    saveHistory();
+
     input.value = "";
     setSending(true);
     setTyping(true);
-    track("safari_ai_message",{page:PAGE_CONTEXT});
-
-    const backendMessage =
-      "Aman Safari Tanzania website visitor currently viewing " +
-      PAGE_CONTEXT +
-      ". Visitor message: " +
-      visitorText;
+    track("safari_ai_message");
 
     try {
-      const response = await fetch(API_URL,{
-        method:"POST",
-        headers:{"Content-Type":"application/json"},
-        body:JSON.stringify({
+      const response = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
           userId,
-          chatId:chatId || undefined,
-          message:backendMessage
+          chatId,
+          message: visitorText,
+          pageContext: getPageContext(),
+          history: requestHistory
         })
       });
 
@@ -3334,42 +891,50 @@ document
         throw new Error(data.error || "Safari AI unavailable");
       }
 
+      const reply =
+        data.reply ||
+        "I could not prepare a reply just now. Please try again.";
+
+      addMessage(reply, "bot");
+      history.push({ role: "assistant", content: reply });
+      saveHistory();
+
       if (data.chatId) {
-        chatId = data.chatId;
-        localStorage.setItem(chatKey,chatId);
+        chatId = String(data.chatId);
+        localStorage.setItem(CHAT_KEY, chatId);
       }
 
-      addMessage(
-        data.reply || "I could not prepare a reply just now. Please try again.",
-        "bot"
-      );
-
     } catch (error) {
-      console.error("Aman Safari AI error:",error);
+      console.error("Aman Safari AI error:", error);
+
       addMessage(
         "I’m having trouble reaching Safari AI right now. Please try again, or use WhatsApp for trip planning.",
         "bot"
       );
-      track("safari_ai_error",{page:PAGE_CONTEXT});
+
+      track("safari_ai_error");
     } finally {
       setTyping(false);
       setSending(false);
-      if (panel.classList.contains("active")) input.focus();
+
+      if (panel.classList.contains("active")) {
+        input.focus();
+      }
     }
   }
 
-  form.addEventListener("submit",event => {
+  form.addEventListener("submit", event => {
     event.preventDefault();
     sendMessage();
   });
 
-  messages.addEventListener("click",event => {
+  messages.addEventListener("click", event => {
     const button = event.target.closest("[data-ai-quick]");
     if (!button) return;
     sendMessage(button.dataset.aiQuick);
   });
 
-  window.addEventListener("resize",() => {
+  window.addEventListener("resize", () => {
     if (!window.matchMedia("(max-width:650px)").matches) {
       document.body.classList.remove("aman-ai-mobile-open");
     } else if (panel.classList.contains("active")) {
