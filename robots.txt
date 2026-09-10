@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://amansafaritanzania.github.io/aman-safari/sitemap.xml
