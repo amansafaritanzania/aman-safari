@@ -605,11 +605,12 @@ r.innerHTML=v?`<strong>${v[0]}</strong><span>${v[1]}</span>`:`<strong>Select a m
 
 <script>
 /* =========================================
-   AMAN SAFARI — LIVE SAFARI AI BACKEND
+   AMAN SAFARI — PUBLIC SAFARI AI CONNECTION
+   Keeps this page's existing widget/icon.
    ========================================= */
 (() => {
-  const API_URL = "https://amanai-mdtj.onrender.com/chat";
-  const PAGE_CONTEXT = "Tarangire National Park";
+  const API_URL = "https://amanai-mdtj.onrender.com/chat/safari-public";
+  const DESTINATION_CONTEXT = "Tarangire National Park";
 
   const launcher = document.getElementById("amanAiLauncher");
   const panel = document.getElementById("amanAiPanel");
@@ -622,23 +623,72 @@ r.innerHTML=v?`<strong>${v[0]}</strong><span>${v[1]}</span>`:`<strong>Select a m
 
   if (!launcher || !panel || !messages || !form || !input || !sendBtn) return;
 
-  const makeId = prefix =>
-    prefix + "_" + Date.now() + "_" + Math.random().toString(36).slice(2,8);
+  const makeId = prefix => {
+    if (window.crypto && typeof window.crypto.randomUUID === "function") {
+      return prefix + "_" + window.crypto.randomUUID();
+    }
+    return prefix + "_" + Date.now() + "_" + Math.random().toString(36).slice(2, 10);
+  };
 
-  const userKey = "amanSafariWebUserId";
-  const chatKey = "amanSafariWebChatId";
+  const USER_KEY = "amanSafariUserId";
+  const CHAT_KEY = "amanSafariChatId";
+  const HISTORY_KEY = "amanSafariHistory";
 
-  let userId = localStorage.getItem(userKey);
-  if (!userId) {
-    userId = makeId("web");
-    localStorage.setItem(userKey,userId);
+  // Migrate the old visitor keys so existing visitors keep continuity.
+  let userId =
+    localStorage.getItem(USER_KEY) ||
+    localStorage.getItem("amanSafariWebUserId") ||
+    makeId("web");
+
+  let chatId =
+    localStorage.getItem(CHAT_KEY) ||
+    localStorage.getItem("amanSafariWebChatId") ||
+    makeId("chat");
+
+  localStorage.setItem(USER_KEY, userId);
+  localStorage.setItem(CHAT_KEY, chatId);
+
+  let history = [];
+  try {
+    const saved = JSON.parse(localStorage.getItem(HISTORY_KEY) || "[]");
+    if (Array.isArray(saved)) history = saved.slice(-20);
+  } catch (_) {
+    history = [];
   }
 
-  let chatId = localStorage.getItem(chatKey) || "";
   let sending = false;
 
-  const track = (name,params={}) => {
-    if (typeof gtag === "function") gtag("event",name,params);
+  const getPageContext = () => {
+    const title = document.title || DESTINATION_CONTEXT;
+    const heading = document.querySelector("h1")?.textContent?.trim() || "";
+    const description =
+      document.querySelector('meta[name="description"]')?.getAttribute("content")?.trim() || "";
+
+    return [
+      "Aman Safari Tanzania destination page.",
+      "Destination: " + DESTINATION_CONTEXT,
+      "Page title: " + title,
+      "Page path: " + window.location.pathname,
+      heading ? "Main heading: " + heading : "",
+      description ? "Page description: " + description : "",
+      "Answer with this destination as the current page context unless the visitor clearly asks about another destination."
+    ].filter(Boolean).join("\n");
+  };
+
+  const saveHistory = () => {
+    history = history.slice(-20);
+    try {
+      localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+    } catch (_) {}
+  };
+
+  const track = (name, params = {}) => {
+    if (typeof gtag === "function") {
+      gtag("event", name, {
+        page: DESTINATION_CONTEXT,
+        ...params
+      });
+    }
   };
 
   const scrollBottom = () => {
@@ -647,10 +697,10 @@ r.innerHTML=v?`<strong>${v[0]}</strong><span>${v[1]}</span>`:`<strong>Select a m
     });
   };
 
-  const addMessage = (text,sender) => {
+  const addMessage = (text, sender) => {
     const bubble = document.createElement("div");
     bubble.className = "aman-ai-msg " + sender;
-    bubble.textContent = text;
+    bubble.textContent = String(text || "");
     messages.appendChild(bubble);
     scrollBottom();
   };
@@ -658,7 +708,7 @@ r.innerHTML=v?`<strong>${v[0]}</strong><span>${v[1]}</span>`:`<strong>Select a m
   const setTyping = visible => {
     if (!typing) return;
     typing.style.display = visible ? "flex" : "none";
-    typing.setAttribute("aria-hidden",visible ? "false" : "true");
+    typing.setAttribute("aria-hidden", visible ? "false" : "true");
     if (visible) scrollBottom();
   };
 
@@ -670,55 +720,62 @@ r.innerHTML=v?`<strong>${v[0]}</strong><span>${v[1]}</span>`:`<strong>Select a m
 
   const openChat = () => {
     panel.classList.add("active");
-    launcher.setAttribute("aria-expanded","true");
+    launcher.setAttribute("aria-expanded", "true");
+
     if (window.matchMedia("(max-width:650px)").matches) {
       document.body.classList.add("aman-ai-mobile-open");
     }
-    setTimeout(() => input.focus(),120);
-    track("safari_ai_open",{page:PAGE_CONTEXT});
+
+    setTimeout(() => input.focus(), 120);
+    track("safari_ai_open");
     scrollBottom();
   };
 
   const closeChat = () => {
     panel.classList.remove("active");
-    launcher.setAttribute("aria-expanded","false");
+    launcher.setAttribute("aria-expanded", "false");
     document.body.classList.remove("aman-ai-mobile-open");
   };
 
-  launcher.addEventListener("click",() => {
+  launcher.addEventListener("click", () => {
     panel.classList.contains("active") ? closeChat() : openChat();
   });
 
-  if (closeBtn) closeBtn.addEventListener("click",closeChat);
+  if (closeBtn) closeBtn.addEventListener("click", closeChat);
 
-  document.addEventListener("keydown",event => {
-    if (event.key === "Escape" && panel.classList.contains("active")) closeChat();
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && panel.classList.contains("active")) {
+      closeChat();
+    }
   });
 
-  async function sendMessage(forcedText=null) {
-    const visitorText = String(forcedText || input.value || "").trim();
+  async function sendMessage(forcedText = null) {
+    const visitorText = String(forcedText ?? input.value ?? "").trim();
     if (!visitorText || sending) return;
 
-    addMessage(visitorText,"user");
+    const requestHistory = history.slice(-8);
+
+    addMessage(visitorText, "user");
+    history.push({ role: "user", content: visitorText });
+    saveHistory();
+
     input.value = "";
     setSending(true);
     setTyping(true);
-    track("safari_ai_message",{page:PAGE_CONTEXT});
-
-    const backendMessage =
-      "Aman Safari Tanzania website visitor currently viewing " +
-      PAGE_CONTEXT +
-      ". Visitor message: " +
-      visitorText;
+    track("safari_ai_message");
 
     try {
-      const response = await fetch(API_URL,{
-        method:"POST",
-        headers:{"Content-Type":"application/json"},
-        body:JSON.stringify({
+      const response = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
           userId,
-          chatId:chatId || undefined,
-          message:backendMessage
+          chatId,
+          message: visitorText,
+          pageContext: getPageContext(),
+          history: requestHistory
         })
       });
 
@@ -728,42 +785,50 @@ r.innerHTML=v?`<strong>${v[0]}</strong><span>${v[1]}</span>`:`<strong>Select a m
         throw new Error(data.error || "Safari AI unavailable");
       }
 
+      const reply =
+        data.reply ||
+        "I could not prepare a reply just now. Please try again.";
+
+      addMessage(reply, "bot");
+      history.push({ role: "assistant", content: reply });
+      saveHistory();
+
       if (data.chatId) {
-        chatId = data.chatId;
-        localStorage.setItem(chatKey,chatId);
+        chatId = String(data.chatId);
+        localStorage.setItem(CHAT_KEY, chatId);
       }
 
-      addMessage(
-        data.reply || "I could not prepare a reply just now. Please try again.",
-        "bot"
-      );
-
     } catch (error) {
-      console.error("Aman Safari AI error:",error);
+      console.error("Aman Safari AI error:", error);
+
       addMessage(
         "I’m having trouble reaching Safari AI right now. Please try again, or use WhatsApp for trip planning.",
         "bot"
       );
-      track("safari_ai_error",{page:PAGE_CONTEXT});
+
+      track("safari_ai_error");
     } finally {
       setTyping(false);
       setSending(false);
-      if (panel.classList.contains("active")) input.focus();
+
+      if (panel.classList.contains("active")) {
+        input.focus();
+      }
     }
   }
 
-  form.addEventListener("submit",event => {
+  form.addEventListener("submit", event => {
     event.preventDefault();
     sendMessage();
   });
 
-  messages.addEventListener("click",event => {
+  messages.addEventListener("click", event => {
     const button = event.target.closest("[data-ai-quick]");
     if (!button) return;
     sendMessage(button.dataset.aiQuick);
   });
 
-  window.addEventListener("resize",() => {
+  window.addEventListener("resize", () => {
     if (!window.matchMedia("(max-width:650px)").matches) {
       document.body.classList.remove("aman-ai-mobile-open");
     } else if (panel.classList.contains("active")) {
