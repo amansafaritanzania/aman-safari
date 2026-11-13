@@ -1,0 +1,19 @@
+AMAN SAFARI TANZANIA — WEBSITE UPDATE NOTES
+
+UPDATED FILES
+- index.html: enquiry form now redirects to a dedicated confirmation page, includes a honeypot field, and no longer disables the form provider's default spam protection.
+- booking.html: rebuilt as a mobile-friendly detailed enquiry page; includes all ten destination choices, flexible travel-date entry, optional trip preferences, legacy destination-link support, and a dedicated success redirect.
+- pay.html: rebuilt as a clearer payment-information and payment-confirmation page. It no longer publishes personal recipient/account details; customers are directed to verify current payment instructions against their written itinerary and through the official contact channel.
+- booking-thank-you.html: acknowledgement page for enquiries.
+- payment-thank-you.html: acknowledgement page that clearly says payment still requires review.
+- .gitignore and assets/aman-safari-backend/.env.example: safer handling of environment files.
+
+IMPORTANT BEFORE PUBLISHING
+1. The uploaded archive contained a non-empty OPENAI_API_KEY value in assets/aman-safari-backend/.env. That file has been deliberately excluded from this updated ZIP. Treat the old key as exposed: the adult account owner should revoke it with the API provider and create a replacement before using the backend. Never put a live key in GitHub or browser JavaScript.
+2. The backend folder is legacy code and was not repaired or deployed in this website update. Do not deploy it as production backend until its dependencies, CORS policy, validation, and API behavior have been reviewed separately.
+3. The FormSubmit recipient email remains the address already configured in the project. The account owner must verify/activate that address with FormSubmit if it has not already been activated, then submit test enquiries from a phone and a desktop browser.
+4. Payment recipient details were removed from the public payment page for safety. The adult account holder must verify the business's approved payment methods and issue current recipient details privately with each confirmed itinerary/invoice. Do not publish a personal account unless the account holder has explicitly approved it for business use.
+5. This ZIP is a prepared source update only. It has not been uploaded to GitHub Pages and the live website has not been changed.
+
+PUBLISHING
+After the account owner reviews and approves the payment workflow, replace the matching files in the GitHub Pages repository root with these versions. Keep the existing images and other destination files. Then test: homepage enquiry, detailed booking enquiry, mobile menu, payment-instruction WhatsApp link, and payment-confirmation submission.

@@ -703,6 +703,8 @@ document.addEventListener('click', function(event) {
 
     .booking-form textarea { min-height: 100px; resize: vertical; }
 
+    .form-honeypot { position:absolute!important; left:-10000px!important; top:auto!important; width:1px!important; height:1px!important; overflow:hidden!important; }
+
     .form-message {
       display: none;
       padding: 12px;
@@ -2427,10 +2429,13 @@ input,select,textarea,button{max-width:100%}
             </div>
           </div>
 
-          <form class="booking-form" id="bookingForm" action="https://formsubmit.co/amannelson824@gmail.com" method="POST">
+          <form class="booking-form" id="bookingForm" action="https://formsubmit.co/amannelson824@gmail.com" method="POST" accept-charset="UTF-8">
             <input type="hidden" name="_subject" value="New Aman Safari Website Inquiry">
-            <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://amansafaritanzania.github.io/aman-safari/booking-thank-you.html">
+            <input type="hidden" name="_replyto" value="">
+            <input type="hidden" name="_url" value="https://amansafaritanzania.github.io/aman-safari/index.html">
+            <div class="form-honeypot" aria-hidden="true"><label for="plannerWebsite">Leave this field empty</label><input id="plannerWebsite" type="text" name="_honey" tabindex="-1" autocomplete="off"></div>
 
             <div>
               <label for="name">Full name</label>
@@ -2478,8 +2483,8 @@ input,select,textarea,button{max-width:100%}
 
             <button class="btn btn-gold" type="submit">Request My Safari Plan <i class="fa-solid fa-paper-plane"></i></button>
 
-            <div class="form-message" id="formMessage">
-              Thank you. Your inquiry is ready to be sent. We will follow up using the contact details you provided.
+            <div class="form-message" id="formMessage" role="status" aria-live="polite">
+              Submitting your enquiry. Please wait for the confirmation page before closing this tab.
             </div>
           </form>
 
@@ -3005,6 +3010,10 @@ input,select,textarea,button{max-width:100%}
     bookingForm.addEventListener(
         "submit",
         () => {
+
+            const replyTo = bookingForm.querySelector('[name="_replyto"]');
+            const emailInput = bookingForm.querySelector('[name="email"]');
+            if (replyTo && emailInput) replyTo.value = emailInput.value.trim();
 
             formMessage.style.display =
                 "block";
