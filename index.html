@@ -52,6 +52,15 @@ document.addEventListener('click', function(event) {
     }
 
 
+    /* Featured safari package */
+
+    else if (href.includes('northern-circuit-safari.html')) {
+
+        eventName = 'package_click';
+
+    }
+
+
     /* Booking */
 
     else if (
@@ -106,7 +115,7 @@ document.addEventListener('click', function(event) {
 <!-- END AMAN SAFARI ANALYTICS -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Aman Safari Tanzania — thoughtfully planned private safaris, Kilimanjaro climbs and tailor-made Tanzania journeys.">
+  <meta name="description" content="Explore Tanzania with Aman Safari. Discover the 6-day Northern Circuit safari through Tarangire, Serengeti and Ngorongoro, plus tailor-made journeys.">
   <title>Aman Safari Tanzania | Private Safaris & Kilimanjaro</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -2115,6 +2124,142 @@ input,select,textarea,button{max-width:100%}
   }
 }
 
+
+
+    /* FEATURED SAFARI PACKAGE */
+    .featured-safari {
+      padding: 84px 0;
+      background: var(--cream);
+    }
+
+    .featured-safari-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+      border-radius: 24px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .featured-safari-image {
+      position: relative;
+      min-height: 430px;
+      overflow: hidden;
+      background: var(--green);
+    }
+
+    .featured-safari-image img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .featured-safari-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(8,20,13,.58), transparent 58%);
+    }
+
+    .featured-safari-image-label {
+      position: absolute;
+      z-index: 1;
+      left: 28px;
+      bottom: 25px;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .featured-safari-copy {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: clamp(30px, 5vw, 60px);
+    }
+
+    .featured-safari-copy h2 {
+      color: var(--green);
+      font-size: clamp(38px, 4.5vw, 58px);
+      font-weight: 500;
+      margin-bottom: 14px;
+    }
+
+    .featured-safari-copy > p {
+      max-width: 510px;
+      margin-bottom: 22px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .featured-safari-facts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-bottom: 20px;
+    }
+
+    .featured-safari-fact {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: #f2ede4;
+      color: var(--green);
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .featured-safari-fact i { color: var(--gold-dark); }
+
+    .featured-safari-route {
+      margin-bottom: 24px;
+      color: var(--green-2);
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.8;
+    }
+
+    .featured-safari-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 17px;
+    }
+
+    .featured-safari-quote-link {
+      padding-bottom: 3px;
+      border-bottom: 1px solid var(--gold);
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .featured-safari-quote-link:hover { color: var(--gold-dark); }
+
+    @media (max-width: 760px) {
+      .featured-safari { padding: 58px 0; }
+      .featured-safari-card { grid-template-columns: 1fr; }
+      .featured-safari-image { min-height: 270px; }
+      .featured-safari-image-label { left: 20px; bottom: 19px; }
+      .featured-safari-copy { padding: 30px 24px; }
+      .featured-safari-copy h2 { font-size: 42px; }
+      .featured-safari-actions {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .featured-safari-actions .btn { width: 100%; }
+      .featured-safari-quote-link { align-self: center; }
+    }
+
 </style>
 </head>
 
@@ -2159,6 +2304,7 @@ input,select,textarea,button{max-width:100%}
             Safari Planning <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
           </button>
           <div class="nav-dropdown small">
+            <a href="northern-circuit-safari.html">6-Day Northern Circuit Safari</a>
             <a href="#best-time">Best Time</a>
             <a href="#planner">Plan My Safari</a>
             <a href="booking.html">Booking</a>
@@ -2177,7 +2323,6 @@ input,select,textarea,button{max-width:100%}
 
         <a href="booking.html" class="nav-direct">Booking</a>
         <a href="pay.html" class="nav-direct">Payments</a>
-        <a href="northern-circuit-safari.html">6-Day Northern Circuit Safari</a>
       </nav>
     </div>
   </header>
@@ -2222,6 +2367,51 @@ input,select,textarea,button{max-width:100%}
         <div class="trust-item">
           <strong>Human Support</strong>
           <span>Clear communication before travel</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         FEATURED SAFARI PACKAGE
+    ========================== -->
+    <section class="featured-safari" aria-labelledby="featuredSafariTitle">
+      <div class="container">
+        <div class="featured-safari-card">
+          <div class="featured-safari-image">
+            <img src="serengeti.jpg" alt="Wide open plains of Serengeti National Park" loading="lazy"
+                 onerror="this.src='tarangire.jpg'">
+            <span class="featured-safari-image-label">Northern Tanzania</span>
+          </div>
+
+          <div class="featured-safari-copy">
+            <div class="eyebrow">Featured journey</div>
+            <h2 id="featuredSafariTitle">The 6-Day Northern Circuit Safari</h2>
+            <p>
+              Discover Tarangire, the Serengeti and Ngorongoro on a six-day journey
+              starting and ending in Arusha. Explore the day-by-day route and choose
+              an accommodation style that suits your trip.
+            </p>
+
+            <div class="featured-safari-facts" aria-label="Safari details">
+              <span class="featured-safari-fact"><i class="fa-regular fa-calendar" aria-hidden="true"></i> 6 days / 5 nights</span>
+              <span class="featured-safari-fact"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Start and finish in Arusha</span>
+              <span class="featured-safari-fact"><i class="fa-solid fa-bed" aria-hidden="true"></i> Budget to luxury stays</span>
+            </div>
+
+            <div class="featured-safari-route" aria-label="Safari route">
+              Arusha <span aria-hidden="true">→</span> Tarangire <span aria-hidden="true">→</span>
+              Serengeti <span aria-hidden="true">→</span> Ngorongoro
+            </div>
+
+            <div class="featured-safari-actions">
+              <a class="btn btn-gold" href="northern-circuit-safari.html">
+                Explore the itinerary <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </a>
+              <a class="featured-safari-quote-link" href="booking.html?destination=Multiple%20destinations">
+                Request a personalised quote
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -2540,6 +2730,7 @@ input,select,textarea,button{max-width:100%}
       <div>
         <h4>Explore</h4>
         <p><a href="#destinations">Destinations</a></p>
+        <p><a href="northern-circuit-safari.html">6-Day Northern Circuit Safari</a></p>
         <p><a href="kilimanjaro.html">Kilimanjaro</a></p>
         <p><a href="serengeti.html">Serengeti</a></p>
         <p><a href="ngorongoro.html">Ngorongoro</a></p>
@@ -2553,7 +2744,6 @@ input,select,textarea,button{max-width:100%}
         <p><a href="#planner">Plan My Safari</a></p>
         <p><a href="booking.html">Booking</a></p>
         <p><a href="pay.html">Payments</a></p>
-        <p><a href="northern-circuit-safari.html">6-Day Northern Circuit Safari</a></p>
       </div>
 
       <div>
