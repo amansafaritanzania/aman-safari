@@ -1,264 +1,1001 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Plan a private Tanzania safari or Kilimanjaro journey with Aman Safari Tanzania. Share your travel ideas and request a tailored itinerary.">
-  <meta name="theme-color" content="#142b20">
-  <title>Plan Your Safari | Aman Safari Tanzania</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CXLYLHXQ88"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-CXLYLHXQ88');
-  </script>
-  <style>
-    :root{--green:#142b20;--green2:#1c3e2d;--gold:#c4a36a;--gold-dark:#9c7a42;--cream:#f5f1e8;--paper:#fff;--ink:#20251f;--muted:#6e756d;--line:#e7e0d4;--shadow:0 22px 65px rgba(19,35,25,.12)}
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;background:var(--cream);color:var(--ink);font-family:Montserrat,Arial,sans-serif;line-height:1.65}
-    a{color:inherit}
-    .site-header{position:sticky;top:0;z-index:20;background:rgba(17,37,27,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.1)}
-    .nav-wrap{max-width:1180px;margin:auto;padding:13px 22px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-    .brand{color:#fff;text-decoration:none;font-family:"Cormorant Garamond",serif;font-weight:700;font-size:29px;line-height:1;letter-spacing:1px}
-    .brand span{color:var(--gold)}
-    .nav-links{display:flex;align-items:center;gap:24px}
-    .nav-links a{color:#f1eee7;text-decoration:none;font-size:11px;font-weight:700;letter-spacing:.5px}
-    .nav-links a:hover,.nav-links a[aria-current="page"]{color:var(--gold)}
-    .nav-links .nav-cta{border:1px solid var(--gold);border-radius:30px;padding:9px 15px}
-    .menu-toggle{display:none;border:1px solid rgba(255,255,255,.3);background:transparent;color:#fff;border-radius:8px;padding:8px 11px;font-size:20px;cursor:pointer}
-    .hero{min-height:390px;display:grid;place-items:center;text-align:center;padding:76px 20px;background:linear-gradient(115deg,rgba(9,22,15,.86),rgba(9,22,15,.42)),url("kilimanjaro.jpg") center/cover no-repeat;color:#fff}
-    .hero-inner{max-width:820px}
-    .eyebrow{color:var(--gold);font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase}
-    h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;line-height:1.05}
-    h1{font-size:clamp(48px,7vw,76px);margin:14px 0}
-    .hero p{max-width:680px;margin:0 auto;color:#eee9df;font-size:15px}
-    .page-wrap{max-width:1080px;margin:-46px auto 76px;padding:0 20px;position:relative}
-    .form-card{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:clamp(22px,4vw,42px);box-shadow:var(--shadow)}
-    .intro{text-align:center;max-width:680px;margin:0 auto 28px}
-    .intro h2{font-size:clamp(34px,4vw,45px);color:var(--green);margin:8px 0}
-    .intro p{margin:0;color:var(--muted);font-size:13px}
-    .next-note{display:flex;gap:13px;align-items:flex-start;padding:16px 18px;margin:0 0 27px;background:#f7f4ec;border:1px solid #e9dfcc;border-left:4px solid var(--gold);border-radius:12px;color:#4e5149;font-size:12px}
-    .next-note strong{display:block;color:var(--green);margin-bottom:3px}
-    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-    .field{min-width:0;display:flex;flex-direction:column;gap:7px}
-    .field.full{grid-column:1/-1}
-    label{font-size:10px;font-weight:700;letter-spacing:.55px;color:#41483f}
-    input,select,textarea{width:100%;min-height:48px;border:1px solid #d9d5cb;border-radius:10px;background:#fff;padding:12px 13px;color:var(--ink);font:500 13px Montserrat,Arial,sans-serif;outline:none;transition:border-color .2s,box-shadow .2s}
-    textarea{min-height:125px;resize:vertical}
-    input:focus,select:focus,textarea:focus{border-color:var(--gold-dark);box-shadow:0 0 0 3px rgba(196,163,106,.18)}
-    .hint{font-size:10px;color:var(--muted);margin-top:-2px}
-    .submit{width:100%;min-height:54px;border:0;border-radius:11px;background:var(--green);color:#fff;font:700 12px Montserrat,Arial,sans-serif;letter-spacing:.7px;cursor:pointer;transition:background .2s,transform .2s}
-    .submit:hover{background:var(--green2);transform:translateY(-1px)}
-    .privacy-note{font-size:10px;line-height:1.7;color:var(--muted);text-align:center;margin:12px 0 0}
-    .honeypot{position:absolute!important;left:-10000px!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important}
-    .trust-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
-    .trust-item{background:#faf8f3;border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center}
-    .trust-item strong{display:block;color:var(--green);font-size:11px;margin-bottom:3px}
-    .trust-item span{display:block;color:var(--muted);font-size:10px}
-    .contact-strip{max-width:1080px;margin:0 auto 65px;padding:0 20px;text-align:center;color:var(--muted);font-size:12px}
-    .contact-strip a{color:var(--green);font-weight:700;text-decoration:none}
-    footer{background:#101b15;color:#c5ccc5;text-align:center;padding:38px 20px 24px;font-size:11px}
-    footer strong{display:block;color:#fff;font:700 26px "Cormorant Garamond",Georgia,serif}
-    footer a{color:var(--gold);text-decoration:none}
-    footer p{margin:6px}
-    @media(max-width:780px){.menu-toggle{display:block}.nav-links{display:none;position:absolute;top:64px;left:0;right:0;padding:18px 22px 22px;background:#142b20;flex-direction:column;align-items:flex-start;gap:17px}.nav-links.open{display:flex}.hero{min-height:350px}.page-wrap{margin-top:-30px}.trust-row{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Plan your Tanzania safari or Kilimanjaro adventure with Aman Safari Tanzania.">
+<meta name="theme-color" content="#142b20">
+<title>Plan Your Safari | Aman Safari Tanzania</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CXLYLHXQ88"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());
+gtag('config','G-CXLYLHXQ88');
+</script>
+
+<style>
+:root{
+ --green:#142b20;
+ --green2:#1c3e2d;
+ --gold:#c4a36a;
+ --gold2:#e5c991;
+ --cream:#f5f1e8;
+ --ink:#20251f;
+ --muted:#626b62;
+ --line:rgba(255,255,255,.42);
+ --glass:rgba(250,248,241,.82);
+ --shadow:0 25px 80px rgba(0,0,0,.25);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ margin:0;
+ min-width:0;
+ color:var(--ink);
+ font-family:Montserrat,Arial,sans-serif;
+ line-height:1.65;
+ background:
+ linear-gradient(180deg,rgba(9,26,17,.65),rgba(10,28,18,.77)),
+ url("kilimanjaro.jpg") center center/cover fixed no-repeat;
+}
+a{color:inherit}
+button,input,select,textarea{font:inherit}
+
+.site-header{
+ position:sticky;
+ top:0;
+ z-index:50;
+ background:rgba(12,34,23,.94);
+ backdrop-filter:blur(18px);
+ border-bottom:1px solid rgba(255,255,255,.12);
+}
+.nav-wrap{
+ max-width:1180px;
+ margin:auto;
+ padding:14px 22px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:20px;
+}
+.brand{
+ color:#fff;
+ text-decoration:none;
+ font-family:"Cormorant Garamond",serif;
+ font-weight:700;
+ font-size:29px;
+ letter-spacing:1px;
+ line-height:1;
+}
+.brand span{color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:24px}
+.nav-links a{
+ color:#f1eee7;
+ text-decoration:none;
+ font-size:11px;
+ font-weight:700;
+ transition:color .25s;
+}
+.nav-links a:hover,.nav-links a[aria-current="page"]{color:var(--gold2)}
+.nav-links .nav-cta{
+ border:1px solid var(--gold);
+ border-radius:30px;
+ padding:9px 15px;
+}
+.menu-toggle{
+ display:none;
+ border:1px solid rgba(255,255,255,.3);
+ background:transparent;
+ color:#fff;
+ border-radius:8px;
+ padding:8px 11px;
+ font-size:20px;
+ cursor:pointer;
+}
+
+/* CINEMATIC HERO */
+.hero{
+ position:relative;
+ min-height:490px;
+ display:grid;
+ place-items:center;
+ overflow:hidden;
+ text-align:center;
+ padding:100px 20px 125px;
+ color:#fff;
+ isolation:isolate;
+ background:
+ linear-gradient(110deg,rgba(7,21,13,.84),rgba(7,21,13,.30)),
+ url("kilimanjaro.jpg") center 48%/cover no-repeat;
+}
+.hero-video{
+ position:absolute;
+ inset:0;
+ width:100%;
+ height:100%;
+ object-fit:cover;
+ z-index:-2;
+ opacity:.58;
+}
+.hero::after{
+ content:"";
+ position:absolute;
+ inset:0;
+ z-index:-1;
+ background:linear-gradient(180deg,rgba(7,20,13,.16),rgba(7,20,13,.5));
+}
+.hero-inner{
+ max-width:850px;
+ position:relative;
+ z-index:2;
+ animation:hero-arrive 1.2s both;
+}
+.eyebrow{
+ color:var(--gold2);
+ font-size:10px;
+ font-weight:700;
+ letter-spacing:3px;
+ text-transform:uppercase;
+}
+h1,h2,h3{
+ font-family:"Cormorant Garamond",Georgia,serif;
+ line-height:1.05;
+}
+h1{
+ font-size:clamp(45px,7vw,82px);
+ margin:17px 0;
+ text-shadow:0 4px 25px rgba(0,0,0,.35);
+}
+.hero p{
+ max-width:680px;
+ margin:0 auto;
+ color:#eee9df;
+ font-size:14px;
+}
+.hero-line{
+ width:95px;
+ height:2px;
+ margin:25px auto;
+ background:var(--gold);
+ transform-origin:left;
+ animation:line-grow 1.4s .5s both;
+}
+.hero-scroll{
+ display:inline-flex;
+ align-items:center;
+ gap:10px;
+ margin-top:32px;
+ color:#fff;
+ text-decoration:none;
+ font-size:10px;
+ letter-spacing:2px;
+ text-transform:uppercase;
+}
+.scroll-dot{
+ width:8px;height:8px;
+ border-radius:50%;
+ background:var(--gold2);
+ box-shadow:0 0 0 0 rgba(229,201,145,.5);
+ animation:pulse 2s infinite;
+}
+.hero-route{
+ position:absolute;
+ left:50%;
+ bottom:33px;
+ width:min(330px,70vw);
+ height:38px;
+ transform:translateX(-50%);
+ opacity:.8;
+}
+.hero-route path{
+ fill:none;
+ stroke:var(--gold2);
+ stroke-width:1.6;
+ stroke-dasharray:400;
+ stroke-dashoffset:400;
+ animation:draw-route 3.5s 1s ease forwards;
+}
+
+/* BOOKING AREA */
+.page-wrap{
+ max-width:1120px;
+ margin:-65px auto 75px;
+ padding:0 20px;
+ position:relative;
+ z-index:3;
+}
+.form-card{
+ position:relative;
+ overflow:hidden;
+ background:var(--glass);
+ border:1px solid rgba(255,255,255,.65);
+ border-radius:24px;
+ padding:clamp(22px,4vw,46px);
+ box-shadow:var(--shadow);
+ backdrop-filter:blur(17px);
+ -webkit-backdrop-filter:blur(17px);
+ animation:card-arrive .9s .15s both;
+}
+.form-card::before{
+ content:"";
+ position:absolute;
+ top:0;left:0;
+ width:100%;height:3px;
+ background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+.intro{
+ text-align:center;
+ max-width:700px;
+ margin:0 auto 30px;
+}
+.intro h2{
+ font-size:clamp(34px,4vw,49px);
+ color:var(--green);
+ margin:10px 0;
+}
+.intro p{margin:0;color:var(--muted);font-size:12px}
+
+/* PROGRESS */
+.progress-panel{
+ background:rgba(20,43,32,.94);
+ color:#fff;
+ border-radius:15px;
+ padding:17px 20px;
+ margin-bottom:27px;
+ box-shadow:0 10px 28px rgba(15,38,24,.13);
+}
+.progress-top{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:12px;
+ font-size:10px;
+ font-weight:700;
+ letter-spacing:.5px;
+}
+.progress-count{color:var(--gold2)}
+.progress-track{
+ width:100%;
+ height:5px;
+ border-radius:20px;
+ background:rgba(255,255,255,.16);
+ margin-top:12px;
+ overflow:hidden;
+}
+.progress-fill{
+ width:0%;
+ height:100%;
+ border-radius:20px;
+ background:linear-gradient(90deg,var(--gold),var(--gold2));
+ transition:width .65s cubic-bezier(.2,.8,.2,1);
+}
+.progress-message{
+ margin-top:8px;
+ font-size:10px;
+ color:#d8ded7;
+}
+
+/* NOTE */
+.next-note{
+ display:flex;
+ gap:13px;
+ align-items:flex-start;
+ padding:16px 18px;
+ margin-bottom:28px;
+ background:rgba(255,255,255,.56);
+ border:1px solid rgba(196,163,106,.45);
+ border-left:4px solid var(--gold);
+ border-radius:12px;
+ color:#41483f;
+ font-size:11px;
+ backdrop-filter:blur(8px);
+}
+.note-icon{font-size:20px;color:var(--gold-dark)}
+.next-note strong{
+ display:block;
+ color:var(--green);
+ margin-bottom:3px;
+}
+
+/* FORM */
+.form-grid{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:21px;
+}
+.field{
+ min-width:0;
+ display:flex;
+ flex-direction:column;
+ gap:7px;
+ opacity:0;
+ transform:translateY(17px);
+ transition:opacity .7s,transform .7s;
+}
+.field.visible{
+ opacity:1;
+ transform:translateY(0);
+}
+.field.full{grid-column:1/-1}
+label{
+ font-size:10px;
+ font-weight:700;
+ letter-spacing:.65px;
+ color:#41483f;
+ transition:color .3s;
+}
+.field.is-active label{color:var(--gold-dark)}
+input,select,textarea{
+ width:100%;
+ min-height:51px;
+ border:1px solid rgba(148,145,132,.62);
+ border-radius:11px;
+ background:rgba(255,255,255,.68);
+ padding:13px 14px;
+ color:var(--ink);
+ font-size:12px;
+ outline:none;
+ transition:
+ border-color .3s,
+ box-shadow .3s,
+ background .3s,
+ transform .3s;
+}
+textarea{min-height:130px;resize:vertical}
+input::placeholder,textarea::placeholder{color:#95988e}
+input:hover,select:hover,textarea:hover{
+ border-color:var(--gold);
+ background:rgba(255,255,255,.88);
+}
+input:focus,select:focus,textarea:focus{
+ border-color:var(--gold-dark);
+ background:rgba(255,255,255,.97);
+ box-shadow:0 0 0 4px rgba(196,163,106,.2),0 9px 25px rgba(20,43,32,.09);
+ transform:translateY(-2px);
+}
+.field.is-filled input:not(:placeholder-shown),
+.field.is-filled textarea:not(:placeholder-shown),
+.field.is-filled select{
+ border-color:rgba(156,122,66,.75);
+ background:rgba(255,250,237,.93);
+}
+.hint{font-size:10px;color:var(--muted);margin-top:-2px}
+
+/* LIVE SUMMARY */
+.trip-summary{
+ margin-top:30px;
+ border-radius:16px;
+ padding:21px;
+ background:rgba(20,43,32,.94);
+ color:#fff;
+ position:relative;
+ overflow:hidden;
+}
+.trip-summary::after{
+ content:"";
+ position:absolute;
+ width:150px;height:150px;
+ border:1px solid rgba(196,163,106,.25);
+ border-radius:50%;
+ right:-65px;top:-75px;
+}
+.summary-heading{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:12px;
+ margin-bottom:14px;
+}
+.summary-heading h3{
+ margin:0;
+ font-size:25px;
+ color:#fff;
+}
+.summary-heading span{
+ font-size:9px;
+ color:var(--gold2);
+ letter-spacing:1.5px;
+ text-transform:uppercase;
+}
+.summary-grid{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:12px;
+}
+.summary-item{
+ padding:11px;
+ border-radius:10px;
+ background:rgba(255,255,255,.07);
+ border:1px solid rgba(255,255,255,.1);
+ min-width:0;
+}
+.summary-item small{
+ display:block;
+ font-size:8px;
+ letter-spacing:1px;
+ color:#c4cfc5;
+ text-transform:uppercase;
+}
+.summary-item strong{
+ display:block;
+ color:var(--gold2);
+ font-size:11px;
+ margin-top:4px;
+ overflow-wrap:anywhere;
+}
+
+/* SUBMIT */
+.submit{
+ position:relative;
+ width:100%;
+ min-height:58px;
+ border:1px solid rgba(255,255,255,.15);
+ border-radius:12px;
+ background:linear-gradient(110deg,#142b20,#275039);
+ color:#fff;
+ font-weight:700;
+ font-size:11px;
+ letter-spacing:1.1px;
+ cursor:pointer;
+ overflow:hidden;
+ transition:transform .3s,box-shadow .3s;
+}
+.submit::before{
+ content:"";
+ position:absolute;
+ top:0;left:-120%;
+ width:70%;height:100%;
+ transform:skewX(-25deg);
+ background:linear-gradient(90deg,transparent,rgba(255,255,255,.17),transparent);
+ transition:left .7s;
+}
+.submit:hover::before{left:150%}
+.submit:hover{
+ transform:translateY(-3px);
+ box-shadow:0 12px 28px rgba(20,43,32,.25);
+}
+.submit:active{transform:scale(.99)}
+.submit:disabled{opacity:.7;cursor:wait}
+.submit-wrap{margin-top:25px}
+.privacy-note{
+ font-size:9px;
+ line-height:1.7;
+ color:var(--muted);
+ text-align:center;
+ margin:13px 0 0;
+}
+.honeypot{
+ position:absolute!important;
+ left:-10000px!important;
+ top:auto!important;
+ width:1px!important;
+ height:1px!important;
+ overflow:hidden!important;
+}
+
+/* TRUST */
+.trust-row{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:13px;
+ margin-top:25px;
+}
+.trust-item{
+ background:rgba(255,255,255,.54);
+ border:1px solid rgba(255,255,255,.65);
+ border-radius:13px;
+ padding:17px;
+ text-align:center;
+ backdrop-filter:blur(8px);
+ transition:transform .3s,background .3s;
+}
+.trust-item:hover{
+ transform:translateY(-4px);
+ background:rgba(255,255,255,.82);
+}
+.trust-icon{font-size:21px;color:var(--gold-dark)}
+.trust-item strong{
+ display:block;
+ color:var(--green);
+ font-size:10px;
+ margin:5px 0 3px;
+}
+.trust-item span{display:block;color:var(--muted);font-size:9px}
+
+/* CONTACT AND FOOTER */
+.contact-strip{
+ max-width:1080px;
+ margin:0 auto 65px;
+ padding:0 20px;
+ text-align:center;
+ color:#f3eee3;
+ font-size:11px;
+ text-shadow:0 2px 12px rgba(0,0,0,.6);
+}
+.contact-strip a{
+ color:var(--gold2);
+ font-weight:700;
+ text-decoration:none;
+}
+footer{
+ background:#101b15;
+ color:#c5ccc5;
+ text-align:center;
+ padding:38px 20px 24px;
+ font-size:11px;
+}
+footer strong{
+ display:block;
+ color:#fff;
+ font:700 26px "Cormorant Garamond",Georgia,serif;
+}
+footer a{color:var(--gold);text-decoration:none}
+footer p{margin:6px}
+
+/* ANIMATIONS */
+@keyframes hero-arrive{
+ from{opacity:0;transform:translateY(28px)}
+ to{opacity:1;transform:translateY(0)}
+}
+@keyframes card-arrive{
+ from{opacity:0;transform:translateY(35px)}
+ to{opacity:1;transform:translateY(0)}
+}
+@keyframes line-grow{
+ from{transform:scaleX(0)}
+ to{transform:scaleX(1)}
+}
+@keyframes draw-route{to{stroke-dashoffset:0}}
+@keyframes pulse{
+ 0%{box-shadow:0 0 0 0 rgba(229,201,145,.5)}
+ 70%{box-shadow:0 0 0 10px rgba(229,201,145,0)}
+ 100%{box-shadow:0 0 0 0 rgba(229,201,145,0)}
+}
+@keyframes success-pulse{
+ 0%{box-shadow:0 0 0 0 rgba(196,163,106,.4)}
+ 100%{box-shadow:0 0 0 12px rgba(196,163,106,0)}
+}
+
+/* RESPONSIVE */
+@media(max-width:780px){
+ body{background-attachment:scroll}
+ .menu-toggle{display:block}
+ .nav-links{
+  display:none;
+  position:absolute;
+  top:64px;left:0;right:0;
+  padding:20px 22px;
+  background:#142b20;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:18px;
+  box-shadow:0 15px 25px rgba(0,0,0,.2);
+ }
+ .nav-links.open{display:flex;animation:hero-arrive .3s both}
+ .hero{min-height:390px;padding:80px 20px 105px}
+ .hero-video{opacity:.42}
+ .page-wrap{margin-top:-42px}
+ .form-grid{grid-template-columns:1fr;gap:18px}
+ .field.full{grid-column:auto}
+ .summary-grid{grid-template-columns:1fr 1fr}
+ .trust-row{grid-template-columns:1fr}
+ .form-card{padding:23px 17px}
+}
+@media(max-width:420px){
+ .nav-wrap{padding:13px 16px}
+ .hero{min-height:360px}
+ .hero p{font-size:12px}
+ .summary-heading{align-items:flex-start;flex-direction:column}
+ .summary-grid{gap:8px}
+ .summary-item{padding:10px}
+}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ *,*::before,*::after{
+  animation-duration:.01ms!important;
+  animation-iteration-count:1!important;
+  transition-duration:.01ms!important;
+ }
+ .field{opacity:1;transform:none}
+}
+</style>
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="nav-wrap">
-      <a class="brand" href="index.html">AMAN <span>SAFARI</span></a>
-      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="mainMenu" aria-expanded="false">☰</button>
-      <nav class="nav-links" id="mainMenu" aria-label="Main navigation">
-        <a href="index.html">Home</a>
-        <a href="index.html#destinations">Destinations</a>
-        <a href="index.html#best-time">Best Time</a>
-        <a href="booking.html" aria-current="page">Booking</a>
-        <a href="pay.html" class="nav-cta">Payments</a>
-      </nav>
+
+<header class="site-header">
+ <div class="nav-wrap">
+  <a class="brand" href="index.html">AMAN <span>SAFARI</span></a>
+  <button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="mainMenu" aria-expanded="false">☰</button>
+  <nav class="nav-links" id="mainMenu" aria-label="Main navigation">
+   <a href="index.html">Home</a>
+   <a href="index.html#destinations">Destinations</a>
+   <a href="index.html#best-time">Best Time</a>
+   <a href="booking.html" aria-current="page">Booking</a>
+   <a href="pay.html" class="nav-cta">Payments</a>
+  </nav>
+ </div>
+</header>
+
+<section class="hero">
+ <!-- Upload your licensed video to assets/videos/safari-booking-hero.mp4 -->
+ <video class="hero-video" autoplay muted loop playsinline poster="kilimanjaro.jpg">
+  <source src="assets/videos/safari-booking-hero.mp4" type="video/mp4">
+ </video>
+
+ <div class="hero-inner">
+  <div class="eyebrow">Aman Safari Tanzania · Private journeys</div>
+  <h1>Let the journey begin.</h1>
+  <div class="hero-line"></div>
+  <p>From the endless plains of the Serengeti to the roof of Africa, tell us what kind of Tanzania experience you imagine.</p>
+  <a href="#bookingForm" class="hero-scroll">
+   <span class="scroll-dot"></span>
+   Begin planning your journey
+  </a>
+ </div>
+
+ <svg class="hero-route" viewBox="0 0 330 38" aria-hidden="true">
+  <path d="M4 25 C55 2 85 37 132 17 S210 4 250 22 S296 31 326 9"/>
+ </svg>
+</section>
+
+<main class="page-wrap">
+<section class="form-card" aria-labelledby="bookingTitle">
+
+ <div class="intro">
+  <div class="eyebrow">Your journey starts here</div>
+  <h2 id="bookingTitle">Tell us what you're dreaming of.</h2>
+  <p>Your plans don't need to be perfect. Share what you know, and we'll help with the next steps.</p>
+ </div>
+
+ <div class="progress-panel">
+  <div class="progress-top">
+   <span>YOUR JOURNEY PLANNER</span>
+   <span class="progress-count" id="progressCount">0% COMPLETE</span>
+  </div>
+  <div class="progress-track">
+   <div class="progress-fill" id="progressFill"></div>
+  </div>
+  <div class="progress-message" id="progressMessage">Let's start with your details.</div>
+ </div>
+
+ <div class="next-note">
+  <div class="note-icon" aria-hidden="true">✦</div>
+  <div>
+   <strong>What happens after you enquire?</strong>
+   We'll review your request and contact you using the details you provide. Sending an enquiry does not create a confirmed booking, and no payment is taken on this page.
+  </div>
+ </div>
+
+ <form id="bookingForm" action="https://formsubmit.co/amannelson824@gmail.com" method="POST" accept-charset="UTF-8">
+
+  <input type="hidden" name="_subject" value="New Safari Planning Enquiry — Aman Safari Tanzania">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_next" value="https://amansafaritanzania.github.io/aman-safari/booking-thank-you.html">
+  <input type="hidden" name="_replyto" value="">
+  <input type="hidden" name="_url" value="https://amansafaritanzania.github.io/aman-safari/booking.html">
+
+  <div class="honeypot" aria-hidden="true">
+   <label for="website">Leave this field empty</label>
+   <input id="website" type="text" name="_honey" tabindex="-1" autocomplete="off">
+  </div>
+
+  <div class="form-grid">
+
+   <div class="field">
+    <label for="name">FULL NAME *</label>
+    <input id="name" name="name" type="text" autocomplete="name" maxlength="100" required placeholder="Your full name">
+   </div>
+
+   <div class="field">
+    <label for="email">EMAIL ADDRESS *</label>
+    <input id="email" name="email" type="email" autocomplete="email" maxlength="160" required placeholder="you@example.com">
+   </div>
+
+   <div class="field">
+    <label for="phone">PHONE / WHATSAPP (OPTIONAL)</label>
+    <input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="40" placeholder="Include your country code">
+   </div>
+
+   <div class="field">
+    <label for="groupSize">NUMBER OF TRAVELLERS *</label>
+    <select id="groupSize" name="group_size" required>
+     <option value="">Choose group size</option>
+     <option value="1 traveller">1 traveller</option>
+     <option value="2 travellers">2 travellers</option>
+     <option value="3–4 travellers">3–4 travellers</option>
+     <option value="5–8 travellers">5–8 travellers</option>
+     <option value="9+ travellers">9+ travellers</option>
+    </select>
+   </div>
+
+   <div class="field full">
+    <label for="destination">DESTINATION / EXPERIENCE *</label>
+    <select id="destination" name="destination" required>
+     <option value="">Choose a destination or experience</option>
+     <option value="Kilimanjaro">Mount Kilimanjaro</option>
+     <option value="Serengeti">Serengeti National Park</option>
+     <option value="Ngorongoro">Ngorongoro Conservation Area</option>
+     <option value="Tarangire">Tarangire National Park</option>
+     <option value="Ruaha">Ruaha National Park</option>
+     <option value="Nyerere">Nyerere National Park</option>
+     <option value="Lake Manyara">Lake Manyara National Park</option>
+     <option value="Mikumi">Mikumi National Park</option>
+     <option value="Gombe">Gombe Stream National Park</option>
+     <option value="Saadani">Saadani National Park</option>
+     <option value="Multiple destinations">Multiple destinations / custom itinerary</option>
+     <option value="Not sure yet">I'm not sure yet — please advise</option>
+    </select>
+   </div>
+
+   <div class="field">
+    <label for="travelDates">PREFERRED TRAVEL DATES</label>
+    <input id="travelDates" name="travel_dates" type="text" maxlength="100" placeholder="e.g. 10–18 July 2027 or flexible">
+    <span class="hint">Approximate dates are fine.</span>
+   </div>
+
+   <div class="field">
+    <label for="duration">TRIP DURATION</label>
+    <select id="duration" name="duration">
+     <option value="Flexible">Flexible / not sure</option>
+     <option value="1–2 days">1–2 days</option>
+     <option value="3–5 days">3–5 days</option>
+     <option value="6–8 days">6–8 days</option>
+     <option value="9–12 days">9–12 days</option>
+     <option value="13+ days">13+ days</option>
+    </select>
+   </div>
+
+   <div class="field full">
+    <label for="accommodation">ACCOMMODATION STYLE</label>
+    <select id="accommodation" name="accommodation">
+     <option value="Not sure yet">Please advise / not sure yet</option>
+     <option value="Luxury">Luxury — premium lodges and camps</option>
+     <option value="Mid-range">Mid-range — comfortable stays</option>
+     <option value="Budget">Budget — practical stays</option>
+     <option value="Mixed">A mix depending on location</option>
+    </select>
+   </div>
+
+   <div class="field full">
+    <label for="message">WHAT WOULD YOU LIKE TO EXPERIENCE? (OPTIONAL)</label>
+    <textarea id="message" name="message" maxlength="3000" placeholder="Tell us about wildlife interests, a Kilimanjaro climb, special occasions, preferred pace or any questions."></textarea>
+   </div>
+
+  </div>
+
+  <div class="trip-summary" aria-live="polite">
+   <div class="summary-heading">
+    <h3>Your journey at a glance</h3>
+    <span>Trip overview</span>
+   </div>
+   <div class="summary-grid">
+    <div class="summary-item">
+     <small>Destination</small>
+     <strong id="summaryDestination">Not selected</strong>
     </div>
-  </header>
-
-  <section class="hero">
-    <div class="hero-inner">
-      <div class="eyebrow">Aman Safari Tanzania · Private journeys</div>
-      <h1>Let's plan your Tanzania journey.</h1>
-      <p>Share a few details about the trip you have in mind. We'll use them to prepare the next steps for a safari or Kilimanjaro proposal shaped around your interests.</p>
+    <div class="summary-item">
+     <small>Travellers</small>
+     <strong id="summaryGuests">Not selected</strong>
     </div>
-  </section>
+    <div class="summary-item">
+     <small>Travel dates</small>
+     <strong id="summaryDates">Flexible</strong>
+    </div>
+    <div class="summary-item">
+     <small>Duration</small>
+     <strong id="summaryDuration">Flexible</strong>
+    </div>
+   </div>
+  </div>
 
-  <main class="page-wrap">
-    <section class="form-card" aria-labelledby="bookingTitle">
-      <div class="intro">
-        <div class="eyebrow">Your journey starts here</div>
-        <h2 id="bookingTitle">Tell us what you're dreaming of.</h2>
-        <p>You don't need every detail decided. If your dates or destination are flexible, simply tell us.</p>
-      </div>
+  <div class="submit-wrap">
+   <button class="submit" id="submitButton" type="submit">
+    SEND MY SAFARI ENQUIRY &nbsp; → 
+   </button>
+   <p class="privacy-note">
+    Please share only information needed to plan your trip. Never enter payment-card details, passwords, PINs or one-time codes in this form. Enquiries are handled by our form provider.
+   </p>
+  </div>
 
-      <div class="next-note">
-        <div aria-hidden="true">✦</div>
-        <div><strong>What happens after you enquire?</strong>We'll review your request and contact you using the email or phone details you provide. Sending an enquiry does not create a booking and no payment is taken on this page.</div>
-      </div>
+ </form>
 
-      <form id="bookingForm" action="https://formsubmit.co/amannelson824@gmail.com" method="POST" accept-charset="UTF-8">
-        <input type="hidden" name="_subject" value="New Safari Planning Enquiry — Aman Safari Tanzania">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_next" value="https://amansafaritanzania.github.io/aman-safari/booking-thank-you.html">
-        <input type="hidden" name="_replyto" value="">
-        <input type="hidden" name="_url" value="https://amansafaritanzania.github.io/aman-safari/booking.html">
-        <div class="honeypot" aria-hidden="true"><label for="website">Leave this field empty</label><input id="website" type="text" name="_honey" tabindex="-1" autocomplete="off"></div>
+ <div class="trust-row" aria-label="Planning information">
+  <div class="trust-item">
+   <div class="trust-icon">✧</div>
+   <strong>Personal planning</strong>
+   <span>Built around your interests</span>
+  </div>
+  <div class="trust-item">
+   <div class="trust-icon">⌖</div>
+   <strong>Tanzania focused</strong>
+   <span>Local destination knowledge</span>
+  </div>
+  <div class="trust-item">
+   <div class="trust-icon">◇</div>
+   <strong>No payment here</strong>
+   <span>Enquiry first, details later</span>
+  </div>
+ </div>
 
-        <div class="form-grid">
-          <div class="field">
-            <label for="name">FULL NAME *</label>
-            <input id="name" name="name" type="text" autocomplete="name" maxlength="100" required placeholder="Your full name">
-          </div>
-          <div class="field">
-            <label for="email">EMAIL ADDRESS *</label>
-            <input id="email" name="email" type="email" autocomplete="email" maxlength="160" required placeholder="you@example.com">
-          </div>
-          <div class="field">
-            <label for="phone">PHONE / WHATSAPP (OPTIONAL)</label>
-            <input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="40" placeholder="Include your country code">
-          </div>
-          <div class="field">
-            <label for="groupSize">NUMBER OF TRAVELLERS *</label>
-            <select id="groupSize" name="group_size" required>
-              <option value="">Choose group size</option>
-              <option value="1 traveller">1 traveller</option>
-              <option value="2 travellers">2 travellers</option>
-              <option value="3–4 travellers">3–4 travellers</option>
-              <option value="5–8 travellers">5–8 travellers</option>
-              <option value="9+ travellers">9+ travellers</option>
-            </select>
-          </div>
-          <div class="field full">
-            <label for="destination">DESTINATION / EXPERIENCE *</label>
-            <select id="destination" name="destination" required>
-              <option value="">Choose a destination or experience</option>
-              <option value="Kilimanjaro">Mount Kilimanjaro</option>
-              <option value="Serengeti">Serengeti National Park</option>
-              <option value="Ngorongoro">Ngorongoro Conservation Area</option>
-              <option value="Tarangire">Tarangire National Park</option>
-              <option value="Ruaha">Ruaha National Park</option>
-              <option value="Nyerere">Nyerere National Park</option>
-              <option value="Lake Manyara">Lake Manyara National Park</option>
-              <option value="Mikumi">Mikumi National Park</option>
-              <option value="Gombe">Gombe Stream National Park</option>
-              <option value="Saadani">Saadani National Park</option>
-              <option value="Multiple destinations">Multiple destinations / custom itinerary</option>
-              <option value="Not sure yet">I'm not sure yet — please advise</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="travelDates">PREFERRED TRAVEL DATES</label>
-            <input id="travelDates" name="travel_dates" type="text" maxlength="100" placeholder="e.g. 10–18 July 2027 or flexible">
-            <span class="hint">Approximate dates are fine.</span>
-          </div>
-          <div class="field">
-            <label for="duration">TRIP DURATION</label>
-            <select id="duration" name="duration">
-              <option value="Flexible">Flexible / not sure</option>
-              <option value="1–2 days">1–2 days</option>
-              <option value="3–5 days">3–5 days</option>
-              <option value="6–8 days">6–8 days</option>
-              <option value="9–12 days">9–12 days</option>
-              <option value="13+ days">13+ days</option>
-            </select>
-          </div>
-          <div class="field full">
-            <label for="accommodation">ACCOMMODATION STYLE</label>
-            <select id="accommodation" name="accommodation">
-              <option value="Not sure yet">Please advise / not sure yet</option>
-              <option value="Luxury">Luxury — premium lodges and camps</option>
-              <option value="Mid-range">Mid-range — comfortable stays</option>
-              <option value="Budget">Budget — practical stays</option>
-              <option value="Mixed">A mix depending on location</option>
-            </select>
-          </div>
-          <div class="field full">
-            <label for="message">WHAT WOULD YOU LIKE TO EXPERIENCE? (OPTIONAL)</label>
-            <textarea id="message" name="message" maxlength="3000" placeholder="Tell us about wildlife interests, a Kilimanjaro climb, special occasions, preferred pace or any questions."></textarea>
-          </div>
-          <div class="field full">
-            <button class="submit" type="submit">SEND MY SAFARI ENQUIRY&nbsp; →</button>
-            <p class="privacy-note">Please share only information needed to plan your trip. Never enter payment-card details, passwords, PINs or one-time codes in this form. Form submissions are handled by our enquiry form provider.</p>
-          </div>
-        </div>
-      </form>
+</section>
+</main>
 
-      <div class="trust-row" aria-label="Planning information">
-        <div class="trust-item"><strong>Personal planning</strong><span>Built around your interests</span></div>
-        <div class="trust-item"><strong>Tanzania focused</strong><span>Local destination knowledge</span></div>
-        <div class="trust-item"><strong>No payment here</strong><span>Enquiry first, details later</span></div>
-      </div>
-    </section>
-  </main>
+<div class="contact-strip">
+ Prefer to talk first?
+ <a href="https://wa.me/255635509648?text=Hello%20Aman%20Safari%2C%20I%20would%20like%20to%20discuss%20a%20Tanzania%20trip.">Chat with Aman Safari on WhatsApp</a>
+ ·
+ <a href="mailto:amannelson824@gmail.com">Send us an email</a>
+</div>
 
-  <div class="contact-strip">Prefer to talk first? <a href="https://wa.me/255635509648?text=Hello%20Aman%20Safari%2C%20I%20would%20like%20to%20discuss%20a%20Tanzania%20trip.">Chat with Aman Safari on WhatsApp</a> · <a href="mailto:amannelson824@gmail.com">Send us an email</a></div>
+<footer>
+ <strong>Aman Safari Tanzania</strong>
+ <p>Arusha, Tanzania</p>
+ <p>WhatsApp: <a href="https://wa.me/255635509648">+255 635 509 648</a> · Email: <a href="mailto:amannelson824@gmail.com">amannelson824@gmail.com</a></p>
+ <p>© 2026 Aman Safari Tanzania · All rights reserved</p>
+</footer>
 
-  <footer>
-    <strong>Aman Safari Tanzania</strong>
-    <p>Arusha, Tanzania</p>
-    <p>WhatsApp: <a href="https://wa.me/255635509648">+255 635 509 648</a> · Email: <a href="mailto:amannelson824@gmail.com">amannelson824@gmail.com</a></p>
-    <p>© 2026 Aman Safari Tanzania · All rights reserved</p>
-  </footer>
+<script>
+/* MOBILE NAVIGATION */
+const menuToggle=document.querySelector('.menu-toggle');
+const mainMenu=document.getElementById('mainMenu');
 
-  <script>
-    const menuToggle = document.querySelector('.menu-toggle');
-    const mainMenu = document.getElementById('mainMenu');
-    if (menuToggle && mainMenu) {
-      menuToggle.addEventListener('click', () => {
-        const isOpen = mainMenu.classList.toggle('open');
-        menuToggle.setAttribute('aria-expanded', String(isOpen));
-        menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
-      });
-      mainMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-        mainMenu.classList.remove('open');
-        menuToggle.setAttribute('aria-expanded', 'false');
-        menuToggle.setAttribute('aria-label', 'Open navigation');
-      }));
-    }
+if(menuToggle&&mainMenu){
+ menuToggle.addEventListener('click',()=>{
+  const open=mainMenu.classList.toggle('open');
+  menuToggle.setAttribute('aria-expanded',String(open));
+  menuToggle.setAttribute('aria-label',open?'Close navigation':'Open navigation');
+  menuToggle.textContent=open?'×':'☰';
+ });
+ mainMenu.querySelectorAll('a').forEach(link=>{
+  link.addEventListener('click',()=>{
+   mainMenu.classList.remove('open');
+   menuToggle.setAttribute('aria-expanded','false');
+   menuToggle.setAttribute('aria-label','Open navigation');
+   menuToggle.textContent='☰';
+  });
+ });
+}
 
-    // Support both the current ?destination= link and older ?route= links.
-    const params = new URLSearchParams(window.location.search);
-    const requestedDestination = params.get('destination') || params.get('route');
-    const destinationSelect = document.getElementById('destination');
-    if (requestedDestination && destinationSelect) {
-      const normalize = value => value.toLowerCase().replace(/[^a-z0-9]/g, '');
-      const wanted = normalize(requestedDestination);
-      const matchingOption = Array.from(destinationSelect.options).find(option =>
-        normalize(option.value) === wanted || normalize(option.textContent) === wanted
-      );
-      if (matchingOption) destinationSelect.value = matchingOption.value;
-    }
+/* DESTINATION PRESELECTION */
+const params=new URLSearchParams(window.location.search);
+const requestedDestination=params.get('destination')||params.get('route');
+const destinationSelect=document.getElementById('destination');
 
-    const form = document.getElementById('bookingForm');
-    let started = false;
-    if (form) {
-      form.addEventListener('focusin', event => {
-        if (started || !event.target.matches('input,select,textarea')) return;
-        started = true;
-        if (typeof gtag === 'function') gtag('event', 'booking_form_start', {page_path: location.pathname});
-      });
-      if (destinationSelect) destinationSelect.addEventListener('change', () => {
-        if (destinationSelect.value && typeof gtag === 'function') {
-          gtag('event', 'booking_destination_select', {destination: destinationSelect.value, page_path: location.pathname});
-        }
-      });
-      form.addEventListener('submit', () => {
-        const replyTo = form.querySelector('[name="_replyto"]');
-        const emailInput = form.querySelector('[name="email"]');
-        if (replyTo && emailInput) replyTo.value = emailInput.value.trim();
-        if (typeof gtag === 'function') gtag('event', 'booking_form_submit', {page_path: location.pathname});
-      });
-    }
-  </script>
+if(requestedDestination&&destinationSelect){
+ const normalize=value=>value.toLowerCase().replace(/[^a-z0-9]/g,'');
+ const wanted=normalize(requestedDestination);
+ const match=Array.from(destinationSelect.options).find(option=>
+  normalize(option.value)===wanted||normalize(option.textContent)===wanted
+ );
+ if(match)destinationSelect.value=match.value;
+}
+
+/* FORM ELEMENTS */
+const form=document.getElementById('bookingForm');
+const controls=form.querySelectorAll('input:not([type="hidden"]):not([name="_honey"]),select,textarea');
+const fields=form.querySelectorAll('.field');
+
+let started=false;
+
+/* CINEMATIC FIELD ENTRANCE */
+if('IntersectionObserver' in window){
+ const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+   if(entry.isIntersecting){
+    entry.target.classList.add('visible');
+    observer.unobserve(entry.target);
+   }
+  });
+ },{threshold:.12});
+ fields.forEach(field=>observer.observe(field));
+}else{
+ fields.forEach(field=>field.classList.add('visible'));
+}
+
+/* FOCUS AND COMPLETION EFFECTS */
+function updateField(control){
+ const field=control.closest('.field');
+ if(!field)return;
+ const filled=control.tagName==='SELECT'?Boolean(control.value):Boolean(control.value.trim());
+ field.classList.toggle('is-filled',filled);
+ updateProgress();
+ updateSummary();
+}
+
+controls.forEach(control=>{
+ const field=control.closest('.field');
+ control.addEventListener('focus',()=>{
+  if(field)field.classList.add('is-active');
+  if(!started){
+   started=true;
+   if(typeof gtag==='function'){
+    gtag('event','booking_form_start',{page_path:location.pathname});
+   }
+  }
+ });
+ control.addEventListener('blur',()=>{
+  if(field)field.classList.remove('is-active');
+ });
+ control.addEventListener('input',()=>updateField(control));
+ control.addEventListener('change',()=>updateField(control));
+});
+
+/* PROGRESS INDICATOR */
+const requiredFields=[
+ document.getElementById('name'),
+ document.getElementById('email'),
+ document.getElementById('groupSize'),
+ document.getElementById('destination')
+];
+
+function updateProgress(){
+ const completed=requiredFields.filter(control=>control.value.trim()).length;
+ const percentage=Math.round(completed/requiredFields.length*100);
+ document.getElementById('progressFill').style.width=percentage+'%';
+ document.getElementById('progressCount').textContent=percentage+'% COMPLETE';
+
+ const messages=[
+  "Let's start with your details.",
+  "Great start. Tell us a little more.",
+  "Your Tanzania journey is taking shape.",
+  "Almost there. Just one more essential detail.",
+  "Wonderful. Your enquiry is ready for review."
+ ];
+ document.getElementById('progressMessage').textContent=messages[completed];
+}
+
+/* LIVE TRIP SUMMARY */
+function updateSummary(){
+ const destination=document.getElementById('destination').value;
+ const guests=document.getElementById('groupSize').value;
+ const dates=document.getElementById('travelDates').value;
+ const duration=document.getElementById('duration').value;
+
+ document.getElementById('summaryDestination').textContent=destination||'Not selected';
+ document.getElementById('summaryGuests').textContent=guests||'Not selected';
+ document.getElementById('summaryDates').textContent=dates||'Flexible';
+ document.getElementById('summaryDuration').textContent=duration||'Flexible';
+}
+
+/* EXISTING ANALYTICS AND FORM HANDLING */
+if(destinationSelect){
+ destinationSelect.addEventListener('change',()=>{
+  if(destinationSelect.value&&typeof gtag==='function'){
+   gtag('event','booking_destination_select',{
+    destination:destinationSelect.value,
+    page_path:location.pathname
+   });
+  }
+ });
+}
+
+form.addEventListener('submit',()=>{
+ const replyTo=form.querySelector('[name="_replyto"]');
+ const emailInput=form.querySelector('[name="email"]');
+
+ if(replyTo&&emailInput){
+  replyTo.value=emailInput.value.trim();
+ }
+
+ if(typeof gtag==='function'){
+  gtag('event','booking_form_submit',{page_path:location.pathname});
+ }
+});
+
+/* INITIALIZE */
+controls.forEach(updateField);
+updateProgress();
+updateSummary();
+</script>
+
 </body>
 </html>
