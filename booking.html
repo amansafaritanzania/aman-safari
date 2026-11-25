@@ -26,6 +26,7 @@ gtag('config','G-CXLYLHXQ88');
  --green2:#1c3e2d;
  --gold:#c4a36a;
  --gold2:#e5c991;
+ --gold-dark:#9c7a42;
  --cream:#f5f1e8;
  --ink:#20251f;
  --muted:#626b62;
@@ -855,13 +856,18 @@ if(menuToggle&&mainMenu){
   menuToggle.setAttribute('aria-label',open?'Close navigation':'Open navigation');
   menuToggle.textContent=open?'×':'☰';
  });
- mainMenu.querySelectorAll('a').forEach(link=>{
-  link.addEventListener('click',()=>{
-   mainMenu.classList.remove('open');
-   menuToggle.setAttribute('aria-expanded','false');
-   menuToggle.setAttribute('aria-label','Open navigation');
-   menuToggle.textContent='☰';
-  });
+ const closeMenu=()=>{
+  mainMenu.classList.remove('open');
+  menuToggle.setAttribute('aria-expanded','false');
+  menuToggle.setAttribute('aria-label','Open navigation');
+  menuToggle.textContent='☰';
+ };
+ mainMenu.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeMenu));
+ document.addEventListener('click',event=>{
+  if(mainMenu.classList.contains('open')&&!mainMenu.contains(event.target)&&!menuToggle.contains(event.target)) closeMenu();
+ });
+ document.addEventListener('keydown',event=>{
+  if(event.key==='Escape'&&mainMenu.classList.contains('open')){closeMenu();menuToggle.focus();}
  });
 }
 
@@ -873,9 +879,17 @@ const destinationSelect=document.getElementById('destination');
 if(requestedDestination&&destinationSelect){
  const normalize=value=>value.toLowerCase().replace(/[^a-z0-9]/g,'');
  const wanted=normalize(requestedDestination);
- const match=Array.from(destinationSelect.options).find(option=>
-  normalize(option.value)===wanted||normalize(option.textContent)===wanted
- );
+ const aliases={
+  serengetinationalpark:'serengeti',ngorongorocrater:'ngorongoro',
+  mountkilimanjaro:'kilimanjaro',manyara:'lake manyara',
+  lakemanyaranationalpark:'lake manyara',tarangirenationalpark:'tarangire',
+  nyererenationalpark:'nyerere',mikuminationalpark:'mikumi'
+ };
+ const canonical=normalize(aliases[wanted]||requestedDestination);
+ const match=Array.from(destinationSelect.options).find(option=>{
+  const value=normalize(option.value),label=normalize(option.textContent);
+  return value===canonical||label===canonical||value.includes(canonical)||label.includes(canonical);
+ });
  if(match)destinationSelect.value=match.value;
 }
 
@@ -981,14 +995,13 @@ if(destinationSelect){
 form.addEventListener('submit',()=>{
  const replyTo=form.querySelector('[name="_replyto"]');
  const emailInput=form.querySelector('[name="email"]');
-
- if(replyTo&&emailInput){
-  replyTo.value=emailInput.value.trim();
+ const submitButton=document.getElementById('submitButton');
+ if(replyTo&&emailInput)replyTo.value=emailInput.value.trim();
+ if(submitButton){
+  submitButton.disabled=true;
+  submitButton.textContent='SENDING YOUR ENQUIRY…';
  }
-
- if(typeof gtag==='function'){
-  gtag('event','booking_form_submit',{page_path:location.pathname});
- }
+ if(typeof gtag==='function')gtag('event','booking_form_submit',{page_path:location.pathname});
 });
 
 /* INITIALIZE */
